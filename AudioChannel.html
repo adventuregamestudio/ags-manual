@@ -133,8 +133,8 @@
 <section id="audiochannelsetroomlocation" class="level3">
 <h3><a href="#audiochannelsetroomlocation"><code>AudioChannel.SetRoomLocation</code></a></h3>
 <p><em>(Formerly part of <code>PlayAmbientSound</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">.</span><span class="at">SetRoomLocation</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
-<p>Sets the currently playing audio to be a directional sound, emanating from (x,y).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">.</span><span class="at">SetRoomLocation</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional <span class="dt">int</span> maxDistance<span class="op">)</span></span></code></pre></div>
+<p>Sets the currently playing audio to be a directional sound, emanating from (x,y). Optionally sets "maxDistance" at which the volume should reach 0. If no maxDistance value is provided, then the maxDistance will be calculated as the distance from the location to the farthest room's side.</p>
 <p>The volume of the channel will be dynamically adjusted depending on how close the player character is to the co-ordinates. Therefore, as the player walks closer the volume will increase, and as they walk away the volume will decrease.</p>
 <p>The channel's Volume setting sets the maximum possible volume when the player is standing on the specified co-ordinates.</p>
 <p>Pass the co-ordinates as (0,0) to remove the directional effect and return this channel to playing at its normal volume.</p>
@@ -142,7 +142,7 @@
 <div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span> <span class="op">*</span>channel = aMachine<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>channel<span class="op">.</span><span class="at">SetRoomLocation</span><span class="op">(</span>oMachine<span class="op">.</span><span class="at">X</span><span class="op">,</span> oMachine<span class="op">.</span><span class="at">Y</span><span class="op">);</span></span></code></pre></div>
 <p>will start playing the <em>aMachine</em> audio clip, and set it at the location of the <em>oMachine</em> room object.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions. The optional "maxDistance" parameter is supported by <strong>AGS 3.6.3</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioChannel.html#audiochannelvolume"><code>AudioChannel.Volume</code></a>, <a href="Character.html#characterscalevolume"><code>Character.ScaleVolume</code></a></p>
 <hr />
 </section>
@@ -314,7 +314,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 6a87c854c3ae58e41f9ea7fc8527af0f310d59a9
+          Build: 46a1afb9ef3958fb7133553db9fa98a0b61a626c
         </p>
       </footer>
     </article>

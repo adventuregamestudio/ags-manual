@@ -283,8 +283,8 @@
 </section>
 <section id="guipopupstyle" class="level3">
 <h3><a href="#guipopupstyle"><code>GUI.PopupStyle</code></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">GUIPopupStyle</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">PopupStyle</span></span></code></pre></div>
-<p>Gets the style of GUI behavior on screen. Possible values are:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">GUIPopupStyle</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">PopupStyle</span></span></code></pre></div>
+<p>Gets/sets the style of GUI behavior on screen. Possible values are:</p>
 <pre><code>eGUIPopupNormal       no special behavior
 eGUIPopupMouseYPos    shown when the mouse cursor moves to the top of the screen, past GUI.PopupYPos, and hidden at all other times
 eGUIPopupModal        like normal, but pauses game when shown
@@ -296,7 +296,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 </ul>
 <p><a href="GUI.html#guishown"><code>GUI.Shown</code></a> property tells whether GUI is actually displayed, which may be different from GUI.Visible in the case of MouseYPos style.</p>
 <p><strong>NOTE:</strong> To automatically hide a GUI when the user interface is disabled, the General Settings option <code>When player interface is disabled, GUIs should</code> needs to be set as <code>Be hidden</code>.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions. The property is settable since <strong>AGS 3.6.3</strong>.</p>
 <p><em>See also:</em> <a href="GUI.html#guipopupypos"><code>GUI.PopupYPos</code></a>, <a href="GUI.html#guishown"><code>GUI.Shown</code></a>, <a href="GUI.html#guivisible"><code>GUI.Visible</code></a></p>
 <hr />
 </section>
@@ -415,7 +415,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 6a87c854c3ae58e41f9ea7fc8527af0f310d59a9
+          Build: 46a1afb9ef3958fb7133553db9fa98a0b61a626c
         </p>
       </footer>
     </article>

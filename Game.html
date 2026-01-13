@@ -312,9 +312,43 @@
 <p>will display a message if plugin is present.</p>
 <hr />
 </section>
+<section id="gamepause" class="level3">
+<h3><a href="#gamepause"><code>Game.Pause</code></a></h3>
+<p><em>(Formerly known as global function <code>PauseGame</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Pause</span><span class="op">()</span></span></code></pre></div>
+<p>Stops AGS processing movement and animations. This has the same effect on the game as happens when a modal GUI is popped up.</p>
+<p>When the game is paused, game cycles will continue to run but no animations or movement will be performed, and timers will not count down. Apart from that, your scripts will continue to run as normal.</p>
+<p>To be precise, following is paused by this function:</p>
+<ul>
+<li>Timers (ones set by <a href="Globalfunctions_General.html#settimer">SetTimer</a>),</li>
+<li>Character walking and animating, idle view timing,</li>
+<li>Object moving and animating,</li>
+<li>Overlay timing (for auto removal),</li>
+<li>Speech timing and animation.</li>
+</ul>
+<p>As you may notice, GUI and Audio are not paused at all. Game.Pause() was historically purposed to pause the Room, while having some kind of the GUI menus and background music running. If you want to also suspend (and later unsuspend) these, you would have to script that yourself.</p>
+<p><strong>NOTE:</strong> <code>Game.Pause()</code> works as a counter, so if you call it twice, you will need to call <code>Game.Resume()</code> game twice too to resume game. To avoid this behavior make sure to only pause once:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">Game</span><span class="op">.</span><span class="at">IsPaused</span><span class="op">)</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Pause</span><span class="op">();</span></span></code></pre></div>
+<p>Game processing will not resume until you call the UnPauseGame function as needed.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeySpace</span><span class="op">)</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">IsPaused</span><span class="op">)</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">Game</span><span class="op">.</span><span class="at">Resume</span><span class="op">();</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">Game</span><span class="op">.</span><span class="at">Pause</span><span class="op">();</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will pause / unpause the game when the player presses the space bar.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Game.html#gameresume"><code>Game.Resume</code></a>, <a href="Game.html#gameispaused"><code>Game.IsPaused</code></a></p>
+<hr />
+</section>
 <section id="gameplayvoiceclip" class="level3">
 <h3><a href="#gameplayvoiceclip"><code>Game.PlayVoiceClip</code></a></h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">Game</span><span class="op">.</span><span class="at">PlayVoiceClip</span><span class="op">(</span><span class="bu">Character</span><span class="op">*</span> c<span class="op">,</span> <span class="dt">int</span> cue<span class="op">,</span> <span class="dt">bool</span> as_speech<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">Game</span><span class="op">.</span><span class="at">PlayVoiceClip</span><span class="op">(</span><span class="bu">Character</span><span class="op">*</span> c<span class="op">,</span> <span class="dt">int</span> cue<span class="op">,</span> <span class="dt">bool</span> as_speech<span class="op">)</span></span></code></pre></div>
 <p>Plays a voice clip from the <strong>speech.vox</strong> in a non-blocking manner. It returns an AudioChannel pointer which you may use to control playback same way you control other clips, or null if it could not be started.</p>
 <p>Character and "cue" arguments are used to find actual clip, this works the same way as when you do <code>cEgo.Say("&amp;10 speech text");</code> in which case "10" is a cue number. Passing "null" instead of a character's pointer will play "narrator's" voice instead. For more information about this see: <a href="VoiceSpeech.html">Voice speech</a>.</p>
 <p>The "as_speech" argument tells whether playback has same effect on game as regular speech's voice-over. At the moment this means that any other audio playbacks will have their volume dropped for the duration of a voice clip, if their types have "VolumeReductionWhileSpeechPlaying" property set. The parameter "as_speech" is TRUE by default and may be omitted.</p>
@@ -326,7 +360,7 @@
 </section>
 <section id="gameplayvoiceclipastype" class="level3">
 <h3><a href="#gameplayvoiceclipastype"><code>Game.PlayVoiceClipAsType</code></a></h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">Game</span><span class="op">.</span><span class="at">PlayVoiceClipAsType</span><span class="op">(</span><span class="bu">Character</span><span class="op">*,</span> <span class="dt">int</span> cue<span class="op">,</span> AudioType type<span class="op">,</span> optional <span class="dt">int</span> chan<span class="op">,</span> optional <span class="dt">AudioPriority</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">Game</span><span class="op">.</span><span class="at">PlayVoiceClipAsType</span><span class="op">(</span><span class="bu">Character</span><span class="op">*,</span> <span class="dt">int</span> cue<span class="op">,</span> AudioType type<span class="op">,</span> optional <span class="dt">int</span> chan<span class="op">,</span> optional <span class="dt">AudioPriority</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
 <p>Plays a voice clip from the <strong>speech.vox</strong> in a non-blocking manner, using specified audio type's settings and channels, as if this was an audio clip belonging to that audio type.</p>
 <p>This function optionally lets specify exact channel, which the playback would be run on. If the channel parameter is not provided, or is equal to SCR_NO_VALUE, then the type's channels are used. If a valid channel number is passed, then the engine will ignore type's rules and try to put the playback on the given channel, if possible.</p>
 <p>This function returns an AudioChannel pointer which you may use to control playback same way you control other clips, or null if it could not be started.</p>
@@ -338,7 +372,7 @@
 </section>
 <section id="gameprecachesprite" class="level3">
 <h3><a href="#gameprecachesprite"><code>Game.PrecacheSprite</code></a></h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">PrecacheSprite</span><span class="op">(</span><span class="dt">int</span> sprnum<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">PrecacheSprite</span><span class="op">(</span><span class="dt">int</span> sprnum<span class="op">)</span></span></code></pre></div>
 <p>Loads a sprite into memory, prepares a texture (if necessary for the current graphics driver), and stores them in the engine's memory cache for later use.</p>
 <p>This function is meant for preloading sprites and precreating textures that will be used during the next scene for displaying room objects or playing animations. Normally AGS loads sprites automatically, but sometimes loading is not fast enough and may cause visible slowdowns. In such cases you may use PrecacheSprite as a workaround and load certain sprites before the scene begins. For the best results this should be done during some kind of "Loading" screens, or in "Room enter before fade-in" events.</p>
 <p><strong>IMPORTANT:</strong> this function uses the standard sprite and texture caches, and its efficiency depends on the sizes of these caches. If player's config assigns low cache size, the preloaded sprites may exceed that limit, and previously loaded items will get unloaded. Keep this in mind when precaching many sprites at once, and perhaps set higher cache values in default game config.</p>
@@ -348,7 +382,7 @@
 </section>
 <section id="gameprecacheview" class="level3">
 <h3><a href="#gameprecacheview"><code>Game.PrecacheView</code></a></h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">PrecacheView</span><span class="op">(</span><span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> first_loop<span class="op">,</span> <span class="dt">int</span> last_loop<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">PrecacheView</span><span class="op">(</span><span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> first_loop<span class="op">,</span> <span class="dt">int</span> last_loop<span class="op">)</span></span></code></pre></div>
 <p>Loads all sprites used in the view's frames, in the range from <em>first_loop</em> to <em>last_loop</em> (inclusive), prepares textures for them (if necessary for the current graphics driver), and stores them in the engine's memory cache for later use.</p>
 <p>This function is similar to <a href="Game.html#gameprecachesprite">PrecacheSprite</a>, but simplifies loading a full animation into the cache. Everything said about PrecacheSprite applies to PrecacheView too.</p>
 <p><strong>IMPORTANT:</strong> this function uses the standard sprite and texture caches, and its efficiency depends on the sizes of these caches. If player's config assigns low cache size, the preloaded sprites may exceed that limit, and previously loaded items will get unloaded. Keep this in mind when precaching many sprites at once, and perhaps set higher cache values in default game config.</p>
@@ -358,24 +392,39 @@
 </section>
 <section id="gameresetdoonceonly" class="level3">
 <h3><a href="#gameresetdoonceonly"><code>Game.ResetDoOnceOnly</code></a></h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">ResetDoOnceOnly</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">ResetDoOnceOnly</span><span class="op">()</span></span></code></pre></div>
 <p>This function resets all the token states from <code>Game.DoOnceOnly("example token")</code> calls.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">DoOnceOnly</span><span class="op">(</span><span class="st">&quot;say hi once&quot;</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hi!&quot;</span><span class="op">);</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">ResetDoOnceOnly</span><span class="op">()</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">DoOnceOnly</span><span class="op">(</span><span class="st">&quot;say hi once&quot;</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hi again!&quot;</span><span class="op">);</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">DoOnceOnly</span><span class="op">(</span><span class="st">&quot;say hi once&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hi!&quot;</span><span class="op">);</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">ResetDoOnceOnly</span><span class="op">()</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">DoOnceOnly</span><span class="op">(</span><span class="st">&quot;say hi once&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hi again!&quot;</span><span class="op">);</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will say hi twice, and also reset ALL do once only tokens.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gamedoonceonly"><code>Game.DoOnceOnly</code></a></p>
 <hr />
 </section>
+<section id="gameresume" class="level3">
+<h3><a href="#gameresume"><code>Game.Resume</code></a></h3>
+<p><em>(Formerly known as global function <code>UnPauseGame</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Resume</span><span class="op">()</span></span></code></pre></div>
+<p>Resumes the game.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">IsPaused</span><span class="op">)</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Game</span><span class="op">.</span><span class="at">Resume</span><span class="op">();</span></span></code></pre></div>
+<p>will unpause the game if it is paused.</p>
+<p><strong>NOTE:</strong> Because Game.Pause works as a counter, if you called it more than once, this won't fully resume the game. If you must override this behavior, call Resume until game is unpaused with this snippet below:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">IsPaused</span><span class="op">)</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Resume</span><span class="op">();</span></span></code></pre></div>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Game.html#gamepause"><code>Game.Pause</code></a>, <a href="Game.html#gameispaused"><code>Game.IsPaused</code></a></p>
+<hr />
+</section>
 <section id="gamescansaveslots" class="level3">
 <h3><a href="#gamescansaveslots"><code>Game.ScanSaveSlots</code></a></h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">ScanSaveSlots</span><span class="op">(</span><span class="dt">int</span> valid_slots<span class="op">[],</span> <span class="dt">int</span> min_slot<span class="op">,</span> <span class="dt">int</span> max_slot<span class="op">,</span> optional SaveGameSortStyle saveSortStyle<span class="op">,</span> optional SortDirection sortDirection<span class="op">,</span> optional <span class="dt">int</span> user_param<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Game</span><span class="op">.</span><span class="at">ScanSaveSlots</span><span class="op">(</span><span class="dt">int</span> valid_slots<span class="op">[],</span> <span class="dt">int</span> min_slot<span class="op">,</span> <span class="dt">int</span> max_slot<span class="op">,</span> optional SaveGameSortStyle saveSortStyle<span class="op">,</span> optional SortDirection sortDirection<span class="op">,</span> optional <span class="dt">int</span> user_param<span class="op">);</span></span></code></pre></div>
 <p>Scans any existing save slots in the requested range, tests each of them for validity, and fills ones that passed the test into the provided <em>valid_slots</em> dynamic array. Optionally sorts the result using certain style and direction.</p>
 <p><strong>IMPORTANT:</strong> for technical reasons this function does not do the scanning immediately, instead it waits until the current script completes. After it's done scanning engine will send a <code>eEventSavesScanComplete</code> event, which you should receive and handle in <a href="Globalfunctions_Event.html#on_event"><code>on_event</code></a> script function. For this reason the dynamic array should be a global variable, not local variable, if you'd like to be able to read the results inside <code>on_event</code>. Multiple calls to Game.ScanSaveSlots within the same script function <em>are allowed</em> (see more details below).</p>
 <p>This function is purposed to test which saves are valid to be restored by the current game. The validation is a two-step process:</p>
@@ -388,21 +437,21 @@
 <p>You can pass an optional <em>user_param</em> value into ScanSaveSlots, in which case it will be sent along with the eEventSavesScanComplete event as its only parameter. This lets to distinguish different calls to ScanSaveSlots in case when you'd like to make multiple calls within a single script for some reason.</p>
 <p>You can optionally use <em>saveSortStyle</em> and <em>sortDirection</em> to set how the resulting list of save slots will be sorted. See their explanation in the description to <a href="Game.html#gamegetsaveslots"><code>Game.GetSaveSlots</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> saveScanResult<span class="op">[];</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ScanSaveGames</span><span class="op">()</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    saveScanResult = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Game</span><span class="op">.</span><span class="at">ScanSaveSlots</span><span class="op">(</span>saveScanResult<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> eSaveGameSort_Time<span class="op">,</span> eSortDescending<span class="op">);</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> eEventSavesScanComplete<span class="op">)</span></span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>        listBoxWithSaves<span class="op">.</span><span class="at">FillSaveGameSlots</span><span class="op">(</span>saveScanResult<span class="op">);</span></span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> saveScanResult<span class="op">[];</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ScanSaveGames</span><span class="op">()</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    saveScanResult = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Game</span><span class="op">.</span><span class="at">ScanSaveSlots</span><span class="op">(</span>saveScanResult<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> eSaveGameSort_Time<span class="op">,</span> eSortDescending<span class="op">);</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> eEventSavesScanComplete<span class="op">)</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>        listBoxWithSaves<span class="op">.</span><span class="at">FillSaveGameSlots</span><span class="op">(</span>saveScanResult<span class="op">);</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will scan saves in range from 1 to 100, sort resulting saves list by time, and fill it into some ListBox.</p>
 <p><em>See also:</em> <a href="Game.html#gamegetsaveslots"><code>Game.GetSaveSlots</code></a>, <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="ListBox.html#listboxfillsavegameslots"><code>ListBox.FillSaveGameSlots</code></a>, <a href="ValidateRestoredSave.html"><code>validate_restored_save</code></a></p>
 <hr />
@@ -410,11 +459,11 @@
 <section id="gamesetaudiotypespeechvolumedrop" class="level3">
 <h3><a href="#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a></h3>
 <p><em>(Formerly known as <code>game.speech_music_drop</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SetAudioTypeSpeechVolumeDrop</span><span class="op">(</span>AudioType<span class="op">,</span> <span class="dt">int</span> volumeReduction<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SetAudioTypeSpeechVolumeDrop</span><span class="op">(</span>AudioType<span class="op">,</span> <span class="dt">int</span> volumeReduction<span class="op">)</span></span></code></pre></div>
 <p>Changes the VolumeReductionWhileSpeechPlaying of the specified <em>AudioType</em>. This changes the setting, initially set in the Audio Types part of the editor. It specifies how much the volume of clips of this type will be reduced by while speech is playing.</p>
 <p>Specify 0 for no volume adjustment, up to 100 which will completely silence these audio clips while speech is playing.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SetAudioTypeSpeechVolumeDrop</span><span class="op">(</span>eAudioTypeMusic<span class="op">,</span> <span class="dv">25</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SetAudioTypeSpeechVolumeDrop</span><span class="op">(</span>eAudioTypeMusic<span class="op">,</span> <span class="dv">25</span><span class="op">);</span></span></code></pre></div>
 <p>will reduce the volume of Music audio clips by 25 percentage points while speech is playing.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></p>
@@ -423,16 +472,16 @@
 <section id="gamesetaudiotypevolume" class="level3">
 <h3><a href="#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></h3>
 <p><em>(Formerly known as <code>SetSoundVolume</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SetAudioTypeVolume</span><span class="op">(</span>AudioType<span class="op">,</span> <span class="dt">int</span> volume<span class="op">,</span> ChangeVolumeType<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SetAudioTypeVolume</span><span class="op">(</span>AudioType<span class="op">,</span> <span class="dt">int</span> volume<span class="op">,</span> ChangeVolumeType<span class="op">)</span></span></code></pre></div>
 <p>Changes the default volume of the specified <em>AudioType</em>. This allows you to change the volume of all audio clips of a particular type, so that you can easily control sound and music volume separately, for example.</p>
 <p>VOLUME ranges from 0-100, where 100 is the loudest, and 0 will mute sound of that type completely.</p>
 <p>Possible values for <em>ChangeVolumeType</em> are:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>eVolChangeExisting      change the volume of currently playing audio clips</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>eVolSetFutureDefault    change the default volume <span class="cf">for</span> clips of <span class="kw">this</span> type</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>eVolExistingAndFuture   change both currently playing and future audio</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>eVolChangeExisting      change the volume of currently playing audio clips</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>eVolSetFutureDefault    change the default volume <span class="cf">for</span> clips of <span class="kw">this</span> type</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>eVolExistingAndFuture   change both currently playing and future audio</span></code></pre></div>
 <p>Initially general AudioType volume is not set, meaning that all future audio will be playing using their own custom volumes. If you use the <em>eVolSetFutureDefault</em> or <em>eVolExistingAndFuture</em>, then the DefaultVolume property for all audio clips of this type will be overridden. This means that any DefaultVolume set up in the editor will be lost.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SetAudioTypeVolume</span><span class="op">(</span>eAudioTypeMusic<span class="op">,</span> <span class="dv">20</span><span class="op">,</span> eVolExistingAndFuture<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SetAudioTypeVolume</span><span class="op">(</span>eAudioTypeMusic<span class="op">,</span> <span class="dv">20</span><span class="op">,</span> eVolExistingAndFuture<span class="op">);</span></span></code></pre></div>
 <p>will change the volume of all currently playing and future music to <code>20%</code>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Multimedia.html#setspeechvolume"><code>SetSpeechVolume</code></a>, <a href="Game.html#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="System.html#systemvolume"><code>System.Volume</code></a></p>
@@ -440,7 +489,7 @@
 </section>
 <section id="gamesetsavegamedirectory" class="level3">
 <h3><a href="#gamesetsavegamedirectory"><code>Game.SetSaveGameDirectory</code></a></h3>
-<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SetSaveGameDirectory</span><span class="op">(</span>string directory<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SetSaveGameDirectory</span><span class="op">(</span>string directory<span class="op">)</span></span></code></pre></div>
 <p>Changes the directory where save game files are stored to the supplied <em>directory</em>. If the directory does not exist, AGS will attempt to create it.</p>
 <p>You cannot use fully qualified directories with this command (e.g. <code>C:\Games\Cool\Saves</code>), because the player might have installed your game to any folder, and they might not be running Windows.</p>
 <p>Therefore, only two types of path are supported:<br></p>
@@ -452,18 +501,18 @@
 <p>Returns <em>true</em> if the save game directory has been changed successfully; <em>false</em> if not.</p>
 <p><strong>NOTE:</strong> We advise you against using this function without strong need. In the most cases setting the "Save games folder name" property in the General Settings of the editor should be sufficient.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SetSaveGameDirectory</span><span class="op">(</span><span class="st">&quot;$MYDOCS$/My Cool Game Saves&quot;</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SetSaveGameDirectory</span><span class="op">(</span><span class="st">&quot;$MYDOCS$/My Cool Game Saves&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will change the save game directory to "My Cool Game Saves" in My Documents, and create the folder if it does not exist (might be useful to do this in game_start).</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="Globalfunctions_General.html#restoregamedialog"><code>RestoreGameDialog</code></a></p>
 <hr />
 </section>
 <section id="gamesimulatekeypress" class="level3">
 <h3><a href="#gamesimulatekeypress"><code>Game.SimulateKeyPress</code></a></h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SimulateKeyPress</span><span class="op">(</span><span class="dt">eKeyCode</span> key<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SimulateKeyPress</span><span class="op">(</span><span class="dt">eKeyCode</span> key<span class="op">)</span></span></code></pre></div>
 <p>Fires a keypress event. This is in all aspects identical to what would happen if a player pressed a key on keyboard. This function may be useful to simulate player actions in game, or create automatic demonstrations (like tutorials).</p>
 <p><strong>IMPORTANT:</strong> because of how AGS engine and scripts work the game will react to this keypress not before current script function finishes. Any things that normally react to keys (such as skippable speech, cutscenes, and certain GUI controls) will be affected only at the following internal game update.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SimulateKeyPress</span><span class="op">(</span><span class="bu">eKeySpace</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SimulateKeyPress</span><span class="op">(</span><span class="bu">eKeySpace</span><span class="op">);</span></span></code></pre></div>
 <p>This simulates a "space" key press.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Mouse.html#mouseclick"><code>Mouse.Click</code></a>, <a href="Keycodes.html#key-code-table">List of supported key codes</a></p>
@@ -472,11 +521,11 @@
 <section id="gamestopaudio" class="level3">
 <h3><a href="#gamestopaudio"><code>Game.StopAudio</code></a></h3>
 <p><em>(Formerly known as <code>Game.StopSound</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>StopMusic</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Game</span><span class="op">.</span><span class="at">StopAudio</span><span class="op">(</span>optional AudioType<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Game</span><span class="op">.</span><span class="at">StopAudio</span><span class="op">(</span>optional AudioType<span class="op">)</span></span></code></pre></div>
 <p>Stops all currently playing audio. If you pass no parameters, then all audio will be stopped. Alternatively, you can pass one of the AudioTypes which will only stop audio clips of that type.</p>
 <p>If there are any audio clips queued up with PlayQueued, they will also be canceled.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">StopAudio</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">StopAudio</span><span class="op">();</span></span></code></pre></div>
 <p>will stop all currently playing audio.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gameisaudioplaying"><code>Game.IsAudioPlaying</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="AudioChannel.html#audiochannelstop"><code>AudioChannel.Stop</code></a></p>
@@ -484,7 +533,7 @@
 </section>
 <section id="gameaudioclipcount" class="level3">
 <h3><a href="#gameaudioclipcount"><code>Game.AudioClipCount</code></a></h3>
-<div class="sourceCode" id="cb51"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">AudioClipCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">AudioClipCount</span></span></code></pre></div>
 <p>Returns the number of audio clips in the game.</p>
 <p>This is useful for script modules if you need to iterate through all the audio clips for some reason.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
@@ -493,32 +542,32 @@
 </section>
 <section id="gameaudioclips" class="level3">
 <h3><a href="#gameaudioclips"><code>Game.AudioClips</code></a></h3>
-<div class="sourceCode" id="cb52"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">AudioClips</span><span class="op">[</span><span class="dt">int</span> slot<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">AudioClips</span><span class="op">[</span><span class="dt">int</span> slot<span class="op">]</span></span></code></pre></div>
 <p>Returns the AudioClip* pointer by its index in game resources.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> music_count = <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> <span class="bu">Game</span><span class="op">.</span><span class="at">AudioClipCount</span><span class="op">)</span></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">AudioClips</span><span class="op">[</span>i<span class="op">].</span><span class="at">Type</span> <span class="op">==</span> eAudioTypeMusic<span class="op">)</span></span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>        music_count<span class="op">++;</span></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>    i<span class="op">++;</span></span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;We have %d musical clips in our game&quot;</span><span class="op">,</span> music_count<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> music_count = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> <span class="bu">Game</span><span class="op">.</span><span class="at">AudioClipCount</span><span class="op">)</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">AudioClips</span><span class="op">[</span>i<span class="op">].</span><span class="at">Type</span> <span class="op">==</span> eAudioTypeMusic<span class="op">)</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>        music_count<span class="op">++;</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>    i<span class="op">++;</span></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;We have %d musical clips in our game&quot;</span><span class="op">,</span> music_count<span class="op">);</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gameaudioclipcount"><code>Game.AudioClipCount</code></a></p>
 <hr />
 </section>
 <section id="gameblockingwaitcounter" class="level3">
 <h3><a href="#gameblockingwaitcounter"><code>Game.BlockingWaitCounter</code></a></h3>
-<div class="sourceCode" id="cb54"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitCounter</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitCounter</span></span></code></pre></div>
 <p>Gets the current value of a wait counter. This is a number of game ticks (updates) remaining until the Wait function will end automatically. This value may be either positive for a counter ticking down, negative if the Wait function was called with an infinite timeout, or zero in case there's no Wait function running at the moment.</p>
 <p>The only script events that run during blocking state are "repeatedly_execute_always" and "late_repeatedly_execute_always", so these are the only functions where this property may actually be used.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    lblWait<span class="op">.</span><span class="at">Text</span> = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;Wait time remaining: %d&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitCounter</span><span class="op">);</span></span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>    lblWait<span class="op">.</span><span class="at">Text</span> = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;Wait time remaining: %d&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitCounter</span><span class="op">);</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will print the remaining wait time on a GUI label.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gameinblockingwait"><code>Game.InBlockingWait</code></a>, <a href="Globalfunctions_Wait.html">Wait functions</a></p>
@@ -526,7 +575,7 @@
 </section>
 <section id="gameblockingwaitskipped" class="level3">
 <h3><a href="#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a></h3>
-<div class="sourceCode" id="cb56"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitSkipped</span></span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitSkipped</span></span></code></pre></div>
 <p>Gets the code which describes how was the last blocking state skipped by a user (or autotimer). The possible code values are explained on the <a href="Globalfunctions_Wait.html#global-functions-wait">Wait functions</a> page, but note that BlockingWaitSkipped also returns this code for any other skippable actions, such as speech.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gameinblockingwait"><code>Game.InBlockingWait</code></a>, <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Globalfunctions_Wait.html#skipwait"><code>SkipWait</code></a></p>
@@ -534,18 +583,18 @@
 </section>
 <section id="gameblockingwaitskiptype" class="level3">
 <h3><a href="#gameblockingwaitskiptype"><code>Game.BlockingWaitSkipType</code></a></h3>
-<div class="sourceCode" id="cb57"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">InputType</span> <span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitSkipType</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">InputType</span> <span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitSkipType</span></span></code></pre></div>
 <p>Gets the skip type of the currently run Wait function. This value represents a input device type (or a combination of devices) which are allowed to skip the Wait function. The value depends on which of the Wait functions was run, or which parameter was passed into the <a href="Globalfunctions_Wait.html#waitinput">WaitInput</a> function.</p>
 <p>For the list of possible values see <a href="StandardEnums.html#inputtype">InputType enum</a>.</p>
 <p>The only script events that run during blocking state are "repeatedly_execute_always" and "late_repeatedly_execute_always", so these are the only functions where this property may actually be used.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">((</span><span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitSkipType</span> <span class="op">&amp;</span> <span class="bu">eInputKeyboard</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="bu">Mouse</span><span class="op">.</span><span class="at">IsButtonDown</span><span class="op">(</span><span class="bu">eMouseRight</span><span class="op">)))</span></span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SimulateKeyPress</span><span class="op">(</span><span class="bu">eKeySpace</span><span class="op">);</span></span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">((</span><span class="bu">Game</span><span class="op">.</span><span class="at">BlockingWaitSkipType</span> <span class="op">&amp;</span> <span class="bu">eInputKeyboard</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="bu">Mouse</span><span class="op">.</span><span class="at">IsButtonDown</span><span class="op">(</span><span class="bu">eMouseRight</span><span class="op">)))</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SimulateKeyPress</span><span class="op">(</span><span class="bu">eKeySpace</span><span class="op">);</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The above code will check if the current Wait function is expecting a key press, and simulate a "space" key press in case a right mouse button was down.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gameinblockingwait"><code>Game.InBlockingWait</code></a>, <a href="Globalfunctions_Wait.html">Wait functions</a></p>
@@ -553,7 +602,7 @@
 </section>
 <section id="gamecamera" class="level3">
 <h3><a href="#gamecamera"><code>Game.Camera</code></a></h3>
-<div class="sourceCode" id="cb59"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="bu">Camera</span><span class="op">*</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Camera</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="bu">Camera</span><span class="op">*</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Camera</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the primary camera. This is the default camera that is created automatically at the start of the game and cannot be deleted.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gamecameras"><code>Game.Cameras</code></a>, <a href="Camera.html"><code>Camera</code></a>, <a href="Camera.html#cameracreate"><code>Camera.Create</code></a>, <a href="Camera.html#cameradelete"><code>Camera.Delete</code></a>, <a href="Viewport.html#viewportcamera"><code>Viewport.Camera</code></a></p>
@@ -561,7 +610,7 @@
 </section>
 <section id="gamecameracount" class="level3">
 <h3><a href="#gamecameracount"><code>Game.CameraCount</code></a></h3>
-<div class="sourceCode" id="cb60"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CameraCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CameraCount</span></span></code></pre></div>
 <p>Gets the number of cameras.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gamecameras"><code>Game.Cameras</code></a></p>
@@ -569,13 +618,13 @@
 </section>
 <section id="gamecameras" class="level3">
 <h3><a href="#gamecameras"><code>Game.Cameras</code></a></h3>
-<div class="sourceCode" id="cb61"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="bu">Camera</span><span class="op">*</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Cameras</span><span class="op">[</span><span class="dt">int</span> index<span class="op">];</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="bu">Camera</span><span class="op">*</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Cameras</span><span class="op">[</span><span class="dt">int</span> index<span class="op">];</span></span></code></pre></div>
 <p>Returns the Camera instance by its index. There's always at least primary camera at the index 0, more could be created in script using <a href="Camera.html#cameracreate"><code>Camera.Create</code></a>.</p>
 <p><strong>IMPORTANT:</strong> with the current implementation when you delete a custom camera in the middle all the following cameras will be shifted towards beginning of array, changing their indexes.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CameraCount</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Game</span><span class="op">.</span><span class="at">Cameras</span><span class="op">[</span>i<span class="op">].</span><span class="at">SetAt</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CameraCount</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Game</span><span class="op">.</span><span class="at">Cameras</span><span class="op">[</span>i<span class="op">].</span><span class="at">SetAt</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This script positions all existing cameras at the room's top-left corner.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gamecamera"><code>Game.Camera</code></a>, <a href="Game.html#gamecameracount"><code>Game.CameraCount</code></a>, <a href="Camera.html#cameracreate"><code>Camera.Create</code></a>, <a href="Camera.html#cameradelete"><code>Camera.Delete</code></a>, <a href="Viewport.html#viewportcamera"><code>Viewport.Camera</code></a></p>
@@ -584,65 +633,65 @@
 <section id="gamecharactercount" class="level3">
 <h3><a href="#gamecharactercount"><code>Game.CharacterCount</code></a></h3>
 <p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span></span></code></pre></div>
 <p>Returns the number of characters in the game.</p>
 <p>This is useful for script modules if you need to iterate through all the characters for some reason.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d characters.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d characters.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span><span class="op">);</span></span></code></pre></div>
 <hr />
 </section>
 <section id="gamedialogcount" class="level3">
 <h3><a href="#gamedialogcount"><code>Game.DialogCount</code></a></h3>
-<div class="sourceCode" id="cb65"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">DialogCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">DialogCount</span></span></code></pre></div>
 <p>Returns the number of dialogs in the game.</p>
 <p>This is useful for script modules if you need to iterate through all the dialogs for some reason. Valid dialogs are numbered from 0 to DialogCount - 1.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d dialogs.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">DialogCount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d dialogs.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">DialogCount</span><span class="op">);</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
 <hr />
 </section>
 <section id="gamefilename" class="level3">
 <h3><a href="#gamefilename"><code>Game.FileName</code></a></h3>
-<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">FileName</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">FileName</span></span></code></pre></div>
 <p>Gets the filename that the game is running from. This will usually be the name of the EXE file, but could also be "ac2game.dat" if you are just running the game using ACWIN.EXE.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The main game file is: %s&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">FileName</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The main game file is: %s&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">FileName</span><span class="op">);</span></span></code></pre></div>
 <p>will display the game filename.</p>
 <p><em>See also:</em> <a href="Game.html#gamename"><code>Game.Name</code></a></p>
 <hr />
 </section>
 <section id="gamefontcount" class="level3">
 <h3><a href="#gamefontcount"><code>Game.FontCount</code></a></h3>
-<div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">FontCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">FontCount</span></span></code></pre></div>
 <p>Returns the number of fonts in the game.</p>
 <p>This is useful for script modules if you need to iterate through all the fonts for some reason.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d fonts.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">FontCount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d fonts.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">FontCount</span><span class="op">);</span></span></code></pre></div>
 <hr />
 </section>
 <section id="gameglobalmessages" class="level3">
 <h3><a href="#gameglobalmessages"><code>Game.GlobalMessages</code></a></h3>
 <p><em>(Formerly known as global function <code>GetMessageText</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GlobalMessages</span><span class="op">[</span><span class="dt">int</span> message<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GlobalMessages</span><span class="op">[</span><span class="dt">int</span> message<span class="op">]</span></span></code></pre></div>
 <p>Gets the text of the specified global message. The message number is one of the global message numbers from 500 to 999.</p>
 <p>If an invalid message number is supplied, <em>null</em> will be returned. Otherwise, the message contents will be returned.</p>
 <p><strong>NOTE:</strong> Global Messages were a feature of AGS 2.x and are now obsolete. You will not need to use this property in new games.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> message = <span class="bu">Game</span><span class="op">.</span><span class="at">GlobalMessages</span><span class="op">[</span><span class="dv">997</span><span class="op">];</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Global message 997 says: %s&quot;</span><span class="op">,</span> message<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> message = <span class="bu">Game</span><span class="op">.</span><span class="at">GlobalMessages</span><span class="op">[</span><span class="dv">997</span><span class="op">];</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Global message 997 says: %s&quot;</span><span class="op">,</span> message<span class="op">);</span></span></code></pre></div>
 <p>will display global message 997.</p>
 <hr />
 </section>
 <section id="gameglobalstrings" class="level3">
 <h3><a href="#gameglobalstrings"><code>Game.GlobalStrings</code></a></h3>
 <p><em>(Formerly known as <code>GetGlobalString</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetGlobalString</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GlobalStrings</span><span class="op">[</span>index<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GlobalStrings</span><span class="op">[</span>index<span class="op">]</span></span></code></pre></div>
 <p>Gets/sets global string <em>index</em>.</p>
 <p><strong>NOTE:</strong> GlobalStrings are now considered obsolete. Consider using <a href="GlobalVariables.html">global variables</a> instead, which allow you to name the variables.</p>
 <p>Global strings provided a way to share string variables between scripts. There are 50 available global strings, with <em>index</em> values from 0 to 49.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">GlobalStrings</span><span class="op">[</span><span class="dv">15</span><span class="op">]</span> = <span class="st">&quot;Joe&quot;</span><span class="op">;</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Global string 15 is now: %s&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GlobalStrings</span><span class="op">[</span><span class="dv">15</span><span class="op">]);</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">GlobalStrings</span><span class="op">[</span><span class="dv">15</span><span class="op">]</span> = <span class="st">&quot;Joe&quot;</span><span class="op">;</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Global string 15 is now: %s&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GlobalStrings</span><span class="op">[</span><span class="dv">15</span><span class="op">]);</span></span></code></pre></div>
 <p>will set global string 15 to contain "Joe".</p>
 <p><em>See also:</em> <a href="GlobalVariables.html">Global variables</a>, <a href="Globalfunctions_General.html#getglobalint"><code>GetGlobalInt</code></a>, <a href="Globalfunctions_General.html#setglobalint"><code>SetGlobalInt</code></a></p>
 <hr />
@@ -650,21 +699,21 @@
 <section id="gameguicount" class="level3">
 <h3><a href="#gameguicount"><code>Game.GUICount</code></a></h3>
 <p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GUICount</span></span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GUICount</span></span></code></pre></div>
 <p>Returns the number of GUIs in the game.</p>
 <p>This is useful for script modules if you need to iterate through all the GUIs for some reason. Valid GUIs are numbered from 0 to GUICount minus 1.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d GUIs.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GUICount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d GUIs.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GUICount</span><span class="op">);</span></span></code></pre></div>
 <hr />
 </section>
 <section id="gameignoreuserinputaftertexttimeoutms" class="level3">
 <h3><a href="#gameignoreuserinputaftertexttimeoutms"><code>Game.IgnoreUserInputAfterTextTimeoutMs</code></a></h3>
-<div class="sourceCode" id="cb77"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">IgnoreUserInputAfterTextTimeoutMs</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">IgnoreUserInputAfterTextTimeoutMs</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the length of time for which user input is ignored after some text is automatically removed from the screen.</p>
 <p>When AGS is configured to automatically remove text after a certain time on the screen, sometimes the player might try to manually skip the text by pressing a key just as it is removed automatically, and thus they end up skipping the next text line by accident. This property is designed to eliminate this problem.</p>
 <p>This property is specified in milliseconds (1000 = 1 second), and is set to 500 by default.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">IgnoreUserInputAfterTextTimeoutMs</span> = <span class="dv">1000</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">IgnoreUserInputAfterTextTimeoutMs</span> = <span class="dv">1000</span><span class="op">;</span></span></code></pre></div>
 <p>will tell AGS to ignore mouse clicks and key presses for 1 second after text is automatically removed from the screen.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gameminimumtextdisplaytimems"><code>Game.MinimumTextDisplayTimeMs</code></a>, <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>, <a href="Speech.html#speechskipstyle"><code>Speech.SkipStyle</code></a></p>
@@ -672,24 +721,24 @@
 </section>
 <section id="gameinblockingaction" class="level3">
 <h3><a href="#gameinblockingaction"><code>Game.InBlockingAction</code></a></h3>
-<div class="sourceCode" id="cb79"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingAction</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingAction</span></span></code></pre></div>
 <p>Returns whether the game is currently in a blocking state, which is a state during <em>either</em> any blocking action <em>or</em> a <a href="Globalfunctions_Wait.html">Wait</a> call. The blocking actions are ones performed by a call to a function like Walk, Move or Animate with eBlock argument, but also regular Say command, and anything else that halts current script's execution until the action finishes.</p>
 <p>If you need to distinguish Wait command in particular, then use <a href="Game.html#gameinblockingwait"><code>Game.InBlockingWait</code></a> property.</p>
 <p>The only script events that run during blocking state are "repeatedly_execute_always" and "late_repeatedly_execute_always", so these are the only functions where this property may actually be used.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WasInBlockingState<span class="op">;</span></span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>WasInBlockingState <span class="op">!=</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingAction</span><span class="op">)</span></span>
-<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingAction</span><span class="op">)</span></span>
-<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>             btnSignalButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">100</span><span class="op">;</span></span>
-<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a>         <span class="cf">else</span></span>
-<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a>             btnSignalButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">200</span><span class="op">;</span></span>
-<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a>         WasInBlockingState = <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingAction</span><span class="op">;</span></span>
-<span id="cb80-12"><a href="#cb80-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WasInBlockingState<span class="op">;</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>WasInBlockingState <span class="op">!=</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingAction</span><span class="op">)</span></span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingAction</span><span class="op">)</span></span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>             btnSignalButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>         <span class="cf">else</span></span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a>             btnSignalButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a>         WasInBlockingState = <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingAction</span><span class="op">;</span></span>
+<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This will change the GUI button's graphic depending on whether the game is in blocking action state or not.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a>, <a href="Game.html#gameinblockingaction"><code>Game.InBlockingAction</code></a></p>
@@ -697,23 +746,23 @@
 </section>
 <section id="gameinblockingwait" class="level3">
 <h3><a href="#gameinblockingwait"><code>Game.InBlockingWait</code></a></h3>
-<div class="sourceCode" id="cb81"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingWait</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingWait</span></span></code></pre></div>
 <p>Returns whether the game is currently inside a <a href="Globalfunctions_Wait.html">Wait</a> call.</p>
 <p>The only script events that run during blocking state are "repeatedly_execute_always" and "late_repeatedly_execute_always", so these are the only functions where this property may actually be used.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WasInBlockingState<span class="op">;</span></span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>WasInBlockingState <span class="op">!=</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingWait</span><span class="op">)</span></span>
-<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingWait</span><span class="op">)</span></span>
-<span id="cb82-8"><a href="#cb82-8" aria-hidden="true" tabindex="-1"></a>             btnSignalButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">100</span><span class="op">;</span></span>
-<span id="cb82-9"><a href="#cb82-9" aria-hidden="true" tabindex="-1"></a>         <span class="cf">else</span></span>
-<span id="cb82-10"><a href="#cb82-10" aria-hidden="true" tabindex="-1"></a>             btnSignalButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">200</span><span class="op">;</span></span>
-<span id="cb82-11"><a href="#cb82-11" aria-hidden="true" tabindex="-1"></a>         WasInBlockingState = <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingWait</span><span class="op">;</span></span>
-<span id="cb82-12"><a href="#cb82-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb82-13"><a href="#cb82-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WasInBlockingState<span class="op">;</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>WasInBlockingState <span class="op">!=</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingWait</span><span class="op">)</span></span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingWait</span><span class="op">)</span></span>
+<span id="cb88-8"><a href="#cb88-8" aria-hidden="true" tabindex="-1"></a>             btnSignalButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a>         <span class="cf">else</span></span>
+<span id="cb88-10"><a href="#cb88-10" aria-hidden="true" tabindex="-1"></a>             btnSignalButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb88-11"><a href="#cb88-11" aria-hidden="true" tabindex="-1"></a>         WasInBlockingState = <span class="bu">Game</span><span class="op">.</span><span class="at">InBlockingWait</span><span class="op">;</span></span>
+<span id="cb88-12"><a href="#cb88-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb88-13"><a href="#cb88-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This will change the GUI button's graphic depending on whether the game is in blocking wait state or not.</p>
 <p><strong>NOTE:</strong> When this function was first introduced in AGS 3.6.2, it also returned positive during <em>any</em> blocking action, such as a call to a function like Walk, Move or Animate with eBlock argument, and so forth. Since AGS 3.6.3 this functionality was separated to <a href="Game.html#gameinblockingaction">Game.InBlockingAction</a> for convenience.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
@@ -723,15 +772,15 @@
 <section id="gameinskippablecutscene" class="level3">
 <h3><a href="#gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a></h3>
 <p><em>(Formerly known as <code>game.in_cutscene</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InSkippableCutscene</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InSkippableCutscene</span></span></code></pre></div>
 <p>Returns whether the game is currently between a StartCutscene and EndCutscene, and therefore whether the player is able to skip over this part of the game.</p>
 <p>When the player chooses to skip a cutscene all of the script code is run as usual, but any blocking commands are run through without the usual game cycle delays. Therefore, you should never normally need to use this property since cutscenes should all be handled automatically, but it could be useful for script modules.</p>
 <p><strong>NOTE:</strong> This is a static function, and thus need to be called with <code>Game.</code> in front of it. See the example below.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">InSkippableCutscene</span><span class="op">)</span></span>
-<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player might never see this message!&quot;</span><span class="op">);</span></span>
-<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">InSkippableCutscene</span><span class="op">)</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player might never see this message!&quot;</span><span class="op">);</span></span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message if we are within a cutscene</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a>, <a href="Globalfunctions_General.html#endcutscene"><code>EndCutscene</code></a>, <a href="Game.html#gameskippingcutscene"><code>Game.SkippingCutscene</code></a></p>
@@ -740,20 +789,32 @@
 <section id="gameinventoryitemcount" class="level3">
 <h3><a href="#gameinventoryitemcount"><code>Game.InventoryItemCount</code></a></h3>
 <p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InventoryItemCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InventoryItemCount</span></span></code></pre></div>
 <p>Returns the number of inventory items in the game. This is the total number of items that you created in the Inventory Items pane of the editor, not how many the player is currently carrying.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d inventory items.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InventoryItemCount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d inventory items.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">InventoryItemCount</span><span class="op">);</span></span></code></pre></div>
+<hr />
+</section>
+<section id="gameispaused" class="level3">
+<h3><a href="#gameispaused"><code>Game.IsPaused</code></a></h3>
+<p><em>(Formerly known as global function <code>IsGamePaused</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">IsPaused</span></span></code></pre></div>
+<p>Returns <em>true</em> if the game is currently paused, or <em>false</em> otherwise. The game can be paused by calling Game.Pause(). Also, the game is paused when any GUI with PopupStyle "pause game when shown" or "popup when cursor is at y" is displayed. While the game is paused, no animations or other updates take place.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">IsPaused</span><span class="op">)</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Resume</span><span class="op">();</span></span></code></pre></div>
+<p>will unpause the game if it's paused.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Game.html#gamepause"><code>Game.Pause</code></a>, <a href="Game.html#gameresume"><code>Game.Resume</code></a></p>
 <hr />
 </section>
 <section id="gameminimumtextdisplaytimems" class="level3">
 <h3><a href="#gameminimumtextdisplaytimems"><code>Game.MinimumTextDisplayTimeMs</code></a></h3>
-<div class="sourceCode" id="cb87"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">MinimumTextDisplayTimeMs</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">MinimumTextDisplayTimeMs</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the minimum length of time that text is displayed on the screen. AGS automatically adjusts the length of time that text is displayed for depending on the length of the text (and you can customize this calculation with <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>), but for very short statements like "Hi!", you might want the text to remain for longer.</p>
 <p>This property is specified in milliseconds (1000 = 1 second), and is set to 1000 by default.</p>
 <p><strong>NOTE:</strong> This property is ignored if lip-sync is enabled, or if the General Settings are set not to allow text to be automatically removed.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">MinimumTextDisplayTimeMs</span> = <span class="dv">2000</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">MinimumTextDisplayTimeMs</span> = <span class="dv">2000</span><span class="op">;</span></span></code></pre></div>
 <p>will ensure that even the shortest "Hi!" text line will be displayed for at least 2 seconds</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a>, <a href="Game.html#gameignoreuserinputaftertexttimeoutms"><code>Game.IgnoreUserInputAfterTextTimeoutMs</code></a> <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a></p>
@@ -761,19 +822,19 @@
 </section>
 <section id="gamemousecursorcount" class="level3">
 <h3><a href="#gamemousecursorcount"><code>Game.MouseCursorCount</code></a></h3>
-<div class="sourceCode" id="cb89"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">MouseCursorCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">MouseCursorCount</span></span></code></pre></div>
 <p>Returns the number of mouse cursors in the game.</p>
 <p>This is useful for script modules if you need to iterate through all the cursors for some reason.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d cursors.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">MouseCursorCount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d cursors.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">MouseCursorCount</span><span class="op">);</span></span></code></pre></div>
 <hr />
 </section>
 <section id="gamename" class="level3">
 <h3><a href="#gamename"><code>Game.Name</code></a></h3>
-<div class="sourceCode" id="cb91"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Name</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Name</span></span></code></pre></div>
 <p>Gets/sets the game's name. This is initially set in the General Settings pane of the editor, but you can change it at run-time in order to change the window title of your game.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game name is: %s&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game name is: %s&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
 <p>will display the game name.</p>
 <p><em>See also:</em> <a href="Game.html#gamefilename"><code>Game.FileName</code></a></p>
 <hr />
@@ -781,7 +842,7 @@
 <section id="gamenormalfont" class="level3">
 <h3><a href="#gamenormalfont"><code>Game.NormalFont</code></a></h3>
 <p><em>(Formerly known as global function <code>SetNormalFont</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">FontType</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">FontType</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span></span></code></pre></div>
 <p>Gets/sets the font used for all in-game text, except speech. The font number must be a valid number from the Fonts pane of the editor.</p>
 <p>More specifically, AGS uses the Normal Font for the following:</p>
 <ul>
@@ -792,7 +853,7 @@
 </ul>
 <p>The Normal Font is font 0 by default.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span> = <span class="bu">eFontSpecial</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span> = <span class="bu">eFontSpecial</span><span class="op">;</span></span></code></pre></div>
 <p>will change the normal font to the font "Special".</p>
 <p><strong>NOTE:</strong> Since AGS 3.6.3 the dialog options text font can be get/set with <a href="Dialog.html#dialogoptionsfont"><code>Dialog.OptionsFont</code></a></p>
 <p><em>See also:</em> <a href="Game.html#gamespeechfont"><code>Game.SpeechFont</code></a></p>
@@ -801,17 +862,17 @@
 <section id="gameskippingcutscene" class="level3">
 <h3><a href="#gameskippingcutscene"><code>Game.SkippingCutscene</code></a></h3>
 <p><em>(Formerly known as <code>game.skipping_cutscene</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SkippingCutscene</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SkippingCutscene</span></span></code></pre></div>
 <p>Returns whether the player has elected to skip the current cutscene. This will return true if the game is between a StartCutscene and EndCutscene command, and the player has chosen to skip it.</p>
 <p>Although cutscene skipping is handled automatically by AGS, you can use this property to optimize the process by bypassing any lengthy blocks of code that don't need to be run if the cutscene is being skipped over.</p>
 <p><strong>NOTE:</strong> This is a static function, and thus need to be called with <code>Game.</code> in front of it. See the example below.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">Game</span><span class="op">.</span><span class="at">SkippingCutscene</span><span class="op">)</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>    aScaryMusic<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
-<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
-<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Game</span><span class="op">.</span><span class="at">StopAudio</span><span class="op">();</span></span>
-<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">Game</span><span class="op">.</span><span class="at">SkippingCutscene</span><span class="op">)</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>    aScaryMusic<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Game</span><span class="op">.</span><span class="at">StopAudio</span><span class="op">();</span></span>
+<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will only attempt to play the music if the player is not skipping the cutscene.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a>, <a href="Globalfunctions_General.html#endcutscene"><code>EndCutscene</code></a>, <a href="Game.html#gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a></p>
@@ -820,23 +881,23 @@
 <section id="gamespeechfont" class="level3">
 <h3><a href="#gamespeechfont"><code>Game.SpeechFont</code></a></h3>
 <p><em>(Formerly known as global function <code>SetSpeechFont</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">FontType</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpeechFont</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">FontType</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpeechFont</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the font used for character speech. The font number you supply must be a valid number from the Fonts pane of the editor.</p>
 <p>The Speech Font is font 1 by default.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SpeechFont</span> = <span class="bu">eFontStandard</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">SpeechFont</span> = <span class="bu">eFontStandard</span><span class="op">;</span></span></code></pre></div>
 <p>will change the speech font to "Standard".</p>
 <p><em>See also:</em> <a href="Game.html#gamenormalfont"><code>Game.NormalFont</code></a></p>
 <hr />
 </section>
 <section id="gamespeechvoxfilename" class="level3">
 <h3><a href="#gamespeechvoxfilename"><code>Game.SpeechVoxFilename</code></a></h3>
-<div class="sourceCode" id="cb99"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpeechVoxFilename</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpeechVoxFilename</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the name of the active voice package name. This is not equal to the full file name; assuming file is called "sp_name.vox", this function will return only the "name" part. If a default "speech.vox" is used (or no voice pack at all), a blank string is returned.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">SpeechVoxFilename</span><span class="op">==</span> <span class="st">&quot;German&quot;</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are using the German voice.&quot;</span><span class="op">);</span></span>
-<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">SpeechVoxFilename</span><span class="op">==</span> <span class="st">&quot;German&quot;</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are using the German voice.&quot;</span><span class="op">);</span></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gamechangespeechvox"><code>Game.ChangeSpeechVox</code></a>, <a href="Multimedia.html#isspeechvoxavailable"><code>IsSpeechVoxAvailable</code></a>, <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Translations.html">Translation</a>, <a href="VoiceSpeech.html">Voice speech</a></p>
 <hr />
@@ -844,7 +905,7 @@
 <section id="gamespeed" class="level3">
 <h3><a href="#gamespeed"><code>Game.Speed</code></a></h3>
 <p><em>(Formerly known as global functions <code>SetGameSpeed</code> and <code>GetGameSpeed</code>, which are now obsolete)</em></p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Speed</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">Speed</span><span class="op">;</span></span></code></pre></div>
 <p>Gets or sets the desired game frame rate, which is a number of updates per second. The default speed (or FPS) is configured in the General Settings of your project, but you may change that using this property anytime in script.</p>
 <p>(Older versions of the AGS may not have this setting in the editor, in which case they used a historical default of 40 fps.)</p>
 <p>Note that this speed is also the rate at which the <a href="RepExec.html">repeatedly_execute</a> functions are triggered.</p>
@@ -857,7 +918,7 @@
 <p>NOTE: Because the mouse cursor is repainted at the game frame rate, at very low speeds, like 10 to 20 fps, the mouse will appear to be jumpy and not very responsive.</p>
 <p>NOTE: If you set the <a href="System.html#systemvsync"><code>System.VSync</code></a> property to <em>true</em>, the game speed will be capped at the screen's refresh rate, so you will be unable to set it higher than 60-85 (depending on the player's screen refresh).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">Speed</span> = <span class="dv">60</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">Speed</span> = <span class="dv">60</span><span class="op">;</span></span></code></pre></div>
 <p>will set the game speed to 60 fps.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gametickcounter"><code>Game.TickCounter</code></a>, <a href="System.html#systemfps"><code>System.FPS</code></a>, <a href="System.html#systemvsync"><code>System.VSync</code></a></p>
@@ -866,37 +927,37 @@
 <section id="gamespriteheight" class="level3">
 <h3><a href="#gamespriteheight"><code>Game.SpriteHeight</code></a></h3>
 <p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span><span class="dt">int</span> slot<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span><span class="dt">int</span> slot<span class="op">]</span></span></code></pre></div>
 <p>Returns the height of the specified sprite.</p>
 <p>The height will be returned in the original sprite pixels (without any scaling). If an invalid sprite slot is supplied, 0 will be returned.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object %s&#39;s sprite is sized %d x %d.&quot;</span><span class="op">,</span> oObject<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">],</span></span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">]);</span></span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object %s&#39;s sprite is sized %d x %d.&quot;</span><span class="op">,</span> oObject<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">],</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">]);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Game.html#gamespritewidth"><code>Game.SpriteWidth</code></a></p>
 <hr />
 </section>
 <section id="gamespritewidth" class="level3">
 <h3><a href="#gamespritewidth"><code>Game.SpriteWidth</code></a></h3>
 <p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span><span class="dt">int</span> slot<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span><span class="dt">int</span> slot<span class="op">]</span></span></code></pre></div>
 <p>Returns the width of the specified sprite.</p>
 <p>The width will be returned in the original sprite pixels (without any scaling). If an invalid sprite slot is supplied, 0 will be returned.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object %s&#39;s sprite is sized %d x %d.&quot;</span><span class="op">,</span> oObject<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">],</span></span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">]);</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object %s&#39;s sprite is sized %d x %d.&quot;</span><span class="op">,</span> oObject<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">],</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">]);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Game.html#gamespriteheight"><code>Game.SpriteHeight</code></a></p>
 <hr />
 </section>
 <section id="gametextreadingspeed" class="level3">
 <h3><a href="#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a></h3>
 <p><em>(Formerly known as <code>game.text_speed</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">TextReadingSpeed</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">TextReadingSpeed</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the speed at which AGS assumes the player can read text, and therefore how long speech stays on the screen before it is automatically removed.</p>
 <p>Specifically, the TextReadingSpeed is the number of characters of text that the player can read in a second. It is 15 by default. A higher number will therefore lead to the text being removed more quickly.</p>
 <p>It is useful to link this setting to a GUI Slider on some sort of Control Panel GUI so that the player can adjust it depending on their reading speed.</p>
 <p><strong>NOTE:</strong> This property is ignored if lip-sync is enabled, or if the General Settings are set not to allow text to be automatically removed.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">TextReadingSpeed</span> = <span class="dv">7</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">TextReadingSpeed</span> = <span class="dv">7</span><span class="op">;</span></span></code></pre></div>
 <p>sets the text reading speed to half the default, which will leave speech on-screen for twice as long as usual.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a>, <a href="Game.html#gameminimumtextdisplaytimems"><code>Game.MinimumTextDisplayTimeMs</code></a>, <a href="Speech.html#speechskipstyle"><code>Speech.SkipStyle</code></a></p>
@@ -904,7 +965,7 @@
 </section>
 <section id="gametickcounter" class="level3">
 <h3><a href="#gametickcounter"><code>Game.TickCounter</code></a></h3>
-<div class="sourceCode" id="cb109"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">TickCounter</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">TickCounter</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the number of full game updates passed since the game start. This may be useful if you need to know how many game frames completed between two points in game: then you can remember the value of Game.TickCounter at the first point, and compare the saved value with the new value at the second point in time.</p>
 <p>It's important to know that this number increases in almost all states of the game: when game is paused, when blocking actions are run, when dialog options are displayed, and so forth. There are only few cases when game updates are not run and so the tick counter is not being increased, which is: during a room transition (fade-in and fade-out effects), when a <a href="Globalfunctions_Message.html#display"><code>Display</code></a> command is run, and when built-in Restore or Save game dialogs are shown with <a href="Globalfunctions_General.html#restoregamedialog"><code>RestoreGameDialog</code></a> and <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a> commands. The latter is a historical engine's behavior, but may be a subject to a change in the future.</p>
 <p>The TickCounter value is a part of the game's save state, which means that it's written to saves and read back when you restore a save. Therefore it means number of updates performed in a full gameplay, rather than in a current session.</p>
@@ -916,43 +977,43 @@
 <section id="gametranslationfilename" class="level3">
 <h3><a href="#gametranslationfilename"><code>Game.TranslationFilename</code></a></h3>
 <p><em>(Formerly known as <code>GetTranslationName</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">TranslationFilename</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">TranslationFilename</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the name of the current translation filename (without the ".tra" extension). This may be useful if you want to use a different graphic somewhere depending on which translation is being used.</p>
 <p>If no translation is in use, a blank string is returned.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">TranslationFilename</span> <span class="op">==</span> <span class="st">&quot;German&quot;</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are using the German translation.&quot;</span><span class="op">);</span></span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">TranslationFilename</span> <span class="op">==</span> <span class="st">&quot;German&quot;</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are using the German translation.&quot;</span><span class="op">);</span></span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Game.html#gamespeechvoxfilename"><code>Game.SpeechVoxFilename</code></a>, <a href="Translations.html">Translation Manual</a></p>
 <hr />
 </section>
 <section id="gameusenativecoordinates" class="level3">
 <h3><a href="#gameusenativecoordinates"><code>Game.UseNativeCoordinates</code></a></h3>
-<div class="sourceCode" id="cb112"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">UseNativeCoordinates</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Game</span><span class="op">.</span><span class="at">UseNativeCoordinates</span></span></code></pre></div>
 <p>Returns whether the game is using native co-ordinates. If native co-ordinates are in use, then all X, Y, Top, Bottom, Width and Height variables in the game will be expected to reflect the resolution of the game.</p>
 <p>If this is <em>false</em>, then the game is operating in backwards-compatible mode where all co-ordinates are low-res.</p>
 <p>If the game resolution is 320x200 or 320x240, this setting has no effect.</p>
 <p>This property is read-only; it is not possible to change this setting at run-time.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">UseNativeCoordinates</span><span class="op">)</span></span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d, %d -- REALLY!&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
-<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d, %d in the old-school system&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
-<span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">UseNativeCoordinates</span><span class="op">)</span></span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d, %d -- REALLY!&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d, %d in the old-school system&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb121-8"><a href="#cb121-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="gameviewcount" class="level3">
 <h3><a href="#gameviewcount"><code>Game.ViewCount</code></a></h3>
 <p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">ViewCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">ViewCount</span></span></code></pre></div>
 <p>Returns the number of views in the game.</p>
 <p>This is useful for script modules if you need to iterate through all the views for some reason. Valid views are numbered from 1 to ViewCount.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d views.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">ViewCount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The game has %d views.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">ViewCount</span><span class="op">);</span></span></code></pre></div>
 </section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Game.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
@@ -960,7 +1021,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 6a87c854c3ae58e41f9ea7fc8527af0f310d59a9
+          Build: 46a1afb9ef3958fb7133553db9fa98a0b61a626c
         </p>
       </footer>
     </article>
@@ -984,11 +1045,13 @@
 <li><a href="#gameinputbox" id="toc-gameinputbox"><code>Game.InputBox</code></a></li>
 <li><a href="#gameisaudioplaying" id="toc-gameisaudioplaying"><code>Game.IsAudioPlaying</code></a></li>
 <li><a href="#gameispluginloaded" id="toc-gameispluginloaded"><code>Game.IsPluginLoaded</code></a></li>
+<li><a href="#gamepause" id="toc-gamepause"><code>Game.Pause</code></a></li>
 <li><a href="#gameplayvoiceclip" id="toc-gameplayvoiceclip"><code>Game.PlayVoiceClip</code></a></li>
 <li><a href="#gameplayvoiceclipastype" id="toc-gameplayvoiceclipastype"><code>Game.PlayVoiceClipAsType</code></a></li>
 <li><a href="#gameprecachesprite" id="toc-gameprecachesprite"><code>Game.PrecacheSprite</code></a></li>
 <li><a href="#gameprecacheview" id="toc-gameprecacheview"><code>Game.PrecacheView</code></a></li>
 <li><a href="#gameresetdoonceonly" id="toc-gameresetdoonceonly"><code>Game.ResetDoOnceOnly</code></a></li>
+<li><a href="#gameresume" id="toc-gameresume"><code>Game.Resume</code></a></li>
 <li><a href="#gamescansaveslots" id="toc-gamescansaveslots"><code>Game.ScanSaveSlots</code></a></li>
 <li><a href="#gamesetaudiotypespeechvolumedrop" id="toc-gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a></li>
 <li><a href="#gamesetaudiotypevolume" id="toc-gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></li>
@@ -1015,6 +1078,7 @@
 <li><a href="#gameinblockingwait" id="toc-gameinblockingwait"><code>Game.InBlockingWait</code></a></li>
 <li><a href="#gameinskippablecutscene" id="toc-gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a></li>
 <li><a href="#gameinventoryitemcount" id="toc-gameinventoryitemcount"><code>Game.InventoryItemCount</code></a></li>
+<li><a href="#gameispaused" id="toc-gameispaused"><code>Game.IsPaused</code></a></li>
 <li><a href="#gameminimumtextdisplaytimems" id="toc-gameminimumtextdisplaytimems"><code>Game.MinimumTextDisplayTimeMs</code></a></li>
 <li><a href="#gamemousecursorcount" id="toc-gamemousecursorcount"><code>Game.MouseCursorCount</code></a></li>
 <li><a href="#gamename" id="toc-gamename"><code>Game.Name</code></a></li>

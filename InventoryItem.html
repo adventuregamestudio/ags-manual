@@ -179,36 +179,55 @@
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemisinteractionavailable"><code>InventoryItem.IsInteractionAvailable</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a></p>
 <hr />
 </section>
+<section id="inventoryitemcursorhotspotx" class="level3">
+<h3><a href="#inventoryitemcursorhotspotx"><code>InventoryItem.CursorHotspotX</code></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">CursorHotspotX</span></span></code></pre></div>
+<p>Gets/sets the X position of hotspot on the graphic, which will be used when this inventory item is selected (see <a href="InventoryItem.html#inventoryitemcursorgraphic"><code>InventoryItem.CursorGraphic</code></a>. The hotspot is a pixel on the cursor graphic where the click takes effect.</p>
+<p>This is the offset into the graphic .</p>
+<p>In practice the cursor's image is drawn with opposite, negative offset from the cursor position (which is usually defined by the mouse position).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemcursorhotspoty"><code>InventoryItem.CursorHotspotY</code></a>, <a href="InventoryItem.html#inventoryitemcursorgraphic"><code>InventoryItem.CursorGraphic</code></a>, <a href="InventoryItem.html#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a>, <a href="Mouse.html#mousechangemodehotspot"><code>Mouse.ChangeModeHotspot</code></a></p>
+<hr />
+</section>
+<section id="inventoryitemcursorhotspoty" class="level3">
+<h3><a href="#inventoryitemcursorhotspoty"><code>InventoryItem.CursorHotspotY</code></a></h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">CursorHotspotY</span></span></code></pre></div>
+<p>Gets/sets the Y position of hotspot on the graphic, which will be used when this inventory item is selected (see <a href="InventoryItem.html#inventoryitemcursorgraphic"><code>InventoryItem.CursorGraphic</code></a>. The hotspot is a pixel on the cursor graphic where the click takes effect.</p>
+<p>In practice the cursor's image is drawn with opposite, negative offset from the cursor position (which is usually defined by the mouse position).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemcursorhotspotx"><code>InventoryItem.CursorHotspotX</code></a>, <a href="InventoryItem.html#inventoryitemcursorgraphic"><code>InventoryItem.CursorGraphic</code></a>, <a href="InventoryItem.html#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a>, <a href="Mouse.html#mousechangemodehotspot"><code>Mouse.ChangeModeHotspot</code></a></p>
+<hr />
+</section>
 <section id="inventoryitemcursorgraphic" class="level3">
 <h3><a href="#inventoryitemcursorgraphic"><code>InventoryItem.CursorGraphic</code></a></h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">CursorGraphic</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">CursorGraphic</span></span></code></pre></div>
 <p>Gets/sets the sprite slot number of the inventory item's mouse cursor. This is the sprite used as the mouse cursor when this inventory item is selected.</p>
 <p><strong>NOTE:</strong> This property is only used if the "Use selected inventory graphic for cursor" setting in General Settings is turned on.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The key&#39;s cursor graphic is %d&quot;</span><span class="op">,</span> iKey<span class="op">.</span><span class="at">CursorGraphic</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The key&#39;s cursor graphic is %d&quot;</span><span class="op">,</span> iKey<span class="op">.</span><span class="at">CursorGraphic</span><span class="op">);</span></span></code></pre></div>
 <p>will display inventory item <em>iKey</em>'s cursor graphic.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemcursorhotspotx"><code>InventoryItem.CursorHotspotX</code></a>, <a href="InventoryItem.html#inventoryitemcursorhotspoty"><code>InventoryItem.CursorHotspotY</code></a>, <a href="InventoryItem.html#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemgraphic" class="level3">
 <h3><a href="#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a></h3>
 <p><em>(Formerly known as <code>GetInvGraphic</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetInvItemPic</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">Graphic</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">Graphic</span></span></code></pre></div>
 <p>Gets/sets the sprite slot number of the inventory item. You could use this with the Object.Graphic property as a means of the player 'dropping' an inventory item, or it may be useful if you want to do a Raw Drawn inventory window.</p>
 <p><strong>NOTE:</strong> Prior to <strong>AGS 3.6.2</strong>, if you change this property and the CursorGraphic was assigned the same sprite as the main Graphic, then the CursorGraphic will be changed too automatically. Since 3.6.2 this is no longer done, and you have to change both yourself if you need to.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> slot = <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> slot = <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span></code></pre></div>
 <p>will place the sprite number of the player's current inventory item into slot.</p>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemcursorgraphic"><code>InventoryItem.CursorGraphic</code></a>, <a href="InventoryItem.html#inventoryitemgetatscreenxy"><code>InventoryItem.GetAtScreenXY</code></a>, <a href="InventoryItem.html#inventoryitemname"><code>InventoryItem.Name</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemid" class="level3">
 <h3><a href="#inventoryitemid"><code>InventoryItem.ID</code></a></h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the inventory item's ID number. This is the item's number from the editor, and is useful with commands such as Character.AddInventory which require an inventory number to add.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>AddInventory<span class="op">(</span>EGO<span class="op">,</span> iShovel<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>AddInventory<span class="op">(</span>EGO<span class="op">,</span> iShovel<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
 <p>uses the obsolete AddInventory command to add the shovel to EGO's inventory</p>
 <p><em>See also:</em> <a href="Character.html#characteraddinventory"><code>Character.AddInventory</code></a>, <a href="Character.html#characterloseinventory"><code>Character.LoseInventory</code></a></p>
 <hr />
@@ -216,11 +235,11 @@
 <section id="inventoryitemname" class="level3">
 <h3><a href="#inventoryitemname"><code>InventoryItem.Name</code></a></h3>
 <p><em>(Formerly known as <code>GetInvName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetInvItemName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InventoryItem.GetName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InventoryItem.SetName</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the name of the inventory item. This is the name which is initially set in Inventory item's properties in the AGS Editor.</p>
 <p>You can change this property if for example you want to change a 'bowl' to a 'bowl with water in' but want to use the same inventory item for it.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Active inventory: %s&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Active inventory: %s&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
 <p>will display the name of the player's current inventory item.</p>
 <p><em>Compatibility:</em> inventory item's name was limited to 24 characters prior to <strong>AGS 3.6.1</strong>.</p>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgetatscreenxy"><code>InventoryItem.GetAtScreenXY</code></a>, <a href="InventoryItem.html#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
@@ -228,14 +247,14 @@
 </section>
 <section id="inventoryitemscriptname" class="level3">
 <h3><a href="#inventoryitemscriptname"><code>InventoryItem.ScriptName</code></a></h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the script name of the inventory item, which serves as a unique identifier, as set in the AGS Editor.</p>
 <p>This may be useful if you have a pointer to some item stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each item in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="InventoryItem.html#inventoryitemgetbyname">InventoryItem.GetByName</a> function to retrieve the item by the previously saved script name.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">InventoryItem</span><span class="op">*</span> activeItem = <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">;</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>activeItem <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Active inventory item&#39;s script name: %s&quot;</span><span class="op">,</span> activeItem<span class="op">.</span><span class="at">ScriptName</span><span class="op">);</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">InventoryItem</span><span class="op">*</span> activeItem = <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>activeItem <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Active inventory item&#39;s script name: %s&quot;</span><span class="op">,</span> activeItem<span class="op">.</span><span class="at">ScriptName</span><span class="op">);</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Displays the script name of the player's current inventory item.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgetbyname"><code>InventoryItem.GetByName</code></a></p>
@@ -246,7 +265,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 6a87c854c3ae58e41f9ea7fc8527af0f310d59a9
+          Build: 46a1afb9ef3958fb7133553db9fa98a0b61a626c
         </p>
       </footer>
     </article>
@@ -263,6 +282,8 @@
 <li><a href="#inventoryitemsettextproperty" id="toc-inventoryitemsettextproperty"><code>InventoryItem.SetTextProperty</code></a></li>
 <li><a href="#inventoryitemisinteractionavailable" id="toc-inventoryitemisinteractionavailable"><code>InventoryItem.IsInteractionAvailable</code></a></li>
 <li><a href="#inventoryitemruninteraction" id="toc-inventoryitemruninteraction"><code>InventoryItem.RunInteraction</code></a></li>
+<li><a href="#inventoryitemcursorhotspotx" id="toc-inventoryitemcursorhotspotx"><code>InventoryItem.CursorHotspotX</code></a></li>
+<li><a href="#inventoryitemcursorhotspoty" id="toc-inventoryitemcursorhotspoty"><code>InventoryItem.CursorHotspotY</code></a></li>
 <li><a href="#inventoryitemcursorgraphic" id="toc-inventoryitemcursorgraphic"><code>InventoryItem.CursorGraphic</code></a></li>
 <li><a href="#inventoryitemgraphic" id="toc-inventoryitemgraphic"><code>InventoryItem.Graphic</code></a></li>
 <li><a href="#inventoryitemid" id="toc-inventoryitemid"><code>InventoryItem.ID</code></a></li>

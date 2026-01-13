@@ -151,13 +151,31 @@
 <p><em>See also:</em> <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a></p>
 <hr />
 </section>
+<section id="buttoncolorstyle" class="level3">
+<h3><a href="#buttoncolorstyle"><code>Button.ColorStyle</code></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>GUIButtonColorStyle <span class="bu">Button</span><span class="op">.</span><span class="at">ColorStyle</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the coloring style of a GUI button. The coloring style determines which of the color properties are used when drawing a button, and whether different colors are used when the button changes state (being highlighted when the cursor hovers over, or being pushed).</p>
+<p><strong>NOTE:</strong> when the button has a NormalGraphic set, then it's considered a "image button", and most of the colors do not apply. However, text colors are still used if this button has any Text assigned, as the text is drawn on top of the graphic.</p>
+<p>Following Color Styles are supported:</p>
+<ul>
+<li>eGUIButtonDefault - Default style. Button is drawn as a pseudo-3D box, using BackgroundColor as its main color, BorderColor as a light border color, and ShadowColor as a dark border color. TextColor is used to draw text. All color roles are fixed, regardless of the button state. (When the button is pushed, light and dark border lines are swapped in order to simulate 3D button pressed down.)</li>
+<li>eGUIButtonDynamic - Dynamic 3D style. Changes background and text color depending on the current state (MouseOverBackgroundColor, MouseOverTextColor, PushedBackgroundColor and PushedTextColor), but keeps 3D border colors fixed (BorderColor and ShadowColor).</li>
+<li>eGUIButtonDynamicFlat - Flat style. Uses only single color for the border, but changes that depending on the current state (BorderColor, MouseOverBorderColor, PushedBorderColor).</li>
+</ul>
+<p>In addition, both 3D styles (default and dynamic) shift the button text by 1 pixel down-right when the button is pressed, as a part of the 3D look simulation. Flat style does not do that. This rule applies even if the button has graphic. This means that if you are using button graphics instead of colors, but still use its Text property, you may choose to assign Flat style to prevent text being shifted when the button is pushed down.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Button1<span class="op">.</span><span class="at">ColorStyle</span> = eGUIButtonDynamic<span class="op">;</span></span></code></pre></div>
+<p>assigns a dynamic 3D style to a button.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbackgroundcolor"><code>GUIControl.BackgroundColor</code></a>, <a href="GUIControl.html#guicontrolbordercolor"><code>GUIControl.BorderColor</code></a>, <a href="Button.html#buttonmouseoverbackgroundcolor"><code>Button.MouseOverBackgroundColor</code></a>, <a href="Button.html#buttonmouseoverbordercolor"><code>Button.MouseOverBorderColor</code></a>, <a href="Button.html#buttonpushedbackgroundcolor"><code>Button.PushedBackgroundColor</code></a>, <a href="Button.html#buttonpushedbordercolor"><code>Button.PushedBorderColor</code></a>, <a href="Button.html#buttonshadowcolor"><code>Button.ShadowColor</code></a>, <a href="Button.html#buttontextcolor"><code>Button.TextColor</code></a>, <a href="Button.html#buttonmouseovertextcolor"><code>Button.MouseOverTextColor</code></a>, <a href="Button.html#buttonpushedtextcolor"><code>Button.PushedTextColor</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
+<hr />
+</section>
 <section id="buttonfont" class="level3">
 <h3><a href="#buttonfont"><code>Button.Font</code></a></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">FontType</span> <span class="bu">Button</span><span class="op">.</span><span class="at">Font</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">FontType</span> <span class="bu">Button</span><span class="op">.</span><span class="at">Font</span></span></code></pre></div>
 <p>Gets/sets the font used by the button to display text.</p>
 <p>The font number must correspond to one of the fonts from the Fonts pane in the AGS Editor.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>btnOK<span class="op">.</span><span class="at">Font</span> = <span class="bu">eFontMain</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>btnOK<span class="op">.</span><span class="at">Font</span> = <span class="bu">eFontMain</span><span class="op">;</span></span></code></pre></div>
 <p>will change the <em>btnOK</em> button to use Font "Main".</p>
 <p><em>See also:</em> <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="TextBox.html#textboxfont"><code>TextBox.Font</code></a></p>
 <hr />
@@ -165,56 +183,132 @@
 <section id="buttongraphic" class="level3">
 <h3><a href="#buttongraphic"><code>Button.Graphic</code></a></h3>
 <p><em>(Formerly part of <code>GetButtonPic</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the current image on a GUI button. If a value less than 1 is returned, then no image is currently displayed on the button.</p>
 <p>This property is read-only; in order to set the image, you must use one of the <a href="Button.html#buttonnormalgraphic"><code>NormalGraphic</code></a>, <a href="Button.html#buttonmouseovergraphic"><code>MouseOverGraphic</code></a> or <a href="Button.html#buttonpushedgraphic"><code>PushedGraphic</code></a> properties.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The button is currently using sprite %d.&quot;</span><span class="op">,</span> btnPlay<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The button is currently using sprite %d.&quot;</span><span class="op">,</span> btnPlay<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span></code></pre></div>
 <p>will display btnPlay's current sprite number.</p>
 <p><em>See also:</em> <a href="Button.html#buttonclipimage"><code>Button.ClipImage</code></a>, <a href="Button.html#buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Button.html#buttonpushedgraphic"><code>Button.PushedGraphic</code></a></p>
+<hr />
+</section>
+<section id="buttonmouseoverbackgroundcolor" class="level3">
+<h3><a href="#buttonmouseoverbackgroundcolor"><code>Button.MouseOverBackgroundColor</code></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">MouseOverBackgroundColor</span></span></code></pre></div>
+<p>Gets/sets the background color that will be used when the cursor is hovering this button. This color will be used under two conditions:</p>
+<ul>
+<li>if <a href="GUIControl.html#guicontrolsolidbackground"><code>SolidBackground</code></a> property is enabled.</li>
+<li>if <a href="Button.html#buttoncolorstyle"><code>ColorStyle</code></a> is either Dynamic or DynamicFlat.</li>
+</ul>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbackgroundcolor"><code>GUIControl.BackgroundColor</code></a>, <a href="GUIControl.html#guicontrolsolidbackground"><code>GUIControl.SolidBackground</code></a> <a href="Button.html#buttoncolorstyle"><code>Button.ColorStyle</code></a>, <a href="Button.html#buttonpushedbackgroundcolor"><code>Button.PushedBackgroundColor</code></a>,</p>
+<hr />
+</section>
+<section id="buttonmouseoverbordercolor" class="level3">
+<h3><a href="#buttonmouseoverbordercolor"><code>Button.MouseOverBorderColor</code></a></h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">MouseOverBorderColor</span></span></code></pre></div>
+<p>Gets/sets the border color that will be used when the cursor is hovering this button. This color will be used under two conditions:</p>
+<ul>
+<li>if <a href="GUIControl.html#guicontrolshowborder"><code>ShowBorder</code></a> property is enabled.</li>
+<li>if <a href="Button.html#buttoncolorstyle"><code>ColorStyle</code></a> is DynamicFlat.</li>
+</ul>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbordercolor"><code>GUIControl.BorderColor</code></a>, <a href="GUIControl.html#guicontrolshowborder"><code>GUIControl.ShowBorder</code></a> <a href="Button.html#buttoncolorstyle"><code>Button.ColorStyle</code></a>, <a href="Button.html#buttonpushedbordercolor"><code>Button.PushedBorderColor</code></a></p>
 <hr />
 </section>
 <section id="buttonmouseovergraphic" class="level3">
 <h3><a href="#buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a></h3>
 <p><em>(Formerly part of <code>GetButtonPic</code>, which is now obsolete)</em><br> <em>(Formerly part of <code>SetButtonPic</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">MouseOverGraphic</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">MouseOverGraphic</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the button's mouse-over sprite. This can be -1, which indicates that the button does not have a mouse-over graphic.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The button&#39;s mouse-over image is sprite %d.&quot;</span><span class="op">,</span> btnPlay<span class="op">.</span><span class="at">MouseOverGraphic</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The button&#39;s mouse-over image is sprite %d.&quot;</span><span class="op">,</span> btnPlay<span class="op">.</span><span class="at">MouseOverGraphic</span><span class="op">);</span></span></code></pre></div>
 <p>will display btnPlay's mouse-over sprite number.</p>
 <p><em>See also:</em> <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Button.html#buttonpushedgraphic"><code>Button.PushedGraphic</code></a></p>
+<hr />
+</section>
+<section id="buttonmouseovertextcolor" class="level3">
+<h3><a href="#buttonmouseovertextcolor"><code>Button.MouseOverTextColor</code></a></h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">MouseOverTextColor</span></span></code></pre></div>
+<p>Gets/sets the text color that will be used when the cursor is hovering this button.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Button.html#buttoncolorstyle"><code>Button.ColorStyle</code></a>, <a href="Button.html#buttontextcolor"><code>Button.TextColor</code></a>, <a href="Button.html#buttonpushedtextcolor"><code>Button.PushedTextColor</code></a></p>
 <hr />
 </section>
 <section id="buttonnormalgraphic" class="level3">
 <h3><a href="#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></h3>
 <p><em>(Formerly part of <code>GetButtonPic</code>, which is now obsolete)</em><br> <em>(Formerly part of <code>SetButtonPic</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">NormalGraphic</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">NormalGraphic</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the button's normal sprite (i.e. the graphic used when the button is not pushed and the mouse is not over it).</p>
 <p>Note that setting this to a different sprite will change the button's size to match the size of the new sprite.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The button&#39;s normal image is sprite %d.&quot;</span><span class="op">,</span> btnPlay<span class="op">.</span><span class="at">NormalGraphic</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The button&#39;s normal image is sprite %d.&quot;</span><span class="op">,</span> btnPlay<span class="op">.</span><span class="at">NormalGraphic</span><span class="op">);</span></span></code></pre></div>
 <p>will display btnPlay's normal sprite number.</p>
 <p><em>See also:</em> <a href="Button.html#buttonclipimage"><code>Button.ClipImage</code></a> <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a>, <a href="Button.html#buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a>, <a href="Button.html#buttonpushedgraphic"><code>Button.PushedGraphic</code></a>, <a href="Button.html#buttontextcolor"><code>Button.TextColor</code></a></p>
+<hr />
+</section>
+<section id="buttonpushedbackgroundcolor" class="level3">
+<h3><a href="#buttonpushedbackgroundcolor"><code>Button.PushedBackgroundColor</code></a></h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">PushedBackgroundColor</span></span></code></pre></div>
+<p>Gets/sets the background color that will be used when the button is being pushed. This color will be used under two conditions:</p>
+<ul>
+<li>if <a href="GUIControl.html#guicontrolsolidbackground"><code>SolidBackground</code></a> property is enabled.</li>
+<li>if <a href="Button.html#buttoncolorstyle"><code>ColorStyle</code></a> is either Dynamic or DynamicFlat.</li>
+</ul>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbackgroundcolor"><code>GUIControl.BackgroundColor</code></a>, <a href="GUIControl.html#guicontrolsolidbackground"><code>GUIControl.SolidBackground</code></a> <a href="Button.html#buttoncolorstyle"><code>Button.ColorStyle</code></a>, <a href="Button.html#buttonmouseoverbackgroundcolor"><code>Button.MouseOverBackgroundColor</code></a>,</p>
+<hr />
+</section>
+<section id="buttonpushedbordercolor" class="level3">
+<h3><a href="#buttonpushedbordercolor"><code>Button.PushedBorderColor</code></a></h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">PushedBorderColor</span></span></code></pre></div>
+<p>Gets/sets the border color that will be used when the button is being pushed. This color will be used under two conditions:</p>
+<ul>
+<li>if <a href="GUIControl.html#guicontrolshowborder"><code>ShowBorder</code></a> property is enabled.</li>
+<li>if <a href="Button.html#buttoncolorstyle"><code>ColorStyle</code></a> is DynamicFlat.</li>
+</ul>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbordercolor"><code>GUIControl.BorderColor</code></a>, <a href="GUIControl.html#guicontrolshowborder"><code>GUIControl.ShowBorder</code></a> <a href="Button.html#buttoncolorstyle"><code>Button.ColorStyle</code></a>, <a href="Button.html#buttonmouseoverbordercolor"><code>Button.MouseOverBorderColor</code></a></p>
 <hr />
 </section>
 <section id="buttonpushedgraphic" class="level3">
 <h3><a href="#buttonpushedgraphic"><code>Button.PushedGraphic</code></a></h3>
 <p><em>(Formerly part of <code>GetButtonPic</code>, which is now obsolete)</em><br> <em>(Formerly part of <code>SetButtonPic</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">PushedGraphic</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">PushedGraphic</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the button's pushed sprite (i.e. the graphic used when the button is pushed in by the user). This can be -1, which indicates that the button does not have a pushed image.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The button&#39;s pushed image is sprite %d.&quot;</span><span class="op">,</span> btnPlay<span class="op">.</span><span class="at">PushedGraphic</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The button&#39;s pushed image is sprite %d.&quot;</span><span class="op">,</span> btnPlay<span class="op">.</span><span class="at">PushedGraphic</span><span class="op">);</span></span></code></pre></div>
 <p>will display btnPlay's pushed sprite number.</p>
 <p><em>See also:</em> <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a>, <a href="Button.html#buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
+<hr />
+</section>
+<section id="buttonpushedtextcolor" class="level3">
+<h3><a href="#buttonpushedtextcolor"><code>Button.PushedTextColor</code></a></h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">PushedTextColor</span></span></code></pre></div>
+<p>Gets/sets the text color that will be used when the button is being pushed.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Button.html#buttoncolorstyle"><code>Button.ColorStyle</code></a>, <a href="Button.html#buttontextcolor"><code>Button.TextColor</code></a>, <a href="Button.html#buttonmouseovertextcolor"><code>Button.MouseOverTextColor</code></a></p>
+<hr />
+</section>
+<section id="buttonshadowcolor" class="level3">
+<h3><a href="#buttonshadowcolor"><code>Button.ShadowColor</code></a></h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">ShadowColor</span></span></code></pre></div>
+<p>Gets/sets the alternate border color that will be used for 3D effect. This color will be used under two conditions:</p>
+<ul>
+<li>if <a href="GUIControl.html#guicontrolshowborder"><code>ShowBorder</code></a> property is enabled.</li>
+<li>if <a href="Button.html#buttoncolorstyle"><code>ColorStyle</code></a> is Default or Dynamic (NOT DynamicFlat).</li>
+</ul>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbordercolor"><code>GUIControl.BorderColor</code></a>, <a href="GUIControl.html#guicontrolshowborder"><code>GUIControl.ShowBorder</code></a> <a href="Button.html#buttoncolorstyle"><code>Button.ColorStyle</code></a>, <a href="Button.html#buttonmouseoverbordercolor"><code>Button.MouseOverBorderColor</code></a>, <a href="Button.html#buttonpushedbordercolor"><code>Button.PushedBorderColor</code></a></p>
 <hr />
 </section>
 <section id="buttontext" class="level3">
 <h3><a href="#buttontext"><code>Button.Text</code></a></h3>
 <p><em>(Formerly known as <code>SetButtonText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Button.GetText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Button.SetText</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Button</span><span class="op">.</span><span class="at">Text</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Button</span><span class="op">.</span><span class="at">Text</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the text displayed on the button.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>btnController<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;Enable jibble&quot;</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>btnController<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;Enable jibble&quot;</span><span class="op">;</span></span></code></pre></div>
 <p>Will change button btnController to read "Enable jibble".</p>
 <p>Besides a regular text, there are few special text values, called "tokens". If you assign any of these to the Button, it will update its looks automatically during the game. Currently supported are 3 tokens, that make button display selected inventory item's graphic (that is - inventory item assigned as <a href="Character.html#characteractiveinventory"><code>player.ActiveInventory</code></a>). They differ in a way item's graphic is aligned:</p>
 <table>
@@ -241,38 +335,38 @@
 </table>
 <p>Please note that any of these work only if you assign some normal graphic to the button, in which case the inventory item is drawn on top of it.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>btnSelectedInv<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;(INVNS)&quot;</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>btnSelectedInv<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;(INVNS)&quot;</span><span class="op">;</span></span></code></pre></div>
 <p>Will make button btnSelectedInv display active inventory item's graphic, or just its normal graphic when no inventory item is selected.</p>
 <p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Label.html#labeltext"><code>Label.Text</code></a></p>
 <hr />
 </section>
 <section id="buttontextalignment" class="level3">
 <h3><a href="#buttontextalignment"><code>Button.TextAlignment</code></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Alignment</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextAlignment</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Alignment</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextAlignment</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets how the text is aligned relative to the button's rectangle.</p>
-<p>If the button is displaying an image rather than text, then this property has no effect.</p>
-<p><em>See also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
+<p>If the button has no text set, then this property has no effect.</p>
+<p><em>See also:</em> <a href="StandardEnums.html#alignment">Alignment enum</a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a> <a href="Button.html#buttontext"><code>Button.Text</code></a></p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="buttontextcolor" class="level3">
 <h3><a href="#buttontextcolor"><code>Button.TextColor</code></a></h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextColor</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextColor</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the text color used to display the button's text.</p>
 <p>If the button is displaying an image rather than text, then this property has no effect.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>btnRestart<span class="op">.</span><span class="at">TextColor</span> = <span class="dv">15</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>btnRestart<span class="op">.</span><span class="at">TextColor</span> = <span class="dv">15</span><span class="op">;</span></span></code></pre></div>
 <p>will change button 'btnRestart' to have white text.</p>
 <p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
 <hr />
 </section>
 <section id="buttontextpaddinghorizontal" class="level3">
 <h3><a href="#buttontextpaddinghorizontal"><code>Button.TextPaddingHorizontal</code></a></h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextPaddingHorizontal</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextPaddingHorizontal</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets amount of padding, restricting the text from left and right. This property helps to position the text within the button.</p>
 <p>Padding here is the space in pixels between the text and the edges of the button.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>btnSettings<span class="op">.</span><span class="at">TextPaddingHorizontal</span> = <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>btnSettings<span class="op">.</span><span class="at">TextPaddingHorizontal</span> = <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
 <p>will ensure there is 5 pixels of space on both sides of the text within the button.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Button.html#buttontextpaddingvertical"><code>Button.TextPaddingVertical</code></a></p>
@@ -280,7 +374,7 @@
 </section>
 <section id="buttontextpaddingvertical" class="level3">
 <h3><a href="#buttontextpaddingvertical"><code>Button.TextPaddingVertical</code></a></h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextPaddingVertical</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextPaddingVertical</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets amount of padding, restricting the text from top and bottom.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Button.html#buttontextpaddinghorizontal"><code>Button.TextPaddingHorizontal</code></a></p>
@@ -288,12 +382,12 @@
 </section>
 <section id="buttonwraptext" class="level3">
 <h3><a href="#buttonwraptext"><code>Button.WrapText</code></a></h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Button</span><span class="op">.</span><span class="at">WrapText</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Button</span><span class="op">.</span><span class="at">WrapText</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets whether the button will wrap its text.</p>
 <p><strong>NOTE:</strong> If the text contains linebreaks (e.g., <code>\n</code>), set this property to <code>true</code> to honor those breaks.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>btnRiddle<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;Click me for a hint</span><span class="sc">\n</span><span class="st">What has keys but can&#39;t open locks?&quot;</span><span class="op">;</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>btnRiddle<span class="op">.</span><span class="at">WrapText</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>btnRiddle<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;Click me for a hint</span><span class="sc">\n</span><span class="st">What has keys but can&#39;t open locks?&quot;</span><span class="op">;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>btnRiddle<span class="op">.</span><span class="at">WrapText</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>Here the button btnRiddle has a text that requires wrap set to true to display correctly. We can imagine clicking it gives a piano sound.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 </section>
@@ -303,7 +397,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 6a87c854c3ae58e41f9ea7fc8527af0f310d59a9
+          Build: 46a1afb9ef3958fb7133553db9fa98a0b61a626c
         </p>
       </footer>
     </article>
@@ -319,11 +413,19 @@
 <li><a href="#buttonloop" id="toc-buttonloop"><code>Button.Loop</code></a></li>
 <li><a href="#buttonview" id="toc-buttonview"><code>Button.View</code></a></li>
 <li><a href="#buttonclipimage" id="toc-buttonclipimage"><code>Button.ClipImage</code></a></li>
+<li><a href="#buttoncolorstyle" id="toc-buttoncolorstyle"><code>Button.ColorStyle</code></a></li>
 <li><a href="#buttonfont" id="toc-buttonfont"><code>Button.Font</code></a></li>
 <li><a href="#buttongraphic" id="toc-buttongraphic"><code>Button.Graphic</code></a></li>
+<li><a href="#buttonmouseoverbackgroundcolor" id="toc-buttonmouseoverbackgroundcolor"><code>Button.MouseOverBackgroundColor</code></a></li>
+<li><a href="#buttonmouseoverbordercolor" id="toc-buttonmouseoverbordercolor"><code>Button.MouseOverBorderColor</code></a></li>
 <li><a href="#buttonmouseovergraphic" id="toc-buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a></li>
+<li><a href="#buttonmouseovertextcolor" id="toc-buttonmouseovertextcolor"><code>Button.MouseOverTextColor</code></a></li>
 <li><a href="#buttonnormalgraphic" id="toc-buttonnormalgraphic"><code>Button.NormalGraphic</code></a></li>
+<li><a href="#buttonpushedbackgroundcolor" id="toc-buttonpushedbackgroundcolor"><code>Button.PushedBackgroundColor</code></a></li>
+<li><a href="#buttonpushedbordercolor" id="toc-buttonpushedbordercolor"><code>Button.PushedBorderColor</code></a></li>
 <li><a href="#buttonpushedgraphic" id="toc-buttonpushedgraphic"><code>Button.PushedGraphic</code></a></li>
+<li><a href="#buttonpushedtextcolor" id="toc-buttonpushedtextcolor"><code>Button.PushedTextColor</code></a></li>
+<li><a href="#buttonshadowcolor" id="toc-buttonshadowcolor"><code>Button.ShadowColor</code></a></li>
 <li><a href="#buttontext" id="toc-buttontext"><code>Button.Text</code></a></li>
 <li><a href="#buttontextalignment" id="toc-buttontextalignment"><code>Button.TextAlignment</code></a></li>
 <li><a href="#buttontextcolor" id="toc-buttontextcolor"><code>Button.TextColor</code></a></li>
