@@ -79,21 +79,29 @@
 <p><em>See also:</em> <a href="Slider.html#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></p>
 <hr />
 </section>
+<section id="sliderbordershadecolor" class="level3">
+<h3><a href="#sliderbordershadecolor"><code>Slider.BorderShadeColor</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">BorderShadeColor</span></span></code></pre></div>
+<p>Gets/sets the alternate border color that will be used for 3D effect. It's used for both handle and the slider bar, but only if HandleGraphic and BackgroundGraphic are not set, respectively.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbordercolor"><code>GUIControl.BorderColor</code></a>, <a href="Slider.html#sliderbackgroundgraphic"><code>Slider.BackgroundGraphic</code></a> <a href="Slider.html#sliderhandlecolor"><code>Slider.HandleColor</code></a></p>
+<hr />
+</section>
 <section id="sliderhandlecolor" class="level3">
 <h3><a href="#sliderhandlecolor"><code>Slider.HandleColor</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">HandleColor</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">HandleColor</span></span></code></pre></div>
 <p>Gets/sets the fill color of the handle. This setting will be ignored if HandleGraphic is set.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Slider.html#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></p>
+<p><em>See also:</em> <a href="Slider.html#sliderbordershadecolor"><code>Slider.BorderShadeColor</code></a> <a href="Slider.html#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></p>
 <hr />
 </section>
 <section id="sliderhandlegraphic" class="level3">
 <h3><a href="#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">HandleGraphic</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">HandleGraphic</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the sprite used to draw the handle on the slider. The handle represents the slider's current position, and can be dragged around by the player.</p>
 <p>The handle graphic can be set to 0, which will draw the default grey handle.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;sldHealth&#39;s handle is sprite %d&quot;</span><span class="op">,</span> sldHealth<span class="op">.</span><span class="at">HandleGraphic</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;sldHealth&#39;s handle is sprite %d&quot;</span><span class="op">,</span> sldHealth<span class="op">.</span><span class="at">HandleGraphic</span><span class="op">);</span></span></code></pre></div>
 <p>displays the <em>sldHealth</em> slider's handle image</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Slider.html#sliderbackgroundgraphic"><code>Slider.BackgroundGraphic</code></a>, <a href="Slider.html#sliderhandleoffset"><code>Slider.HandleOffset</code></a></p>
@@ -101,10 +109,10 @@
 </section>
 <section id="sliderhandleoffset" class="level3">
 <h3><a href="#sliderhandleoffset"><code>Slider.HandleOffset</code></a></h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">HandleOffset</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">HandleOffset</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the offset at which the handle image is drawn. This value is initially set up in the editor.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">HandleOffset</span> = <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">HandleOffset</span> = <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
 <p>sets the <em>sldHealth</em> slider's handle to be drawn an extra 2 pixels to the right.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Slider.html#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></p>
@@ -112,34 +120,26 @@
 </section>
 <section id="slidermax" class="level3">
 <h3><a href="#slidermax"><code>Slider.Max</code></a></h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">Max</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">Max</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the maximum value of the specified GUI slider.</p>
 <p>When changing the maximum, the slider's Value will be adjusted if necessary so that it lies within the Min - Max range.</p>
 <p>An error occurs if you try to set the Max to a lower value than the Min.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">Max</span> = <span class="dv">200</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">Max</span> = <span class="dv">200</span><span class="op">;</span></span></code></pre></div>
 <p>sets the maximum value of the <em>sldHealth</em> slider to 200.</p>
 <p><em>See also:</em> <a href="Slider.html#slidermin"><code>Slider.Min</code></a>, <a href="Slider.html#slidervalue"><code>Slider.Value</code></a></p>
 <hr />
 </section>
 <section id="slidermin" class="level3">
 <h3><a href="#slidermin"><code>Slider.Min</code></a></h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">Min</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">Min</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the minimum value of the specified GUI slider.</p>
 <p>When changing the minimum, the slider's Value will be adjusted if necessary so that it lies within the Min - Max range.</p>
 <p>An error occurs if you try to set the Min to a higher value than the Max.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">Min</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">Min</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>sets the minimum value of the <em>sldHealth</em> slider to 0.</p>
 <p><em>See also:</em> <a href="Slider.html#slidermax"><code>Slider.Max</code></a>, <a href="Slider.html#slidervalue"><code>Slider.Value</code></a></p>
-<hr />
-</section>
-<section id="slidershadowcolor" class="level3">
-<h3><a href="#slidershadowcolor"><code>Slider.ShadowColor</code></a></h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">ShadowColor</span></span></code></pre></div>
-<p>Gets/sets the alternate border color that will be used for 3D effect. It's used for both handle and the slider bar, but only if HandleGraphic and BackgroundGraphic are not set, respectively.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<p><em>See also:</em> <a href="GUIControl.html#guicontrolbordercolor"><code>GUIControl.BorderColor</code></a>, <a href="Slider.html#sliderbackgroundgraphic"><code>Slider.BackgroundGraphic</code></a></p>
 <hr />
 </section>
 <section id="slidervalue" class="level3">
@@ -159,7 +159,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 46a1afb9ef3958fb7133553db9fa98a0b61a626c
+          Build: 7eeee5076127f061c842e9654dbb87768c0cf245
         </p>
       </footer>
     </article>
@@ -169,12 +169,12 @@
 <li><a href="#slider-properties" id="toc-slider-properties"><code>Slider</code> properties</a>
 <ul>
 <li><a href="#sliderbackgroundgraphic" id="toc-sliderbackgroundgraphic"><code>Slider.BackgroundGraphic</code></a></li>
+<li><a href="#sliderbordershadecolor" id="toc-sliderbordershadecolor"><code>Slider.BorderShadeColor</code></a></li>
 <li><a href="#sliderhandlecolor" id="toc-sliderhandlecolor"><code>Slider.HandleColor</code></a></li>
 <li><a href="#sliderhandlegraphic" id="toc-sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></li>
 <li><a href="#sliderhandleoffset" id="toc-sliderhandleoffset"><code>Slider.HandleOffset</code></a></li>
 <li><a href="#slidermax" id="toc-slidermax"><code>Slider.Max</code></a></li>
 <li><a href="#slidermin" id="toc-slidermin"><code>Slider.Min</code></a></li>
-<li><a href="#slidershadowcolor" id="toc-slidershadowcolor"><code>Slider.ShadowColor</code></a></li>
 <li><a href="#slidervalue" id="toc-slidervalue"><code>Slider.Value</code></a></li>
 </ul></li>
 </ul>

@@ -2447,6 +2447,9 @@ var meta = {
       "0": { "Button": 3 },
       "1": { "GUI": 1 }
     },
+    "BorderShadeColor": {
+      "0": { "Button": 2 }
+    },
     "BorderWidth": {
       "0": { "GUIControl": 4 }
     },
@@ -2548,6 +2551,9 @@ var meta = {
     "Button.Animating": {
       "0": { "Button": 4 }
     },
+    "Button.BorderShadeColor": {
+      "0": { "Button": 3 }
+    },
     "Button.Click": {
       "0": { "Button": 2 },
       "1": { "GUI": 1 }
@@ -2611,9 +2617,6 @@ var meta = {
     "Button.SetText": {
       "0": { "Button": 1 },
       "1": { "ObsoleteScriptAPI": 1 }
-    },
-    "Button.ShadowColor": {
-      "0": { "Button": 3 }
     },
     "Button.Text": {
       "0": { "Button": 3 },
@@ -17539,9 +17542,6 @@ var meta = {
     "Shabtay": {
       "0": { "Credits": 1 }
     },
-    "ShadowColor": {
-      "0": { "Button": 2 }
-    },
     "Shaham": {
       "0": { "Credits": 1 }
     },
@@ -17800,8 +17800,11 @@ var meta = {
     "Slider.BackgroundGraphic": {
       "0": { "Slider": 4 }
     },
+    "Slider.BorderShadeColor": {
+      "0": { "Slider": 3 }
+    },
     "Slider.HandleColor": {
-      "0": { "Slider": 2 }
+      "0": { "Slider": 3 }
     },
     "Slider.HandleGraphic": {
       "0": { "Slider": 5 }
@@ -17814,9 +17817,6 @@ var meta = {
     },
     "Slider.Min": {
       "0": { "Slider": 3 }
-    },
-    "Slider.ShadowColor": {
-      "0": { "Slider": 2 }
     },
     "Slider.Value": {
       "0": { "EditorGUI": 1 },
