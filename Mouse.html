@@ -89,13 +89,14 @@
 </section>
 <section id="mousechangemodeview" class="level3">
 <h3><a href="#mousechangemodeview"><code>Mouse.ChangeModeView</code></a></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Mouse</span><span class="op">.</span><span class="at">ChangeModeView</span><span class="op">(</span><span class="dt">CursorMode</span><span class="op">,</span> <span class="dt">int</span> view<span class="op">)</span></span></code></pre></div>
-<p>Changes the specified mouse cursor mode's animation view to VIEW.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Mouse</span><span class="op">.</span><span class="at">ChangeModeView</span><span class="op">(</span><span class="dt">CursorMode</span><span class="op">,</span> <span class="dt">int</span> view<span class="op">,</span> optional <span class="dt">int</span> delay<span class="op">)</span></span></code></pre></div>
+<p>Changes the specified mouse cursor mode's animation view to VIEW, optionally setting a different animation delay. If no delay parameter is provided, then the view will use a default AnimationDelay parameter of the Cursor itself.</p>
 <p>You can pass <em>view</em> as -1 to stop the cursor from animating.</p>
 <p>This allows you to dynamically change the view used for the cursor's animation while the game is running.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">mouse</span><span class="op">.</span><span class="at">ChangeModeView</span><span class="op">(</span><span class="bu">eModeLookat</span><span class="op">,</span> ROLLEYES<span class="op">);</span></span></code></pre></div>
 <p>will change the Look cursor's view to ROLLEYES.</p>
+<p><em>Compatibility:</em> "delay" parameter is supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Mouse.html#mousechangemodegraphic"><code>Mouse.ChangeModeGraphic</code></a>, <a href="Mouse.html#mousechangemodehotspot"><code>Mouse.ChangeModeHotspot</code></a></p>
 <hr />
 </section>
@@ -347,7 +348,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 7eeee5076127f061c842e9654dbb87768c0cf245
+          Build: f78e42280dbb769346d8b3022bc6ddea055cfaff
         </p>
       </footer>
     </article>

@@ -128,15 +128,13 @@
 <p>Optionally, you can also specify the transparency of the image. This is a number from 0-100; using a <em>transparency</em> of 50 will draw the image semi-transparent; using 0 means it will not be transparent.</p>
 <p>You can also resize the image as you draw it. In order to do this, simply specify a <em>width</em> and <em>height</em> that you wish to resize the image to when it is drawn.</p>
 <p>As of <strong>AGS 3.6.0</strong>, you can also cut the original image in a specific rectangle using it's x,y position and width and height.</p>
-<p><strong>NOTE:</strong> This command only works if the image to be drawn is the same color depth as the surface that you are drawing onto.</p>
-<p><strong>NOTE:</strong> Transparency does not work in 256-color games, or with 256-color sprites.</p>
-<p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not SCREEN co-ordinates. This means that in a scrolling room you can draw outside the current visible area.</p>
+<p><strong>NOTE:</strong> Transparency parameter does not work in 256-color games, or with 256-color sprites.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawImage</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">Graphic</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will draw the <em>oDoor</em> object's graphic onto the room background at (100, 100), at <code>40%</code> transparency.</p>
-<p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawsurface"><code>DrawingSurface.DrawSurface</code></a>, <a href="Room.html#roomcolordepth"><code>Room.ColorDepth</code></a></p>
+<p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawsurface"><code>DrawingSurface.DrawSurface</code></a></p>
 <hr />
 </section>
 <section id="drawingsurfacedrawline" class="level3">
@@ -360,7 +358,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 7eeee5076127f061c842e9654dbb87768c0cf245
+          Build: f78e42280dbb769346d8b3022bc6ddea055cfaff
         </p>
       </footer>
     </article>

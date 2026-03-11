@@ -583,6 +583,7 @@
 <li><strong>WholeScreen style</strong>: covers whole room with a black overlay, and displays character's portrait and speech in the middle. Animates portrait using Speech View.</li>
 </ul>
 <p>The text will remain on screen for a limited time, and the player may or may not be able to click it away depending on the setting of "Allow speech to be skipped" and runtime property <a href="Speech.html#speechskipstyle">Speech.SkipStyle</a>.</p>
+<p>There's a special case for the text which consists of just three dots: "...". Such text causes the game to pause briefly as if the character is stopping to think, and nothing will be displayed. If, on another hand, you'd like to actually display three dots, then the trick is to add any number of extra spaces into this string.</p>
 <p><code>Character.Say</code> supports playing a voice file. For that you need to precede the text with <code>&amp;N</code>, where N is a voice clip's number. For more information, see the <a href="VoiceSpeech.html">Voice speech</a> section.</p>
 <p>This function is used by the dialog scrips by default, using it in normal script is fully equivalent to having "charname: message" in the dialog.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
@@ -1533,7 +1534,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 7eeee5076127f061c842e9654dbb87768c0cf245
+          Build: f78e42280dbb769346d8b3022bc6ddea055cfaff
         </p>
       </footer>
     </article>
