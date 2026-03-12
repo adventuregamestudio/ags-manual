@@ -108,6 +108,33 @@
 <p>This would set NormalFont to font 4, leave SpeechFont unchanged, and switch text direction to Right-to-left mode.</p>
 <p><strong>NOTE:</strong> these options are applied to game properties the moment new translation is enabled. But they are not kept permanently while that translation is active. Changing any of these in script would override values set by current translation.</p>
 </section>
+<section id="font-overrides" class="level3">
+<h3><a href="#font-overrides">Font overrides</a></h3>
+<p>Starting with <strong>AGS 3.6.3</strong> you can specify font overrides in the translation file. Font override defines replacement of one or more of the game fonts with either another game font, or completely custom font setup. These replacements are applied whenever translation is enabled in game, and are restored to defaults when it's disabled.</p>
+<p>Similar to the translation options described above, a font override must be preceded with the comment opening and a pound sign <code>//#</code>. A font override itself can have one of two syntaxes. The first syntax is for the direct font replacement:</p>
+<p><code>FontN=FontX</code></p>
+<p>This syntax simply replaces a game font N with the game font X. This means that whenever font N is referenced in game, a font X will be used instead. The second syntax is for the custom font setup:</p>
+<p><code>FontN=PROPERTY1=VALUE1;PROPERTY2=VALUE2;PROPERTY3=VALUE3...</code></p>
+<p>Here properties and their values may be any of the following:</p>
+<ul>
+<li><strong>File</strong> - font's filename; e.g. "agsfnt10.ttf".</li>
+<li><strong>Size</strong> - import font size (number).</li>
+<li><strong>SizeMultiplier</strong> - an integer size multiplier (useful only for bitmap fonts).</li>
+<li><strong>Outline</strong> - font's outline type, can be: NONE, AUTO or FontX, where X is a outline font's index.</li>
+<li><strong>AutoOutline</strong> - automatic outline's style: SQUARED or ROUND.</li>
+<li><strong>AutoOutlineThickness</strong> - automatic outline's thickness, in pixels.</li>
+<li><strong>HeightDefinition</strong> - how the font's logical height is defined, can be: NOMINAL, REAL or CUSTOM. NOMINAL uses font's Size as its height, REAL uses actual font's height calculated after loading a font, and CUSTOM lets specify a height value.</li>
+<li><strong>CustomHeight</strong> - custom font's logical height, in pixels.</li>
+<li><strong>VerticalOffset</strong> - optional vertical offset used when drawing any text with this font.</li>
+<li><strong>LineSpacing</strong> - custom distance between top of one line of text and top of the next line of text.</li>
+<li><strong>CharacterSpacing</strong> - custom additional horizontal distance between any two characters of text.</li>
+</ul>
+<p>Examples:</p>
+<pre><code>// Replace font 0 with font 10
+//#Font0=Font10
+// Replace font 1 with a custom font
+//#Font1=File=example.ttf;Size=12;Outline=AUTO;</code></pre>
+</section>
 <section id="troubleshooting" class="level3">
 <h3><a href="#troubleshooting">Troubleshooting</a></h3>
 <p>If you have ?s displaying instead of special characters in the translated lines, make sure the <a href="Game.html#gamespeechfont">font</a> you use is imported into AGS correctly and supports the characters you want to display. In case some letters are mixed up this might be a mapping problem of the source font, you need to manually edit this fontsheet or just find a new font on the world wide web that works.</p>
@@ -125,7 +152,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: f78e42280dbb769346d8b3022bc6ddea055cfaff
+          Build: 31224d4c1e0493c63f53bbb1508c3c9dc74949d3
         </p>
       </footer>
     </article>
@@ -136,6 +163,7 @@
 <ul>
 <li><a href="#overview" id="toc-overview">Overview</a></li>
 <li><a href="#additional-options" id="toc-additional-options">Additional options</a></li>
+<li><a href="#font-overrides" id="toc-font-overrides">Font overrides</a></li>
 <li><a href="#troubleshooting" id="toc-troubleshooting">Troubleshooting</a></li>
 <li><a href="#advanced-help" id="toc-advanced-help">Advanced Help</a></li>
 </ul></li>

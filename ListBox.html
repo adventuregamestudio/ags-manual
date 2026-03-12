@@ -365,23 +365,31 @@
 <p>Example:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">TextColor</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">80</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="ListBox.html#listboxselectedbackcolor"><code>ListBox.SelectedBackColor</code></a>, <a href="ListBox.html#listboxselectedtextcolor"><code>ListBox.SelectedTextColor</code></a>, <a href="ListBox.html#listboxshowborder"><code>ListBox.ShowBorder</code></a>, <a href="ListBox.html#listboxshowscrollarrows"><code>ListBox.ShowScrollArrows</code></a></p>
+<p><em>See also:</em> <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="ListBox.html#listboxselectedbackcolor"><code>ListBox.SelectedBackColor</code></a>, <a href="ListBox.html#listboxselectedtextcolor"><code>ListBox.SelectedTextColor</code></a>, <a href="ListBox.html#listboxtextoutlinecolor"><code>ListBox.TextOutlineColor</code></a></p>
+<hr />
+</section>
+<section id="listboxtextoutlinecolor" class="level3">
+<h3><a href="#listboxtextoutlinecolor"><code>ListBox.TextOutlineColor</code></a></h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TextOutlineColor</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the color used to display the text's outline, but only if the listbox's Font uses outline. If the font has no outline, then this property has no effect.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="ListBox.html#listboxtextcolor"><code>ListBox.TextColor</code></a></p>
 <hr />
 </section>
 <section id="listboxtopitem" class="level3">
 <h3><a href="#listboxtopitem"><code>ListBox.TopItem</code></a></h3>
 <p><em>(Formerly known as <code>ListBoxSetTopItem</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TopItem</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TopItem</span></span></code></pre></div>
 <p>Gets/sets the top item in the list box. The top item is the first item that is visible within the list box, so changing this effectively scrolls the list up and down.</p>
 <p>Indexes for TopItem start from 0 for the first item in the list.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">TopItem</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">TopItem</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>will automatically scroll listbox <em>lstSaveGames</em> back to the top of the list.</p>
 <hr />
 </section>
 <section id="listboxtranslated" class="level3">
 <h3><a href="#listboxtranslated"><code>ListBox.Translated</code></a></h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">Translated</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">Translated</span></span></code></pre></div>
 <p>Gets/sets whether the list box's items are translated to the selected game language at runtime.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
 </section>
@@ -391,7 +399,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: f78e42280dbb769346d8b3022bc6ddea055cfaff
+          Build: 31224d4c1e0493c63f53bbb1508c3c9dc74949d3
         </p>
       </footer>
     </article>
@@ -424,6 +432,7 @@
 <li><a href="#listboxshowscrollarrows" id="toc-listboxshowscrollarrows"><code>ListBox.ShowScrollArrows</code></a></li>
 <li><a href="#listboxtextalignment" id="toc-listboxtextalignment"><code>ListBox.TextAlignment</code></a></li>
 <li><a href="#listboxtextcolor" id="toc-listboxtextcolor"><code>ListBox.TextColor</code></a></li>
+<li><a href="#listboxtextoutlinecolor" id="toc-listboxtextoutlinecolor"><code>ListBox.TextOutlineColor</code></a></li>
 <li><a href="#listboxtopitem" id="toc-listboxtopitem"><code>ListBox.TopItem</code></a></li>
 <li><a href="#listboxtranslated" id="toc-listboxtranslated"><code>ListBox.Translated</code></a></li>
 </ul></li>

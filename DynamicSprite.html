@@ -229,10 +229,11 @@
 </section>
 <section id="dynamicspritechangecanvassize" class="level3">
 <h3><a href="#dynamicspritechangecanvassize"><code>DynamicSprite.ChangeCanvasSize</code></a></h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">ChangeCanvasSize</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">ChangeCanvasSize</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">,</span> optional <span class="dt">int</span> x<span class="op">,</span> optional <span class="dt">int</span> y<span class="op">);</span></span></code></pre></div>
 <p>Changes the sprite size to <em>width</em> x <em>height</em>, placing the current image at offset (x, y) within the new canvas. Unlike the <a href="DynamicSprite.html#dynamicspriteresize"><code>Resize</code></a> command, the current image is kept at its original size.</p>
 <p>This function allows you to enlarge the sprite background in order to draw more onto it than its current boundaries allow. It is effectively the opposite of <a href="DynamicSprite.html#dynamicspritecrop"><code>Crop</code></a>. The additional surface area will be transparent.</p>
 <p>The width and height are specified in pixels.</p>
+<p>The x and y parameters may be omited (since <strong>AGS 3.6.3</strong>), in which case the original image is copied to the top-left of the new canvas.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">ChangeCanvasSize</span><span class="op">(</span>sprite<span class="op">.</span><span class="at">Width</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> sprite<span class="op">.</span><span class="at">Height</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
@@ -242,6 +243,7 @@
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
 <p>creates a dynamic sprite as a copy of sprite 10, enlarges it by 5 pixels to the left and right, and draws a line in the new area to the left.</p>
+<p><em>Compatibility:</em> parameters <code>x</code> and <code>y</code> are <em>optional</em> only since <strong>AGS 3.6.3</strong>. In previous versions they are always mandatory.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecrop"><code>DynamicSprite.Crop</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a>, <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a></p>
 <hr />
 </section>
@@ -467,7 +469,7 @@ surface.DrawImage(x, y, sprite.Graphic);</code></pre>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: f78e42280dbb769346d8b3022bc6ddea055cfaff
+          Build: 31224d4c1e0493c63f53bbb1508c3c9dc74949d3
         </p>
       </footer>
     </article>
