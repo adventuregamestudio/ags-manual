@@ -341,14 +341,22 @@
 <p><strong>IMPORTANT:</strong> This property is a remnant of the old and since deprecated feature in AGS which allowed to treat all coordinates in high-resolution games as if they were for low-resolution. For example: have 640x400 game but use 320x200 measurements in script, which would make each drawing operation to be performed x2 thicker on screen.<br> Since AGS 3.5.0 this property is ignored unless you have backwards-compatible "Allow relative asset resolutions" option enabled in General Settings.</p>
 <hr />
 </section>
+<section id="drawingsurfacevalid" class="level3">
+<h3><a href="#drawingsurfacevalid"><code>DrawingSurface.Valid</code></a></h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">Valid</span></span></code></pre></div>
+<p>Gets whether the drawing surface is valid to be used, and is actually linked to a existing image.</p>
+<p>The drawing surface may become invalid if it was acquired from a dynamic sprite and that sprite got deleted, or if it was acquired from a room background but the room was changed. Any operation on an invalid DrawingSurface will be ignored. In general, it is not recommended to keep DrawingSurface objects for a prolonged period of time, nor store them in a global variable. But if you do so for some reasons, and there's a chance that the underlying image is disposed, then this property may help to double check if it's safe to still use the surface for drawing.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
 <section id="drawingsurfacewidth" class="level3">
 <h3><a href="#drawingsurfacewidth"><code>DrawingSurface.Width</code></a></h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">Width</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">Width</span></span></code></pre></div>
 <p>Gets the width of the surface.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The background is %d x %d!&quot;</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Width</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Height</span><span class="op">);</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The background is %d x %d!&quot;</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Width</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Height</span><span class="op">);</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>displays the size of the surface to the player</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfaceheight"><code>DrawingSurface.Height</code></a>, <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a></p>
 </section>
@@ -358,7 +366,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 31224d4c1e0493c63f53bbb1508c3c9dc74949d3
+          Build: 8b709f95209e09ba698b0fb1e2c2e80f51da9546
         </p>
       </footer>
     </article>
@@ -384,6 +392,7 @@
 <li><a href="#drawingsurfacegetpixel" id="toc-drawingsurfacegetpixel"><code>DrawingSurface.GetPixel</code></a></li>
 <li><a href="#drawingsurfaceheight" id="toc-drawingsurfaceheight"><code>DrawingSurface.Height</code></a></li>
 <li><a href="#drawingsurfaceusehighrescoordinates" id="toc-drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a></li>
+<li><a href="#drawingsurfacevalid" id="toc-drawingsurfacevalid"><code>DrawingSurface.Valid</code></a></li>
 <li><a href="#drawingsurfacewidth" id="toc-drawingsurfacewidth"><code>DrawingSurface.Width</code></a></li>
 </ul></li>
 </ul>

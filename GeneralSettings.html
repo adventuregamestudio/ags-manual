@@ -235,6 +235,16 @@
 <li><p><strong>Write game text Right-to-Left</strong> - in-game text will be written right-to-left, i.e. line breaks are worked out from the end of the sentence going backwards, and the last words are displayed first. This is used by languages such as Arabic and Hebrew.</p></li>
 </ul>
 </section>
+<section id="translation" class="level3">
+<h3><a href="#translation">Translation</a></h3>
+<p>This section is available since <strong>AGS 3.6.3</strong>.</p>
+<ul>
+<li><p><strong>Exclude script function calls</strong> - Comma-separated list of script functions, which string arguments should be excluded from Translation file. This lets exclude literal strings found within certain function calls from being added to translation. For example, you may want to exclude strings found in <a href="System.html#systemlog"><code>System.Log</code></a>. This option affects both regular scripts and dialog scripts.</p>
+<p>NOTE: this option only excludes literal strings from being added to TRS files. This does NOT prevent text from being translated (or at least tried to be translated) when passed into the script functions that do automatic translations, such as <a href="Character.html#charactersay"><code>Character.Say</code></a> and similar.</p></li>
+<li><p><strong>Exclude script texts with prefix</strong> - Any text lines in script that begin with this prefix will be excluded from Translation file. This option affects both regular scripts and dialog scripts.</p></li>
+<li><p><strong>Include script texts with prefix</strong> - Only text lines in script which have this prefix will be included to Translation file. Leave this option empty to include all (this is the default behavior). This option affects both regular scripts and dialog scripts.</p></li>
+</ul>
+</section>
 <section id="visual" class="level3">
 <h3><a href="#visual">Visual</a></h3>
 <ul>
@@ -259,7 +269,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 31224d4c1e0493c63f53bbb1508c3c9dc74949d3
+          Build: 8b709f95209e09ba698b0fb1e2c2e80f51da9546
         </p>
       </footer>
     </article>
@@ -280,6 +290,7 @@
 <li><a href="#saved-games" id="toc-saved-games">Saved Games</a></li>
 <li><a href="#sound" id="toc-sound">Sound</a></li>
 <li><a href="#text-output" id="toc-text-output">Text output</a></li>
+<li><a href="#translation" id="toc-translation">Translation</a></li>
 <li><a href="#visual" id="toc-visual">Visual</a></li>
 </ul></li>
 </ul>

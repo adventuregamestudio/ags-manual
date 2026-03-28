@@ -75,8 +75,9 @@
 <ul>
 <li><strong>Name</strong> - this is the name by which you will access the property from the script. This cannot be changed after the property has been created.</li>
 <li><strong>Description</strong> - this is the user-friendly description which will be displayed in the custom property editor when you are setting the property.</li>
-<li><strong>Type</strong> - this specifies what type of property you want. "Boolean" gives you a checkbox (which will return 0 or 1 to the script), "Number" gives you a text box which you can type numbers into, and "Text" gives you a larger text box which can store a string.</li>
+<li><strong>Type</strong> - this specifies what type of property you want. Following types are supported: "Boolean", "Number" and "Text". Boolean type's value may be only True or False (or 1 and 0 respectively). "Number" can be any integer number supported by a script (from -2 billions to +2 billions). "Text" can have any string value.</li>
 <li><strong>Default value</strong> - this specifies what the default value of the property will be for objects where you have not set it specifically.</li>
+<li><strong>Translated</strong> - this tells the Editor to either include or not include the Text property type values in Translation file(s). This option is available since <strong>AGS 3.6.3</strong>. AGS 3.6.0 to 3.6.2 were always including Text properties into Translation, and any older versions did not do that at all.</li>
 </ul>
 <p>For example, add a new "Boolean" property. Close the schema editor, and then click the "Properties" button again. You'll now have a window with a checkbox with the description text you typed in. You can click the "Edit schema" button there to return to the schema editor if you like.</p>
 <p>All types of game item share the same schema. That is, if you create a "Jibble" property in the schema editor for a hotspot, it will also appear in the properties window for characters, objects, and so on.</p>
@@ -90,7 +91,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 31224d4c1e0493c63f53bbb1508c3c9dc74949d3
+          Build: 8b709f95209e09ba698b0fb1e2c2e80f51da9546
         </p>
       </footer>
     </article>
