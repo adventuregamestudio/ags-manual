@@ -214,3 +214,11 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: artifacts/website_Linux_${{ env.PANDOC_VERSION }}
+          destination_dir: v3
+      - name: Deploy on GitHub Pages
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: artifacts/ags4_website_Linux_${{ env.PANDOC_VERSION }}
+          destination_dir: v4

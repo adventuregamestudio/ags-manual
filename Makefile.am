@@ -127,6 +127,7 @@ search.js: metadata.lua
 	$(AM_V_GEN)echo | "$(PANDOC)" \
 		--to "$(srcdir)/lua/write_metajs.lua" \
 		--template "$(srcdir)/html/template.js" \
+		--variable branch_name="$(BRANCH_NAME)" \
 		--eol lf \
 		--output $@
 
