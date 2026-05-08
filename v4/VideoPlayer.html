@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>VideoPlayer functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="header-bg"></div>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+      
+      <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+        <option value="v4">v4.x</option>
+        <option value="v3">v3.x</option>
+      </select>
+    
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <ul>
+      <li>
+        <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+          <option value="v4">v4.x</option>
+          <option value="v3">v3.x</option>
+        </select>
+      </li>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <article>
+      <main>
+<section id="videoplayer-functions-and-properties" class="level2">
+<h2><a href="#videoplayer-functions-and-properties"><code>VideoPlayer</code> functions and properties</a></h2>
+<section id="videoplayeropen" class="level3">
+<h3><a href="#videoplayeropen"><code>VideoPlayer.Open</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> VideoPlayer<span class="op">*</span> VideoPlayer<span class="op">.</span><span class="at">Open</span><span class="op">(</span>const string filename<span class="op">,</span> <span class="dt">bool</span> autoPlay=<span class="bu">true</span><span class="op">,</span> <span class="dt">RepeatStyle</span>=<span class="bu">eOnce</span><span class="op">)</span></span></code></pre></div>
+<p>Returns a VideoPlayer instance from a video file</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerplay" class="level3">
+<h3><a href="#videoplayerplay"><code>VideoPlayer.Play</code></a></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>VideoPlayer<span class="op">.</span><span class="at">Play</span><span class="op">()</span></span></code></pre></div>
+<p>Starts or resumes the playback.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerpause" class="level3">
+<h3><a href="#videoplayerpause"><code>VideoPlayer.Pause</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>VideoPlayer<span class="op">.</span><span class="at">Pause</span><span class="op">()</span></span></code></pre></div>
+<p>Pauses the playback.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayernextframe" class="level3">
+<h3><a href="#videoplayernextframe"><code>VideoPlayer.NextFrame</code></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>VideoPlayer<span class="op">.</span><span class="at">NextFrame</span><span class="op">()</span></span></code></pre></div>
+<p>Advances video by 1 frame, may be called when the video is paused.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerseekframe" class="level3">
+<h3><a href="#videoplayerseekframe"><code>VideoPlayer.SeekFrame</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> VideoPlayer<span class="op">.</span><span class="at">SeekFrame</span><span class="op">(</span><span class="dt">int</span> frame<span class="op">)</span></span></code></pre></div>
+<p>Changes playback to continue from the specified frame; returns new position or -1 on error.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerseekms" class="level3">
+<h3><a href="#videoplayerseekms"><code>VideoPlayer.SeekMs</code></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> VideoPlayer<span class="op">.</span><span class="at">SeekMs</span><span class="op">(</span><span class="dt">int</span> position<span class="op">)</span></span></code></pre></div>
+<p>Changes playback to continue from the specified position in milliseconds; returns new position or -1 on error.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerstop" class="level3">
+<h3><a href="#videoplayerstop"><code>VideoPlayer.Stop</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>VideoPlayer<span class="op">.</span><span class="at">Stop</span><span class="op">()</span></span></code></pre></div>
+<p>Stops the video completely.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerframe" class="level3">
+<h3><a href="#videoplayerframe"><code>VideoPlayer.Frame</code></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> VideoPlayer<span class="op">.</span><span class="at">Frame</span></span></code></pre></div>
+<p>Gets current frame index.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerframecount" class="level3">
+<h3><a href="#videoplayerframecount"><code>VideoPlayer.FrameCount</code></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> VideoPlayer<span class="op">.</span><span class="at">FrameCount</span></span></code></pre></div>
+<p>Gets total number of frames in this video.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerframerate" class="level3">
+<h3><a href="#videoplayerframerate"><code>VideoPlayer.FrameRate</code></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">float</span> VideoPlayer<span class="op">.</span><span class="at">FrameRate</span></span></code></pre></div>
+<p>Gets this video's framerate (number of frames per second).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayergraphic" class="level3">
+<h3><a href="#videoplayergraphic"><code>VideoPlayer.Graphic</code></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> VideoPlayer<span class="op">.</span><span class="at">Graphic</span></span></code></pre></div>
+<p>Gets the number of sprite this video renders to.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerlengthms" class="level3">
+<h3><a href="#videoplayerlengthms"><code>VideoPlayer.LengthMs</code></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> VideoPlayer<span class="op">.</span><span class="at">LengthMs</span></span></code></pre></div>
+<p>The length of the currently playing video, in milliseconds.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerlooping" class="level3">
+<h3><a href="#videoplayerlooping"><code>VideoPlayer.Looping</code></a></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> VideoPlayer<span class="op">.</span><span class="at">Looping</span></span></code></pre></div>
+<p>Gets/sets whether the video should loop.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerpositionms" class="level3">
+<h3><a href="#videoplayerpositionms"><code>VideoPlayer.PositionMs</code></a></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> VideoPlayer<span class="op">.</span><span class="at">PositionMs</span></span></code></pre></div>
+<p>The current playback position, in milliseconds.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerspeed" class="level3">
+<h3><a href="#videoplayerspeed"><code>VideoPlayer.Speed</code></a></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> VideoPlayer<span class="op">.</span><span class="at">Speed</span></span></code></pre></div>
+<p>The speed of playing (1.0 is default).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="videoplayerstate" class="level3">
+<h3><a href="#videoplayerstate"><code>VideoPlayer.State</code></a></h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> PlaybackState VideoPlayer<span class="op">.</span><span class="at">State</span></span></code></pre></div>
+<p>Gets the current playback state (playing, paused, etc).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="StandardEnums.html#playbackstate"><code>PlaybackState</code></a></p>
+<hr />
+</section>
+<section id="videoplayervolume" class="level3">
+<h3><a href="#videoplayervolume"><code>VideoPlayer.Volume</code></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> VideoPlayer<span class="op">.</span><span class="at">Volume</span></span></code></pre></div>
+<p>The volume of this video's sound, from 0 to 100.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+</section>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/VideoPlayer.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 4c246cb527904b33d18d957446e2b7412d63c097
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#videoplayer-functions-and-properties" id="toc-videoplayer-functions-and-properties"><code>VideoPlayer</code> functions and properties</a>
+<ul>
+<li><a href="#videoplayeropen" id="toc-videoplayeropen"><code>VideoPlayer.Open</code></a></li>
+<li><a href="#videoplayerplay" id="toc-videoplayerplay"><code>VideoPlayer.Play</code></a></li>
+<li><a href="#videoplayerpause" id="toc-videoplayerpause"><code>VideoPlayer.Pause</code></a></li>
+<li><a href="#videoplayernextframe" id="toc-videoplayernextframe"><code>VideoPlayer.NextFrame</code></a></li>
+<li><a href="#videoplayerseekframe" id="toc-videoplayerseekframe"><code>VideoPlayer.SeekFrame</code></a></li>
+<li><a href="#videoplayerseekms" id="toc-videoplayerseekms"><code>VideoPlayer.SeekMs</code></a></li>
+<li><a href="#videoplayerstop" id="toc-videoplayerstop"><code>VideoPlayer.Stop</code></a></li>
+<li><a href="#videoplayerframe" id="toc-videoplayerframe"><code>VideoPlayer.Frame</code></a></li>
+<li><a href="#videoplayerframecount" id="toc-videoplayerframecount"><code>VideoPlayer.FrameCount</code></a></li>
+<li><a href="#videoplayerframerate" id="toc-videoplayerframerate"><code>VideoPlayer.FrameRate</code></a></li>
+<li><a href="#videoplayergraphic" id="toc-videoplayergraphic"><code>VideoPlayer.Graphic</code></a></li>
+<li><a href="#videoplayerlengthms" id="toc-videoplayerlengthms"><code>VideoPlayer.LengthMs</code></a></li>
+<li><a href="#videoplayerlooping" id="toc-videoplayerlooping"><code>VideoPlayer.Looping</code></a></li>
+<li><a href="#videoplayerpositionms" id="toc-videoplayerpositionms"><code>VideoPlayer.PositionMs</code></a></li>
+<li><a href="#videoplayerspeed" id="toc-videoplayerspeed"><code>VideoPlayer.Speed</code></a></li>
+<li><a href="#videoplayerstate" id="toc-videoplayerstate"><code>VideoPlayer.State</code></a></li>
+<li><a href="#videoplayervolume" id="toc-videoplayervolume"><code>VideoPlayer.Volume</code></a></li>
+</ul></li>
+</ul>
+    </aside>
+  </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>

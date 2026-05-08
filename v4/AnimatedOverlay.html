@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Animated Overlay functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="header-bg"></div>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+      
+      <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+        <option value="v4">v4.x</option>
+        <option value="v3">v3.x</option>
+      </select>
+    
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <ul>
+      <li>
+        <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+          <option value="v4">v4.x</option>
+          <option value="v3">v3.x</option>
+        </select>
+      </li>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <article>
+      <main>
+<section id="animated-overlay-functions-and-properties" class="level2">
+<h2><a href="#animated-overlay-functions-and-properties"><code>Animated Overlay</code> functions and properties</a></h2>
+<p>Animated Overlay is an extension of <a href="Overlay.html">Overlay</a> object. It's essentially same thing, but with animation controls. Being an Overlay's extension, AnimatedOverlay inherits all of its functions and properties too.</p>
+<p>Just like regular Overlays, Animated Overlays may be created as <em>screen overlays</em> and <em>room overlays</em>. This defines the visual layer they are positioned in, and which other game objects they are visually sorted with.</p>
+<p>Animated Overlays have a setting that tells whether their animation pauses when the game is paused. Such setting exists, because overlays have multiple uses, and may be a part of the game's visual interface, which is not supposed to be suspended in pause state.</p>
+<p><em>Compatibility:</em> AnimatedOverlay type is supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+<section id="animatedoverlaycreateanimated" class="level3">
+<h3><a href="#animatedoverlaycreateanimated"><code>AnimatedOverlay.CreateAnimated</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> AnimagedOverlay<span class="op">*</span> AnimatedOverlay<span class="op">.</span><span class="at">CreateAnimated</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional <span class="dt">int</span> slot<span class="op">,</span> optional <span class="dt">bool</span> pauseWithGame<span class="op">)</span></span></code></pre></div>
+<p>Creates a AnimatedOverlay on the screen layer, optionally using a initial sprite, and optionally configured to pause its animation when the game is paused. By default animated overlay is initialized with sprite 0, and <em>pauses with the game</em>.</p>
+<p>The screen overlays are positioned in the screen graphic layer, and are visually sorted among other screen overlays and GUI using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property.</p>
+<p><strong>NOTE:</strong> if the AnimatedOverlay variable goes out of scope, the overlay will be removed. Hence, if you want the overlay to last on-screen outside of the script function where it was created, the <code>AnimatedOverlay*</code> variable declaration needs to be at the top of the script and outside any script functions.</p>
+<p><strong>NOTE:</strong> if the player goes to a different room all active overlays are removed automatically.</p>
+<hr />
+</section>
+<section id="animatedoverlaycreateroomanimated" class="level3">
+<h3><a href="#animatedoverlaycreateroomanimated"><code>AnimatedOverlay.CreateRoomAnimated</code></a></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> AnimagedOverlay<span class="op">*</span> AnimatedOverlay<span class="op">.</span><span class="at">CreateRoomAnimated</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional <span class="dt">int</span> slot<span class="op">,</span> optional <span class="dt">bool</span> pauseWithGame<span class="op">)</span></span></code></pre></div>
+<p>Creates a AnimatedOverlay on the room layer, optionally using a initial sprite, and optionally configured to pause its animation when the game is paused. By default animated overlay is initialized with sprite 0, and <em>pauses with the game</em>.</p>
+<p>The room overlays are positioned in the room graphic layer, and are visually sorted among other room overlays, characters, room objects and walk-behinds using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property, similar to how other objects in rooms use <code>Baseline</code> property.</p>
+<p><strong>NOTE:</strong> if the AnimatedOverlay variable goes out of scope, the overlay will be removed. Hence, if you want the overlay to last on-screen outside of the script function where it was created, the <code>AnimatedOverlay*</code> variable declaration needs to be at the top of the script and outside any script functions.</p>
+<p><strong>NOTE:</strong> if the player goes to a different room all active overlays are removed automatically.</p>
+<hr />
+</section>
+<section id="animatedoverlayanimate" class="level3">
+<h3><a href="#animatedoverlayanimate"><code>AnimatedOverlay.Animate</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> AnimatedOverlay<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> loop<span class="op">,</span> <span class="dt">int</span> delay<span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">,</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        optional <span class="dt">BlockingStyle</span><span class="op">,</span> optional <span class="dt">Direction</span><span class="op">,</span> optional <span class="dt">int</span> frame<span class="op">,</span> optional <span class="dt">int</span> volume<span class="op">)</span></span></code></pre></div>
+<p>Animates a AnimatedOverlay by playing the specified view loop on it.</p>
+<p>The DELAY specifies extra time in ticks between animation frames (in addition to the individual frame delay).</p>
+<p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously repeat the cycling through the frames. This can be one of the <a href="StandardEnums.html#repeatstyle">RepeatStyle</a> values.</p>
+<p>For <em>blocking</em> you can pass either <code>eBlock</code> (in which case the function will wait for the animation to finish before returning), or <code>eNoBlock</code> (in which case the animation will start to play, but your script will continue). The default is <code>eBlock</code>.</p>
+<p><em>Direction</em> specifies an initial way in which the animation plays. You can either pass <code>eForwards</code> (the default) or <code>eBackwards</code>.</p>
+<p><em>Frame</em> lets you specify the starting frame, which should be one of the chosen loop's frame. Note that for compatibility reasons if direction is eBackwards the animation actually begins with the previous frame. If you pass frame 0 (the default) then it will begin with the last frame in the loop.</p>
+<p><em>Volume</em> lets you specify the relative volume in percents (0-100) of the frame-linked sounds for the duration of this animation. It's 100 by default (which means - unchanged).</p>
+<hr />
+</section>
+<section id="animatedoverlayanimating" class="level3">
+<h3><a href="#animatedoverlayanimating"><code>AnimatedOverlay.Animating</code></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> AnimatedOverlay<span class="op">.</span><span class="at">Animating</span></span></code></pre></div>
+<p>Tells whether the overlay is currently animating.</p>
+<hr />
+</section>
+<section id="animatedoverlayframe" class="level3">
+<h3><a href="#animatedoverlayframe"><code>AnimatedOverlay.Frame</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> AnimatedOverlay<span class="op">.</span><span class="at">Animating</span></span></code></pre></div>
+<p>Gets the current frame number during an animation.</p>
+<hr />
+</section>
+<section id="animatedoverlayloop" class="level3">
+<h3><a href="#animatedoverlayloop"><code>AnimatedOverlay.Loop</code></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> AnimatedOverlay<span class="op">.</span><span class="at">Loop</span></span></code></pre></div>
+<p>Gets the current loop number during an animation.</p>
+<hr />
+</section>
+<section id="animatedoverlaypausewithgame" class="level3">
+<h3><a href="#animatedoverlaypausewithgame"><code>AnimatedOverlay.PauseWithGame</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> AnimatedOverlay<span class="op">.</span><span class="at">PauseWithGame</span></span></code></pre></div>
+<p>Gets whether the overlay's animation is paused when the game is paused.</p>
+<hr />
+</section>
+<section id="animatedoverlayview" class="level3">
+<h3><a href="#animatedoverlayview"><code>AnimatedOverlay.View</code></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> AnimatedOverlay<span class="op">.</span><span class="at">View</span></span></code></pre></div>
+<p>Gets the current view number during an animation.</p>
+</section>
+</section>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/AnimatedOverlay.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 4c246cb527904b33d18d957446e2b7412d63c097
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#animated-overlay-functions-and-properties" id="toc-animated-overlay-functions-and-properties"><code>Animated Overlay</code> functions and properties</a>
+<ul>
+<li><a href="#animatedoverlaycreateanimated" id="toc-animatedoverlaycreateanimated"><code>AnimatedOverlay.CreateAnimated</code></a></li>
+<li><a href="#animatedoverlaycreateroomanimated" id="toc-animatedoverlaycreateroomanimated"><code>AnimatedOverlay.CreateRoomAnimated</code></a></li>
+<li><a href="#animatedoverlayanimate" id="toc-animatedoverlayanimate"><code>AnimatedOverlay.Animate</code></a></li>
+<li><a href="#animatedoverlayanimating" id="toc-animatedoverlayanimating"><code>AnimatedOverlay.Animating</code></a></li>
+<li><a href="#animatedoverlayframe" id="toc-animatedoverlayframe"><code>AnimatedOverlay.Frame</code></a></li>
+<li><a href="#animatedoverlayloop" id="toc-animatedoverlayloop"><code>AnimatedOverlay.Loop</code></a></li>
+<li><a href="#animatedoverlaypausewithgame" id="toc-animatedoverlaypausewithgame"><code>AnimatedOverlay.PauseWithGame</code></a></li>
+<li><a href="#animatedoverlayview" id="toc-animatedoverlayview"><code>AnimatedOverlay.View</code></a></li>
+</ul></li>
+</ul>
+    </aside>
+  </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>

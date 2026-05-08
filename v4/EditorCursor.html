@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Cursor Editor</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="header-bg"></div>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+      
+      <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+        <option value="v4">v4.x</option>
+        <option value="v3">v3.x</option>
+      </select>
+    
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <ul>
+      <li>
+        <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+          <option value="v4">v4.x</option>
+          <option value="v3">v3.x</option>
+        </select>
+      </li>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <article>
+      <main>
+<section id="cursor-editor" class="level2">
+<h2><a href="#cursor-editor">Cursor Editor</a></h2>
+<p>The Cursors node of the editor shows you the cursor modes available in the game. These cursor modes are also essentially interaction modes, which may or not have respective visual appearance. Each cursor mode either performs a certain action within the game, or used to represent certain game state (such as "Wait" cursor), so they have several uses.</p>
+<p>In the previous versions of AGS the first several cursors have always had fixed roles. This is no longer the case in AGS 4.0, where each cursor is freely customizable. However there's still a list of built-in "Standard Roles" available for assignment, in case you'd like to utilize one of the built-in cursor behaviors provided by the engine.</p>
+<p>While in game the cursor's action may be run in one of the three ways:</p>
+<ul>
+<li>Calling <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a> function in script.</li>
+<li>Calling <code>RunInteraction</code> function for one of the game objects (Character, Room Object, Hotspot or Inventory Item).</li>
+<li>If cursor has one of the "standard roles" assigned, then under some circumstances clicking left or right mouse button will cause its action to trigger.</li>
+</ul>
+<p>For the most part, it's advised to trigger cursor actions in script, because that way you'll have most control over what they do.</p>
+<p>Back to editing the cursors: right clicking on the "Cursors" node itself allows you to create a new cursor. Creating a new cursor or double clicking an existing one will open it for edit.</p>
+<p>The Cursor editor pane allows to preview the cursor's graphic, set its "hotspot" (the point on the cursor's graphic which triggers interaction with underlying objects), as well as configure other properties.</p>
+<p>The "StandardMode" option in the property grid tells AGS that this is a "normal" cursor mode. In practice this means that this mode may be switched to when "cycling" through cursor modes using <a href="Mouse.html#mouseselectnextmode"><code>Mouse.SelectNextMode</code></a> and <a href="Mouse.html#mouseselectpreviousmode"><code>Mouse.SelectPreviousMode</code></a> script functions. Also, when the current mode gets disabled for any reason, then the game will switch to the next enabled standard mode. Note that if you assign a "Use inventory" role to a cursor, then such mode cannot be selected unless the player character has active inventory set (see <a href="Character.html#characteractiveinventory"><code>Character.ActiveInventory</code></a>), and gets switched out whenever active inventory is reset.</p>
+<p>The "StandardRole" property lets you assign one of the standard built-in interaction modes to this cursor. Such assignment will enable certain automated behavior. Following standard roles are available:</p>
+<ul>
+<li>Role: Walk. Calling ProcessClick with the "walk" mode will command player character to perform a non-blocking walk to the selected point in the room, which is equivalent to calling <a href="Character.html#characterwalk"><code>Character.Walk</code></a> function with <code>eNoBlock</code> and <code>eWalkableAreas</code> parameters. The cursor with "Walk" role will be disabled whenever current Room has a "Show player character" option disabled.</li>
+<li>Role: Look at. If the game has "Handle inventory clicks in script" <em>disabled</em>, then right-clicking on an inventory item will trigger an interaction with "Look at" role. Otherwise, this role has no effect.</li>
+<li>Role: Interact. If the game has "Handle inventory clicks in script" <em>disabled</em>, then left-clicking on an inventory item will select that item (make it active). Otherwise, this role has no effect.</li>
+<li>Role: Use inventory. Whenever there's a active inventory item set, this cursor mode will display a special image constructed from the active item's "cursor graphic". The mode with this role cannot be selected unless player character has an active inventory item.</li>
+<li>Role: Pointer. The mode with this role will be used during dialog options, and also few built-in gui dialogs (such as built-in save, restore and quit dialogs).</li>
+<li>Role: Wait. This mode will be displayed whenever there's a blocking action or wait run in game. Its purpose is to indicate that the game interface is temporarily disabled.</li>
+</ul>
+<p>"Create Event" option lets you add a interaction event associated to this cursor mode. Such event will be available in each Character, Room Object, Hotspot and Inventory Item's event table. The interaction event allows to connect a script function which is going to be run whenever a game object is being interacted with this cursor mode.</p>
+<p>"Event Function Name" defines a name used when editor creates a script function for the interaction event. If it's not set, then the cursor mode's name will be used instead.</p>
+<p>"Event Label" defines a event's title displayed in the events table. If it's not set, then the cursor mode's name will be used instead.</p>
+<p>The "Animate" option allows you to specify that the mouse cursor will animate while it is on the screen.</p>
+<p>"AnimateOnlyOnHotspots" option means that the cursor will animate only when over something (hotspot, object or character)</p>
+<p>The "AnimateOnlyWhenMoving" box allows you to do a QFG4-style cursor, where it only animates while the player is moving it around.</p>
+<p>"Animation Delay" is a extra delay between frames for this cursor's animation.</p>
+<p>"Image" property lets you select the static graphic for this cursor, used when it's not animating.</p>
+<p>"View" property lets you choose a view number for the cursor animation, and the cursor will animate using the first loop of that view.</p>
+<p>"Hotspot X and Y" options let you specify a relative point on the cursor's graphic, which triggers interaction. This point will match the mouse device position on screen, while cursor's image will be drawn with certain offset to that position.</p>
+</section>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/EditorCursor.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 4c246cb527904b33d18d957446e2b7412d63c097
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#cursor-editor" id="toc-cursor-editor">Cursor Editor</a></li>
+</ul>
+    </aside>
+  </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>

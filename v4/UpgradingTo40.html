@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Upgrading to AGS 4.0</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="header-bg"></div>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+      
+      <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+        <option value="v4">v4.x</option>
+        <option value="v3">v3.x</option>
+      </select>
+    
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <ul>
+      <li>
+        <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+          <option value="v4">v4.x</option>
+          <option value="v3">v3.x</option>
+        </select>
+      </li>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <article>
+      <main>
+<section id="upgrading-to-ags-40" class="level2">
+<h2><a href="#upgrading-to-ags-40">Upgrading to AGS 4.0</a></h2>
+<p>This is a small guide on how to upgrade your existing game project to AGS 4. If you are interested in what are the new features of AGS 4, see <a href="WhatsNewIn40.html">What's new in AGS 4.0</a> page.</p>
+<p><strong>WARNING:</strong> Please backup your project and read below before proceeding.</p>
+<section id="upgrade-to-the-latest-ags-3" class="level3">
+<h3><a href="#upgrade-to-the-latest-ags-3">Upgrade to the latest AGS 3</a></h3>
+<p>Firstly, it is recommended that you upgrade your game to the latest AGS 3 available - currently, this would be the latest AGS 3.6.2 version, and fix any issues reported by the game build process.</p>
+<p>After doing so, still in AGS 3.6.2, go into <strong>General Settings</strong> and adjust as below.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Enforce new-style audio scripting</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td>Enforce new-style strings</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td>Enforce post-2.62 scripting</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td>Left-to-right operator precedence</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td>Script API version</td>
+<td>Latest version</td>
+</tr>
+<tr class="even">
+<td>Script compatibility level</td>
+<td>Latest version</td>
+</tr>
+<tr class="odd">
+<td>Use low-resolution co-ordinates in script</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td>Use old-style custom dialog options API</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td>Use old-style keyboard handling</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+<p>After these adjustments, in General Settings, once you can build and run your game successfully under AGS 3.6.2 with no issues, backup your game, and proceed.</p>
+</section>
+<section id="incompatibilities-with-ags-3" class="level3">
+<h3><a href="#incompatibilities-with-ags-3">Incompatibilities with AGS 3</a></h3>
+<p>There are a few things that cannot be upgraded at the current time, so we need to warn you about it.</p>
+<ol type="1">
+<li><p><strong>AGSJoy plugin:</strong> Attempts to build your game with this plugin active will not compile with AGS 4 because its Joystick struct will conflict with the AGS own Joystick struct. The new API is relatively simple, so manually rewriting it to be compatible with it should not be a huge problem. The plugin is no longer needed after that.</p></li>
+<li><p><strong>Speech Center and Translations:</strong> Speech Center with translations will stop working with this AGS 4 update. It won't crash, but it won't see translated strings. This is because Translation storage had changed in the Editor. The plugin will have to be updated to work with AGS 4.</p></li>
+<li><p>16-bit games are no longer supported. If you wish to maintain the same aesthetics you can achieve it by making a 32-bit color game and shaders.</p></li>
+</ol>
+</section>
+<section id="load-your-game-on-ags-40" class="level3">
+<h3><a href="#load-your-game-on-ags-40">Load your game on AGS 4.0</a></h3>
+<p>Open AGS 4.0 and load your existing game into it. AGS will do some automatic updates on your game project where possible, but some things will require manual intervention. Read below on those.</p>
+</section>
+<section id="adjustment-of-functions-with-fewer-arguments" class="level3">
+<h3><a href="#adjustment-of-functions-with-fewer-arguments">Adjustment of functions with fewer arguments</a></h3>
+<p>There are a couple of functions that now have <em>fewer</em> arguments compared to previous versions of AGS.</p>
+<p>These functions are:</p>
+<ul>
+<li><p><code>DynamicSprite.Create</code> and <code>DynamicSprite.CreateFromExisting</code> no longer have the "has alpha" argument, as in 32-bit games all sprites are considered to have a usable alpha channel now. You can still specify a color format, which is mostly useful for 8-bit color mask creation which can be useful for advanced scripts and custom pathfinder masks.</p></li>
+<li><p><code>Overlay.CreateGraphical</code> does not have the "transparent" argument, as it was always useless.</p></li>
+</ul>
+<p>This is an unusual case (commonly arguments are <strong>added</strong>). This may cause script errors if you import a project or a module.</p>
+<p><strong>Quick fix</strong>: If you don't want to manually fix all these function calls in your game, create a script module at the top of the scripts list and place helper extenders there that wrap the actual function calls, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> Create<span class="op">(</span><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">,</span> <span class="dt">bool</span> unused<span class="op">)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span>width<span class="op">,</span> height<span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span><span class="dt">int</span> slot<span class="op">,</span> <span class="dt">bool</span> unused<span class="op">)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span>slot<span class="op">);</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> CreateGraphical<span class="op">(</span><span class="kw">static</span> <span class="bu">Overlay</span><span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> slot<span class="op">,</span> <span class="dt">bool</span> unused<span class="op">,</span> <span class="dt">bool</span> clone<span class="op">)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">CreateGraphical</span><span class="op">(</span>x<span class="op">,</span> y<span class="op">,</span> slot<span class="op">,</span> clone<span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> CreateRoomGraphical<span class="op">(</span><span class="kw">static</span> <span class="bu">Overlay</span><span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> slot<span class="op">,</span> <span class="dt">bool</span> unused<span class="op">,</span> <span class="dt">bool</span> clone<span class="op">)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">CreateRoomGraphical</span><span class="op">(</span>x<span class="op">,</span> y<span class="op">,</span> slot<span class="op">,</span> clone<span class="op">);</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section>
+<section id="adjustment-of-colors-in-script" class="level3">
+<h3><a href="#adjustment-of-colors-in-script">Adjustment of colors in script</a></h3>
+<p>AGS 4 uses <strong>32-bit colors</strong> everywhere, including scripting. If you use hex values, the colors are in the <code>0xAARRGGBB</code> format, which means they also carry alpha information.</p>
+<p>You can use the <strong>color pane</strong> in the Editor to help convert between the old color format and the new one.</p>
+<p>Color values in GUI properties and other AGS game elements adjusted through the editor panes should have been <strong>automatically converted</strong> during the upgrade process.</p>
+<p>A change that has been done due to colors now carrying alpha is that by default, <code>DrawingSurface</code> drawing operations that use a color will default for blending of that color on top of whatever color was before where drawn. If this is not desired, the <code>DrawingSurface.BlendMode</code> property can be changed to <code>eBlendCopy</code> to instead replace the color, which can be used if one wants to "cut" by drawing with a transparent color.</p>
+</section>
+<section id="walkablearea-and-walkbehind-script-api" class="level3">
+<h3><a href="#walkablearea-and-walkbehind-script-api">WalkableArea and Walkbehind script API</a></h3>
+<p>These are now accessible through object-oriented APIs, instead of the old ones, you will have to adjust your code to match the new script API if you were accessing it.</p>
+</section>
+</section>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/UpgradingTo40.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 4c246cb527904b33d18d957446e2b7412d63c097
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#upgrading-to-ags-40" id="toc-upgrading-to-ags-40">Upgrading to AGS 4.0</a>
+<ul>
+<li><a href="#upgrade-to-the-latest-ags-3" id="toc-upgrade-to-the-latest-ags-3">Upgrade to the latest AGS 3</a></li>
+<li><a href="#incompatibilities-with-ags-3" id="toc-incompatibilities-with-ags-3">Incompatibilities with AGS 3</a></li>
+<li><a href="#load-your-game-on-ags-40" id="toc-load-your-game-on-ags-40">Load your game on AGS 4.0</a></li>
+<li><a href="#adjustment-of-functions-with-fewer-arguments" id="toc-adjustment-of-functions-with-fewer-arguments">Adjustment of functions with fewer arguments</a></li>
+<li><a href="#adjustment-of-colors-in-script" id="toc-adjustment-of-colors-in-script">Adjustment of colors in script</a></li>
+<li><a href="#walkablearea-and-walkbehind-script-api" id="toc-walkablearea-and-walkbehind-script-api">WalkableArea and Walkbehind script API</a></li>
+</ul></li>
+</ul>
+    </aside>
+  </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>
