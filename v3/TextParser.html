@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Text Parser</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="header-bg"></div>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+      
+      <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+        <option value="v4">v4.x</option>
+        <option value="v3">v3.x</option>
+      </select>
+    
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <ul>
+      <li>
+        <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+          <option value="v4">v4.x</option>
+          <option value="v3">v3.x</option>
+        </select>
+      </li>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <article>
+      <main>
+<section id="text-parser" class="level2">
+<h2><a href="#text-parser">Text Parser</a></h2>
+<section id="overview" class="level3">
+<h3><a href="#overview">Overview</a></h3>
+<p>You can use a text parser in your games if you wish to, much as the older Sierra games did. Go to the "Text parser" pane in the editor. There, you will see a short list of words which are provided for you. Each word has a number beside it.</p>
+<p>Basically, you add words you want to use by right-clicking the list, and selecting "Add word". However, the real beauty of the parser is its ability to recognize synonyms - that is, two words that mean the same thing. So, for example, if you wanted the player to type "look at fence", they might well type "look at wall" instead, if that's how they see the drawing. Or, a British person might type "colour" whereas an American might type "color", both of which should have the same effect.</p>
+<p>To add a synonym for an existing word, highlight the current word, right-click it and choose "Add synonym". You'll notice that the new word is given the same number as the old one. All words with the same number are considered identical by the parser.</p>
+<p>You will notice that the provided list has a lot of words with number 0. This is a special number, that indicates that the parser should ignore the word completely. In our previous example, the player might type "look at the fence", "look at fence", or just "look fence". By adding words like "at" and "the" to the ignore list, they get stripped out of the user's input automatically. To add new ignore words, just select an existing one and add a synonym.</p>
+<p>So, how do you use the text parser? Well, you'll need a text box GUI control somewhere in order for the user to type in their input, or you could just use the <a href="Game.html#gameinputbox">Game.InputBox</a> command (but it has quite a short line length).</p>
+<p>When the user has typed in their text (you'll probably know this by the text box's event being activated), you call the Parser.ParseText script function which tells AGS what input string to use in subsequent commands. You then simply use the Said command to test what the player typed in.</p>
+<p>You type the whole sentence (but NOT including any ignore words), and AGS will compare it to the user's string, considering all synonyms identical. For example (assuming our text box is called "txtUserInput"):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> input = txtUserInput<span class="op">.</span><span class="at">Text</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Parser</span><span class="op">.</span><span class="at">ParseText</span><span class="op">(</span>input<span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;look fence&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;It&#39;s an old wooden fence.&quot;</span><span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;eat apple&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;d love to, but you don&#39;t have one.&quot;</span><span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>There are a couple of special words you can use with the Said command. "anyword" will match any word that the user types in. For example, Said("throw anyword away") will match if they type "throw dagger away", or "throw trash away". "rol" (short for Rest-of-Line) will match the rest of the user's input. So, you might want to do:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;kill rol&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;re not a violent person.&quot;</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This way if they try to kill anything they will get the generic response.</p>
+<p>Sometimes, you want to accept two different words that are not synonyms as the same thing. Let's call these <em>"alternatives"</em>. For example, the words "take" and "eat" normally have totally different meanings, so you wouldn't make them synonyms of each other. However, if the player has a headache tablet, for instance, then "take tablet" and "eat tablet" would both be valid. This is where the comma "," comes in - if you include a comma in your input, all synonyms of all words separated by the comma will match. So:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;eat,take tablet&quot;</span><span class="op">))</span></span></code></pre></div>
+<p>will match "eat" or "take" and all their synonyms, then "tablet" and its synonyms.</p>
+<p>Another fairly common task with a parser is to check for optional words</p>
+<ul>
+<li>for example, if there is a brick wall on the screen, you want the player to be able to type "look wall" and "look brick wall". Although this can be done with two OR'ed Said commands, AGS makes it easier. You can use [brackets] to signify an optional word. So:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;look </span><span class="sc">[</span><span class="st">brick] wall&quot;</span><span class="op">))</span></span></code></pre></div>
+<p>will match "look wall" and "look brick wall".</p>
+<p>Now this is all very well, but in different rooms you have different items to interact with - for example, in one room there might be a tree that the player should be able to type "look at tree" to look at, and so on. Putting all this in your global script would make a big mess. So, enter the <a href="Globalfunctions_General.html#callroomscript"><code>CallRoomScript</code></a> function. Using this, you can do:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Parser</span><span class="op">.</span><span class="at">ParseText</span><span class="op">(</span>input<span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> badWord = <span class="bu">Parser</span><span class="op">.</span><span class="at">SaidUnknownWord</span><span class="op">();</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>badWord <span class="op">!=</span> null<span class="op">)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You can&#39;t use &#39;%s&#39; in this game.&quot;</span><span class="op">,</span> badWord<span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;eat apple&quot;</span><span class="op">))</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;d love to, but you don&#39;t have one.&quot;</span><span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">// other game-wide commands</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">CallRoomScript</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<p>Then, the room script can check for things that the player can do in the current room. See the <a href="Globalfunctions_General.html#callroomscript"><code>CallRoomScript</code></a> description for more information.</p>
+</section>
+<section id="multi-words" class="level3">
+<h3><a href="#multi-words">Multi-words</a></h3>
+<p>Multi-words are words which contain spaces, for example "blue key", "box of matches" or "stone hammer". While you can add them to the parser and use in Said commands just like regular words, keep in mind the parser will <strong>always match the longest word</strong> it finds which can lead to complications if you have words that prefix each other.</p>
+<p>Imagine you have the words "red", "blue" and "key" in your parser:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;take red,blue key&quot;</span><span class="op">)</span></span></code></pre></div>
+<p>will match both "take red key" and "take blue key" inputs.</p>
+<p>If you later add the word "blue key" to the parser, the same command</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;take red,blue key&quot;</span><span class="op">)</span></span></code></pre></div>
+<p>will only match "take red" and "take blue key" (and won't match "take red key" anymore!) since the parser will recognize "blue key" as a single word and an <em>alternative</em> (via the comma syntax) to "red"; this is likely not what you'd want.</p>
+<p>To avoid this risk prefer using one-word synonyms for your multi-words (for example add "blue-key" as a synonym of "blue key" to the parser and use the former in your Said commands so that it's always clear where word boundaries are).</p>
+</section>
+</section>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/TextParser.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 4c246cb527904b33d18d957446e2b7412d63c097
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#text-parser" id="toc-text-parser">Text Parser</a>
+<ul>
+<li><a href="#overview" id="toc-overview">Overview</a></li>
+<li><a href="#multi-words" id="toc-multi-words">Multi-words</a></li>
+</ul></li>
+</ul>
+    </aside>
+  </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>

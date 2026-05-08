@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global event handlers</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="header-bg"></div>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+      
+      <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+        <option value="v4">v4.x</option>
+        <option value="v3">v3.x</option>
+      </select>
+    
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <ul>
+      <li>
+        <select class="version-selector" onchange="onChangeVersion=(event)" style="display:none">
+          <option value="v4">v4.x</option>
+          <option value="v3">v3.x</option>
+        </select>
+      </li>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <article>
+      <main>
+<section id="global-event-handlers" class="level2">
+<h2><a href="#global-event-handlers">Global event handlers</a></h2>
+<p>In the AGS game there is a number of events, like starting the game, or pressing the key, that may be handled in script by adding a function with <em>predefined name</em>. These are called "global event handlers". If you add ones to your script, they will be called automatically whenever corresponding event occurs. All of these are optional, and may be omited if you don't need them.</p>
+<p>You may you add multiple functions of the same kind to multiple <a href="ScriptModules.html">script modules</a>, in which case they will be called in the order of modules in your game project. It's possible to stop propagating the event (skip remaining modules) by using <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function (refer to its article for explanation).</p>
+<p>Some of these functions may also be added to the room scripts. These are: <code>on_event</code>, <code>on_key_press</code>, <code>on_mouse_click</code>, <code>on_text_input</code>, <code>repeatedly_execute_always</code>, <code>late_repeatedly_execute_always</code>.</p>
+<p>Some functions will only work in the room script: <code>on_call</code>.</p>
+<p><em>NOTE:</em> for historical reasons, function <code>repeatedly_execute</code> does not work in the room script, but there's a corresponding room event that may be linked to a custom function in the editor.</p>
+<hr />
+<section id="dialog_request" class="level3">
+<h3><a href="#dialog_request"><code>dialog_request</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dialog_request <span class="op">(</span><span class="dt">int</span> parameter<span class="op">)</span></span></code></pre></div>
+<p>Called when a dialog script line "run-script" is processed. PARAMETER is the value of the number following the "run-script" on that line of the dialog script.</p>
+<hr />
+</section>
+<section id="game_start" class="level3">
+<h3><a href="#game_start"><code>game_start</code></a></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>game_start <span class="op">()</span></span></code></pre></div>
+<p>Called at the start of the game, before the first room is loaded. You would typically use this to set up the initial positions of characters, and to modify initial visibility of GUIs.</p>
+<p><strong>Note:</strong> When this function is called it is too early to run animations or do anything else which relies on a room being loaded</p>
+<hr />
+</section>
+<section id="interface_click" class="level3">
+<h3><a href="#interface_click"><code>interface_click</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>interface_click <span class="op">(</span><span class="dt">int</span> interface<span class="op">,</span> <span class="dt">int</span> button<span class="op">)</span></span></code></pre></div>
+<p>Called when the player clicks on a button on a GUI which has its action set as "Run script". INTERFACE is the number of the GUI which they clicked on. BUTTON is the object number of the button within this GUI.</p>
+<hr />
+</section>
+<section id="on_event" class="level3">
+<h3><a href="#on_event"><code>on_event</code></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>on_event <span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">,</span> <span class="dt">int</span> data3<span class="op">,</span> <span class="dt">int</span> data4<span class="op">)</span></span></code></pre></div>
+<p>Called whenever certain game events occur. The values of DATA1 to DATA4 arguments depend on which event has occurred (see below).</p>
+<p><strong>IMPORTANT:</strong> DATA2 to DATA4 parameters are supported since <strong>AGS 3.6.2</strong>. If you are using <strong>AGS 3.6.1</strong> or lower, then only one <code>event</code> and a single <code>data</code> (or <code>data1</code>) arguments should be declared.</p>
+<p>The possible values of event are:</p>
+<pre><code>eEventEnterRoomBeforeFadein
+        called just before the room&#39;s &#39;Enter Before Fade-in&#39; event occurs
+        DATA1 = new room number
+eEventEnterRoomAfterFadein
+        called just before the room&#39;s &#39;Enter After Fade-in&#39; event occurs
+        DATA1 = room number
+eEventLeaveRoom
+        called just after the room&#39;s &#39;Player Leaves Room&#39; event occurs, before the fade-out
+        DATA1 = room number they are leaving
+eEventLeaveRoomAfterFadeout
+        called when leaving a room, right after fade-out, but while room is still in memory
+        DATA1 = room number they are leaving
+eEventGotScore
+        called whenever the player&#39;s score changes
+        DATA1 = number of points they&#39;ve received
+eEventGUIMouseDown
+        called when a mouse button is pressed down over a GUI
+        DATA1 = GUI number
+        DATA2 = mouse button id; see [MouseButton enum](StandardEnums#mousebutton)
+        DATA3 = mouse x position, *relative* to this exact GUI
+        DATA4 = mouse y position, *relative* to this exact GUI
+eEventGUIMouseUp
+        called when a mouse button is released over a GUI
+        DATA1 = GUI number
+        DATA2 = mouse button id; see [MouseButton enum](StandardEnums#mousebutton)
+        DATA3 = mouse x position, *relative* to this exact GUI
+        DATA4 = mouse y position, *relative* to this exact GUI
+eEventAddInventory
+        called when the player has just added an inventory item
+        DATA1 = inventory item number that was added
+eEventLoseInventory
+        called when the player has just lost an inventory item
+        DATA1 = inventory item number that was lost
+eEventRestoreGame
+        called after a saved game has been restored
+        DATA1 = save slot number
+eEventGameSaved
+        called after a game was saved
+        DATA1 = save slot number
+eEventDialogStart
+        called once the dialog state is started, but not when another topic is run
+        DATA1 = dialog ID
+eEventDialogStop
+        called once it exits the dialog state
+        DATA1 = the last dialog ID before exiting dialog state, may be different from one in eEventDialogStart
+eEventDialogRun
+        called anytime a dialog entry is ran
+        DATA1 = dialog ID
+        DATA2 = entry ID, where starting entry (@S) is 0, and user-made options begin with 1
+eEventDialogOptionsOpen
+        called when dialog options appear
+        DATA1 = dialog ID
+eEventDialogOptionsClose
+        called when dialog options close
+        DATA1 = dialog ID
+        DATA2 = entry ID, the option chosen
+eEventSavesScanComplete
+        called when the save scan, run by [`Game.ScanSaveSlots`](Game#gamescansaveslots) function, is completed
+        DATA1 = &quot;user param&quot; value passed into Game.ScanSaveSlots().
+eEventUserEvent
+        this is not a real event, but defines a minimal value for user events (see [`SendEvent`](Globalfunctions_General#SendEvent)).</code></pre>
+<p><strong>NOTE:</strong> when you write this function in your script, you do not have to declare it with all 4 "data" arguments, you may put only first 1 or 2 instead, and the engine will correctly discard unused parameters without error. This also helps when you upgrade older projects to the latest version of AGS.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">int</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventEnterRoomBeforeFadein</span><span class="op">)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something on each room enter, before screen fades in</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventRestoreGame</span><span class="op">)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something each time right after a save was restored</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>Compatibility:</em></p>
+<ul>
+<li>The <code>data2</code>, <code>data3</code> and <code>data4</code> arguments are only supported since AGS 3.6.2.</li>
+<li><code>eEventEnterRoomAfterFadein</code> event type is only supported since AGS 3.6.0.</li>
+<li><code>eEventLeaveRoomAfterFadeout</code> event type is only supported since AGS 3.6.1.</li>
+<li><code>eEventGameSaved</code> event type is only supported since AGS 3.6.1.</li>
+<li><code>eEventDialogStart</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventDialogStop</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventDialogRun</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventDialogOptionsOpen</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventDialogOptionsClose</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventGUIMouseDown</code> event type has 4 parameters since AGS 3.6.2, and only 1 parameter before that.</li>
+<li><code>eEventGUIMouseUp</code> event type has 4 parameters since AGS 3.6.2, and only 1 parameter before that.</li>
+<li><code>eEventUserEvent</code> event type is only supported since AGS 3.6.2.</li>
+</ul>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#sendevent"><code>SendEvent</code></a></p>
+<hr />
+</section>
+<section id="on_key_press" class="level3">
+<h3><a href="#on_key_press"><code>on_key_press</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>on_key_press <span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">,</span> <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
+<p>Called whenever a key is pressed on the keyboard. <code>keycode</code> holds the value of the key, while <code>mod</code> holds a combination of modifiers pressed alongside with that key. A list of these values is <a href="Keycodes.html">available here</a>.</p>
+<p><strong>IMPORTANT:</strong> <code>mod</code> argument is supported since <strong>AGS 3.6.0</strong>. If you are using <strong>AGS 3.5.1</strong> or lower, then only <code>keycode</code> argument should be declared.</p>
+<p>The <code>mod</code> argument is optional and may be omited. The <code>mod</code> contains <em>set of flags</em>, and is slightly more complicated than keycode: as you should not use regular comparison (<code>==</code>, <code>!=</code>) with it, but a bitwise operator (<code>&amp;</code>):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was pressed (these commands are equivalent)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was NOT pressed (again, two variants of the same check)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">))</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span></code></pre></div>
+<p>The <code>on_key_press</code> function can also be defined in individual room scripts. This allows the room script to intercept a key-press first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function for more details.</p>
+<p>Starting with version 3.6.0 AGS supports two "key handling" modes: a new-style and old-style (backwards compatible). This mode is selected in the <a href="GeneralSettings.html#backwards-compatibility">General Settings</a> with "Use old-style key handling" option in the "Backwards compatibility" group.</p>
+<p><strong>New key mode:</strong></p>
+<ul>
+<li>all keys are passed into the <code>on_key_press</code> function as-is, one by one: for example, if you press Ctrl + Z, then you get <strong>two</strong> <code>on_key_press</code> calls, one with <code>eKeyCtrlLeft</code> and another with <code>eKeyZ</code> argument.</li>
+</ul>
+<p><strong>Old (classic) key mode:</strong></p>
+<ul>
+<li>lone mod keys (Ctrl, Alt, Shift) are not passed into the <code>on_key_press</code>; you may only test if these are pressed using <a href="Globalfunctions_General.html#iskeypressed">IsKeyPressed</a>.</li>
+<li>alphabet keys + ctrl combinations are merged into one key code for the <code>on_key_press</code> callback: e.g. <code>eKeyCodeCtrlA</code> and similar key codes.</li>
+</ul>
+<p><em>Compatibility:</em> The <code>mod</code> argument is only supported since AGS 3.6.0.</p>
+<hr />
+</section>
+<section id="on_mouse_click" class="level3">
+<h3><a href="#on_mouse_click"><code>on_mouse_click</code></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>on_mouse_click <span class="op">(</span><span class="dt">MouseButton</span> button<span class="op">,</span> <span class="dt">int</span> mx<span class="op">,</span> <span class="dt">int</span> my<span class="op">)</span></span></code></pre></div>
+<p>Called when the player clicks a mouse button. BUTTON is either <code>eMouseLeft</code>, <code>eMouseRight</code>, or <code>eMouseMiddle</code>, depending on which button was clicked. The <code>mx</code> and <code>my</code> parameters contain the mouse's position at the time of a click.</p>
+<p><strong>IMPORTANT:</strong> <code>mx</code> and <code>my</code> arguments are supported since <strong>AGS 3.6.2</strong>. If you are using <strong>AGS 3.6.1</strong> or lower, then only <code>button</code> argument should be declared.</p>
+<p><strong>NOTE:</strong> it is an old tradition to use global variables <code>mouse.x</code> and <code>mouse.y</code> in this function to get the mouse's position. But that method is not entirely reliable, as <code>on_mouse_click</code> may be called with certain delay, when the mouse cursor has already moved a bit. Starting with AGS 3.6.2 we advise to use this function's arguments <code>mx</code> and <code>my</code> instead.</p>
+<p>If 'Handle inventory clicks in script' is enabled in the game options, this function can also be called with <code>eMouseLeftInv</code>, <code>eMouseMiddleInv</code> or <code>eMouseRightInv</code>, which indicate a left, middle or right click on an inventory item, respectively.</p>
+<p>If 'Enable mouse wheel support' is enabled, this function can also be called with eMouseWheelNorth or eMouseWheelSouth, which indicate the user moving the mouse wheel north or south, respectively.</p>
+<p>The <code>on_mouse_click</code> function can also be defined in individual room scripts. This allows the room script to intercept a mouse-click first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function for more details.</p>
+<p><em>Compatibility:</em> The <code>mx</code> and <code>my</code> arguments are only supported since AGS 3.6.2.</p>
+<hr />
+</section>
+<section id="on_text_input" class="level3">
+<h3><a href="#on_text_input"><code>on_text_input</code></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>on_text_input<span class="op">(</span><span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
+<p>Called when the player's key presses form a printable character. The difference between this and <code>on_key_press</code> is that not every key corresponds to the printable char, and some chars may be created by pressing multiple keys (which also depends on the current system language).</p>
+<p>The <code>ch</code> argument contains a unicode character code, and may be used with the <a href="String.html">String functions</a>.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>MyLabel<span class="op">.</span><span class="at">Text</span> = MyLabel<span class="op">.</span><span class="at">Text</span><span class="op">.</span><span class="at">AppendChar</span><span class="op">(</span>ch<span class="op">);</span></span></code></pre></div>
+<p>will append the new printed character to a label's text.</p>
+<p><strong>IMPORTANT:</strong> this function only works when your game uses "new-style key handling mode". This mode is selected in the <a href="GeneralSettings.html#backwards-compatibility">General Settings</a> with "Use old-style key handling" option in the "Backwards compatibility" group.</p>
+<p><em>Compatibility:</em> supported since AGS 3.6.0.</p>
+<hr />
+</section>
+<section id="repeatedly_execute" class="level3">
+<h3><a href="#repeatedly_execute"><code>repeatedly_execute</code></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>repeatedly_execute<span class="op">()</span></span></code></pre></div>
+<p>Called every game cycle (normally 40 times per second). Additional information is <a href="RepExec.html">available here</a>.</p>
+<hr />
+</section>
+<section id="repeatedly_execute_always" class="level3">
+<h3><a href="#repeatedly_execute_always"><code>repeatedly_execute_always</code></a></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>repeatedly_execute_always<span class="op">()</span></span></code></pre></div>
+<p>Called every game cycle, even when a blocking routine (e.g speech or cutscene) is in progress. You <strong>cannot</strong> call any blocking functions from this event handler. <code>repeatedly_execute_always</code> is called <strong>before</strong> the game entities (characters, rooms, etc) get updated. Additional information is <a href="RepExec.html">available here</a>.</p>
+<hr />
+</section>
+<section id="late_repeatedly_execute_always" class="level3">
+<h3><a href="#late_repeatedly_execute_always"><code>late_repeatedly_execute_always</code></a></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>late_repeatedly_execute_always<span class="op">()</span></span></code></pre></div>
+<p>Called every game cycle, even when a blocking routine (e.g. speech or cutscene) is in progress. You <strong>cannot</strong> call any blocking functions from this event handler. <code>late_repeatedly_execute_always</code> is called <strong>after</strong> the game entities (characters, rooms, etc) have been updated, but before the game screen is redrawn.</p>
+<hr />
+</section>
+<section id="unhandled_event" class="level3">
+<h3><a href="#unhandled_event"><code>unhandled_event</code></a></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>unhandled_event <span class="op">(</span><span class="dt">int</span> what<span class="op">,</span> <span class="dt">int</span> type<span class="op">)</span></span></code></pre></div>
+<p>Called when an event occurs, but no corresponding event handler has been configured. This is typically used to display a default "I can't do that" type response in-order to avoid having to add unique messages for all in-game interactions. The values of WHAT and TYPE tell you what the player did. The possible values are listed below:</p>
+<table>
+<thead>
+<tr class="header">
+<th>WHAT</th>
+<th>TYPE</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>Look at hotspot</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2</td>
+<td>Interact with hotspot</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>Use inventory on hotspot</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>4</td>
+<td>Talk to hotspot</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>7</td>
+<td>Pick up hotspot</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>8</td>
+<td>Cursor Mode 8 on hotspot</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>9</td>
+<td>Cursor Mode 9 on hotspot</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0</td>
+<td>Look at object</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
+<td>Interact with object</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>Talk to object</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+<td>Use inventory on object</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>5</td>
+<td>Pick up object</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>6</td>
+<td>Cursor Mode 8 on object</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>7</td>
+<td>Cursor Mode 9 on object</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0</td>
+<td>Look at character</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>1</td>
+<td>Interact with character</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2</td>
+<td>Speak to character</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>3</td>
+<td>Use inventory on character</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+<td>Pick up character</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>6</td>
+<td>Cursor Mode 8 on character</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>7</td>
+<td>Cursor Mode 9 on character</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1</td>
+<td>Look at nothing (i.e. no hotspot)</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>2</td>
+<td>Interact with nothing</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>3</td>
+<td>Use inventory with nothing</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>4</td>
+<td>Talk to nothing</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0</td>
+<td>Look at inventory</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>1</td>
+<td>Interact with inventory (currently not possible)</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>2</td>
+<td>Speak to inventory</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>3</td>
+<td>Use an inventory item on another</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>4</td>
+<td>Other click on inventory</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE:</strong> the "Character stands on hotspot" event does not trigger this function, nor will it be triggered if there is an "Any click" event handler defined, nor if the player clicks on nothing (hotspot 0)</p>
+<hr />
+</section>
+<section id="on_call" class="level3">
+<h3><a href="#on_call"><code>on_call</code></a></h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>on_call <span class="op">(</span><span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
+<p>This callback can only be declared on Room Script.</p>
+<p>It's called after the function <code>CallRoomScript(value)</code> is executed, but not immediately. You can read an arbitrary integer value passed from <code>CallRoomScript</code>. Additional information is <a href="Globalfunctions_General.html#callroomscript">available here</a>.</p>
+</section>
+</section>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Globalfunctions_Event.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 4c246cb527904b33d18d957446e2b7412d63c097
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#global-event-handlers" id="toc-global-event-handlers">Global event handlers</a>
+<ul>
+<li><a href="#dialog_request" id="toc-dialog_request"><code>dialog_request</code></a></li>
+<li><a href="#game_start" id="toc-game_start"><code>game_start</code></a></li>
+<li><a href="#interface_click" id="toc-interface_click"><code>interface_click</code></a></li>
+<li><a href="#on_event" id="toc-on_event"><code>on_event</code></a></li>
+<li><a href="#on_key_press" id="toc-on_key_press"><code>on_key_press</code></a></li>
+<li><a href="#on_mouse_click" id="toc-on_mouse_click"><code>on_mouse_click</code></a></li>
+<li><a href="#on_text_input" id="toc-on_text_input"><code>on_text_input</code></a></li>
+<li><a href="#repeatedly_execute" id="toc-repeatedly_execute"><code>repeatedly_execute</code></a></li>
+<li><a href="#repeatedly_execute_always" id="toc-repeatedly_execute_always"><code>repeatedly_execute_always</code></a></li>
+<li><a href="#late_repeatedly_execute_always" id="toc-late_repeatedly_execute_always"><code>late_repeatedly_execute_always</code></a></li>
+<li><a href="#unhandled_event" id="toc-unhandled_event"><code>unhandled_event</code></a></li>
+<li><a href="#on_call" id="toc-on_call"><code>on_call</code></a></li>
+</ul></li>
+</ul>
+    </aside>
+  </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>
