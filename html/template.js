@@ -38,6 +38,7 @@ var whole_word_checkbox;
 var was_whole_word;
 var highlight_checkbox;
 var during_init = true;
+var branch_name = '$branch_name$';
 
 window.onload = function() { init(); }
 
@@ -104,6 +105,37 @@ function upgrade_info_boxes() {
       default: found = false; break;
     }
     if (found) item.innerText = item.innerText.replace(':','');
+  });
+}
+
+function onChangeVersion(event) {
+  if (event.target.value) {
+    const currentPage = location.pathname.split('/').pop();
+    const baseTarget = '/ags-manual/' + event.target.value + '/';
+    const pageTarget = baseTarget + currentPage;
+    fetch(pageTarget, { method: "HEAD" })
+    .then((res) => {
+      if (res.ok) {
+        window.location = pageTarget; // to same page
+      } else {
+        window.location = baseTarget; // to index.html
+      }
+    });
+  }
+}
+
+// show version selector only for hosted docs
+if(location.hostname == 'adventuregamestudio.github.io') {
+  document.querySelectorAll('.version-selector').forEach((el) => {
+    // preselect current branch version
+    switch (branch_name) {
+      case 'master':
+      case 'ags3':
+          el.value = 'v3'; break;
+      case 'ags4':
+          el.value = 'v4'; break;
+    }
+    el.style.display = ''
   });
 }
 

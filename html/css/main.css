@@ -751,6 +751,23 @@ article :target:before {
     margin: -68px 0 0;
 }
 
+/* version selector */
+.version-selector {
+    background: transparent;
+    border: 0;
+    background: var(--bkg-color-control);
+    color: var(--text-color-control);
+    padding: 5px;
+}
+nav .version-selector {
+    float: right;
+    margin-right: 10px;
+    display:none;
+}
+@media (max-width:460px) {
+    .version-selector { display:none}
+    nav .version-selector { display:block}
+}
 
 /* mobile layout */
 .mobile-menu {
