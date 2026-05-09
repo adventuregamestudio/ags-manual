@@ -135,6 +135,7 @@ if(location.hostname == 'adventuregamestudio.github.io') {
       case 'ags4':
           el.value = 'v4'; break;
     }
+    el.options[ el.selectedIndex ].setAttribute('selected',''); // force the attribute, so subsequent innerHTML edits don't reset the select
     el.style.display = ''
   });
 }
