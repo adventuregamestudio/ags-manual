@@ -770,7 +770,7 @@ var meta = {
       "153": { "ValidateRestoredSave": 1 },
       "154": { "ViewFrame": 2 },
       "155": { "Viewport": 1 },
-      "156": { "VoiceSpeech": 8 }
+      "156": { "VoiceSpeech": 9 }
     },
     "AGS's": {
       "0": { "EnginePluginRun-timeAPI": 5 }
@@ -2746,6 +2746,9 @@ var meta = {
     "CHANGES.TXT": {
       "0": { "ContactingTheDevelopers": 1 }
     },
+    "CHAR": {
+      "0": { "VoiceSpeech": 1 }
+    },
     "CHARACTER": {
       "0": { "Character": 1 }
     },
@@ -2766,6 +2769,9 @@ var meta = {
     },
     "CHARTOFOLLOW": {
       "0": { "Character": 8 }
+    },
+    "CHARY.EXT": {
+      "0": { "VoiceSpeech": 1 }
     },
     "CHRIS": {
       "0": { "Copyright": 1 }
@@ -5198,7 +5204,7 @@ var meta = {
       "66": { "UpgradeTo362": 1 },
       "67": { "ViewFrame": 8 },
       "68": { "Viewport": 4 },
-      "69": { "VoiceSpeech": 2 }
+      "69": { "VoiceSpeech": 4 }
     },
     "Display-style": {
       "0": { "Globalfunctions_General": 1 }
@@ -9287,8 +9293,7 @@ var meta = {
       "0": { "Keycodes": 1 },
       "1": { "System": 2 },
       "2": { "UpgradeTo35": 1 },
-      "3": { "UpgradeTo36": 1 },
-      "4": { "VoiceSpeech": 1 }
+      "3": { "UpgradeTo36": 1 }
     },
     "Hit": {
       "0": { "BuildAndroid": 1 }
@@ -12695,11 +12700,13 @@ var meta = {
     },
     "NARR": {
       "0": { "Gamevariables": 1 },
-      "1": { "Globalfunctions_Message": 1 }
+      "1": { "Globalfunctions_Message": 1 },
+      "2": { "VoiceSpeech": 1 }
     },
     "NARRATOR": {
       "0": { "Gamevariables": 1 },
-      "1": { "Globalfunctions_Message": 1 }
+      "1": { "Globalfunctions_Message": 1 },
+      "2": { "VoiceSpeech": 1 }
     },
     "NEEDLE": {
       "0": { "String": 1 }
@@ -14980,7 +14987,8 @@ var meta = {
       "5": { "ListBox": 1 },
       "6": { "MIDI-playback": 1 },
       "7": { "Multimedia": 3 },
-      "8": { "Overlay": 1 }
+      "8": { "Overlay": 1 },
+      "9": { "VoiceSpeech": 1 }
     },
     "Priorities": {
       "0": { "MusicAndSound": 1 }
@@ -21740,11 +21748,7 @@ var meta = {
       "0": { "OOProgramming": 1 }
     },
     "XXXX": {
-      "0": { "Parser": 1 },
-      "1": { "VoiceSpeech": 1 }
-    },
-    "XXXXY.EXT": {
-      "0": { "VoiceSpeech": 1 }
+      "0": { "Parser": 1 }
     },
     "X_SPEED": {
       "0": { "Character": 3 }
@@ -24828,7 +24832,7 @@ var meta = {
       "115": { "UpgradingTo271": 2 },
       "116": { "ValidateRestoredSave": 3 },
       "117": { "Viewport": 3 },
-      "118": { "VoiceSpeech": 2 }
+      "118": { "VoiceSpeech": 3 }
     },
     "any_click": {
       "0": { "Tumbleweed": 3 },
@@ -29011,7 +29015,7 @@ var meta = {
       "81": { "UpgradingTo271": 1 },
       "82": { "ValidateRestoredSave": 3 },
       "83": { "Viewport": 1 },
-      "84": { "VoiceSpeech": 1 }
+      "84": { "VoiceSpeech": 2 }
     },
     "caller": {
       "0": { "EnginePluginRun-timeAPI": 2 },
@@ -29534,7 +29538,7 @@ var meta = {
       "74": { "UpgradingTo271": 1 },
       "75": { "ValidateRestoredSave": 1 },
       "76": { "Viewport": 3 },
-      "77": { "VoiceSpeech": 3 }
+      "77": { "VoiceSpeech": 4 }
     },
     "case-insensitive": {
       "0": { "Dictionary": 2 },
@@ -30217,7 +30221,7 @@ var meta = {
       "78": { "UpgradingTo27": 13 },
       "79": { "ValidateRestoredSave": 1 },
       "80": { "Viewport": 2 },
-      "81": { "VoiceSpeech": 1 }
+      "81": { "VoiceSpeech": 3 }
     },
     "character's": {
       "0": { "acintro2": 2 },
@@ -31424,8 +31428,7 @@ var meta = {
       "12": { "Settingupthegame": 1 },
       "13": { "Templates": 1 },
       "14": { "TextParser": 1 },
-      "15": { "ViewFrame": 1 },
-      "16": { "VoiceSpeech": 1 }
+      "15": { "ViewFrame": 1 }
     },
     "comfortable": {
       "0": { "CustomDialogOptions": 1 },
@@ -34131,7 +34134,8 @@ var meta = {
     },
     "dark": {
       "0": { "Button": 2 },
-      "1": { "Globalfunctions_Message": 1 }
+      "1": { "Globalfunctions_Message": 1 },
+      "2": { "VoiceSpeech": 1 }
     },
     "darken": {
       "0": { "Globalfunctions_General": 1 }
@@ -35703,7 +35707,7 @@ var meta = {
       "75": { "UpgradeTo36": 3 },
       "76": { "UpgradeTo361": 1 },
       "77": { "ValidateRestoredSave": 1 },
-      "78": { "VoiceSpeech": 3 }
+      "78": { "VoiceSpeech": 2 }
     },
     "differentiate": {
       "0": { "Dialog": 1 }
@@ -36220,7 +36224,7 @@ var meta = {
       "56": { "UpgradeTo34": 1 },
       "57": { "UpgradeTo36": 1 },
       "58": { "Viewport": 7 },
-      "59": { "VoiceSpeech": 1 }
+      "59": { "VoiceSpeech": 2 }
     },
     "displaying": {
       "0": { "acintro2": 1 },
@@ -36634,7 +36638,8 @@ var meta = {
       "74": { "UpgradeTo36": 4 },
       "75": { "UpgradeTo362": 1 },
       "76": { "UpgradingTo27": 3 },
-      "77": { "Viewport": 4 }
+      "77": { "Viewport": 4 },
+      "78": { "VoiceSpeech": 1 }
     },
     "doesn't": {
       "0": { "acintro4": 1 },
@@ -40155,7 +40160,8 @@ var meta = {
       "3": { "EventTypes": 5 },
       "4": { "Feature_Characters": 1 },
       "5": { "Globalfunctions_Room": 2 },
-      "6": { "Room": 2 }
+      "6": { "Room": 2 },
+      "7": { "VoiceSpeech": 1 }
     },
     "entire": {
       "0": { "acintro7": 1 },
@@ -40882,7 +40888,7 @@ var meta = {
       "105": { "UpgradingTo271": 2 },
       "106": { "ValidateRestoredSave": 2 },
       "107": { "Viewport": 1 },
-      "108": { "VoiceSpeech": 2 }
+      "108": { "VoiceSpeech": 3 }
     },
     "example.dat": {
       "0": { "File": 4 }
@@ -42151,7 +42157,7 @@ var meta = {
       "72": { "UpgradeTo361": 1 },
       "73": { "UpgradeTo362": 2 },
       "74": { "UpgradingTo27": 1 },
-      "75": { "VoiceSpeech": 12 }
+      "75": { "VoiceSpeech": 14 }
     },
     "file's": {
       "0": { "File": 4 },
@@ -43680,7 +43686,7 @@ var meta = {
       "135": { "UpgradingTo27": 6 },
       "136": { "UpgradingTo271": 1 },
       "137": { "Viewport": 3 },
-      "138": { "VoiceSpeech": 6 }
+      "138": { "VoiceSpeech": 5 }
     },
     "fromSpriteSlot": {
       "0": { "DynamicSprite": 1 }
@@ -43928,7 +43934,7 @@ var meta = {
       "111": { "UpgradingTo271": 3 },
       "112": { "ValidateRestoredSave": 6 },
       "113": { "Viewport": 6 },
-      "114": { "VoiceSpeech": 4 }
+      "114": { "VoiceSpeech": 5 }
     },
     "function's": {
       "0": { "Dialog": 1 },
@@ -46506,7 +46512,7 @@ var meta = {
       "129": { "ValidateRestoredSave": 7 },
       "130": { "ViewFrame": 1 },
       "131": { "Viewport": 4 },
-      "132": { "VoiceSpeech": 4 }
+      "132": { "VoiceSpeech": 5 }
     },
     "haven't": {
       "0": { "acintro2": 1 },
@@ -46805,7 +46811,8 @@ var meta = {
       "0": { "UpgradingTo27": 1 }
     },
     "hero": {
-      "0": { "Character": 2 }
+      "0": { "Character": 2 },
+      "1": { "VoiceSpeech": 1 }
     },
     "hi": {
       "0": { "Game": 3 }
@@ -49011,7 +49018,8 @@ var meta = {
       "75": { "UpgradeTo341": 3 },
       "76": { "UpgradeTo35": 2 },
       "77": { "UpgradingTo27": 1 },
-      "78": { "UpgradingTo271": 2 }
+      "78": { "UpgradingTo271": 2 },
+      "79": { "VoiceSpeech": 1 }
     },
     "instruct": {
       "0": { "DefaultSetup": 1 },
@@ -49771,8 +49779,7 @@ var meta = {
       "75": { "UpgradeTo36": 2 },
       "76": { "UpgradeTo361": 2 },
       "77": { "UpgradingTo27": 5 },
-      "78": { "Viewport": 3 },
-      "79": { "VoiceSpeech": 1 }
+      "78": { "Viewport": 3 }
     },
     "item": {
       "0": { "acintro3": 1 },
@@ -51675,7 +51682,8 @@ var meta = {
       "92": { "UpgradingTo27": 6 },
       "93": { "UpgradingTo271": 5 },
       "94": { "ValidateRestoredSave": 1 },
-      "95": { "Viewport": 1 }
+      "95": { "Viewport": 1 },
+      "96": { "VoiceSpeech": 1 }
     },
     "likely": {
       "0": { "acintro1": 1 },
@@ -55946,7 +55954,7 @@ var meta = {
       "76": { "UpgradeTo361": 2 },
       "77": { "UpgradeTo362": 9 },
       "78": { "UpgradingTo27": 6 },
-      "79": { "VoiceSpeech": 5 }
+      "79": { "VoiceSpeech": 6 }
     },
     "named": {
       "0": { "BuildAndroid": 2 },
@@ -56008,7 +56016,7 @@ var meta = {
       "2": { "Lipsync": 2 },
       "3": { "ScriptingTutorialPart2": 2 },
       "4": { "UpgradeTo32": 1 },
-      "5": { "VoiceSpeech": 3 }
+      "5": { "VoiceSpeech": 5 }
     },
     "narration": {
       "0": { "DialogScript": 1 },
@@ -56018,7 +56026,8 @@ var meta = {
     "narrator": {
       "0": { "DialogScript": 4 },
       "1": { "Gamevariables": 1 },
-      "2": { "GeneralSettings": 1 }
+      "2": { "GeneralSettings": 1 },
+      "3": { "VoiceSpeech": 1 }
     },
     "narrator's": {
       "0": { "Game": 2 }
@@ -56483,7 +56492,7 @@ var meta = {
       "105": { "UpgradingTo27": 14 },
       "106": { "UpgradingTo271": 9 },
       "107": { "Viewport": 8 },
-      "108": { "VoiceSpeech": 2 }
+      "108": { "VoiceSpeech": 4 }
     },
     "new-String": {
       "0": { "Constants": 1 }
@@ -58184,7 +58193,7 @@ var meta = {
       "9": { "UpgradeTo36": 1 },
       "10": { "UpgradingTo27": 2 },
       "11": { "UpgradingTo271": 3 },
-      "12": { "VoiceSpeech": 1 }
+      "12": { "VoiceSpeech": 3 }
     },
     "old_filename": {
       "0": { "File": 2 }
@@ -68009,7 +68018,7 @@ var meta = {
       "122": { "UpgradeTo362": 19 },
       "123": { "UpgradingTo27": 18 },
       "124": { "ValidateRestoredSave": 2 },
-      "125": { "VoiceSpeech": 7 }
+      "125": { "VoiceSpeech": 8 }
     },
     "script's": {
       "0": { "EditorDialog": 1 },
@@ -69560,7 +69569,7 @@ var meta = {
       "98": { "ValidateRestoredSave": 2 },
       "99": { "ViewFrame": 1 },
       "100": { "Viewport": 2 },
-      "101": { "VoiceSpeech": 1 }
+      "101": { "VoiceSpeech": 2 }
     },
     "shouldn't": {
       "0": { "Debuggingfeatures": 1 },
@@ -70354,8 +70363,7 @@ var meta = {
       "13": { "UpgradeTo30": 1 },
       "14": { "UpgradeTo34": 1 },
       "15": { "UpgradeTo36": 1 },
-      "16": { "UpgradingTo27": 1 },
-      "17": { "VoiceSpeech": 1 }
+      "16": { "UpgradingTo27": 1 }
     },
     "slogged": {
       "0": { "acintro2": 1 }
@@ -70650,7 +70658,7 @@ var meta = {
       "115": { "ValidateRestoredSave": 7 },
       "116": { "ViewFrame": 1 },
       "117": { "Viewport": 1 },
-      "118": { "VoiceSpeech": 2 }
+      "118": { "VoiceSpeech": 3 }
     },
     "software": {
       "0": { "Copyright": 2 },
@@ -71253,7 +71261,7 @@ var meta = {
       "50": { "TextParser": 2 },
       "51": { "Translations": 5 },
       "52": { "ValidateRestoredSave": 1 },
-      "53": { "VoiceSpeech": 1 }
+      "53": { "VoiceSpeech": 2 }
     },
     "specialize": {
       "0": { "acintro8": 1 }
@@ -71402,7 +71410,8 @@ var meta = {
       "28": { "TroubleshootingWindowsZoneID": 1 },
       "29": { "UpgradeTo32": 1 },
       "30": { "UpgradeTo362": 1 },
-      "31": { "Viewport": 1 }
+      "31": { "Viewport": 1 },
+      "32": { "VoiceSpeech": 1 }
     },
     "specifying": {
       "0": { "AdvancedRoomFeatures": 1 },
@@ -72757,7 +72766,7 @@ var meta = {
       "30": { "TroubleshootingWindowsZoneID": 1 },
       "31": { "UpgradeTo33": 2 },
       "32": { "UpgradeTo36": 2 },
-      "33": { "VoiceSpeech": 2 }
+      "33": { "VoiceSpeech": 4 }
     },
     "styles": {
       "0": { "Button": 1 },
@@ -74296,7 +74305,7 @@ var meta = {
       "66": { "UpgradeTo36": 9 },
       "67": { "UpgradeTo362": 1 },
       "68": { "UpgradingTo271": 10 },
-      "69": { "VoiceSpeech": 7 }
+      "69": { "VoiceSpeech": 9 }
     },
     "text's": {
       "0": { "Button": 1 },
@@ -74661,7 +74670,7 @@ var meta = {
       "103": { "UpgradingTo271": 3 },
       "104": { "ValidateRestoredSave": 1 },
       "105": { "Viewport": 1 },
-      "106": { "VoiceSpeech": 1 }
+      "106": { "VoiceSpeech": 2 }
     },
     "theme": {
       "0": { "EditorPreferences": 1 }
@@ -75878,6 +75887,9 @@ var meta = {
       "14": { "UpgradingTo27": 1 },
       "15": { "UpgradingTo271": 1 },
       "16": { "Viewport": 2 }
+    },
+    "tower": {
+      "0": { "VoiceSpeech": 1 }
     },
     "townsperson": {
       "0": { "Character": 1 }
@@ -77630,7 +77642,7 @@ var meta = {
       "142": { "UpgradingTo27": 4 },
       "143": { "UpgradingTo271": 2 },
       "144": { "Viewport": 2 },
-      "145": { "VoiceSpeech": 2 }
+      "145": { "VoiceSpeech": 3 }
     },
     "use-case": {
       "0": { "ExtenderFunctions": 1 }
@@ -79143,7 +79155,7 @@ var meta = {
       "14": { "UpgradeTo341": 2 },
       "15": { "UpgradeTo36": 1 },
       "16": { "UpgradeTo362": 5 },
-      "17": { "VoiceSpeech": 16 }
+      "17": { "VoiceSpeech": 17 }
     },
     "voice-over": {
       "0": { "DistGame": 1 },
@@ -79158,6 +79170,9 @@ var meta = {
     },
     "voice-overs": {
       "0": { "EngineConfigFile": 1 }
+    },
+    "voiced": {
+      "0": { "VoiceSpeech": 1 }
     },
     "voices": {
       "0": { "Game": 1 },
@@ -79902,7 +79917,7 @@ var meta = {
       "46": { "UpgradeTo362": 2 },
       "47": { "UpgradingTo27": 2 },
       "48": { "UpgradingTo271": 1 },
-      "49": { "VoiceSpeech": 1 }
+      "49": { "VoiceSpeech": 2 }
     },
     "went": {
       "0": { "Templates": 1 },
@@ -81906,7 +81921,7 @@ var meta = {
       "157": { "UpgradingTo271": 9 },
       "158": { "ValidateRestoredSave": 14 },
       "159": { "Viewport": 7 },
-      "160": { "VoiceSpeech": 10 }
+      "160": { "VoiceSpeech": 11 }
     },
     "you'd": {
       "0": { "acintro2": 2 },
@@ -81931,7 +81946,8 @@ var meta = {
       "19": { "TextParser": 1 },
       "20": { "UnicodeSupport": 1 },
       "21": { "UpgradeTo34": 1 },
-      "22": { "UpgradeTo35": 1 }
+      "22": { "UpgradeTo35": 1 },
+      "23": { "VoiceSpeech": 1 }
     },
     "you'll": {
       "0": { "acintro1": 3 },

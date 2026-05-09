@@ -79,9 +79,10 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    ego<span class="op">:</span> <span class="st">&quot;Hi! How are you?&quot;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    michael<span class="op">:</span> <span class="st">&quot;I&#39;m fine.&quot;</span></span></code></pre></div>
 <p>Normally this would display the words in the speech text above the characters heads. However, you can add the special character '&amp;' to symbolize that a voice file should be played along with the displayed text.</p>
+<p>When a line of text has a voice linked to it, the text on the screen will not be removed until the voice file has finished playing. If the player interrupts it by clicking the mouse or pressing a key, the text and voice will be stopped. Voice files must be placed in the "Speech" sub-directory of the game folder.</p>
 <p>The file name must follow a certain format, this format depends on the version of AGS that you are using, and an option called "Use old-style voice clip naming rule" which is found in <a href="GeneralSettings.html#backwards-compatibility">General Settings</a>.</p>
-<p>Historically, the name had to be XXXXY.EXT, where XXXX comes from the <strong>first four letters</strong> of the character's script name (except the leading 'c'), case insensitive, the Y is the speech file number (with no leading or trailing zeroes or padding of any kind), and EXT is the file extension.</p>
-<p>Starting with <strong>AGS v3.6.2</strong> the format is slightly different, it's CHARNAME.NUMBER.EXT, where CHARNAME is a full character's script name (but still except the leading 'c'), case insensitive, NUMBER is the speech file number (with no leading or trailing zeroes), and EXT is the file extension.</p>
+<p>Prior to <strong>AGS 3.6.2</strong>, the name had to be CHARY.EXT, where CHAR is the <strong>first four letters</strong> of the character's script name (except the leading 'c'), case insensitive, the Y is the speech file number (with no leading or trailing zeroes or padding of any kind), and EXT is the file extension.</p>
+<p>Starting with <strong>AGS 3.6.2</strong> the format is CHARNAME.NUMBER.EXT, where CHARNAME is a <strong>full character's script name</strong> (but still except the leading 'c'), case insensitive, NUMBER is the speech file number (with no leading or trailing zeroes), and EXT is the file extension.</p>
 <p>For example, if you have dialog script:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    ego<span class="op">:</span> <span class="op">&amp;</span><span class="dv">10</span> <span class="st">&quot;Hi! How are you?&quot;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    michael<span class="op">:</span> <span class="op">&amp;</span><span class="dv">7</span> <span class="st">&quot;I&#39;m fine.&quot;</span></span></code></pre></div>
@@ -90,7 +91,9 @@
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cMichael<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;&amp;7 I&#39;m fine.&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>If the old file naming format is used by your project, then both of those examples play Ego10.ogg and Mich7.ogg respectively.</p>
 <p>If the new file naming format is used, then they play Ego.10.ogg and Michael.7.ogg files respectively.</p>
-<p>When a line of text has a voice linked to it, the text on the screen will not be removed until the voice file has finished playing. If the player interrupts it by clicking the mouse or pressing a key, the text and voice will be stopped. Voice files must be placed in the "Speech" sub-directory of the game folder.</p>
+<p>The special case is a narrator text, that is any text displayed with a <a href="Globalfunctions_Message.html#display">Display</a> function, that does not specify a character. If you'd like them to be voiced as well, then use NARR with the old-style naming and NARRATOR with the new style naming instead of a character name in file. For example, if you have in script:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;&amp;123 And so the hero enters the dark tower.&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>The voice file should be called Narr123.ogg in old-style and Narrator.123.ogg in new style.</p>
 <p>Script functions that support playing voice clips using this style are:</p>
 <ul>
 <li><a href="Character.html#charactersay">Character.Say</a>, <a href="Character.html#charactersayat">Character.SayAt</a>;</li>
@@ -98,7 +101,7 @@
 <li><a href="Globalfunctions_Message.html#display">Display</a> and family (<a href="Globalfunctions_Message.html#displayat">DisplayAt</a>, <a href="Globalfunctions_Message.html#displayaty">DisplayAtY</a>, and so forth). Display functions are using <code>game.narrator_speech</code> variable to know which character's clips to use.</li>
 </ul>
 <p><strong>NOTE:</strong> Speech file numbers are restricted to the positive range of 1 to 2147483647 (2 billion). This is a technical limitation based on how these are handled inside the engine, but we do not think that running out of numbers to use will ever become a problem to the user.</p>
-<p>Since AGS 3.5.0 you can play voice clips directly using function <a href="Game.html#gameplayvoiceclip">Game.PlayVoiceClip</a>.</p>
+<p>Since <strong>AGS 3.5.0</strong> you can play voice clips directly using function <a href="Game.html#gameplayvoiceclip">Game.PlayVoiceClip</a>.</p>
 <section id="voice-packs" class="level3">
 <h3><a href="#voice-packs">Voice packs</a></h3>
 <p>Any sound format supported by AGS can be used for speech as well.</p>
@@ -131,7 +134,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 01fd8ab03b28ea0e7a72e2bc0b4302df07ae6b89
+          Build: 735f9eef3d9f436a9583a1c50f0d1f5a78559f70
         </p>
       </footer>
     </article>
