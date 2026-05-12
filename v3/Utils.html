@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Utils functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="header-bg"></div>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+
+      <select class="version-selector" onchange="onChangeVersion(event)" style="display:none">
+        <option value="v4">v4.x</option>
+        <option value="v3">v3.x</option>
+      </select>
+
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <ul>
+      <li>
+        <select class="version-selector" onchange="onChangeVersion(event)" style="display:none">
+          <option value="v4">v4.x</option>
+          <option value="v3">v3.x</option>
+        </select>
+      </li>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <article>
+      <main>
+<section id="utils-functions-and-properties" class="level2">
+<h2><a href="#utils-functions-and-properties"><code>Utils</code> functions and properties</a></h2>
+<section id="utilssortfloats" class="level3">
+<h3><a href="#utilssortfloats"><code>Utils.SortFloats</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> Utils<span class="op">.</span><span class="at">SortFloats</span><span class="op">(</span><span class="dt">float</span> floatArr<span class="op">[],</span> SortDirection<span class="op">)</span></span></code></pre></div>
+<p>Sorts the provided dynamic array of floats in the requested direction (ascending or descending).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> farr<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">float</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>farr<span class="op">[</span><span class="dv">0</span><span class="op">]</span> = <span class="fl">1.2</span><span class="op">;</span> farr<span class="op">[</span><span class="dv">1</span><span class="op">]</span> = <span class="fl">0.7</span><span class="op">;</span> farr<span class="op">[</span><span class="dv">2</span><span class="op">]</span> = <span class="fl">1.8</span><span class="op">;</span> farr<span class="op">[</span><span class="dv">3</span><span class="op">]</span> = <span class="op">-</span><span class="fl">0.4</span><span class="op">;</span> farr<span class="op">[</span><span class="dv">4</span><span class="op">]</span> = <span class="fl">2.1</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Utils<span class="op">.</span><span class="at">SortFloats</span><span class="op">(</span>farr<span class="op">,</span> eSortAscending<span class="op">);</span></span></code></pre></div>
+<p>will take 'farr' array of floats and sort it in ascending direction.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="utilssortints" class="level3">
+<h3><a href="#utilssortints"><code>Utils.SortInts</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> Utils<span class="op">.</span><span class="at">SortInts</span><span class="op">(</span><span class="dt">int</span> intArr<span class="op">[],</span> SortDirection<span class="op">)</span></span></code></pre></div>
+<p>Sorts the provided dynamic array of ints in the requested direction (ascending or descending).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arr<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>arr<span class="op">[</span><span class="dv">0</span><span class="op">]</span> = <span class="dv">9</span><span class="op">;</span> arr<span class="op">[</span><span class="dv">1</span><span class="op">]</span> = <span class="dv">5</span><span class="op">;</span> arr<span class="op">[</span><span class="dv">2</span><span class="op">]</span> = <span class="dv">3</span><span class="op">;</span> arr<span class="op">[</span><span class="dv">3</span><span class="op">]</span> = <span class="dv">11</span><span class="op">;</span> arr<span class="op">[</span><span class="dv">4</span><span class="op">]</span> = <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Utils<span class="op">.</span><span class="at">SortInts</span><span class="op">(</span>arr<span class="op">,</span> eSortAscending<span class="op">);</span></span></code></pre></div>
+<p>will take 'arr' array of ints and sort it in ascending direction.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="utilssortstrings" class="level3">
+<h3><a href="#utilssortstrings"><code>Utils.SortStrings</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> Utils<span class="op">.</span><span class="at">SortStrings</span><span class="op">(</span><span class="bu">String</span> stringArr<span class="op">[],</span> <span class="dt">StringCompareStyle</span><span class="op">,</span> SortDirection<span class="op">)</span></span></code></pre></div>
+<p>Sorts the provided dynamic array of Strings using string comparison style in the requested direction (ascending or descending).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> strings<span class="op">[]</span> = <span class="kw">new</span> <span class="bu">String</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>strings<span class="op">[</span><span class="dv">0</span><span class="op">]</span> = <span class="st">&quot;Orange&quot;</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>strings<span class="op">[</span><span class="dv">1</span><span class="op">]</span> = <span class="st">&quot;Apple&quot;</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>strings<span class="op">[</span><span class="dv">2</span><span class="op">]</span> = <span class="st">&quot;Grapefruit&quot;</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>strings<span class="op">[</span><span class="dv">3</span><span class="op">]</span> = <span class="st">&quot;Tangerine&quot;</span><span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>strings<span class="op">[</span><span class="dv">4</span><span class="op">]</span> = <span class="st">&quot;Plum&quot;</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>Utils<span class="op">.</span><span class="at">SortStrings</span><span class="op">(</span>strings<span class="op">,</span> <span class="bu">eCaseSensitive</span><span class="op">,</span> eSortAscending<span class="op">);</span></span></code></pre></div>
+<p>will take 'strings' array of Strings and sort it in ascending direction with respect to letter case.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+</section>
+</section>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Utils.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: a2ad624645acb13e3a3965c6dda24c7d330762c2
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#utils-functions-and-properties" id="toc-utils-functions-and-properties"><code>Utils</code> functions and properties</a>
+<ul>
+<li><a href="#utilssortfloats" id="toc-utilssortfloats"><code>Utils.SortFloats</code></a></li>
+<li><a href="#utilssortints" id="toc-utilssortints"><code>Utils.SortInts</code></a></li>
+<li><a href="#utilssortstrings" id="toc-utilssortstrings"><code>Utils.SortStrings</code></a></li>
+</ul></li>
+</ul>
+    </aside>
+  </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>

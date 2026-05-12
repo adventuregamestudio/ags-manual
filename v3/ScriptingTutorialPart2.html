@@ -215,11 +215,11 @@
 <p>Now, suppose we have a special animation of the player doing a dance, and we want to be able to play it from various points in the script. By far the easiest way to do this would be to put it in a function:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">do_dance</span><span class="op">()</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">LockView</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">LockView</span><span class="op">(</span>VDANCING<span class="op">);</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>This function runs view 10, loop 2, as the character's animation, waits until it finishes and then reverts to the default view.</p>
+<p>This function runs view VDANCING, loop 2, as the character's animation, waits until it finishes and then reverts to the default view.</p>
 <p><strong>NOTE:</strong> If you're wondering where to place your custom functions, just open up the <strong>"Global Script"</strong> <strong>(AGS Editor -&gt; File Menu -&gt; Open GlobalScript.asc)</strong> and write them in there. The function must be outside all other functions.</p>
 <p>Now, elsewhere in your script, when you want the player to dance, just do:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>do_dance<span class="op">();</span></span></code></pre></div>
@@ -249,7 +249,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 735f9eef3d9f436a9583a1c50f0d1f5a78559f70
+          Build: a2ad624645acb13e3a3965c6dda24c7d330762c2
         </p>
       </footer>
     </article>

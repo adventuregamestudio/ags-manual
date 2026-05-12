@@ -90,6 +90,7 @@
 <li><p><strong>Resolution</strong> - the native resolution of your game. This is the most important option (on par with Color Depth), which determines the size of game area visible on screen at any given time. This is also the minimal size that game rooms may have. The window your game runs in may still be larger or smaller, depending on choices player made in setup program, and in that case game's image will be stretched or shrunk accordingly.</p></li>
 <li><p><strong>Text format</strong> - the format your game texts will be in. The contemporary default is "Unicode", which lets you have practically any language in the game. Another choice is "ASCII / ANSI" mode, but this is left strictly for backwards compatibility, e.g. for when upgrading old projects, and not recommended to be used in new projects at all, as that will make multi-language support in your game much more complicated.</p>
 <p><strong>NOTE:</strong> please be aware that when switching <strong>Text format</strong> the Editor will convert all the game files (scripts, etc) to a new text encoding and re-save them. Normally this should be safe, but probably a good idea to make a project backup before doing this.</p></li>
+<li><p><strong>Text language</strong> - lets specify a base game language. This setting is used whenever engine needs to identify the game text as being of a particular language or using particular alphabet. For example: alphabetic string comparison and sort. In particular, this setting affects "locale aware" string compare styles in script. You may leave this option as "undefined" if you don't want to use related features.</p></li>
 </ul>
 </section>
 <section id="information" class="level3">
@@ -184,6 +185,7 @@
 <p>Last two variants are <a href="ExtenderFunctions.html">extender functions</a> for Character struct.<br> The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Character.Say function is used.</p>
 <p><strong>IMPORTANT</strong>: this setting currently does not work with the "Say" checkbox in the dialog options list. The workaround is to duplicate option's text as a first cue in the dialog script.</p></li>
 <li><p><strong>Dialog bullet point image</strong> - defines the number of sprite to use as a bullet image before each dialog option.</p></li>
+<li><p><strong>Display single dialog option</strong> - tells whether the dialog options should still be displayed for the player if there's one one enabled option left. If switched off, then that only enabled option will be run automatically.</p></li>
 <li><p><strong>Game-wide speech animation delay</strong> - defines a game-wide speech animation delay to use instead of individual character settings. This setting is only available if <strong>"Use game-wide speech animation delay"</strong> is enabled.</p></li>
 <li><p><strong>Gap between dialog options</strong> - defines the gap between the options displayed to the player in a conversation. Normally this is 0, which means the options are right below each other. Changing it to 1 or 2 can make the option display look less cluttered; it's a matter of personal preference.</p></li>
 <li><p><strong>Number dialog options</strong> - enables keyboard shortcuts to choose dialog options (keys 1-9) and adds an index number before each dialog option when they are displayed to the player. For example,</p>
@@ -254,6 +256,7 @@
 <p>NOTE: this option only excludes literal strings from being added to TRS files. This does NOT prevent text from being translated (or at least tried to be translated) when passed into the script functions that do automatic translations, such as <a href="Character.html#charactersay"><code>Character.Say</code></a> and similar.</p></li>
 <li><p><strong>Exclude script texts with prefix</strong> - Any text lines in script that begin with this prefix will be excluded from Translation file. This option affects both regular scripts and dialog scripts.</p></li>
 <li><p><strong>Include script texts with prefix</strong> - Only text lines in script which have this prefix will be included to Translation file. Leave this option empty to include all (this is the default behavior). This option affects both regular scripts and dialog scripts.</p></li>
+<li><p><strong>Translate Text Parser</strong> - If enabled, then Editor will export Text Parser's words dictionary into Translation file. See <a href="Translations.html#translating-text-parser">Translations</a> for more details.</p></li>
 </ul>
 </section>
 <section id="visual" class="level3">
@@ -280,7 +283,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 735f9eef3d9f436a9583a1c50f0d1f5a78559f70
+          Build: a2ad624645acb13e3a3965c6dda24c7d330762c2
         </p>
       </footer>
     </article>

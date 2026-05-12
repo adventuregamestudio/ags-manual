@@ -233,12 +233,22 @@
 <p><em>See also:</em> <a href="ListBox.html#listboxscrolldown"><code>ListBox.ScrollDown</code></a></p>
 <hr />
 </section>
+<section id="listboxsortitems" class="level3">
+<h3><a href="#listboxsortitems"><code>ListBox.SortItems</code></a></h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ListBox</span><span class="op">.</span><span class="at">SortItems</span><span class="op">(</span><span class="dt">StringCompareStyle</span><span class="op">,</span> SortDirection<span class="op">)</span></span></code></pre></div>
+<p>Sorts the ListBox's contents, according to the passed string compare style and sort direction. This is a one time operation, the ListBox won't automatically keep items sorted from now on. If you add more items later and want them sorted, then call this function again.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lstTest<span class="op">.</span><span class="at">SortItems</span><span class="op">(</span><span class="bu">eCaseSensitive</span><span class="op">,</span> eSortDescending<span class="op">);</span></span></code></pre></div>
+<p>will arrange the <em>lstTest</em> list box's strings, comparing them according to their letter case, in the descending order.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
 <section id="listboxfont" class="level3">
 <h3><a href="#listboxfont"><code>ListBox.Font</code></a></h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">FontType</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">Font</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">FontType</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">Font</span></span></code></pre></div>
 <p>Gets/sets the font used by the specified list box.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">Font</span> = <span class="bu">eFontSpeech</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">Font</span> = <span class="bu">eFontSpeech</span><span class="op">;</span></span></code></pre></div>
 <p>will change the <em>lstSaveGames</em> list box to use Font "Speech".</p>
 <p><em>See also:</em> <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="TextBox.html#textboxtext"><code>TextBox.Text</code></a></p>
 <hr />
@@ -246,25 +256,25 @@
 <section id="listboxhideborder" class="level3">
 <h3><a href="#listboxhideborder"><code>ListBox.HideBorder</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0. Use <a href="ListBox.html#listboxshowborder"><code>ListBox.ShowBorder</code></a> instead.</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">HideBorder</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">HideBorder</span></span></code></pre></div>
 <p>Gets/sets whether the list box's border is <em>hidden</em>.</p>
 <hr />
 </section>
 <section id="listboxhidescrollarrows" class="level3">
 <h3><a href="#listboxhidescrollarrows"><code>ListBox.HideScrollArrows</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0. Use <a href="ListBox.html#listboxshowscrollarrows"><code>ListBox.ShowScrollArrows</code></a> instead.</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">HideScrollArrows</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">HideScrollArrows</span></span></code></pre></div>
 <p>Gets/sets whether the built-in up/down scroll arrows are <em>hidden</em>.</p>
 <hr />
 </section>
 <section id="listboxitemcount" class="level3">
 <h3><a href="#listboxitemcount"><code>ListBox.ItemCount</code></a></h3>
 <p><em>(Formerly known as <code>ListBoxGetNumItems</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">ItemCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">ItemCount</span></span></code></pre></div>
 <p>Gets the number of items in the specified listbox. Valid item indexes range from 0 to (numItems - 1).</p>
 <p>This property is read-only. To change the item count, use the AddItem and RemoveItem methods.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> saves = lstSaveGames<span class="op">.</span><span class="at">ItemCount</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> saves = lstSaveGames<span class="op">.</span><span class="at">ItemCount</span><span class="op">;</span></span></code></pre></div>
 <p>will pass the number of saved games to the int saves.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxitems"><code>ListBox.Items</code></a></p>
 <hr />
@@ -272,23 +282,23 @@
 <section id="listboxitems" class="level3">
 <h3><a href="#listboxitems"><code>ListBox.Items</code></a></h3>
 <p><em>(Formerly known as <code>ListBoxGetItemText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>ListBox.GetItemText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>ListBox.SetItemText</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">Items</span><span class="op">[</span>index<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">Items</span><span class="op">[</span>index<span class="op">]</span></span></code></pre></div>
 <p>Gets/sets the text of the list box item at INDEX.</p>
 <p>List box items are numbered starting from 0, so the first item is 0, the second is 1, and so on. The highest allowable index is ItemCount minus 1.</p>
 <p>If you want to add a new item to the listbox, use the <a href="ListBox.html#listboxadditem"><code>ListBox.AddItem</code></a> method.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> selectedItemText = lstOptions<span class="op">.</span><span class="at">Items</span><span class="op">[</span>lstOptions<span class="op">.</span><span class="at">SelectedIndex</span><span class="op">];</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> selectedItemText = lstOptions<span class="op">.</span><span class="at">Items</span><span class="op">[</span>lstOptions<span class="op">.</span><span class="at">SelectedIndex</span><span class="op">];</span></span></code></pre></div>
 <p>will get the text of the selected item in the list box.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxselectedindex"><code>ListBox.SelectedIndex</code></a>, <a href="ListBox.html#listboxitemcount"><code>ListBox.ItemCount</code></a>, <a href="ListBox.html#listboxadditem"><code>ListBox.AddItem</code></a></p>
 <hr />
 </section>
 <section id="listboxrowcount" class="level3">
 <h3><a href="#listboxrowcount"><code>ListBox.RowCount</code></a></h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">RowCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">RowCount</span></span></code></pre></div>
 <p>Gets the number of rows that can be shown within the list box. This depends on the size of the list box, and <strong>does not</strong> depend on how many items are actually stored in the list box.</p>
 <p>This property is read-only. To change the row count, adjust the height of the list box.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You can currently see %d items from the listbox&#39;s contents&quot;</span><span class="op">,</span> lstSaveGames<span class="op">.</span><span class="at">RowCount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You can currently see %d items from the listbox&#39;s contents&quot;</span><span class="op">,</span> lstSaveGames<span class="op">.</span><span class="at">RowCount</span><span class="op">);</span></span></code></pre></div>
 <p>will display the number of rows that the listbox can display.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxitemcount"><code>ListBox.ItemCount</code></a>, <a href="ListBox.html#listboxscrolldown"><code>ListBox.ScrollDown</code></a>, <a href="ListBox.html#listboxscrollup"><code>ListBox.ScrollUp</code></a></p>
 <hr />
@@ -296,23 +306,23 @@
 <section id="listboxsavegameslots" class="level3">
 <h3><a href="#listboxsavegameslots"><code>ListBox.SaveGameSlots</code></a></h3>
 <p><em>(Formerly known as global array <code>savegameindex</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">SaveGameSlots</span><span class="op">[];</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">SaveGameSlots</span><span class="op">[];</span></span></code></pre></div>
 <p>Contains the corresponding save game slot for each item in the list.</p>
 <p>This is necessary because the FillSaveGameList command sorts the list of save games to put the most recent first. Therefore, you can use this array to map the list box indexes back to the corresponding save game slot.</p>
 <p><strong>NOTE:</strong> You must use the FillSaveGameList command in order to populate this array.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index = lstSaveGames<span class="op">.</span><span class="at">SelectedIndex</span><span class="op">;</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameSlot</span><span class="op">(</span>lstSaveGames<span class="op">.</span><span class="at">SaveGameSlots</span><span class="op">[</span>index<span class="op">]);</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index = lstSaveGames<span class="op">.</span><span class="at">SelectedIndex</span><span class="op">;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameSlot</span><span class="op">(</span>lstSaveGames<span class="op">.</span><span class="at">SaveGameSlots</span><span class="op">[</span>index<span class="op">]);</span></span></code></pre></div>
 <p>will restore the currently selected game in the list, assuming FillSaveGameList had been used previously.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="ListBox.html#listboxselectedindex"><code>ListBox.SelectedIndex</code></a></p>
 <hr />
 </section>
 <section id="listboxselectedbackcolor" class="level3">
 <h3><a href="#listboxselectedbackcolor"><code>ListBox.SelectedBackColor</code></a></h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">SelectedBackColor</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">SelectedBackColor</span></span></code></pre></div>
 <p>Gets/sets the fill color of the selection rectangle drawn around the selected item.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">SelectedBackColor</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">148</span><span class="op">,</span> <span class="dv">255</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">SelectedBackColor</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">148</span><span class="op">,</span> <span class="dv">255</span><span class="op">);</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="ListBox.html#listboxselectedtextcolor"><code>ListBox.SelectedTextColor</code></a>, <a href="ListBox.html#listboxtextcolor"><code>ListBox.TextColor</code></a></p>
 <hr />
@@ -320,20 +330,20 @@
 <section id="listboxselectedindex" class="level3">
 <h3><a href="#listboxselectedindex"><code>ListBox.SelectedIndex</code></a></h3>
 <p><em>(Formerly known as <code>ListBoxGetSelected</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>ListBoxSetSelected</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">SelectedIndex</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">SelectedIndex</span></span></code></pre></div>
 <p>Gets/sets the index into the list of the currently selected item. The first item is 0, second is 1, and so on. If no item is selected, this is set to -1.</p>
 <p>You can set this to -1 to remove the highlight (i.e. un-select all items).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> selectedText = lstOptions<span class="op">.</span><span class="at">Items</span><span class="op">[</span>lstOptions<span class="op">.</span><span class="at">SelectedIndex</span><span class="op">];</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> selectedText = lstOptions<span class="op">.</span><span class="at">Items</span><span class="op">[</span>lstOptions<span class="op">.</span><span class="at">SelectedIndex</span><span class="op">];</span></span></code></pre></div>
 <p>will get the text of the selected item in the listbox.</p>
 <hr />
 </section>
 <section id="listboxselectedtextcolor" class="level3">
 <h3><a href="#listboxselectedtextcolor"><code>ListBox.SelectedTextColor</code></a></h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">SelectedTextColor</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">SelectedTextColor</span></span></code></pre></div>
 <p>Gets/sets the text color used for the selected item.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">SelectedTextColor</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">80</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">SelectedTextColor</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">80</span><span class="op">);</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="ListBox.html#listboxselectedtextcolor"><code>ListBox.SelectedTextColor</code></a>, <a href="ListBox.html#listboxtextcolor"><code>ListBox.TextColor</code></a></p>
 <hr />
@@ -341,7 +351,7 @@
 <section id="listboxshowborder" class="level3">
 <h3><a href="#listboxshowborder"><code>ListBox.ShowBorder</code></a></h3>
 <p><em>(Formerly known as <code>ListBox.HideBorder</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">ShowBorder</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">ShowBorder</span></span></code></pre></div>
 <p>Gets/sets whether the list box's border is shown.</p>
 <p>Border is drawn using color from TextColor property.</p>
 <p>Note that hiding the border will also implicitly hide the up/down scroll arrows for the list box.</p>
@@ -352,7 +362,7 @@
 <section id="listboxshowscrollarrows" class="level3">
 <h3><a href="#listboxshowscrollarrows"><code>ListBox.ShowScrollArrows</code></a></h3>
 <p><em>(Formerly known as <code>ListBox.HideScrollArrows</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">ShowScrollArrows</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">ShowScrollArrows</span></span></code></pre></div>
 <p>Gets/sets whether the built-in up/down scroll arrows are shown.</p>
 <p>Arrows are drawn using color from TextColor property.</p>
 <p>Because the overall appearance of the scroll arrows is not customizable, you may wish to use this to hide them and provide your own arrows using GUI Button controls.</p>
@@ -363,7 +373,7 @@
 </section>
 <section id="listboxtextalignment" class="level3">
 <h3><a href="#listboxtextalignment"><code>ListBox.TextAlignment</code></a></h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">HorizontalAlignment</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TextAlignment</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dt">HorizontalAlignment</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TextAlignment</span></span></code></pre></div>
 <p>Gets/sets the way a text is aligned inside an item's rectangle. Currently only horizontal alignment is supported, that is: eAlignLeft, eAlignCenter and eAlignRight.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="ListBox.html#listboxselectedbackcolor"><code>ListBox.SelectedBackColor</code></a>, <a href="ListBox.html#listboxselectedtextcolor"><code>ListBox.SelectedTextColor</code></a></p>
@@ -371,17 +381,17 @@
 </section>
 <section id="listboxtextcolor" class="level3">
 <h3><a href="#listboxtextcolor"><code>ListBox.TextColor</code></a></h3>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TextColor</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TextColor</span></span></code></pre></div>
 <p>Gets/sets the text color used by default, that is - for the non-selected items. Note that the same color is also used for the listbox's border and and scroll arrows.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">TextColor</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">80</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">TextColor</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">80</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="ListBox.html#listboxselectedbackcolor"><code>ListBox.SelectedBackColor</code></a>, <a href="ListBox.html#listboxselectedtextcolor"><code>ListBox.SelectedTextColor</code></a>, <a href="ListBox.html#listboxtextoutlinecolor"><code>ListBox.TextOutlineColor</code></a></p>
 <hr />
 </section>
 <section id="listboxtextoutlinecolor" class="level3">
 <h3><a href="#listboxtextoutlinecolor"><code>ListBox.TextOutlineColor</code></a></h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TextOutlineColor</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TextOutlineColor</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the color used to display the text's outline, but only if the listbox's Font uses outline. If the font has no outline, then this property has no effect.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="ListBox.html#listboxtextcolor"><code>ListBox.TextColor</code></a></p>
@@ -390,17 +400,17 @@
 <section id="listboxtopitem" class="level3">
 <h3><a href="#listboxtopitem"><code>ListBox.TopItem</code></a></h3>
 <p><em>(Formerly known as <code>ListBoxSetTopItem</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TopItem</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">TopItem</span></span></code></pre></div>
 <p>Gets/sets the top item in the list box. The top item is the first item that is visible within the list box, so changing this effectively scrolls the list up and down.</p>
 <p>Indexes for TopItem start from 0 for the first item in the list.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">TopItem</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">TopItem</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>will automatically scroll listbox <em>lstSaveGames</em> back to the top of the list.</p>
 <hr />
 </section>
 <section id="listboxtranslated" class="level3">
 <h3><a href="#listboxtranslated"><code>ListBox.Translated</code></a></h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">Translated</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">Translated</span></span></code></pre></div>
 <p>Gets/sets whether the list box's items are translated to the selected game language at runtime.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
 </section>
@@ -410,7 +420,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 735f9eef3d9f436a9583a1c50f0d1f5a78559f70
+          Build: a2ad624645acb13e3a3965c6dda24c7d330762c2
         </p>
       </footer>
     </article>
@@ -429,6 +439,7 @@
 <li><a href="#listboxremoveitem" id="toc-listboxremoveitem"><code>ListBox.RemoveItem</code></a></li>
 <li><a href="#listboxscrolldown" id="toc-listboxscrolldown"><code>ListBox.ScrollDown</code></a></li>
 <li><a href="#listboxscrollup" id="toc-listboxscrollup"><code>ListBox.ScrollUp</code></a></li>
+<li><a href="#listboxsortitems" id="toc-listboxsortitems"><code>ListBox.SortItems</code></a></li>
 <li><a href="#listboxfont" id="toc-listboxfont"><code>ListBox.Font</code></a></li>
 <li><a href="#listboxhideborder" id="toc-listboxhideborder"><code>ListBox.HideBorder</code></a></li>
 <li><a href="#listboxhidescrollarrows" id="toc-listboxhidescrollarrows"><code>ListBox.HideScrollArrows</code></a></li>

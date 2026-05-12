@@ -366,13 +366,24 @@
 <p><em>Used by:</em> <a href="GUI.html#guipopupstyle"><code>GUI.PopupStyle</code></a></p>
 <hr />
 </section>
+<section id="hittestoptions" class="level3">
+<h3><a href="#hittestoptions"><code>HitTestOptions</code></a></h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">HitTestOptions</span> <span class="op">{</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    eHit_Any = <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    eHit_Interactable = <span class="dv">0x0001</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>Defines options for finding an object under certain coordinates.</p>
+<p><em>Compatibility:</em> supported by <strong>AGS 3.6.3</strong> and higher.</p>
+<p><em>Used by:</em> <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="GUI.html#guigetatscreenxy"><code>GUI.GetAtScreenXY</code></a>, <a href="GUIControl.html#guicontrolgetatscreenxy"><code>GUIControl.GetAtScreenXY</code></a>, <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="InventoryItem.html#inventoryitemgetatscreenxy"><code>InventoryItem.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a></p>
+<hr />
+</section>
 <section id="horizontalalignment" class="level3">
 <h3><a href="#horizontalalignment"><code>HorizontalAlignment</code></a></h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">HorizontalAlignment</span> <span class="op">{</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eAlignLeft</span>          = <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eAlignCenter</span>        = <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eAlignRight</span>         = <span class="dv">4</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">HorizontalAlignment</span> <span class="op">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eAlignLeft</span>          = <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eAlignCenter</span>        = <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eAlignRight</span>         = <span class="dv">4</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>Note that HorizontalAlignment's values match the first values of Alignment enumeration (eAlignTopLeft, eAlignTopCenter, eAlignTopRight).</p>
 <p><em>Compatibility:</em> replaced old Alignment enumeration in <strong>AGS 3.5.0</strong>.</p>
 <p><em>Used by:</em> <a href="Character.html#characterlockviewaligned"><code>Character.LockViewAligned</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstringwrapped"><code>DrawingSurface.DrawStringWrapped</code></a>, <a href="Label.html#labeltextalignment"><code>Label.TextAlignment</code></a>, <a href="ListBox.html#listboxtextalignment"><code>ListBox.TextAlignment</code></a>, <a href="Speech.html#speechtextalignment"><code>Speech.TextAlignment</code></a></p>
@@ -380,16 +391,16 @@
 </section>
 <section id="inputtype" class="level3">
 <h3><a href="#inputtype"><code>InputType</code></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">InputType</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eInputNone</span>     = <span class="dv">0x00000000</span><span class="op">,</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eInputKeyboard</span> = <span class="dv">0x02000000</span><span class="op">,</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eInputMouse</span>    = <span class="dv">0x04000000</span><span class="op">,</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eInputAny</span>      = <span class="dv">0xFF000000</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">InputType</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eInputNone</span>     = <span class="dv">0x00000000</span><span class="op">,</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eInputKeyboard</span> = <span class="dv">0x02000000</span><span class="op">,</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eInputMouse</span>    = <span class="dv">0x04000000</span><span class="op">,</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eInputAny</span>      = <span class="dv">0xFF000000</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>The InputType enumeration consists of values that could be summed up in one integer variable to form a combination of input types. This may be used to store several "types" in one integer, pass them into a function, or return from a function. You may use bitwise operation to check if a variable contains one of the distinct types, for example:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>type <span class="op">&amp;</span> <span class="bu">eInputKeyboard</span><span class="op">)</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// some code here</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>type <span class="op">&amp;</span> <span class="bu">eInputKeyboard</span><span class="op">)</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// some code here</span></span></code></pre></div>
 <p>will execute some code if <em>type</em> variable contains <em>at least</em> "eInputKeyboard".</p>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.6.0</strong> and higher.</p>
 <p><em>Used by:</em> <a href="Globalfunctions_Wait.html">Wait functions</a></p>
@@ -397,72 +408,72 @@
 </section>
 <section id="locationtype" class="level3">
 <h3><a href="#locationtype"><code>LocationType</code></a></h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">LocationType</span> <span class="op">{</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLocationNothing</span><span class="op">,</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLocationHotspot</span><span class="op">,</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLocationCharacter</span><span class="op">,</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLocationObject</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">LocationType</span> <span class="op">{</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLocationNothing</span><span class="op">,</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLocationHotspot</span><span class="op">,</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLocationCharacter</span><span class="op">,</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLocationObject</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Returned by:</em> <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="loglevel" class="level3">
 <h3><a href="#loglevel"><code>LogLevel</code></a></h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">LogLevel</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogAlert</span> = <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogFatal</span> = <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogError</span> = <span class="dv">3</span><span class="op">,</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogWarn</span> = <span class="dv">4</span><span class="op">,</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogInfo</span> = <span class="dv">5</span><span class="op">,</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogDebug</span> = <span class="dv">6</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">LogLevel</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogAlert</span> = <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogFatal</span> = <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogError</span> = <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogWarn</span> = <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogInfo</span> = <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eLogDebug</span> = <span class="dv">6</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.6.0</strong> and higher.</p>
 <p><em>Used by:</em> <a href="System.html#systemlog"><code>System.Log</code></a></p>
 <hr />
 </section>
 <section id="mousebutton" class="level3">
 <h3><a href="#mousebutton"><code>MouseButton</code></a></h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">MouseButton</span> <span class="op">{</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseLeft</span><span class="op">,</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseRight</span><span class="op">,</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseMiddle</span><span class="op">,</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseLeftInv</span><span class="op">,</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseMiddleInv</span><span class="op">,</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseRightInv</span><span class="op">,</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseWheelNorth</span><span class="op">,</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseWheelSouth</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">MouseButton</span> <span class="op">{</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseLeft</span><span class="op">,</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseRight</span><span class="op">,</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseMiddle</span><span class="op">,</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseLeftInv</span><span class="op">,</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseMiddleInv</span><span class="op">,</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseRightInv</span><span class="op">,</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseWheelNorth</span><span class="op">,</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eMouseWheelSouth</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Mouse.html#mouseisbuttondown"><code>Mouse.IsButtonDown</code></a></p>
 <p><em>Passed into:</em> on_mouse_click</p>
 <hr />
 </section>
 <section id="eoperatingsystem" class="level3">
 <h3><a href="#eoperatingsystem"><code>eOperatingSystem</code></a></h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">eOperatingSystem</span> <span class="op">{</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSDOS</span><span class="op">,</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSWindows</span><span class="op">,</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSLinux</span><span class="op">,</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSMacOS</span><span class="op">,</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSAndroid</span><span class="op">,</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSiOS</span><span class="op">,</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSPSP</span><span class="op">,</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSWeb</span><span class="op">,</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSFreeBSD</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">eOperatingSystem</span> <span class="op">{</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSDOS</span><span class="op">,</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSWindows</span><span class="op">,</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSLinux</span><span class="op">,</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSMacOS</span><span class="op">,</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSAndroid</span><span class="op">,</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSiOS</span><span class="op">,</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSPSP</span><span class="op">,</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSWeb</span><span class="op">,</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOSFreeBSD</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="System.html#systemoperatingsystem"><code>System.OperatingSystem</code></a></p>
 <hr />
 </section>
 <section id="renderlayer" class="level3">
 <h3><a href="#renderlayer"><code>RenderLayer</code></a></h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">RenderLayer</span> <span class="op">{</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    eRenderLayerNone      = <span class="dv">0x00000000</span><span class="op">,</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    eRenderLayerEngine    = <span class="dv">0x00000001</span><span class="op">,</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    eRenderLayerCursor    = <span class="dv">0x00000002</span><span class="op">,</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    eRenderLayerUI        = <span class="dv">0x00000004</span><span class="op">,</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    eRenderLayerRoom      = <span class="dv">0x00000008</span><span class="op">,</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    eRenderLayerAll       = <span class="dv">0xFFFFFFFF</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">RenderLayer</span> <span class="op">{</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    eRenderLayerNone      = <span class="dv">0x00000000</span><span class="op">,</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    eRenderLayerEngine    = <span class="dv">0x00000001</span><span class="op">,</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    eRenderLayerCursor    = <span class="dv">0x00000002</span><span class="op">,</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    eRenderLayerUI        = <span class="dv">0x00000004</span><span class="op">,</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    eRenderLayerRoom      = <span class="dv">0x00000008</span><span class="op">,</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    eRenderLayerAll       = <span class="dv">0xFFFFFFFF</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>The <code>RenderLayer</code> enum lets specify which elements should be rendered in a screen capture. This allows you to, as an example, create a screenshot of only the room layer and not include any GUI or cursor on top. The Engine layer is for things like the in-engine FPS counter.</p>
 <p>The <code>RenderLayer</code> enum can be combined like flags, using bitwise operators.</p>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.6.2</strong> and higher.</p>
@@ -471,22 +482,22 @@
 </section>
 <section id="repeatstyle" class="level3">
 <h3><a href="#repeatstyle"><code>RepeatStyle</code></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">RepeatStyle</span> <span class="op">{</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOnce</span><span class="op">,</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eRepeat</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">RepeatStyle</span> <span class="op">{</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eOnce</span><span class="op">,</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eRepeat</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
 <hr />
 </section>
 <section id="restoredsaveresult" class="level3">
 <h3><a href="#restoredsaveresult"><code>RestoredSaveResult</code></a></h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">RestoredSaveResult</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    eRestoredSave_ClearData   = <span class="dv">0x01</span><span class="op">,</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    eRestoredSave_MissingData = <span class="dv">0x08</span><span class="op">,</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    eRestoredSave_ExtraData   = <span class="dv">0x10</span><span class="op">,</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    eRestoredSave_Prescan     = <span class="dv">0x20</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">RestoredSaveResult</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    eRestoredSave_ClearData   = <span class="dv">0x01</span><span class="op">,</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    eRestoredSave_MissingData = <span class="dv">0x08</span><span class="op">,</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    eRestoredSave_ExtraData   = <span class="dv">0x10</span><span class="op">,</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    eRestoredSave_Prescan     = <span class="dv">0x20</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>The <code>RestoredSaveResult</code> enum is used to specify the result of reading a save.</p>
 <p>The <code>RestoredSaveResult</code> enum can be combined like flags, using bitwise operators.</p>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.6.2</strong> and higher.</p>
@@ -495,40 +506,40 @@
 </section>
 <section id="rounddirection" class="level3">
 <h3><a href="#rounddirection"><code>RoundDirection</code></a></h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">RoundDirection</span> <span class="op">{</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eRoundDown</span><span class="op">,</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eRoundNearest</span><span class="op">,</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eRoundUp</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">RoundDirection</span> <span class="op">{</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eRoundDown</span><span class="op">,</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eRoundNearest</span><span class="op">,</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eRoundUp</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Maths.html#floattoint"><code>FloatToInt</code></a></p>
 <hr />
 </section>
 <section id="savegamesortstyle" class="level3">
 <h3><a href="#savegamesortstyle"><code>SaveGameSortStyle</code></a></h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SaveGameSortStyle</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    eSaveGameSort_None<span class="op">,</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    eSaveGameSort_Number<span class="op">,</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    eSaveGameSort_Time<span class="op">,</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    eSaveGameSort_Description</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SaveGameSortStyle</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    eSaveGameSort_None<span class="op">,</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    eSaveGameSort_Number<span class="op">,</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    eSaveGameSort_Time<span class="op">,</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    eSaveGameSort_Description</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.6.2</strong> and higher.</p>
 <p><em>Used by:</em> <a href="Game.html#gamegetsaveslots"><code>Game.GetSaveSlots</code></a>, <a href="Game.html#gamescansaveslots"><code>Game.ScanSaveSlots</code></a>, <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="ListBox.html#listboxfillsavegameslots"><code>ListBox.FillSaveGameSlots</code></a></p>
 <hr />
 </section>
 <section id="savecomponentselection" class="level3">
 <h3><a href="#savecomponentselection"><code>SaveComponentSelection</code></a></h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SaveComponentSelection</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_None           = <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Audio          = <span class="dv">0x00000002</span><span class="op">,</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Dialogs        = <span class="dv">0x00000008</span><span class="op">,</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_GUI            = <span class="dv">0x00000010</span><span class="op">,</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Cursors        = <span class="dv">0x00000040</span><span class="op">,</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Views          = <span class="dv">0x00000080</span><span class="op">,</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_DynamicSprites = <span class="dv">0x00000100</span><span class="op">,</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Plugins        = <span class="dv">0x00002000</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SaveComponentSelection</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_None           = <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Audio          = <span class="dv">0x00000002</span><span class="op">,</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Dialogs        = <span class="dv">0x00000008</span><span class="op">,</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_GUI            = <span class="dv">0x00000010</span><span class="op">,</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Cursors        = <span class="dv">0x00000040</span><span class="op">,</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Views          = <span class="dv">0x00000080</span><span class="op">,</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_DynamicSprites = <span class="dv">0x00000100</span><span class="op">,</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    eSaveCmp_Plugins        = <span class="dv">0x00002000</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>The <code>SaveComponentSelection</code> enum lets specify which parts of the save should be skipped when writing or restoring a game save. This allows you to, as an example, keep certain things persistent in your game, unaffected by player saving and loading their story progress.</p>
 <p>The <code>SaveComponentSelection</code> enum can be combined like flags, using bitwise operators.</p>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.6.2</strong> and higher.</p>
@@ -537,123 +548,125 @@
 </section>
 <section id="skipspeechstyle" class="level3">
 <h3><a href="#skipspeechstyle"><code>SkipSpeechStyle</code></a></h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SkipSpeechStyle</span> <span class="op">{</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipNone</span>         = <span class="op">-</span><span class="dv">1</span><span class="op">,</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipKeyMouseTime</span> = <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipKeyTime</span>      = <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipTime</span>         = <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipKeyMouse</span>     = <span class="dv">3</span><span class="op">,</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipMouseTime</span>    = <span class="dv">4</span><span class="op">,</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipKey</span>          = <span class="dv">5</span><span class="op">,</span></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipMouse</span>        = <span class="dv">6</span></span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SkipSpeechStyle</span> <span class="op">{</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipNone</span>         = <span class="op">-</span><span class="dv">1</span><span class="op">,</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipKeyMouseTime</span> = <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipKeyTime</span>      = <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipTime</span>         = <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipKeyMouse</span>     = <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipMouseTime</span>    = <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipKey</span>          = <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSkipMouse</span>        = <span class="dv">6</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Speech.html#speechskipstyle"><code>Speech.SkipStyle</code></a></p>
 <hr />
 </section>
 <section id="sortdirection" class="level3">
 <h3><a href="#sortdirection"><code>SortDirection</code></a></h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SortDirection</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    eSortNoDirection<span class="op">,</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    eSortAscending<span class="op">,</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    eSortDescending</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SortDirection</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    eSortNoDirection<span class="op">,</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    eSortAscending<span class="op">,</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    eSortDescending</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.6.2</strong> and higher.</p>
 <p><em>Used by</em> <a href="ListBox.html#listboxfilldirlist"><code>ListBox.FillDirList</code></a>, <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="ListBox.html#listboxfillsavegameslots"><code>ListBox.FillSaveGameSlots</code></a></p>
 <hr />
 </section>
 <section id="sortstyle" class="level3">
 <h3><a href="#sortstyle"><code>SortStyle</code></a></h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SortStyle</span> <span class="op">{</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eNonSorted</span> = <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSorted</span> = <span class="dv">1</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">SortStyle</span> <span class="op">{</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eNonSorted</span> = <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSorted</span> = <span class="dv">1</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.5.0</strong> and higher.</p>
 <p><em>Used by:</em> <a href="Dictionary.html#dictionarycreate"><code>Dictionary.Create</code></a>, <a href="Set.html#setcreate"><code>Set.Create</code></a></p>
 <hr />
 </section>
 <section id="espeechstyle" class="level3">
 <h3><a href="#espeechstyle"><code>eSpeechStyle</code></a></h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">eSpeechStyle</span> <span class="op">{</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechLucasarts</span><span class="op">,</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechSierra</span><span class="op">,</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechSierraWithBackground</span><span class="op">,</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechFullScreen</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">eSpeechStyle</span> <span class="op">{</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechLucasarts</span><span class="op">,</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechSierra</span><span class="op">,</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechSierraWithBackground</span><span class="op">,</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechFullScreen</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Speech.html#speechstyle"><code>Speech.Style</code></a></p>
 <hr />
 </section>
 <section id="stopmovementstyle" class="level3">
 <h3><a href="#stopmovementstyle"><code>StopMovementStyle</code></a></h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">StopMovementStyle</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eKeepMoving</span> = <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eStopMoving</span> = <span class="dv">1</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">StopMovementStyle</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eKeepMoving</span> = <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eStopMoving</span> = <span class="dv">1</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Character.html#characterlockviewaligned"><code>Character.LockView</code></a>, <a href="Character.html#characterlockviewoffset"><code>Character.LockViewFrame</code></a></p>
 <hr />
 </section>
 <section id="stringcomparestyle" class="level3">
 <h3><a href="#stringcomparestyle"><code>StringCompareStyle</code></a></h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">StringCompareStyle</span> <span class="op">{</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eCaseInsensitive</span> = <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eCaseSensitive</span> = <span class="dv">1</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<p><em>Compatibility:</em> supported by <strong>AGS 3.5.0</strong> and higher.</p>
-<p><em>Used by:</em> <a href="Dictionary.html#dictionarycreate"><code>Dictionary.Create</code></a>, <a href="Set.html#setcreate"><code>Set.Create</code></a>, <a href="String.html#stringcompareto"><code>String.CompareTo</code></a>, <a href="String.html#stringendswith"><code>String.EndsWith</code></a>, <a href="String.html#stringreplace"><code>String.Replace</code></a>, <a href="String.html#stringstartswith"><code>String.StartsWith</code></a></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">StringCompareStyle</span> <span class="op">{</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eCaseInsensitive</span> = <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eCaseSensitive</span> = <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    eCaseInsensitiveLocaleAware = <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    eCaseSensitiveLocaleAware = <span class="dv">3</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p><em>Compatibility:</em> supported by <strong>AGS 3.5.0</strong> and higher. "Locale Aware" styles are supported since <strong>AGS 3.6.3</strong>.</p>
+<p><em>Used by:</em> <a href="Dictionary.html#dictionarycreate"><code>Dictionary.Create</code></a>, <a href="ListBox.html#listboxsortitems"><code>ListBox.SortItems</code></a>, <a href="Set.html#setcreate"><code>Set.Create</code></a>, <a href="String.html#stringcompareto"><code>String.CompareTo</code></a>, <a href="String.html#stringendswith"><code>String.EndsWith</code></a>, <a href="String.html#stringreplace"><code>String.Replace</code></a>, <a href="String.html#stringstartswith"><code>String.StartsWith</code></a>, <a href="Utils.html#utilssortstrings"><code>Utils.SortStrings</code></a></p>
 <hr />
 </section>
 <section id="transitionstyle" class="level3">
 <h3><a href="#transitionstyle"><code>TransitionStyle</code></a></h3>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">TransitionStyle</span> <span class="op">{</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionFade</span><span class="op">,</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionInstant</span><span class="op">,</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionDissolve</span><span class="op">,</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionBoxout</span><span class="op">,</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionCrossfade</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">TransitionStyle</span> <span class="op">{</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionFade</span><span class="op">,</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionInstant</span><span class="op">,</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionDissolve</span><span class="op">,</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionBoxout</span><span class="op">,</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eTransitionCrossfade</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Globalfunctions_Screen.html#setscreentransition"><code>SetScreenTransition</code></a>, <a href="Globalfunctions_Screen.html#setnextscreentransition"><code>SetNextScreenTransition</code></a></p>
 <hr />
 </section>
 <section id="videoplaystyle" class="level3">
 <h3><a href="#videoplaystyle"><code>VideoPlayStyle</code></a></h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">VideoPlayStyle</span> <span class="op">{</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    eVideoPlayDefault = <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    eVideoPlayStretchToScreen = <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    eVideoPlayNoAudio = <span class="dv">10</span><span class="op">,</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    eVideoPlayAudioAndDontMuteGame = <span class="dv">20</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">VideoPlayStyle</span> <span class="op">{</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    eVideoPlayDefault = <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    eVideoPlayStretchToScreen = <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    eVideoPlayNoAudio = <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    eVideoPlayAudioAndDontMuteGame = <span class="dv">20</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Compatibility:</em> supported by <strong>AGS 3.6.3</strong> and later versions.</p>
 <p><em>Used by:</em> <a href="Multimedia.html#playvideo"><code>PlayVideo</code></a></p>
 <hr />
 </section>
 <section id="videoskipstyle" class="level3">
 <h3><a href="#videoskipstyle"><code>VideoSkipStyle</code></a></h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">VideoSkipStyle</span> <span class="op">{</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eVideoSkipNotAllowed</span><span class="op">,</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eVideoSkipEscKey</span><span class="op">,</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eVideoSkipAnyKey</span><span class="op">,</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eVideoSkipAnyKeyOrMouse</span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">VideoSkipStyle</span> <span class="op">{</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eVideoSkipNotAllowed</span><span class="op">,</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eVideoSkipEscKey</span><span class="op">,</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eVideoSkipAnyKey</span><span class="op">,</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eVideoSkipAnyKeyOrMouse</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Multimedia.html#playvideo"><code>PlayVideo</code></a></p>
 <hr />
 </section>
 <section id="evoicemode" class="level3">
 <h3><a href="#evoicemode"><code>eVoiceMode</code></a></h3>
-<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">eVoiceMode</span> <span class="op">{</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechTextOnly</span><span class="op">,</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechVoiceAndText</span><span class="op">,</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechVoiceOnly</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">eVoiceMode</span> <span class="op">{</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechTextOnly</span><span class="op">,</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechVoiceAndText</span><span class="op">,</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eSpeechVoiceOnly</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Speech.html#speechvoicemode"><code>Speech.VoiceMode</code></a></p>
 <hr />
 </section>
 <section id="walkwhere" class="level3">
 <h3><a href="#walkwhere"><code>WalkWhere</code></a></h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">WalkWhere</span> <span class="op">{</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eAnywhere</span><span class="op">,</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eWalkableAreas</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">WalkWhere</span> <span class="op">{</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eAnywhere</span><span class="op">,</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eWalkableAreas</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p><em>Used by:</em> <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a></p>
 </section>
 </section>
@@ -662,7 +675,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 735f9eef3d9f436a9583a1c50f0d1f5a78559f70
+          Build: a2ad624645acb13e3a3965c6dda24c7d330762c2
         </p>
       </footer>
     </article>
@@ -692,6 +705,7 @@
 <li><a href="#fonttype" id="toc-fonttype"><code>FontType</code></a></li>
 <li><a href="#guibuttoncolorstyle" id="toc-guibuttoncolorstyle"><code>GUIButtonColorStyle</code></a></li>
 <li><a href="#guipopupstyle" id="toc-guipopupstyle"><code>GUIPopupStyle</code></a></li>
+<li><a href="#hittestoptions" id="toc-hittestoptions"><code>HitTestOptions</code></a></li>
 <li><a href="#horizontalalignment" id="toc-horizontalalignment"><code>HorizontalAlignment</code></a></li>
 <li><a href="#inputtype" id="toc-inputtype"><code>InputType</code></a></li>
 <li><a href="#locationtype" id="toc-locationtype"><code>LocationType</code></a></li>

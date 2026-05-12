@@ -94,8 +94,8 @@
 <p><strong>NOTE:</strong> This command destroys the button's normal, pushed and mouseover images. If you want to return the button to normal usage after playing an animation, you will have to set the Graphic properties to restore the images.</p>
 <p><strong>NOTE:</strong> This command does not support flipped view frames. Any frames marked as "Flipped" will in fact be drawn normally when on a button.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>btnDeathAnim<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">);</span></span></code></pre></div>
-<p>will animate the 'btnDeathAnim' button using loop 2 of view 6, with a delay of 4 cycles per frame, and repeat the animation continually.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>btnDeathAnim<span class="op">.</span><span class="at">Animate</span><span class="op">(</span>VPLAYERDEATH<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">);</span></span></code></pre></div>
+<p>will animate the 'btnDeathAnim' button using loop 2 of view VPLAYERDEATH, with a delay of 4 cycles per frame, and repeat the animation continually.</p>
 <p>Compatibility: Parameters <em>BlockingStyle</em>, <em>Direction</em>, <em>frame</em> and <em>volume</em> are supported only by AGS 3.6.0 and later versions.</p>
 <p><em>See also:</em> <a href="Button.html#buttonanimating"><code>Button.Animating</code></a>, <a href="Button.html#buttonframe"><code>Button.Frame</code></a>, <a href="Button.html#buttonloop"><code>Button.Loop</code></a>, <a href="Button.html#buttonview"><code>Button.View</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>,<br />
 <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a>,</p>
@@ -115,7 +115,7 @@
 <p>Returns true if the specified button is currently animating, or false otherwise.</p>
 <p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate"><code>Animate</code></a> command.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>btnDeathAnim<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">);</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>btnDeathAnim<span class="op">.</span><span class="at">Animate</span><span class="op">(</span>VPLAYERDEATH<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">);</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>btnDeathAnim<span class="op">.</span><span class="at">Animating</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>will animate button and wait until the animation finishes.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
@@ -432,7 +432,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 735f9eef3d9f436a9583a1c50f0d1f5a78559f70
+          Build: a2ad624645acb13e3a3965c6dda24c7d330762c2
         </p>
       </footer>
     </article>

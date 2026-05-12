@@ -78,10 +78,10 @@
 <section id="inventoryitemgetatscreenxy" class="level3">
 <h3><a href="#inventoryitemgetatscreenxy"><code>InventoryItem.GetAtScreenXY</code></a></h3>
 <p><em>(Formerly known as global function <code>GetInvAt</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">InventoryItem</span><span class="op">*</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">InventoryItem</span><span class="op">*</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional HitTestOptions guiHitOptions<span class="op">,</span> optional HitTestOptions invHitOptions<span class="op">)</span></span></code></pre></div>
 <p>Returns the inventory item at SCREEN coordinates (X,Y). Note that this only detects inventory items on custom Inventory windows (that are switched on when this function is called), and is intended to allow you to do Verb Coin style GUIs and so on.</p>
 <p>If there is no inventory item there, or if invalid coordinates are specified, the function returns null.</p>
-<p><strong>NOTE:</strong> The coordinates are SCREEN coordinates, NOT ROOM coordinates. This means that with a scrolling room, the coordinates you pass are relative to the screen's current position, and NOT absolute room coordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
+<p>Optional HitTestOptions parameters guiHitOptions and invHitOptions define an additional object filter (supported since <strong>AGS 3.6.3</strong>). They are both equal to <code>eHit_Interactable</code> by default, which means that only interactable (enabled + clickable) GUI and InventoryWindow controls will be found. Pass <code>eHit_Any</code> instead, if you like even non-clickable gui controls to be found.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">InventoryItem</span> <span class="op">*</span>item = <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>item <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
@@ -90,7 +90,8 @@
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Inventory item number %d at the mouse.&quot;</span><span class="op">,</span> item<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will display the number of the inv item that the mouse is over</p>
+<p>will display the number of the inv item that the mouse is over.</p>
+<p><em>Compatibility:</em> HitTestOptions parameters are supported since <strong>AGS 3.6.3</strong>.</p>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemname"><code>InventoryItem.Name</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
 </section>
@@ -276,7 +277,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 735f9eef3d9f436a9583a1c50f0d1f5a78559f70
+          Build: a2ad624645acb13e3a3965c6dda24c7d330762c2
         </p>
       </footer>
     </article>

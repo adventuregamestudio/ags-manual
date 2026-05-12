@@ -78,26 +78,29 @@
 <section id="regiongetatroomxy" class="level3">
 <h3><a href="#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a></h3>
 <p><em>(Formerly known as global function <code>GetRegionAt</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Region</span><span class="op">*</span> <span class="bu">Region</span><span class="op">.</span><span class="at">GetAtRoomXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
-<p>Returns the region at ROOM co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region* representing region 0 will be returned.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Region</span><span class="op">*</span> <span class="bu">Region</span><span class="op">.</span><span class="at">GetAtRoomXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional HitTestOptions hitOptions</span></code></pre></div>
+<p>Returns the region at ROOM co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region representing region 0 will be returned.</p>
+<p>An optional HitOptions parameter defines an additional object filter (supported since <strong>AGS 3.6.3</strong>). It's equal to <code>eHit_Interactable</code> by default, which means that only interactable (enabled) regions will be found. Pass <code>eHit_Any</code> instead, if you like even disabled regions to be found.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Region</span><span class="op">.</span><span class="at">GetAtRoomXY</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> <span class="bu">region</span><span class="op">[</span><span class="dv">0</span><span class="op">])</span> <span class="op">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is not currently standing on a region.&quot;</span><span class="op">);</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>Compatibility:</em> HitTestOptions parameter is supported since <strong>AGS 3.6.3</strong>.</p>
 <p><em>See also:</em> <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Globalfunctions_Room.html#getwalkableareaatroom"><code>GetWalkableAreaAtRoom</code></a></p>
 <hr />
 </section>
 <section id="regiongetatscreenxy" class="level3">
 <h3><a href="#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Region</span><span class="op">*</span> <span class="bu">Region</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
-<p>Returns the region at SCREEN co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region* representing region 0 will be returned.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Region</span><span class="op">*</span> <span class="bu">Region</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional HitTestOptions hitOptions<span class="op">)</span></span></code></pre></div>
+<p>Returns the region at SCREEN co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region representing region 0 will be returned.</p>
+<p>An optional HitOptions parameter defines an additional object filter (supported since <strong>AGS 3.6.3</strong>). It's equal to <code>eHit_Interactable</code> by default, which means that only interactable (enabled) regions will be found. Pass <code>eHit_Any</code> instead, if you like even disabled regions to be found.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Region</span><span class="op">*</span> r = <span class="bu">Region</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>r <span class="op">!=</span> <span class="bu">region</span><span class="op">[</span><span class="dv">0</span><span class="op">])</span> <span class="op">{</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The mouse is over region %d&quot;</span><span class="op">,</span> r<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display the message if there is any region under the mouse cursor.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions. HitTestOptions parameter is supported since <strong>AGS 3.6.3</strong>.</p>
 <p><em>See also:</em> <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
@@ -278,7 +281,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 735f9eef3d9f436a9583a1c50f0d1f5a78559f70
+          Build: a2ad624645acb13e3a3965c6dda24c7d330762c2
         </p>
       </footer>
     </article>
