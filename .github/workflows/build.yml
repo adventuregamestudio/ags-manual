@@ -8,8 +8,13 @@ on:
 env:
   PANDOC_VERSION: "3.0"
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
@@ -45,7 +50,7 @@ jobs:
           path: source
       - name: Setup msys2
         if: ${{ runner.os == 'Windows' }}
-        uses: msys2/setup-msys2@v2
+        uses: msys2/setup-msys2@e9898307ac31d1a803454791be09ab9973336e1c #v2
         with:
           msystem: MSYS
           update: true
@@ -180,6 +185,9 @@ jobs:
   check-and-release:
     runs-on: ubuntu-22.04
     needs: build
+    permissions:
+      contents: write
+      pages: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -207,22 +215,28 @@ jobs:
         run: ../diff-dirs website_*
       - name: Create release and upload assets
         if: startsWith(github.ref, 'refs/tags/v')
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: artifacts/chm_Windows_${{ env.PANDOC_VERSION }}/ags-help.chm,artifacts/ags4_chm_Windows_${{ env.PANDOC_VERSION }}/ags4-help.chm,artifacts/release_Linux_${{ env.PANDOC_VERSION }}/ags-manual-*.tar.gz
-          allowUpdates: true
-          omitBodyDuringUpdate: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          REF_NAME: ${{ github.ref_name }}
+          PANDOC_VERSION: ${{ env.PANDOC_VERSION }}
+        shell: bash
+        run: |
+          gh release create "${REF_NAME}" --verify-tag || true
+          gh release upload "${REF_NAME}" \
+            "artifacts/chm_Windows_${PANDOC_VERSION}/ags-help.chm" \
+            "artifacts/ags4_chm_Windows_${PANDOC_VERSION}/ags4-help.chm" \
+            artifacts/release_Linux_${PANDOC_VERSION}/ags-manual-*.tar.gz \
+            --clobber
+
       - name: Deploy on GitHub Pages
         if: startsWith(github.ref, 'refs/tags/v')
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 #v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: artifacts/website_Linux_${{ env.PANDOC_VERSION }}
           destination_dir: v3
       - name: Deploy on GitHub Pages
         if: startsWith(github.ref, 'refs/tags/v')
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 #v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: artifacts/ags4_website_Linux_${{ env.PANDOC_VERSION }}
