@@ -34,10 +34,13 @@ jobs:
       MSYS: winsymlinks:nativestrict
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Checkout source repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
+          persist-credentials: false
+      - name: Checkout source repo
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
           repository: adventuregamestudio/ags-manual-source
           path: source
       - name: Setup msys2
@@ -117,20 +120,20 @@ jobs:
           make -j $(($(getconf _NPROCESSORS_ONLN) - 1)) DESTDIR=destdir install
       - name: Upload release archive
         if: ${{ matrix.with-feature != null }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: release_${{ runner.os }}_${{ env.PANDOC_VERSION }}
           path: build/ags-manual-*.tar.gz
           if-no-files-found: error
       - name: Upload website
         if: ${{ matrix.with-feature != null }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: website_${{ runner.os }}_${{ env.PANDOC_VERSION }}
           path: build/destdir/usr/local/share/ags-manual/website
           if-no-files-found: error
       - name: Upload CHM file
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: chm_${{ runner.os }}_${{ env.PANDOC_VERSION }}${{ matrix.with-feature }}
           path: build/destdir/usr/local/share/ags-manual/*.chm
@@ -163,13 +166,13 @@ jobs:
           mv destdir/usr/local/share/ags-manual/ags-help.chm destdir/usr/local/share/ags-manual/ags4-help.chm
       - name: Upload website
         if: ${{ matrix.with-feature != null }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ags4_website_${{ runner.os }}_${{ env.PANDOC_VERSION }}
           path: build/destdir/usr/local/share/ags-manual/website
           if-no-files-found: error
       - name: Upload CHM file
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ags4_chm_${{ runner.os }}_${{ env.PANDOC_VERSION }}${{ matrix.with-feature }}
           path: build/destdir/usr/local/share/ags-manual/*.chm
@@ -179,7 +182,9 @@ jobs:
     needs: build
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - name: Setup tangling
         run: >
           cd /tmp &&
@@ -194,7 +199,7 @@ jobs:
           dram words=diff-dirs '${{ github.workspace }}/CONTRIBUTING.md' > diff-dirs
           chmod +x diff-dirs
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: artifacts
       - name: Compare website artifacts
