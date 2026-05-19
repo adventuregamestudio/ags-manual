@@ -218,7 +218,7 @@ jobs:
         env:
           REF_NAME: ${{ github.ref_name }}
           PANDOC_VERSION: ${{ env.PANDOC_VERSION }}
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         shell: bash
         run: |
           gh release create "${REF_NAME}" --verify-tag || true
