@@ -1056,6 +1056,9 @@ var meta = {
       "0": { "BuildAndroid": 2 },
       "1": { "EditorPreferences": 2 }
     },
+    "ANNOTATION": {
+      "0": { "Translations": 2 }
+    },
     "ANSI": {
       "0": { "GeneralSettings": 1 },
       "1": { "Globalfunctions_General": 1 },
@@ -2817,6 +2820,9 @@ var meta = {
     "COMMAND": {
       "0": { "Globalfunctions_General": 3 },
       "1": { "Multimedia": 1 }
+    },
+    "COMMENT": {
+      "0": { "Translations": 1 }
     },
     "COMPAT": {
       "0": { "Preprocessor": 1 }
@@ -6015,7 +6021,7 @@ var meta = {
       "62": { "Setup": 1 },
       "63": { "SystemRequirements": 1 },
       "64": { "Templates": 6 },
-      "65": { "Translations": 1 },
+      "65": { "Translations": 4 },
       "66": { "TroubleshootingWindowsZoneID": 5 },
       "67": { "UnicodeSupport": 1 },
       "68": { "UpgradeTo30": 2 },
@@ -13363,7 +13369,7 @@ var meta = {
     "OBSOLETE": {
       "0": { "Gamevariables": 3 },
       "1": { "Globalfunctions_General": 3 },
-      "2": { "Translations": 1 }
+      "2": { "Translations": 2 }
     },
     "OFF": {
       "0": { "Globalfunctions_General": 1 },
@@ -14365,7 +14371,7 @@ var meta = {
       "0": { "Globalfunctions_Event": 1 }
     },
     "PARSERWORD": {
-      "0": { "Translations": 1 }
+      "0": { "Translations": 3 }
     },
     "PARTICULAR": {
       "0": { "Copyright": 1 }
@@ -16623,6 +16629,9 @@ var meta = {
     "SDL_Sound": {
       "0": { "Credits": 1 }
     },
+    "SECTION": {
+      "0": { "Translations": 1 }
+    },
     "SELLER": {
       "0": { "Copyright": 1 }
     },
@@ -17195,7 +17204,7 @@ var meta = {
       "83": { "TextBox": 5 },
       "84": { "TextParser": 1 },
       "85": { "TheScriptHeader": 1 },
-      "86": { "Translations": 2 },
+      "86": { "Translations": 3 },
       "87": { "Tumbleweed": 1 },
       "88": { "Tumbleweed_actions": 5 },
       "89": { "Tumbleweed_door": 5 },
@@ -18313,9 +18322,10 @@ var meta = {
       "12": { "Settingupthegame": 2 },
       "13": { "String": 2 },
       "14": { "StringFormats": 2 },
-      "15": { "UpgradeTo34": 1 },
-      "16": { "UpgradeTo35": 3 },
-      "17": { "UpgradingTo271": 1 }
+      "15": { "Translations": 1 },
+      "16": { "UpgradeTo34": 1 },
+      "17": { "UpgradeTo35": 3 },
+      "18": { "UpgradingTo271": 1 }
     },
     "Some.Thing": {
       "0": { "OOProgramming": 1 }
@@ -18434,7 +18444,8 @@ var meta = {
       "2": { "ScriptManagedStructs": 1 }
     },
     "Special": {
-      "0": { "Game": 1 }
+      "0": { "Game": 1 },
+      "1": { "Translations": 1 }
     },
     "Specifically": {
       "0": { "Game": 1 },
@@ -20598,7 +20609,7 @@ var meta = {
       "0": { "EditorGUI": 1 },
       "1": { "File": 4 },
       "2": { "Globalfunctions_General": 3 },
-      "3": { "Translations": 1 }
+      "3": { "Translations": 2 }
     },
     "VARIABLE_NAME": {
       "0": { "Globalfunctions_General": 2 }
@@ -21671,7 +21682,7 @@ var meta = {
       "71": { "TemplateBASS": 2 },
       "72": { "Templates": 1 },
       "73": { "TextParser": 1 },
-      "74": { "Translations": 3 },
+      "74": { "Translations": 4 },
       "75": { "TroubleshootingWindowsZoneID": 2 },
       "76": { "Tumbleweed": 1 },
       "77": { "UnicodeSupport": 2 },
@@ -22129,7 +22140,7 @@ var meta = {
       "103": { "SystemLimits": 1 },
       "104": { "Templates": 2 },
       "105": { "TextParser": 6 },
-      "106": { "Translations": 4 },
+      "106": { "Translations": 5 },
       "107": { "Tumbleweed": 6 },
       "108": { "Tumbleweed_door": 1 },
       "109": { "Tumbleweed_extensions": 3 },
@@ -23107,7 +23118,7 @@ var meta = {
       "46": { "ScriptStructs": 3 },
       "47": { "Settingupthegame": 4 },
       "48": { "TextParser": 8 },
-      "49": { "Translations": 4 },
+      "49": { "Translations": 7 },
       "50": { "Tumbleweed": 4 },
       "51": { "Tumbleweed_extensions": 6 },
       "52": { "UpgradeTo335": 1 },
@@ -23990,7 +24001,7 @@ var meta = {
       "15": { "MusicAndSound": 1 },
       "16": { "ScriptingTutorialPart1": 1 },
       "17": { "ScriptManagedStructs": 1 },
-      "18": { "Translations": 1 },
+      "18": { "Translations": 2 },
       "19": { "UpgradeTo335": 1 },
       "20": { "UpgradeTo35": 2 },
       "21": { "UpgradeTo36": 2 },
@@ -24226,10 +24237,11 @@ var meta = {
       "37": { "SystemRequirements": 1 },
       "38": { "TemplateBASS": 1 },
       "39": { "Templates": 1 },
-      "40": { "Tumbleweed": 1 },
-      "41": { "Tumbleweed_translation": 1 },
-      "42": { "UpgradeTo35": 1 },
-      "43": { "UpgradeTo361": 1 }
+      "40": { "Translations": 1 },
+      "41": { "Tumbleweed": 1 },
+      "42": { "Tumbleweed_translation": 1 },
+      "43": { "UpgradeTo35": 1 },
+      "44": { "UpgradeTo361": 1 }
     },
     "alright": {
       "0": { "BuildAndroid": 1 }
@@ -24837,14 +24849,11 @@ var meta = {
       "0": { "Character": 1 },
       "1": { "ObsoleteScriptAPI": 1 }
     },
-    "annotated": {
-      "0": { "Translations": 1 }
-    },
     "annotation": {
-      "0": { "Translations": 2 }
+      "0": { "Translations": 4 }
     },
     "annotations": {
-      "0": { "Translations": 1 }
+      "0": { "Translations": 4 }
     },
     "annoyance": {
       "0": { "UpgradeTo31": 1 }
@@ -25072,7 +25081,7 @@ var meta = {
       "96": { "Templates": 5 },
       "97": { "TemplateSierraStyle": 1 },
       "98": { "TextParser": 3 },
-      "99": { "Translations": 8 },
+      "99": { "Translations": 10 },
       "100": { "TroubleshootingWindowsZoneID": 3 },
       "101": { "Tumbleweed": 1 },
       "102": { "UnicodeSupport": 6 },
@@ -27031,14 +27040,15 @@ var meta = {
       "62": { "System": 7 },
       "63": { "TemplateVerbcoin": 1 },
       "64": { "TextWindowGUI": 1 },
-      "65": { "Tumbleweed_movement": 8 },
-      "66": { "UnicodeSupport": 1 },
-      "67": { "UpgradeTo30": 4 },
-      "68": { "UpgradeTo31": 2 },
-      "69": { "UpgradeTo34": 2 },
-      "70": { "UpgradeTo36": 1 },
-      "71": { "UpgradeTo362": 1 },
-      "72": { "UpgradingTo27": 3 }
+      "65": { "Translations": 1 },
+      "66": { "Tumbleweed_movement": 8 },
+      "67": { "UnicodeSupport": 1 },
+      "68": { "UpgradeTo30": 4 },
+      "69": { "UpgradeTo31": 2 },
+      "70": { "UpgradeTo34": 2 },
+      "71": { "UpgradeTo36": 1 },
+      "72": { "UpgradeTo362": 1 },
+      "73": { "UpgradingTo27": 3 }
     },
     "begin": {
       "0": { "acintro1": 1 },
@@ -27081,8 +27091,9 @@ var meta = {
       "7": { "Preprocessor": 1 },
       "8": { "Screen": 1 },
       "9": { "ScriptingTutorialPart1": 1 },
-      "10": { "UpgradingTo27": 1 },
-      "11": { "Viewport": 1 }
+      "10": { "Translations": 1 },
+      "11": { "UpgradingTo27": 1 },
+      "12": { "Viewport": 1 }
     },
     "begins": {
       "0": { "Button": 1 },
@@ -27245,7 +27256,8 @@ var meta = {
     "belonging": {
       "0": { "DialogOptionsRenderingInfo": 1 },
       "1": { "Feature_InventoryItems": 1 },
-      "2": { "Game": 1 }
+      "2": { "Game": 1 },
+      "3": { "Translations": 1 }
     },
     "belongs": {
       "0": { "ScriptKeywords": 2 },
@@ -29863,7 +29875,8 @@ var meta = {
       "3": { "File": 1 },
       "4": { "GameInfo": 1 },
       "5": { "ScriptAPIOverview": 1 },
-      "6": { "Setup": 1 }
+      "6": { "Setup": 1 },
+      "7": { "Translations": 1 }
     },
     "catnap": {
       "0": { "Lipsync": 1 }
@@ -30012,7 +30025,7 @@ var meta = {
       "39": { "Setup": 2 },
       "40": { "StandardEnums": 2 },
       "41": { "System": 5 },
-      "42": { "Translations": 4 },
+      "42": { "Translations": 5 },
       "43": { "Tumbleweed_extensions": 1 },
       "44": { "Tumbleweed_movement": 1 },
       "45": { "UpgradeTo35": 1 },
@@ -31876,6 +31889,9 @@ var meta = {
       "3": { "Translations": 2 },
       "4": { "UpgradeTo36": 1 }
     },
+    "commentary": {
+      "0": { "Translations": 1 }
+    },
     "comments": {
       "0": { "ContactingTheDevelopers": 1 },
       "1": { "ScriptingTutorialPart1": 2 },
@@ -32139,8 +32155,7 @@ var meta = {
       "1": { "Constants": 1 },
       "2": { "EditorGUI": 1 },
       "3": { "EditorPreferences": 1 },
-      "4": { "FAQ": 1 },
-      "5": { "Translations": 1 }
+      "4": { "FAQ": 1 }
     },
     "complain": {
       "0": { "Pointers": 1 }
@@ -34196,7 +34211,7 @@ var meta = {
       "52": { "StandardEnums": 1 },
       "53": { "Templates": 1 },
       "54": { "TextWindowGUI": 2 },
-      "55": { "Translations": 6 },
+      "55": { "Translations": 7 },
       "56": { "Tumbleweed": 1 },
       "57": { "Tumbleweed_door": 2 },
       "58": { "UpgradeTo335": 2 },
@@ -35561,7 +35576,7 @@ var meta = {
       "18": { "Overlay": 2 },
       "19": { "ScriptKeywords": 2 },
       "20": { "ScriptModules": 1 },
-      "21": { "Translations": 1 },
+      "21": { "Translations": 2 },
       "22": { "Tumbleweed_actions": 1 },
       "23": { "UnicodeSupport": 1 },
       "24": { "UpgradeTo32": 1 },
@@ -35880,7 +35895,7 @@ var meta = {
       "1": { "EnginePluginRun-timeAPI": 2 },
       "2": { "GeneralSettings": 1 },
       "3": { "Parser": 5 },
-      "4": { "Translations": 1 }
+      "4": { "Translations": 2 }
     },
     "did": {
       "0": { "acintro1": 1 },
@@ -40575,7 +40590,7 @@ var meta = {
       "0": { "ColoursEditor": 2 },
       "1": { "EditorPlugins": 1 },
       "2": { "ScriptAPIOverview": 1 },
-      "3": { "Translations": 2 }
+      "3": { "Translations": 1 }
     },
     "entry": {
       "0": { "acintro3": 1 },
@@ -40591,7 +40606,7 @@ var meta = {
       "10": { "ScriptModules": 1 },
       "11": { "Settingupthegame": 1 },
       "12": { "TextParser": 1 },
-      "13": { "Translations": 2 }
+      "13": { "Translations": 3 }
     },
     "enum": {
       "0": { "Button": 1 },
@@ -41255,7 +41270,7 @@ var meta = {
       "88": { "Templates": 1 },
       "89": { "TextBox": 1 },
       "90": { "TextParser": 9 },
-      "91": { "Translations": 3 },
+      "91": { "Translations": 4 },
       "92": { "Tumbleweed": 4 },
       "93": { "Tumbleweed_extensions": 1 },
       "94": { "Tumbleweed_helper": 1 },
@@ -42540,7 +42555,7 @@ var meta = {
       "61": { "System": 2 },
       "62": { "Templates": 18 },
       "63": { "TemplateSierraStyle": 1 },
-      "64": { "Translations": 19 },
+      "64": { "Translations": 20 },
       "65": { "TroubleshootingWindowsZoneID": 20 },
       "66": { "UpgradeTo30": 2 },
       "67": { "UpgradeTo32": 6 },
@@ -43766,12 +43781,13 @@ var meta = {
       "35": { "ScriptKeywords": 2 },
       "36": { "String": 1 },
       "37": { "Templates": 1 },
-      "38": { "UpgradeTo33": 1 },
-      "39": { "UpgradeTo335": 1 },
-      "40": { "UpgradeTo36": 1 },
-      "41": { "UpgradeTo362": 3 },
-      "42": { "Viewport": 1 },
-      "43": { "VoiceSpeech": 1 }
+      "38": { "Translations": 1 },
+      "39": { "UpgradeTo33": 1 },
+      "40": { "UpgradeTo335": 1 },
+      "41": { "UpgradeTo36": 1 },
+      "42": { "UpgradeTo362": 3 },
+      "43": { "Viewport": 1 },
+      "44": { "VoiceSpeech": 1 }
     },
     "found_char": {
       "0": { "GlobalArrays": 1 }
@@ -44077,7 +44093,7 @@ var meta = {
       "114": { "TemplateVerbcoin": 1 },
       "115": { "TextBox": 1 },
       "116": { "TextWindowGUI": 1 },
-      "117": { "Translations": 2 },
+      "117": { "Translations": 3 },
       "118": { "TroubleshootingWindowsZoneID": 5 },
       "119": { "Tumbleweed": 4 },
       "120": { "Tumbleweed_extensions": 1 },
@@ -44811,7 +44827,7 @@ var meta = {
       "124": { "TemplateSierraStyle": 2 },
       "125": { "TemplateVerbcoin": 2 },
       "126": { "TextParser": 1 },
-      "127": { "Translations": 33 },
+      "127": { "Translations": 35 },
       "128": { "TroubleshootingWindowsZoneID": 2 },
       "129": { "Tumbleweed": 7 },
       "130": { "Tumbleweed_translation": 2 },
@@ -45251,8 +45267,9 @@ var meta = {
       "10": { "Settingupthegame": 1 },
       "11": { "TemplateSierraStyle": 1 },
       "12": { "TemplateVerbcoin": 1 },
-      "13": { "UpgradeTo33": 1 },
-      "14": { "UpgradeTo362": 1 }
+      "13": { "Translations": 1 },
+      "14": { "UpgradeTo33": 1 },
+      "15": { "UpgradeTo362": 1 }
     },
     "generally": {
       "0": { "acintro3": 1 },
@@ -46142,7 +46159,7 @@ var meta = {
       "8": { "ScriptStructs": 1 },
       "9": { "Settingupthegame": 1 },
       "10": { "System": 1 },
-      "11": { "Translations": 2 },
+      "11": { "Translations": 3 },
       "12": { "UpgradeTo33": 1 },
       "13": { "UpgradeTo35": 1 },
       "14": { "UpgradeTo36": 1 }
@@ -46919,7 +46936,7 @@ var meta = {
       "107": { "Templates": 5 },
       "108": { "TextBox": 1 },
       "109": { "TextParser": 7 },
-      "110": { "Translations": 11 },
+      "110": { "Translations": 13 },
       "111": { "TroubleshootingWindowsZoneID": 2 },
       "112": { "Tumbleweed": 11 },
       "113": { "Tumbleweed_door": 6 },
@@ -48569,8 +48586,7 @@ var meta = {
       "11": { "Templates": 5 },
       "12": { "TemplateSierraStyle": 1 },
       "13": { "TheScriptHeader": 1 },
-      "14": { "Translations": 1 },
-      "15": { "VoiceSpeech": 1 }
+      "14": { "VoiceSpeech": 1 }
     },
     "includes": {
       "0": { "DistGame": 1 },
@@ -50708,7 +50724,7 @@ var meta = {
       "37": { "StandardEnums": 1 },
       "38": { "Templates": 1 },
       "39": { "TextParser": 1 },
-      "40": { "Translations": 3 },
+      "40": { "Translations": 4 },
       "41": { "TroubleshootingWindowsZoneID": 1 },
       "42": { "Tumbleweed": 1 },
       "43": { "UnicodeSupport": 2 },
@@ -50739,7 +50755,8 @@ var meta = {
       "5": { "Globalfunctions_General": 1 },
       "6": { "ScriptManagedStructs": 1 },
       "7": { "Settingupthegame": 1 },
-      "8": { "Tumbleweed": 1 }
+      "8": { "Translations": 1 },
+      "9": { "Tumbleweed": 1 }
     },
     "kept": {
       "0": { "AudioInScript": 1 },
@@ -52282,7 +52299,7 @@ var meta = {
       "42": { "System": 1 },
       "43": { "Templates": 1 },
       "44": { "TextParser": 1 },
-      "45": { "Translations": 15 },
+      "45": { "Translations": 16 },
       "46": { "Tumbleweed": 3 },
       "47": { "Tumbleweed_door": 2 },
       "48": { "Tumbleweed_translation": 1 },
@@ -52333,7 +52350,7 @@ var meta = {
       "18": { "Preprocessor": 1 },
       "19": { "ScriptingTutorialPart1": 1 },
       "20": { "Speech": 2 },
-      "21": { "Translations": 8 },
+      "21": { "Translations": 13 },
       "22": { "Tumbleweed_translation": 1 },
       "23": { "UnicodeSupport": 1 },
       "24": { "UpgradeTo36": 1 }
@@ -52928,16 +52945,17 @@ var meta = {
       "24": { "Settingupthegame": 2 },
       "25": { "Setup": 1 },
       "26": { "System": 2 },
-      "27": { "TroubleshootingWindowsZoneID": 1 },
-      "28": { "UpgradeTo30": 3 },
-      "29": { "UpgradeTo31": 1 },
-      "30": { "UpgradeTo34": 3 },
-      "31": { "UpgradeTo341": 3 },
-      "32": { "UpgradeTo35": 6 },
-      "33": { "UpgradeTo36": 1 },
-      "34": { "UpgradingTo27": 2 },
-      "35": { "UpgradingTo271": 1 },
-      "36": { "ValidateRestoredSave": 1 }
+      "27": { "Translations": 1 },
+      "28": { "TroubleshootingWindowsZoneID": 1 },
+      "29": { "UpgradeTo30": 3 },
+      "30": { "UpgradeTo31": 1 },
+      "31": { "UpgradeTo34": 3 },
+      "32": { "UpgradeTo341": 3 },
+      "33": { "UpgradeTo35": 6 },
+      "34": { "UpgradeTo36": 1 },
+      "35": { "UpgradingTo27": 2 },
+      "36": { "UpgradingTo271": 1 },
+      "37": { "ValidateRestoredSave": 1 }
     },
     "longest": {
       "0": { "Lipsync": 1 },
@@ -53940,7 +53958,8 @@ var meta = {
       "1": { "Dialog": 1 },
       "2": { "Globalfunctions_General": 1 },
       "3": { "Preprocessor": 1 },
-      "4": { "Templates": 1 }
+      "4": { "Templates": 1 },
+      "5": { "Translations": 1 }
     },
     "marked": {
       "0": { "acintro1": 2 },
@@ -53964,10 +53983,13 @@ var meta = {
     "marker's": {
       "0": { "Game": 2 }
     },
+    "marking": {
+      "0": { "Translations": 1 }
+    },
     "marks": {
       "0": { "EnginePluginRun-timeAPI": 1 },
       "1": { "ScriptingTutorialPart1": 1 },
-      "2": { "Translations": 1 }
+      "2": { "Translations": 2 }
     },
     "mask": {
       "0": { "acintro2": 1 },
@@ -54288,7 +54310,7 @@ var meta = {
       "104": { "Templates": 4 },
       "105": { "TextWindowGUI": 1 },
       "106": { "TheScriptHeader": 1 },
-      "107": { "Translations": 11 },
+      "107": { "Translations": 13 },
       "108": { "TroubleshootingWindowsZoneID": 3 },
       "109": { "UnicodeSupport": 6 },
       "110": { "UpgradeTo31": 1 },
@@ -54362,10 +54384,11 @@ var meta = {
       "17": { "ScriptStructs": 1 },
       "18": { "StringFormats": 4 },
       "19": { "System": 1 },
-      "20": { "UpgradeTo36": 3 },
-      "21": { "UpgradeTo362": 1 },
-      "22": { "ValidateRestoredSave": 1 },
-      "23": { "Viewport": 1 }
+      "20": { "Translations": 1 },
+      "21": { "UpgradeTo36": 3 },
+      "22": { "UpgradeTo362": 1 },
+      "23": { "ValidateRestoredSave": 1 },
+      "24": { "Viewport": 1 }
     },
     "meaningful": {
       "0": { "EnginePluginRun-timeAPI": 2 }
@@ -55087,6 +55110,9 @@ var meta = {
     },
     "misuse": {
       "0": { "UpgradeTo35": 1 }
+    },
+    "misused": {
+      "0": { "Translations": 1 }
     },
     "mitigate": {
       "0": { "UpgradeTo30": 1 }
@@ -56101,7 +56127,7 @@ var meta = {
       "57": { "Speech": 1 },
       "58": { "System": 2 },
       "59": { "Templates": 1 },
-      "60": { "Translations": 6 },
+      "60": { "Translations": 7 },
       "61": { "UnicodeSupport": 1 },
       "62": { "UpgradeTo30": 1 },
       "63": { "UpgradeTo32": 1 },
@@ -56968,7 +56994,7 @@ var meta = {
       "85": { "StringFormats": 1 },
       "86": { "Templates": 4 },
       "87": { "TextParser": 2 },
-      "88": { "Translations": 4 },
+      "88": { "Translations": 5 },
       "89": { "Tumbleweed": 2 },
       "90": { "Tumbleweed_actions": 1 },
       "91": { "Tumbleweed_door": 1 },
@@ -57821,7 +57847,7 @@ var meta = {
       "90": { "Templates": 1 },
       "91": { "TextParser": 6 },
       "92": { "TextWindowGUI": 8 },
-      "93": { "Translations": 6 },
+      "93": { "Translations": 7 },
       "94": { "TroubleshootingWindowsZoneID": 2 },
       "95": { "UnicodeSupport": 1 },
       "96": { "UpgradeTo33": 3 },
@@ -59048,7 +59074,7 @@ var meta = {
       "20": { "ScriptStructs": 2 },
       "21": { "System": 2 },
       "22": { "TheScriptHeader": 1 },
-      "23": { "Translations": 1 },
+      "23": { "Translations": 2 },
       "24": { "Tumbleweed": 1 },
       "25": { "Tumbleweed_translation": 1 },
       "26": { "UnicodeSupport": 1 },
@@ -60495,15 +60521,16 @@ var meta = {
       "61": { "StartingOff": 1 },
       "62": { "Templates": 2 },
       "63": { "TextBox": 1 },
-      "64": { "Tumbleweed_extensions": 2 },
-      "65": { "UnicodeSupport": 1 },
-      "66": { "UpgradeTo32": 1 },
-      "67": { "UpgradeTo33": 1 },
-      "68": { "UpgradeTo335": 1 },
-      "69": { "UpgradeTo34": 1 },
-      "70": { "UpgradeTo36": 1 },
-      "71": { "UpgradeTo361": 1 },
-      "72": { "UpgradingTo27": 2 }
+      "64": { "Translations": 1 },
+      "65": { "Tumbleweed_extensions": 2 },
+      "66": { "UnicodeSupport": 1 },
+      "67": { "UpgradeTo32": 1 },
+      "68": { "UpgradeTo33": 1 },
+      "69": { "UpgradeTo335": 1 },
+      "70": { "UpgradeTo34": 1 },
+      "71": { "UpgradeTo36": 1 },
+      "72": { "UpgradeTo361": 1 },
+      "73": { "UpgradingTo27": 2 }
     },
     "owned": {
       "0": { "EnginePluginRun-timeAPI": 1 },
@@ -60915,7 +60942,8 @@ var meta = {
       "6": { "Parser": 4 },
       "7": { "ScriptKeywords": 1 },
       "8": { "Settingupthegame": 1 },
-      "9": { "TextParser": 13 }
+      "9": { "TextParser": 13 },
+      "10": { "Translations": 1 }
     },
     "parser's": {
       "0": { "Translations": 2 }
@@ -64270,7 +64298,8 @@ var meta = {
       "24": { "RuntimeEngine": 6 },
       "25": { "Settingupthegame": 2 },
       "26": { "String": 1 },
-      "27": { "System": 5 }
+      "27": { "System": 5 },
+      "28": { "Translations": 1 }
     },
     "push": {
       "0": { "EventTypes": 3 },
@@ -64789,10 +64818,11 @@ var meta = {
       "37": { "ScriptStructs": 4 },
       "38": { "Settingupthegame": 1 },
       "39": { "Templates": 1 },
-      "40": { "TroubleshootingWindowsZoneID": 1 },
-      "41": { "UpgradeTo36": 2 },
-      "42": { "UpgradeTo362": 3 },
-      "43": { "UpgradingTo27": 2 }
+      "40": { "Translations": 1 },
+      "41": { "TroubleshootingWindowsZoneID": 1 },
+      "42": { "UpgradeTo36": 2 },
+      "43": { "UpgradeTo362": 3 },
+      "44": { "UpgradingTo27": 2 }
     },
     "read-only": {
       "0": { "AudioChannel": 2 },
@@ -65085,6 +65115,9 @@ var meta = {
       "0": { "Character": 1 },
       "1": { "Object": 1 },
       "2": { "Parser": 1 }
+    },
+    "recognizes": {
+      "0": { "Translations": 1 }
     },
     "recommend": {
       "0": { "acintro8": 1 },
@@ -65951,7 +65984,8 @@ var meta = {
       "4": { "Globalfunctions_General": 1 },
       "5": { "Object": 2 },
       "6": { "Overlay": 1 },
-      "7": { "Viewport": 1 }
+      "7": { "Translations": 1 },
+      "8": { "Viewport": 1 }
     },
     "removing": {
       "0": { "Character": 1 },
@@ -66597,7 +66631,7 @@ var meta = {
       "19": { "RestoredSaveInfo": 2 },
       "20": { "ScriptKeywords": 1 },
       "21": { "ScriptStructs": 1 },
-      "22": { "Translations": 2 },
+      "22": { "Translations": 3 },
       "23": { "UpgradeTo33": 1 }
     },
     "respectively": {
@@ -67147,12 +67181,13 @@ var meta = {
       "53": { "TemplateSierraStyle": 2 },
       "54": { "TemplateVerbcoin": 1 },
       "55": { "TextWindowGUI": 1 },
-      "56": { "Tumbleweed": 4 },
-      "57": { "Tumbleweed_movement": 1 },
-      "58": { "UpgradeTo36": 3 },
-      "59": { "UpgradeTo361": 1 },
-      "60": { "ValidateRestoredSave": 1 },
-      "61": { "Viewport": 1 }
+      "56": { "Translations": 1 },
+      "57": { "Tumbleweed": 4 },
+      "58": { "Tumbleweed_movement": 1 },
+      "59": { "UpgradeTo36": 3 },
+      "60": { "UpgradeTo361": 1 },
+      "61": { "ValidateRestoredSave": 1 },
+      "62": { "Viewport": 1 }
     },
     "right-align": {
       "0": { "Globalfunctions_General": 1 }
@@ -67329,18 +67364,19 @@ var meta = {
       "68": { "System": 2 },
       "69": { "SystemLimits": 6 },
       "70": { "TextParser": 3 },
-      "71": { "Tumbleweed": 7 },
-      "72": { "Tumbleweed_door": 9 },
-      "73": { "Tumbleweed_extensions": 3 },
-      "74": { "Tutorial": 1 },
-      "75": { "UpgradeTo30": 5 },
-      "76": { "UpgradeTo33": 3 },
-      "77": { "UpgradeTo35": 31 },
-      "78": { "UpgradeTo36": 7 },
-      "79": { "UpgradeTo361": 1 },
-      "80": { "UpgradeTo362": 4 },
-      "81": { "ValidateRestoredSave": 2 },
-      "82": { "Viewport": 15 }
+      "71": { "Translations": 1 },
+      "72": { "Tumbleweed": 7 },
+      "73": { "Tumbleweed_door": 9 },
+      "74": { "Tumbleweed_extensions": 3 },
+      "75": { "Tutorial": 1 },
+      "76": { "UpgradeTo30": 5 },
+      "77": { "UpgradeTo33": 3 },
+      "78": { "UpgradeTo35": 31 },
+      "79": { "UpgradeTo36": 7 },
+      "80": { "UpgradeTo361": 1 },
+      "81": { "UpgradeTo362": 4 },
+      "82": { "ValidateRestoredSave": 2 },
+      "83": { "Viewport": 15 }
     },
     "room's": {
       "0": { "acintro2": 6 },
@@ -67914,7 +67950,7 @@ var meta = {
       "69": { "TemplateBASS": 1 },
       "70": { "TextParser": 7 },
       "71": { "TheScriptHeader": 3 },
-      "72": { "Translations": 6 },
+      "72": { "Translations": 7 },
       "73": { "TroubleshootingWindowsZoneID": 1 },
       "74": { "Tumbleweed_extensions": 1 },
       "75": { "Tumbleweed_movement": 3 },
@@ -68556,7 +68592,7 @@ var meta = {
       "105": { "TemplateVerbcoin": 2 },
       "106": { "TextParser": 3 },
       "107": { "TheScriptHeader": 6 },
-      "108": { "Translations": 8 },
+      "108": { "Translations": 9 },
       "109": { "Tumbleweed": 3 },
       "110": { "Tumbleweed_door": 4 },
       "111": { "Tumbleweed_extensions": 1 },
@@ -68925,7 +68961,7 @@ var meta = {
       "36": { "String": 1 },
       "37": { "SystemLimits": 2 },
       "38": { "Templates": 1 },
-      "39": { "Translations": 2 },
+      "39": { "Translations": 3 },
       "40": { "Tutorial": 1 },
       "41": { "UnicodeSupport": 1 },
       "42": { "UpgradeTo31": 1 },
@@ -71662,7 +71698,7 @@ var meta = {
       "7": { "EnginePluginRun-timeAPI": 1 },
       "8": { "MusicAndSound": 1 },
       "9": { "Templates": 1 },
-      "10": { "Translations": 1 },
+      "10": { "Translations": 2 },
       "11": { "TroubleshootingWindowsZoneID": 1 },
       "12": { "UpgradeTo361": 2 }
     },
@@ -71826,7 +71862,7 @@ var meta = {
       "48": { "StandardEnums": 1 },
       "49": { "StringFormats": 3 },
       "50": { "TextParser": 2 },
-      "51": { "Translations": 6 },
+      "51": { "Translations": 7 },
       "52": { "ValidateRestoredSave": 1 },
       "53": { "VoiceSpeech": 2 }
     },
@@ -74155,7 +74191,7 @@ var meta = {
       "6": { "ScriptAttributes": 2 },
       "7": { "ScriptStructs": 2 },
       "8": { "TextParser": 1 },
-      "9": { "Translations": 3 },
+      "9": { "Translations": 5 },
       "10": { "UpgradingTo27": 1 }
     },
     "syntaxes": {
@@ -74888,7 +74924,7 @@ var meta = {
       "59": { "TextBox": 15 },
       "60": { "TextParser": 6 },
       "61": { "TextWindowGUI": 6 },
-      "62": { "Translations": 23 },
+      "62": { "Translations": 25 },
       "63": { "Tumbleweed_translation": 2 },
       "64": { "UnicodeSupport": 4 },
       "65": { "UpgradeTo35": 5 },
@@ -75246,7 +75282,7 @@ var meta = {
       "89": { "TemplateVerbcoin": 1 },
       "90": { "TextParser": 3 },
       "91": { "TheScriptHeader": 1 },
-      "92": { "Translations": 3 },
+      "92": { "Translations": 5 },
       "93": { "UnicodeSupport": 2 },
       "94": { "UpgradeTo30": 3 },
       "95": { "UpgradeTo32": 2 },
@@ -76261,7 +76297,7 @@ var meta = {
       "29": { "Settingupthegame": 3 },
       "30": { "SystemLimits": 2 },
       "31": { "Templates": 1 },
-      "32": { "Translations": 1 },
+      "32": { "Translations": 2 },
       "33": { "Tumbleweed_movement": 1 },
       "34": { "UpgradeTo361": 1 }
     },
@@ -76583,7 +76619,7 @@ var meta = {
       "0": { "GeneralSettings": 2 },
       "1": { "Globalfunctions_General": 2 },
       "2": { "ListBox": 1 },
-      "3": { "Translations": 14 },
+      "3": { "Translations": 15 },
       "4": { "Tumbleweed_translation": 3 },
       "5": { "UpgradeTo33": 1 }
     },
@@ -76593,7 +76629,7 @@ var meta = {
     },
     "translating": {
       "0": { "EnginePluginRun-timeAPI": 1 },
-      "1": { "Translations": 1 },
+      "1": { "Translations": 2 },
       "2": { "Tumbleweed": 1 }
     },
     "translation": {
@@ -76607,7 +76643,7 @@ var meta = {
       "7": { "Label": 1 },
       "8": { "RuntimeEngine": 3 },
       "9": { "System": 1 },
-      "10": { "Translations": 31 },
+      "10": { "Translations": 35 },
       "11": { "Tumbleweed": 2 },
       "12": { "Tumbleweed_actions": 1 },
       "13": { "Tumbleweed_translation": 1 },
@@ -77980,7 +78016,8 @@ var meta = {
     "updating": {
       "0": { "Dialog": 1 },
       "1": { "EnginePluginRun-timeAPI": 1 },
-      "2": { "ExtenderFunctions": 1 }
+      "2": { "ExtenderFunctions": 1 },
+      "3": { "Translations": 2 }
     },
     "upgrade": {
       "0": { "Globalfunctions_Event": 1 },
@@ -78363,7 +78400,7 @@ var meta = {
       "101": { "TemplateVerbcoin": 10 },
       "102": { "TextBox": 3 },
       "103": { "TextWindowGUI": 10 },
-      "104": { "Translations": 9 },
+      "104": { "Translations": 11 },
       "105": { "TroubleshootingWindowsZoneID": 3 },
       "106": { "Tumbleweed": 1 },
       "107": { "Tumbleweed_actions": 5 },
@@ -80834,7 +80871,7 @@ var meta = {
       "108": { "Templates": 3 },
       "109": { "TemplateVerbcoin": 1 },
       "110": { "TextWindowGUI": 1 },
-      "111": { "Translations": 8 },
+      "111": { "Translations": 9 },
       "112": { "TroubleshootingWindowsZoneID": 5 },
       "113": { "Tumbleweed": 2 },
       "114": { "Tumbleweed_door": 4 },
@@ -81771,7 +81808,7 @@ var meta = {
       "8": { "Settingupthegame": 1 },
       "9": { "String": 1 },
       "10": { "TextParser": 17 },
-      "11": { "Translations": 4 },
+      "11": { "Translations": 5 },
       "12": { "Tumbleweed": 1 },
       "13": { "UpgradingTo27": 2 },
       "14": { "VoiceSpeech": 1 }
@@ -82144,13 +82181,14 @@ var meta = {
       "32": { "Set": 1 },
       "33": { "Templates": 1 },
       "34": { "TextParser": 1 },
-      "35": { "TroubleshootingWindowsZoneID": 2 },
-      "36": { "UpgradeTo335": 2 },
-      "37": { "UpgradeTo34": 1 },
-      "38": { "UpgradeTo36": 1 },
-      "39": { "UpgradeTo362": 1 },
-      "40": { "UpgradingTo27": 4 },
-      "41": { "ValidateRestoredSave": 1 }
+      "35": { "Translations": 1 },
+      "36": { "TroubleshootingWindowsZoneID": 2 },
+      "37": { "UpgradeTo335": 2 },
+      "38": { "UpgradeTo34": 1 },
+      "39": { "UpgradeTo36": 1 },
+      "40": { "UpgradeTo362": 1 },
+      "41": { "UpgradingTo27": 4 },
+      "42": { "ValidateRestoredSave": 1 }
     },
     "writeable": {
       "0": { "EngineConfigFile": 1 }
@@ -82509,7 +82547,7 @@ var meta = {
       "130": { "TextBox": 1 },
       "131": { "TextParser": 25 },
       "132": { "TheScriptHeader": 2 },
-      "133": { "Translations": 39 },
+      "133": { "Translations": 41 },
       "134": { "TroubleshootingWindowsZoneID": 1 },
       "135": { "Tumbleweed": 43 },
       "136": { "Tumbleweed_actions": 1 },
@@ -82769,7 +82807,7 @@ var meta = {
       "115": { "TemplateSierraStyle": 1 },
       "116": { "TextParser": 6 },
       "117": { "TheScriptHeader": 1 },
-      "118": { "Translations": 11 },
+      "118": { "Translations": 12 },
       "119": { "TroubleshootingWindowsZoneID": 1 },
       "120": { "Tumbleweed": 9 },
       "121": { "Tumbleweed_door": 1 },
