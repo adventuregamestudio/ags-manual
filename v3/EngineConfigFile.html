@@ -267,7 +267,7 @@
 <li><code>textskip = [string]</code> - forces game to this text message skip style. Values are same as for the <code>speechskip</code>.</li>
 <li><code>textreadspeed = [integer]</code> - forces game to this text reading speed (number of characters per second).</li>
 </ul></li>
-<li><strong>[override]</strong> - special options, overriding game behavior.
+<li><strong>[override]</strong> - special options, overriding standard engine behavior. These are purposed as emergency "hacks", when something prevents from playing a game properly.
 <ul>
 <li><code>multitasking = [0; 1]</code> - lock the game in the "single-tasking" or "multitasking" mode. In the nutshell, "multitasking" here means that the game will continue running when player switched away from game window; otherwise it will freeze until player switches back.</li>
 <li><code>noplugins = [0; 1]</code> - don't load plugin libraries (the engine may still use plugin stubs or embedded plugins, of these are present).</li>
@@ -281,9 +281,16 @@
 <li><code>legacysave_assume_dataver = [integer]</code> - when restoring a save of a legacy format, lets engine assume certain game data version ID. This may be necessary because of a mistake in pre-3.5.0 save formats, where contents depended on a game data version rather than a save version.</li>
 <li><code>legacysave_let_gui_diff = [0; 1]</code> - when restoring a save of a legacy format, lets engine read less gui elements than are registered by the current game. This was a (possibly unintended) effect in pre-3.5.0 save format.</li>
 <li><code>max_save = [integer]</code> - overrides standard save/restore game dialogs to use this as the saves limit.</li>
+<li><code>new_key_mode = [0; 1]</code> - enforce new key handling mode, where each button is firing separate event, and button codes do not depend on the keyboard layout. WARNING: may cause script errors in certain old games.</li>
 <li><code>restore_game_key = [integer]</code> - key for calling built-in restore game dialog. Key value corresponds to the <a href="Keycodes.html">AGS script keycode</a>.</li>
 <li><code>save_game_key = [integer]</code> - key for calling built-in save game dialog.</li>
 <li><code>upscale = [0; 1]</code> - run game in the "upscale mode". The earlier versions of AGS provided support for "upscaling" low-res games to hi-res. The script API has means for detecting if the game is running upscaled, and game developer could use this opportunity to setup game accordingly (e.g. assign hi-res fonts, etc). This options works <strong>only</strong> for games created before AGS 3.1.0 with low-res native resolution, such as 320x200 or 320x240, and it may somewhat improve game looks.</li>
+</ul></li>
+<li><strong>[override_behavior]</strong> - options, overriding backwards-compatible engine behavior. When running old games, the engine tries to emulate old behavior as close as possible. This may include various restrictions and inconveniences. These options allow to enable <em>modern</em> behavior on a per-case basis. NOTE: you can only enable new behavior in old games, you won't be able to disable modern behavior in games where it is a standard.
+<ul>
+<li><code>smooth_walk = [0; 1]</code> - enable seamless transition between consecutive walk commands. WARNING: may cause script errors in certain old games.</li>
+<li><code>gui_text_direction = [0; 1]</code> - enable applying text direction on gui controls other than labels (labels support it always).</li>
+<li><code>dialog_opt_text_direction = [0; 1]</code> - enable applying text direction on dialog options.</li>
 </ul></li>
 <li><strong>[disabled]</strong> - special instructions for the setup program hinting to disable particular options or lock some in the certain state. Ignored by the engine.
 <ul>
@@ -306,7 +313,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: baf702d556bfb8dd1d09e0fc8e65bd29351fdb8b
+          Build: 07194d655c19e4237075d08625300430e10fc45a
         </p>
       </footer>
     </article>

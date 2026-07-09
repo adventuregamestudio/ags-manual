@@ -100,8 +100,10 @@
 <h3><a href="#additional-options">Additional options</a></h3>
 <p>There are two more things you can add to the translation file: comments and font options.</p>
 <p>Comment lines should begin with <code>//</code>, just like in script, and anything else on the same line will be ignored, and such lines won't be counted when deciding which line is original text and which is the translation. Comments are allowed to be placed anywhere in the file, and they are a good way to keep notes for yourself or your translators.</p>
-<p>Font options let you define certain font substitutes for this particular translation. All options begin with the comment opening and a pound sign: <code>//#</code> - followed by <code>OPTION=VALUE</code> kind of string where "OPTION" is the corresponding name. Following options are supported:</p>
+<p>Options let you change certain aspects of the game. They are applied once as the translation is loaded at runtime using [<code>Game.ChangeTranslation](Game#gamechangetranslation). All options begin with the comment opening and a pound sign: </code>//#<code>- followed by</code>OPTION=VALUE` kind of string where "OPTION" is the corresponding name. Following options are supported:</p>
 <ul>
+<li><strong>GameName</strong> - this option is used for matching this translation file with the game. If it has a value set, then the game will only load this translation if it has the same name. Editor should fill this option when creating a translation file.</li>
+<li><strong>UniqueID</strong> - this option is used for matching this translation file with the game. If it has a value set, then the game will only load this translation if it has the internal ID number. Editor should fill this option when creating a translation file. It's recommended to not change this option by hand.</li>
 <li><strong>NormalFont</strong> - sets the font used for displaying messages on screen. This corresponds to the <a href="Game.html#gamenormalfont"><code>Game.NormalFont</code></a> script property. The value may be either the font's number or <code>DEFAULT</code> for no change.</li>
 <li><strong>SpeechFont</strong> - sets the font used for character speech. This corresponds to the <a href="Game.html#gamespeechfont"><code>Game.SpeechFont</code></a> script property. The value may be either the font's number or <code>DEFAULT</code> for no change.</li>
 <li><strong>TextDirection</strong> - sets the direction in which the text is written. This corresponds to calling the <a href="Globalfunctions_General.html#setgameoption"><code>SetGameOption</code></a> script function with the OPT_RIGHTTOLEFT argument. The value may be <code>LEFT</code> (for left-to-right), <code>RIGHT</code> (for right-to-left) or <code>DEFAULT</code>.</li>
@@ -186,7 +188,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: baf702d556bfb8dd1d09e0fc8e65bd29351fdb8b
+          Build: 07194d655c19e4237075d08625300430e10fc45a
         </p>
       </footer>
     </article>

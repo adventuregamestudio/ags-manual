@@ -135,12 +135,19 @@
 <section id="character-behavior" class="level3">
 <h3><a href="#character-behavior">Character behavior</a></h3>
 <ul>
-<li><strong>Automatically move the player in Walk mode</strong> - normally, when you click the mouse in the Walk mode, the main character will move to where you clicked. However, if you want to create a game all viewed from a 1st-person perspective, and so don't have a main character, then disabling this option allows you to use the Walk mode for other things. If disabled, then "Character stands on hotspot" events are instead triggered by clicking the Walk cursor on the hotspot.</li>
-<li><strong>Automatically move to hotspots in Look mode</strong> - controls whether the player will walk to "walk-to" spots when the player looks at the hotspot. Normally he only walks on use, speak and use-inv.</li>
-<li><strong>Characters turn before walking</strong> - specifies that when a character starts to walk somewhere, it will first turn round to face the correct direction using available animation frames, rather than just suddenly switching to face the right way.</li>
-<li><strong>Characters turn to face direction</strong> - if set, then when a character turns round with the <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a> or <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a> script commands, they will visibly turn around using their available loops. If this option is not set, they will immediately appear facing their new direction.</li>
-<li><strong>Scale Character sprite offsets</strong> - if set, then visual character's offsets will be scaled in proportion to the current character's scaling. This refers to values of <a href="Character.html#characterz"><code>Character.z</code></a> property and parameters of <a href="Character.html#characterlockviewoffset"><code>Character.LockViewOffset</code></a>.</li>
-<li><strong>Scale movement speed with room's mask resolution</strong> - Character walking and object movement speeds will scale inversely in proportion to the current room's Mask Resolution. For example, having 1:2 mask resolution will multiply speed by 2. This is a backward compatible setting that should not be enabled without real need.</li>
+<li><p><strong>Automatically move the player in Walk mode</strong> - normally, when you click the mouse in the Walk mode, the main character will move to where you clicked. However, if you want to create a game all viewed from a 1st-person perspective, and so don't have a main character, then disabling this option allows you to use the Walk mode for other things. If disabled, then "Character stands on hotspot" events are instead triggered by clicking the Walk cursor on the hotspot.</p></li>
+<li><p><strong>Automatically move to hotspots in Look mode</strong> - controls whether the player will walk to "walk-to" spots when the player looks at the hotspot. Normally he only walks on use, speak and use-inv.</p></li>
+<li><p><strong>Characters turn before walking</strong> - specifies that when a character starts to walk somewhere, it will first turn round to face the correct direction using available animation frames, rather than just suddenly switching to face the right way.</p></li>
+<li><p><strong>Characters turn to face direction</strong> - if set, then when a character turns round with the <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a> or <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a> script commands, they will visibly turn around using their available loops. If this option is not set, they will immediately appear facing their new direction.</p></li>
+<li><p><strong>Prioritize this turning direction</strong> - tells which turning direction to prioritize when characters are making 180-degree turns. Available choices are:</p>
+<ul>
+<li><strong>Clockwise</strong> - characters will always make clockwise turns.</li>
+<li><strong>CounterClockwise</strong> - characters will always make counter-clockwise turns.</li>
+<li><strong>Random</strong> - characters will take either clockwise or counter-clockwise turns, chosen at random.</li>
+<li><strong>Face Down</strong> - characters will select the direction that lets them face "down" more often. This is a convenient choice in case of a classic side-view perspective.</li>
+</ul></li>
+<li><p><strong>Scale Character sprite offsets</strong> - if set, then visual character's offsets will be scaled in proportion to the current character's scaling. This refers to values of <a href="Character.html#characterz"><code>Character.z</code></a> property and parameters of <a href="Character.html#characterlockviewoffset"><code>Character.LockViewOffset</code></a>.</p></li>
+<li><p><strong>Scale movement speed with room's mask resolution</strong> - Character walking and object movement speeds will scale inversely in proportion to the current room's Mask Resolution. For example, having 1:2 mask resolution will multiply speed by 2. This is a backward compatible setting that should not be enabled without real need.</p></li>
 </ul>
 </section>
 <section id="compiler" class="level3">
@@ -198,6 +205,18 @@
 <li><p><strong>Speech style</strong> - in the default LucasArts-style speech, when a character talks, the speech text is displayed above their head in the game, and the character's talking view is used to animate the actual character.<br> However, if you set this option to Sierra-style then the talking view is used to display an animating portrait separately in the top-left of the screen, with the text to the right of it. This is similar to the way that Space Quest 5, King's Quest 6 and other later Sierra games worked. You can also cycle to another option, "Sierra- style with background", which is the same except a text window is drawn behind the speech text to make it easier to read.<br> "Whole Screen" uses a full-screen character portrait, like the way that QFG4 worked.</p></li>
 <li><p><strong>Use game-wide speech animation delay</strong> - defines whether to use game-wide speech animation delay as opposed to using the individual character settings.</p></li>
 <li><p><strong>Use GUI for dialog options</strong> - controls where the player's options for dialog are displayed. If set to 0, then in a conversation, the options will be displayed at the bottom of the screen. If you type in GUI's ID number, then instead the options will be displayed on the GUI you specify.</p></li>
+</ul>
+</section>
+<section id="gui-behavior" class="level3">
+<h3><a href="#gui-behavior">GUI Behavior</a></h3>
+<ul>
+<li><p><strong>GUI common controls handle only left mouse button</strong> - by default AGS treats click with any mouse button on most GUI controls similarly. That includes pressing Buttons, changing selection in ListBoxes and so forth. If you prefer them react only to the left mouse button, then enable this setting. InventoryWindow is an exception to this rule: when "Handle inventory window clicks in script" option is disabled, it will give different responses to LMB and RMB regardless of this setting.</p></li>
+<li><p><strong>TextBoxes claim key and text input events</strong> - by default active TextBox control claims ("steals") every key press. If you want key input to pass further into the script when TextBox is displayed, change this option to a different choice:</p>
+<ul>
+<li><strong>Always</strong> - the active TextBox will claim every key input event regardless of whether it's used by control or not.</li>
+<li><strong>Handled input events (key and text)</strong> - the active TextBox will claim any key input event that has a meaning to it. This includes all the text input events, and Enter/Return and Backspace key press events.</li>
+<li><strong>Text input events only</strong> - the active TextBox will claim only text input events. Any key presses will not be claimed and are passed further into the script. Note that TextBox will still react to standard keys, such as Backspace and Enter/Return.</li>
+</ul></li>
 </ul>
 </section>
 <section id="inventory" class="level3">
@@ -283,7 +302,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: baf702d556bfb8dd1d09e0fc8e65bd29351fdb8b
+          Build: 07194d655c19e4237075d08625300430e10fc45a
         </p>
       </footer>
     </article>
@@ -299,6 +318,7 @@
 <li><a href="#character-behavior" id="toc-character-behavior">Character behavior</a></li>
 <li><a href="#compiler" id="toc-compiler">Compiler</a></li>
 <li><a href="#dialog" id="toc-dialog">Dialog</a></li>
+<li><a href="#gui-behavior" id="toc-gui-behavior">GUI Behavior</a></li>
 <li><a href="#inventory" id="toc-inventory">Inventory</a></li>
 <li><a href="#rooms" id="toc-rooms">Rooms</a></li>
 <li><a href="#saved-games" id="toc-saved-games">Saved Games</a></li>
