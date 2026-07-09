@@ -173,6 +173,9 @@
 <a href="AudioChannel.html#audiochannelstop">AudioChannel.Stop</a><br>
 <a href="AudioChannel.html#audiochannelvolume">AudioChannel.Volume</a><br>
 <a href="AudioClip.html#audioclip-functions-and-properties">AudioClip</a><br>
+<a href="AudioClip.html#audioclipdefaultpriority">AudioClip.DefaultPriority</a><br>
+<a href="AudioClip.html#audioclipdefaultrepeat">AudioClip.DefaultRepeat</a><br>
+<a href="AudioClip.html#audioclipdefaultvolume">AudioClip.DefaultVolume</a><br>
 <a href="AudioClip.html#audioclipfiletype">AudioClip.FileType</a><br>
 <a href="AudioClip.html#audioclipgetbyname">AudioClip.GetByName</a><br>
 <a href="AudioClip.html#audioclipgetproperty">AudioClip.GetProperty</a><br>
@@ -245,6 +248,10 @@
 <a href="Camera.html#cameracreate">Camera.Create</a><br>
 <a href="Camera.html#cameradelete">Camera.Delete</a><br>
 <a href="Camera.html#cameraheight">Camera.Height</a><br>
+<a href="Camera.html#camerapivotoffsetx">Camera.PivotOffsetX</a><br>
+<a href="Camera.html#camerapivotoffsety">Camera.PivotOffsetY</a><br>
+<a href="Camera.html#camerapivotx">Camera.PivotX</a><br>
+<a href="Camera.html#camerapivoty">Camera.PivotY</a><br>
 <a href="Camera.html#camerarotation">Camera.Rotation</a><br>
 <a href="Camera.html#camerasetat">Camera.SetAt</a><br>
 <a href="Camera.html#camerasetsize">Camera.SetSize</a><br>
@@ -269,6 +276,9 @@
 <a href="Character.html#characteranimating">Character.Animating</a><br>
 <a href="Character.html#characteranimationspeed">Character.AnimationSpeed</a><br>
 <a href="Character.html#characteranimationvolume">Character.AnimationVolume</a><br>
+<a href="Character.html#characteraudiopanning">Character.AudioPanning</a><br>
+<a href="Character.html#characteraudiospeed">Character.AudioSpeed</a><br>
+<a href="Character.html#characteraudiovolume">Character.AudioVolume</a><br>
 <a href="Character.html#characterbaseline">Character.Baseline</a><br>
 <a href="Character.html#characterblendmode">Character.BlendMode</a><br>
 <a href="Character.html#characterblinkinterval">Character.BlinkInterval</a><br>
@@ -297,12 +307,18 @@
 <a href="Character.html#charactergetatroomxy">Character.GetAtRoomXY</a><br>
 <a href="Character.html#charactergetatscreenxy">Character.GetAtScreenXY</a><br>
 <a href="Character.html#charactergetbyname">Character.GetByName</a><br>
+<a href="Character.html#charactergetgraphicboundbox">Character.GetGraphicBoundBox</a><br>
+<a href="Character.html#charactergetgraphicposition">Character.GetGraphicPosition</a><br>
 <a href="Character.html#charactergetproperty">Character.GetProperty</a><br>
 <a href="Character.html#charactergettextproperty">Character.GetTextProperty</a><br>
 <a href="Character.html#charactergraphicanchorx">Character.GraphicAnchorX</a><br>
 <a href="Character.html#charactergraphicanchory">Character.GraphicAnchorY</a><br>
 <a href="Character.html#charactergraphicoffsetx">Character.GraphicOffsetX</a><br>
 <a href="Character.html#charactergraphicoffsety">Character.GraphicOffsetY</a><br>
+<a href="Character.html#charactergraphicpivotoffsetx">Character.GraphicPivotOffsetX</a><br>
+<a href="Character.html#charactergraphicpivotoffsety">Character.GraphicPivotOffsetY</a><br>
+<a href="Character.html#charactergraphicpivotx">Character.GraphicPivotX</a><br>
+<a href="Character.html#charactergraphicpivoty">Character.GraphicPivotY</a><br>
 <a href="Character.html#charactergraphicrotation">Character.GraphicRotation</a><br>
 <a href="Character.html#characterhasexplicitlight">Character.HasExplicitLight</a><br>
 <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a><br>
@@ -314,6 +330,8 @@
 <a href="Character.html#characteridleview">Character.IdleView</a><br>
 <a href="Character.html#characterignorelighting">Character.IgnoreLighting</a><br>
 <a href="Character.html#characterignorewalkbehinds">Character.IgnoreWalkbehinds</a><br>
+<a href="Character.html#characterinventory">Character.Inventory</a><br>
+<a href="Character.html#characterinventorycount">Character.InventoryCount</a><br>
 <a href="Character.html#characterinventoryquantity">Character.InventoryQuantity</a><br>
 <a href="Character.html#characteriscollidingwithchar">Character.IsCollidingWithChar</a><br>
 <a href="Character.html#characteriscollidingwithobject">Character.IsCollidingWithObject</a><br>
@@ -751,6 +769,7 @@
 <a href="Game.html#gamefacedirectionratio">Game.FaceDirectionRatio</a><br>
 <a href="Game.html#gamefilename">Game.FileName</a><br>
 <a href="Game.html#gamefontcount">Game.FontCount</a><br>
+<a href="Game.html#gamegetaudiotypevolume">Game.GetAudioTypeVolume</a><br>
 <a href="Game.html#gamegetcolorfromrgb">Game.GetColorFromRGB</a><br>
 <a href="Game.html#gamegetcolorfromrgba">Game.GetColorFromRGBA</a><br>
 <a href="Game.html#gamegetframecountforloop">Game.GetFrameCountForLoop</a><br>
@@ -882,6 +901,8 @@
 <a href="GUI.html#guicontrols">GUI.Controls</a><br>
 <a href="GUI.html#guigetatscreenxy">GUI.GetAtScreenXY</a><br>
 <a href="GUI.html#guigetbyname">GUI.GetByName</a><br>
+<a href="GUI.html#guigetgraphicboundbox">GUI.GetGraphicBoundBox</a><br>
+<a href="GUI.html#guigetgraphicposition">GUI.GetGraphicPosition</a><br>
 <a href="GUI.html#guigetproperty">GUI.GetProperty</a><br>
 <a href="GUI.html#guigettextproperty">GUI.GetTextProperty</a><br>
 <a href="GUI.html#guiguitoscreenpoint">GUI.GUIToScreenPoint</a><br>
@@ -920,6 +941,8 @@
 <a href="GUIControl.html#guicontrolenabled">GUIControl.Enabled</a><br>
 <a href="GUIControl.html#guicontrolgetatscreenxy">GUIControl.GetAtScreenXY</a><br>
 <a href="GUIControl.html#guicontrolgetbyname">GUIControl.GetByName</a><br>
+<a href="GUIControl.html#guicontrolgetgraphicboundbox">GUIControl.GetGraphicBoundBox</a><br>
+<a href="GUIControl.html#guicontrolgetgraphicposition">GUIControl.GetGraphicPosition</a><br>
 <a href="GUIControl.html#guicontrolgetproperty">GUIControl.GetProperty</a><br>
 <a href="GUIControl.html#guicontrolgettextproperty">GUIControl.GetTextProperty</a><br>
 <a href="GUIControl.html#guicontrolheight">GUIControl.Height</a><br>
@@ -940,6 +963,7 @@
 <a href="GUIControl.html#guicontrolshader">GUIControl.Shader</a><br>
 <a href="GUIControl.html#guicontrolshowborder">GUIControl.ShowBorder</a><br>
 <a href="GUIControl.html#guicontrolsolidbackground">GUIControl.SolidBackground</a><br>
+<a href="GUIControl.html#guicontroltranslated">GUIControl.Translated</a><br>
 <a href="GUIControl.html#guicontroltransparency">GUIControl.Transparency</a><br>
 <a href="GUIControl.html#guicontrolvisible">GUIControl.Visible</a><br>
 <a href="GUIControl.html#guicontrolwidth">GUIControl.Width</a><br>
@@ -950,6 +974,7 @@
 <h3 id="h">H</h3>
 <a href="HandlingIncompatibleSaves.html#handling-incompatible-saves">Handling incompatible saves</a><br>
 <a href="Globalfunctions_Room.html#hasplayerbeeninroom">HasPlayerBeenInRoom</a><br>
+<a href="StandardEnums.html#hittestoptions">HitTestOptions</a><br>
 <a href="StandardEnums.html#horizontalalignment">HorizontalAlignment</a><br>
 <a href="Hotspot.html#hotspot-functions-and-properties">Hotspot</a><br>
 <a href="EventTypes.html#hotspot-events">Hotspot events (Event Types)</a><br>
@@ -1213,6 +1238,7 @@
 <a href="InvWindow.html#invwindowscrolldown">InvWindow.ScrollDown</a><br>
 <a href="InvWindow.html#invwindowscrollup">InvWindow.ScrollUp</a><br>
 <a href="InvWindow.html#invwindowtopitem">InvWindow.TopItem</a><br>
+<a href="Globalfunctions_General.html#isanykeypressed">IsAnyKeyPressed</a><br>
 <a href="Globalfunctions_General.html#isgamepaused">IsGamePaused</a><br>
 <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a><br>
 <a href="Globalfunctions_General.html#isinterfaceenabled">IsInterfaceEnabled</a><br>
@@ -1281,6 +1307,7 @@
 <a href="ListBox.html#listboxselectedtextcolor">ListBox.SelectedTextColor</a><br>
 <a href="ListBox.html#listboxshowborder">ListBox.ShowBorder</a><br>
 <a href="ListBox.html#listboxshowscrollarrows">ListBox.ShowScrollArrows</a><br>
+<a href="ListBox.html#listboxsortitems">ListBox.SortItems</a><br>
 <a href="ListBox.html#listboxtextalignment">ListBox.TextAlignment</a><br>
 <a href="ListBox.html#listboxtextcolor">ListBox.TextColor</a><br>
 <a href="ListBox.html#listboxtextoutlinecolor">ListBox.TextOutlineColor</a><br>
@@ -1372,6 +1399,7 @@
 <a href="Mouse.html#mouseenablemode">Mouse.EnableMode</a><br>
 <a href="Mouse.html#mousegetmodegraphic">Mouse.GetModeGraphic</a><br>
 <a href="Mouse.html#mousegetmodehotspot">Mouse.GetModeHotspot</a><br>
+<a href="Mouse.html#mouseisanybuttondown">Mouse.IsAnyButtonDown</a><br>
 <a href="Mouse.html#mouseisbuttondown">Mouse.IsButtonDown</a><br>
 <a href="Mouse.html#mouseismodeenabled">Mouse.IsModeEnabled</a><br>
 <a href="Mouse.html#mousemode">Mouse.Mode</a><br>
@@ -1421,6 +1449,9 @@
 <a href="Object.html#objectanimate">Object.Animate</a><br>
 <a href="Object.html#objectanimating">Object.Animating</a><br>
 <a href="Object.html#objectanimationvolume">Object.AnimationVolume</a><br>
+<a href="Object.html#objectaudiopanning">Object.AudioPanning</a><br>
+<a href="Object.html#objectaudiospeed">Object.AudioSpeed</a><br>
+<a href="Object.html#objectaudiovolume">Object.AudioVolume</a><br>
 <a href="Object.html#objectbaseline">Object.Baseline</a><br>
 <a href="Object.html#objectblendmode">Object.BlendMode</a><br>
 <a href="Object.html#objectblockingheight">Object.BlockingHeight</a><br>
@@ -1433,6 +1464,8 @@
 <a href="Object.html#objectgetatroomxy">Object.GetAtRoomXY</a><br>
 <a href="Object.html#objectgetatscreenxy">Object.GetAtScreenXY</a><br>
 <a href="Object.html#objectgetbyname">Object.GetByName</a><br>
+<a href="Object.html#objectgetgraphicboundbox">Object.GetGraphicBoundBox</a><br>
+<a href="Object.html#objectgetgraphicposition">Object.GetGraphicPosition</a><br>
 <a href="Object.html#objectgetproperty">Object.GetProperty</a><br>
 <a href="Object.html#objectgettextproperty">Object.GetTextProperty</a><br>
 <a href="Object.html#objectgraphic">Object.Graphic</a><br>
@@ -1440,6 +1473,10 @@
 <a href="Object.html#objectgraphicanchory">Object.GraphicAnchorY</a><br>
 <a href="Object.html#objectgraphicoffsetx">Object.GraphicOffsetX</a><br>
 <a href="Object.html#objectgraphicoffsety">Object.GraphicOffsetY</a><br>
+<a href="Object.html#objectgraphicpivotoffsetx">Object.GraphicPivotOffsetX</a><br>
+<a href="Object.html#objectgraphicpivotoffsety">Object.GraphicPivotOffsetY</a><br>
+<a href="Object.html#objectgraphicpivotx">Object.GraphicPivotX</a><br>
+<a href="Object.html#objectgraphicpivoty">Object.GraphicPivotY</a><br>
 <a href="Object.html#objectgraphicrotation">Object.GraphicRotation</a><br>
 <a href="Object.html#objecthasexplicitlight">Object.HasExplicitLight</a><br>
 <a href="Object.html#objecthasexplicittint">Object.HasExplicitTint</a><br>
@@ -1493,6 +1530,7 @@
 <a href="EditorCommandLineOptions.html#opening-the-editor">Opening the Editor (Editor Command Line Options)</a><br>
 <a href="ScriptKeywords.html#operators">Operators (Script language keywords)</a><br>
 <a href="ScriptingTutorialPart2.html#or-expressions">OR Expressions (Scripting Tutorial - Part 2)</a><br>
+<a href="Translations.html#other-annotations">Other annotations (Translations)</a><br>
 <a href="OtherFeatures.html#other-features">Other Features</a><br>
 <a href="Overlay.html#overlay-functions-and-properties">Overlay</a><br>
 <a href="Overlay.html#overlayblendmode">Overlay.BlendMode</a><br>
@@ -1501,12 +1539,18 @@
 <a href="Overlay.html#overlaycreateroomtextual">Overlay.CreateRoomTextual</a><br>
 <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a><br>
 <a href="Overlay.html#overlayflip">Overlay.Flip</a><br>
+<a href="Overlay.html#overlaygetgraphicboundbox">Overlay.GetGraphicBoundBox</a><br>
+<a href="Overlay.html#overlaygetgraphicposition">Overlay.GetGraphicPosition</a><br>
 <a href="Overlay.html#overlaygraphic">Overlay.Graphic</a><br>
 <a href="Overlay.html#overlaygraphicanchorx">Overlay.GraphicAnchorX</a><br>
 <a href="Overlay.html#overlaygraphicanchory">Overlay.GraphicAnchorY</a><br>
 <a href="Overlay.html#overlaygraphicheight">Overlay.GraphicHeight</a><br>
 <a href="Overlay.html#overlaygraphicoffsetx">Overlay.GraphicOffsetX</a><br>
 <a href="Overlay.html#overlaygraphicoffsety">Overlay.GraphicOffsetY</a><br>
+<a href="Overlay.html#overlaygraphicpivotoffsetx">Overlay.GraphicPivotOffsetX</a><br>
+<a href="Overlay.html#overlaygraphicpivotoffsety">Overlay.GraphicPivotOffsetY</a><br>
+<a href="Overlay.html#overlaygraphicpivotx">Overlay.GraphicPivotX</a><br>
+<a href="Overlay.html#overlaygraphicpivoty">Overlay.GraphicPivotY</a><br>
 <a href="Overlay.html#overlaygraphicwidth">Overlay.GraphicWidth</a><br>
 <a href="Overlay.html#overlayhaslightlevel">Overlay.HasLightLevel</a><br>
 <a href="Overlay.html#overlayhastint">Overlay.HasTint</a><br>
@@ -1536,6 +1580,7 @@
 <a href="Overlay.html#overlayy">Overlay.Y</a><br>
 <a href="Overlay.html#overlayzorder">Overlay.ZOrder</a><br>
 <a href="DynamicArrays.html#overview">Overview (Dynamic Arrays)</a><br>
+<a href="TextParser.html#overview">Overview (Text Parser)</a><br>
 <a href="Translations.html#overview">Overview (Translations)</a><br>
 <h3 id="p">P</h3>
 <a href="ColoursEditor.html#palette-setup">Palette setup (Colours Editor)</a><br>
@@ -1645,7 +1690,6 @@
 <a href="RestoredSaveInfo.html#restoredsaveinfoviewcount">RestoredSaveInfo.ViewCount</a><br>
 <a href="RestoredSaveInfo.html#restoredsaveinfoviewframecount">RestoredSaveInfo.ViewFrameCount</a><br>
 <a href="RestoredSaveInfo.html#restoredsaveinfoviewloopcount">RestoredSaveInfo.ViewLoopCount</a><br>
-<a href="StandardEnums.html#restoredsaveresult">RestoredSaveResult</a><br>
 <a href="Globalfunctions_General.html#restoregamedialog">RestoreGameDialog</a><br>
 <a href="Globalfunctions_General.html#restoregameslot">RestoreGameSlot</a><br>
 <a href="Globalfunctions_Room.html#restorewalkablearea">RestoreWalkableArea</a><br>
@@ -1675,6 +1719,7 @@
 <a href="Room.html#roomgetproperty">Room.GetProperty</a><br>
 <a href="Room.html#roomgettextproperty">Room.GetTextProperty</a><br>
 <a href="Room.html#roomheight">Room.Height</a><br>
+<a href="Room.html#roomhotspotcount">Room.HotspotCount</a><br>
 <a href="Room.html#roomhotspots">Room.Hotspots</a><br>
 <a href="Room.html#roomleftedge">Room.LeftEdge</a><br>
 <a href="Room.html#roommusiconload">Room.MusicOnLoad</a><br>
@@ -1685,12 +1730,15 @@
 <a href="Room.html#roomobjects">Room.Objects</a><br>
 <a href="Room.html#roompathfinder">Room.PathFinder</a><br>
 <a href="Room.html#roomprocessclick">Room.ProcessClick</a><br>
+<a href="Room.html#roomregioncount">Room.RegionCount</a><br>
 <a href="Room.html#roomregions">Room.Regions</a><br>
 <a href="Room.html#roomrightedge">Room.RightEdge</a><br>
 <a href="Room.html#roomsetproperty">Room.SetProperty</a><br>
 <a href="Room.html#roomsettextproperty">Room.SetTextProperty</a><br>
 <a href="Room.html#roomtopedge">Room.TopEdge</a><br>
+<a href="Room.html#roomwalkableareacount">Room.WalkableAreaCount</a><br>
 <a href="Room.html#roomwalkableareas">Room.WalkableAreas</a><br>
+<a href="Room.html#roomwalkbehindcount">Room.WalkbehindCount</a><br>
 <a href="Room.html#roomwalkbehinds">Room.Walkbehinds</a><br>
 <a href="Room.html#roomwidth">Room.Width</a><br>
 <a href="GeneralSettings.html#rooms">Rooms (General settings)</a><br>
@@ -1721,6 +1769,7 @@
 <a href="EditorPreferences.html#script-editor">Script Editor (Editor Preferences)</a><br>
 <a href="ScriptKeywords.html#script-language-keywords">Script language keywords</a><br>
 <a href="ScriptModules.html#script-modules">Script Modules (Managing modules)</a><br>
+<a href="EditorView.html#scripting">Scripting (View Editor)</a><br>
 <a href="Scripting.html#scripting-api">Scripting API</a><br>
 <a href="ScriptingLanguage.html#scripting-language">Scripting Language</a><br>
 <a href="ScriptingTutorial.html#scripting-tutorial">Scripting Tutorial</a><br>
@@ -1886,6 +1935,7 @@
 <a href="System.html#systemgetenginestring">System.GetEngineString</a><br>
 <a href="System.html#systemhardwareacceleration">System.HardwareAcceleration</a><br>
 <a href="System.html#systemhasinputfocus">System.HasInputFocus</a><br>
+<a href="System.html#systemlocalename">System.LocaleName</a><br>
 <a href="System.html#systemlog">System.Log</a><br>
 <a href="System.html#systemnumlock">System.NumLock</a><br>
 <a href="System.html#systemoperatingsystem">System.OperatingSystem</a><br>
@@ -1956,6 +2006,7 @@
 <a href="TouchPointer.html#touchpointerx">TouchPointer.X</a><br>
 <a href="TouchPointer.html#touchpointery">TouchPointer.Y</a><br>
 <a href="StandardEnums.html#transitionstyle">TransitionStyle</a><br>
+<a href="Translations.html#translating-text-parser">Translating Text Parser (Translations)</a><br>
 <a href="GeneralSettings.html#translation">Translation (General settings)</a><br>
 <a href="Translations.html#translations">Translations</a><br>
 <a href="UnicodeSupport.html#translations">Translations (Unicode Support)</a><br>
@@ -1971,6 +2022,7 @@
 <a href="Tumbleweed_movement.html#tumbleweed-semi-blocking-movement-functions">Tumbleweed Semi-blocking movement functions</a><br>
 <a href="Tumbleweed_translation.html#tumbleweed-translation">Tumbleweed Translation</a><br>
 <a href="Tumbleweed_unhandled.html#tumbleweed-unhandled-events">Tumbleweed Unhandled Events</a><br>
+<a href="StandardEnums.html#turnorderpriority">TurnOrderPriority</a><br>
 <a href="Tutorial.html#tutorial">Tutorial</a><br>
 <a href="TemplateBASS.html#twoclickhandleractionlabel">TwoClickHandler.ActionLabel</a><br>
 <a href="TemplateBASS.html#twoclickhandlerclose">TwoClickHandler.Close</a><br>
@@ -1997,6 +2049,10 @@
 <a href="DialogScript.html#using-regular-scripting-commands-in-dialogs">Using regular scripting commands in dialogs (Dialog Script)</a><br>
 <a href="Feature_InventoryItems.html#using-the-item-on-something-else">Using the Item on something else (Feature: Inventory Items)</a><br>
 <a href="acintro6.html#using-your-own-graphics">Using your own graphics (Getting Started with AGS - Part 6)</a><br>
+<a href="Utils.html#utils-functions-and-properties">Utils</a><br>
+<a href="Utils.html#utilssortfloats">Utils.SortFloats</a><br>
+<a href="Utils.html#utilssortints">Utils.SortInts</a><br>
+<a href="Utils.html#utilssortstrings">Utils.SortStrings</a><br>
 <h3 id="v">V</h3>
 <a href="ValidateRestoredSave.html#validate_restored_save">validate_restored_save</a><br>
 <a href="HandlingIncompatibleSaves.html#validating-restored-saves">Validating restored saves (Handling incompatible saves)</a><br>
@@ -2185,7 +2241,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: baf702d556bfb8dd1d09e0fc8e65bd29351fdb8b
+          Build: 07194d655c19e4237075d08625300430e10fc45a
         </p>
       </footer>
     </article>

@@ -89,6 +89,7 @@
 <li><p><strong>Resolution</strong> - the native resolution of your game. This is the most important option (on par with Color Depth), which determines the size of game area visible on screen at any given time. This is also the minimal size that game rooms may have. The window your game runs in may still be larger or smaller, depending on choices player made in setup program, and in that case game's image will be stretched or shrunk accordingly.</p></li>
 <li><p><strong>Text format</strong> - the format your game texts will be in. The contemporary default is "Unicode", which lets you have practically any language in the game. Another choice is "ASCII / ANSI" mode, but this is left strictly for backwards compatibility, e.g. for when upgrading old projects, and not recommended to be used in new projects at all, as that will make multi-language support in your game much more complicated.</p>
 <p><strong>NOTE:</strong> please be aware that when switching <strong>Text format</strong> the Editor will convert all the game files (scripts, etc) to a new text encoding and re-save them. Normally this should be safe, but probably a good idea to make a project backup before doing this.</p></li>
+<li><p><strong>Text language</strong> - lets specify a base game language. This setting is used whenever engine needs to identify the game text as being of a particular language or using particular alphabet. For example: alphabetic string comparison and sort. In particular, this setting affects "locale aware" string compare styles in script. You may leave this option as "undefined" if you don't want to use related features.</p></li>
 </ul>
 </section>
 <section id="information" class="level3">
@@ -133,12 +134,19 @@
 <section id="character-behavior" class="level3">
 <h3><a href="#character-behavior">Character behavior</a></h3>
 <ul>
-<li><strong>Automatically move the player in Walk mode</strong> - normally, when you click the mouse in the Walk mode, the main character will move to where you clicked. However, if you want to create a game all viewed from a 1st-person perspective, and so don't have a main character, then disabling this option allows you to use the Walk mode for other things. If disabled, then "Character stands on hotspot" events are instead triggered by clicking the Walk cursor on the hotspot.</li>
-<li><strong>Automatically move to hotspots in Look mode</strong> - controls whether the player will walk to "walk-to" spots when the player looks at the hotspot. Normally he only walks on use, speak and use-inv.</li>
-<li><strong>Characters turn before walking</strong> - specifies that when a character starts to walk somewhere, it will first turn round to face the correct direction using available animation frames, rather than just suddenly switching to face the right way.</li>
-<li><strong>Characters turn to face direction</strong> - if set, then when a character turns round with the <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a> or <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a> script commands, they will visibly turn around using their available loops. If this option is not set, they will immediately appear facing their new direction.</li>
-<li><strong>Scale Character sprite offsets</strong> - if set, then visual character's offsets will be scaled in proportion to the current character's scaling. This refers to values of <a href="Character.html#characterz"><code>Character.z</code></a> property and parameters of <a href="Character.html#characterlockviewoffset"><code>Character.LockViewOffset</code></a>.</li>
-<li><strong>Scale movement speed with room's mask resolution</strong> - Character walking and object movement speeds will scale inversely in proportion to the current room's Mask Resolution. For example, having 1:2 mask resolution will multiply speed by 2. This is a backward compatible setting that should not be enabled without real need.</li>
+<li><p><strong>Automatically move the player in Walk mode</strong> - normally, when you click the mouse in the Walk mode, the main character will move to where you clicked. However, if you want to create a game all viewed from a 1st-person perspective, and so don't have a main character, then disabling this option allows you to use the Walk mode for other things. If disabled, then "Character stands on hotspot" events are instead triggered by clicking the Walk cursor on the hotspot.</p></li>
+<li><p><strong>Automatically move to hotspots in Look mode</strong> - controls whether the player will walk to "walk-to" spots when the player looks at the hotspot. Normally he only walks on use, speak and use-inv.</p></li>
+<li><p><strong>Characters turn before walking</strong> - specifies that when a character starts to walk somewhere, it will first turn round to face the correct direction using available animation frames, rather than just suddenly switching to face the right way.</p></li>
+<li><p><strong>Characters turn to face direction</strong> - if set, then when a character turns round with the <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a> or <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a> script commands, they will visibly turn around using their available loops. If this option is not set, they will immediately appear facing their new direction.</p></li>
+<li><p><strong>Prioritize this turning direction</strong> - tells which turning direction to prioritize when characters are making 180-degree turns. Available choices are:</p>
+<ul>
+<li><strong>Clockwise</strong> - characters will always make clockwise turns.</li>
+<li><strong>CounterClockwise</strong> - characters will always make counter-clockwise turns.</li>
+<li><strong>Random</strong> - characters will take either clockwise or counter-clockwise turns, chosen at random.</li>
+<li><strong>Face Down</strong> - characters will select the direction that lets them face "down" more often. This is a convenient choice in case of a classic side-view perspective.</li>
+</ul></li>
+<li><p><strong>Scale Character sprite offsets</strong> - if set, then visual character's offsets will be scaled in proportion to the current character's scaling. This refers to values of <a href="Character.html#characterz"><code>Character.z</code></a> property and parameters of <a href="Character.html#characterlockviewoffset"><code>Character.LockViewOffset</code></a>.</p></li>
+<li><p><strong>Scale movement speed with room's mask resolution</strong> - Character walking and object movement speeds will scale inversely in proportion to the current room's Mask Resolution. For example, having 1:2 mask resolution will multiply speed by 2. This is a backward compatible setting that should not be enabled without real need.</p></li>
 </ul>
 </section>
 <section id="compiler" class="level3">
@@ -183,6 +191,7 @@
 <p>Last two variants are <a href="ExtenderFunctions.html">extender functions</a> for Character struct.<br> The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Character.Say function is used.</p>
 <p><strong>IMPORTANT</strong>: this setting currently does not work with the "Say" checkbox in the dialog options list. The workaround is to duplicate option's text as a first cue in the dialog script.</p></li>
 <li><p><strong>Dialog bullet point image</strong> - defines the number of sprite to use as a bullet image before each dialog option.</p></li>
+<li><p><strong>Display single dialog option</strong> - tells whether the dialog options should still be displayed for the player if there's one one enabled option left. If switched off, then that only enabled option will be run automatically.</p></li>
 <li><p><strong>Game-wide speech animation delay</strong> - defines a game-wide speech animation delay to use instead of individual character settings. This setting is only available if <strong>"Use game-wide speech animation delay"</strong> is enabled.</p></li>
 <li><p><strong>Gap between dialog options</strong> - defines the gap between the options displayed to the player in a conversation. Normally this is 0, which means the options are right below each other. Changing it to 1 or 2 can make the option display look less cluttered; it's a matter of personal preference.</p></li>
 <li><p><strong>Number dialog options</strong> - enables keyboard shortcuts to choose dialog options (keys 1-9) and adds an index number before each dialog option when they are displayed to the player. For example,</p>
@@ -247,6 +256,7 @@
 <p>NOTE: this option only excludes literal strings from being added to TRS files. This does NOT prevent text from being translated (or at least tried to be translated) when passed into the script functions that do automatic translations, such as <a href="Character.html#charactersay"><code>Character.Say</code></a> and similar.</p></li>
 <li><p><strong>Exclude script texts with prefix</strong> - Any text lines in script that begin with this prefix will be excluded from Translation file. This option affects both regular scripts and dialog scripts.</p></li>
 <li><p><strong>Include script texts with prefix</strong> - Only text lines in script which have this prefix will be included to Translation file. Leave this option empty to include all (this is the default behavior). This option affects both regular scripts and dialog scripts.</p></li>
+<li><p><strong>Translate Text Parser</strong> - If enabled, then Editor will export Text Parser's words dictionary into Translation file. See <a href="Translations.html#translating-text-parser">Translations</a> for more details.</p></li>
 </ul>
 </section>
 <section id="visual" class="level3">
@@ -273,7 +283,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: baf702d556bfb8dd1d09e0fc8e65bd29351fdb8b
+          Build: 07194d655c19e4237075d08625300430e10fc45a
         </p>
       </footer>
     </article>

@@ -130,7 +130,11 @@
 </section>
 <section id="splash-screen" class="level3">
 <h3><a href="#splash-screen">Splash screen</a></h3>
-<p>You can make a "Loading..." style splash screen to be displayed while your game starts up. To do so, simply save the image as <strong>preload.pcx</strong> (must be the same resolution and color depth as the game) in the game project folder, and build the game. It should then display while the game is loading.</p>
+<p>You can make a "Loading..." style splash screen to be displayed while your game starts up. To do so, simply save the image as <strong>preload.ext</strong> (where "ext" is one of the supported image formats) in the game project folder, and build the game. The image must be the same resolution as the game. It should then display while the game is loading.</p>
+<p>The supported image formats are:</p>
+<pre><code>- BMP (1-bit, 4-bit, 8-bit, 16-bit, 24-bit and 32-bit)
+- PCX
+- PNG (indexed, 24-bit RGB and 32-bit ARGB), since **AGS 3.6.3**.</code></pre>
 <hr />
 </section>
 <section id="splitting-resource-files" class="level3">
@@ -162,7 +166,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: baf702d556bfb8dd1d09e0fc8e65bd29351fdb8b
+          Build: 07194d655c19e4237075d08625300430e10fc45a
         </p>
       </footer>
     </article>

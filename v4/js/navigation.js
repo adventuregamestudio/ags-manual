@@ -264,6 +264,7 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-TextWindowGUI" href="TextWindowGUI.html">TextWindowGUI functions and properties</span></a>
 <li><span><a id="topic-Touch" href="Touch.html">Touch functions and properties</span></a>
 <li><span><a id="topic-TouchPointer" href="TouchPointer.html">TouchPointer functions and properties</span></a>
+<li><span><a id="topic-Utils" href="Utils.html">Utils functions and properties</span></a>
 <li><span><a id="topic-VideoPlayer" href="VideoPlayer.html">VideoPlayer functions and properties</span></a>
 <li><span><a id="topic-ViewFrame" href="ViewFrame.html">ViewFrame functions and properties</span></a>
 <li><span><a id="topic-Viewport" href="Viewport.html">Viewport functions and properties</span></a>
