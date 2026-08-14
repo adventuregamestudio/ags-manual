@@ -387,8 +387,9 @@
 </section>
 <section id="getlocationtype" class="level3">
 <h3><a href="#getlocationtype"><code>GetLocationType</code></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">LocationType</span> <span class="bu">GetLocationType</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">LocationType</span> <span class="bu">GetLocationType</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional HitTestOptions hitOptions<span class="op">)</span></span></code></pre></div>
 <p>Returns what type of room thing is seen under the given screen coordinates (x, y): whether it is a character, object, hotspot or nothing at all. This may be useful, for example, if you want to process a mouse click differently depending on what the player clicks on.</p>
+<p>An optional HitOptions parameter defines an additional object filter (supported since <strong>AGS 3.6.3</strong>). It's equal to <code>eHit_Interactable</code> by default, which means that only interactable (enabled + clickable) objects will be found. Pass <code>eHit_Any</code> instead, if you like even non-clickable objects to be found.</p>
 <p>It's important to know that this will work only if there's a room viewport found on screen at that point, otherwise this function will fail and return "nothing".</p>
 <p>Also, this function is "blocked" by any interactable non-room object, such as GUI, and will return "nothing" as well if one is found under these screen coordinates.</p>
 <p>The value returned is one of the following:</p>
@@ -402,6 +403,7 @@ eLocationObject     an object</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetLocationType</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span><span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> <span class="bu">eLocationCharacter</span><span class="op">)</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">mouse</span><span class="op">.</span><span class="at">Mode</span> = <span class="bu">eModeTalk</span><span class="op">;</span></span></code></pre></div>
 <p>will set the cursor mode to talk if the cursor is over a character.</p>
+<p><em>Compatibility:</em> HitTestOptions parameter is supported since <strong>AGS 3.6.3</strong>.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a></p>
 <hr />
 </section>
@@ -1156,7 +1158,7 @@ eSkipScriptOnly
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 07194d655c19e4237075d08625300430e10fc45a
+          Build: ba30590a1a0cf942edbff96b7ccc5b14454b297a
         </p>
       </footer>
     </article>

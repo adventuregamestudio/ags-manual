@@ -1520,15 +1520,23 @@
 <p><em>See also:</em> <a href="Character.html#characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></p>
 <hr />
 </section>
+<section id="characterturning" class="level3">
+<h3><a href="#characterturning"><code>Character.Turning</code></a></h3>
+<div class="sourceCode" id="cb196"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Turning</span></span></code></pre></div>
+<p>Gets whether the character is currently turning on spot. This may be when it either is command to face to a different direction, or is changing direction while walking along a path.</p>
+<p><em>Compatibility</em>: Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Character.html#characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a>, <a href="Character.html#characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></p>
+<hr />
+</section>
 <section id="characterturnwhenfacing" class="level3">
 <h3><a href="#characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></h3>
-<div class="sourceCode" id="cb196"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">TurnWhenFacing</span></span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">TurnWhenFacing</span></span></code></pre></div>
 <p>Gets/sets whether the character turns on the spot when ordered to face the new standing direction.</p>
 <p>If you set this to <code>true</code>, any time you tell the the character to face other direction, they will turn on the spot to face this new direction. If you set this to <code>false</code>, the character will instantly face in the set direction.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">TurnWhenFacing</span>= <span class="bu">true</span><span class="op">;</span></span>
-<span id="cb197-2"><a href="#cb197-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceDirection</span><span class="op">(</span><span class="bu">eDirectionLeft</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
-<span id="cb197-3"><a href="#cb197-3" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceDirection</span><span class="op">(</span><span class="bu">eDirectionRight</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">TurnWhenFacing</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceDirection</span><span class="op">(</span><span class="bu">eDirectionLeft</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb198-3"><a href="#cb198-3" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceDirection</span><span class="op">(</span><span class="bu">eDirectionRight</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
 <p>will tell EGO to turn to face left, and then turn again until they face right.</p>
 <p><em>Compatibility</em>: Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a></p>
@@ -1536,69 +1544,69 @@
 </section>
 <section id="characterview" class="level3">
 <h3><a href="#characterview"><code>Character.View</code></a></h3>
-<div class="sourceCode" id="cb198"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">View</span></span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">View</span></span></code></pre></div>
 <p>Gets the view that the character is currently displayed using.</p>
 <p>This property is read-only; to change the view, use the ChangeView and LockView functions.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO&#39;s view is currently view %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">View</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO&#39;s view is currently view %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">View</span><span class="op">);</span></span></code></pre></div>
 <p>will display EGO's current view number.</p>
 <p><em>See also:</em> <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterframe"><code>Character.Frame</code></a>, <a href="Character.html#characterlockview"><code>Character.LockView</code></a>, <a href="Character.html#characterloop"><code>Character.Loop</code></a>, <a href="Character.html#characternormalview"><code>Character.NormalView</code></a></p>
 <hr />
 </section>
 <section id="characterwalkspeedx" class="level3">
 <h3><a href="#characterwalkspeedx"><code>Character.WalkSpeedX</code></a></h3>
-<div class="sourceCode" id="cb200"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">WalkSpeedX</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">WalkSpeedX</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the character's walking speed in the X direction. If using uniform movement, this will be the same as the Y walking speed.</p>
 <p>This property is read-only. To change the walking speed, use the SetWalkSpeed function.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;player&#39;s x speed: %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">WalkSpeedX</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;player&#39;s x speed: %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">WalkSpeedX</span><span class="op">);</span></span></code></pre></div>
 <p>will display the player's X speed.</p>
 <p><em>See also:</em> <a href="Character.html#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a>, <a href="Character.html#characterwalkspeedy"><code>Character.WalkSpeedY</code></a></p>
 <hr />
 </section>
 <section id="characterwalkspeedy" class="level3">
 <h3><a href="#characterwalkspeedy"><code>Character.WalkSpeedY</code></a></h3>
-<div class="sourceCode" id="cb202"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">WalkSpeedY</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">WalkSpeedY</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the character's walking speed in the Y direction. If using uniform movement, this will be the same as the X walking speed.</p>
 <p>This property is read-only. To change the walking speed, use the SetWalkSpeed function.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;player&#39;s y speed: %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">WalkSpeedY</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;player&#39;s y speed: %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">WalkSpeedY</span><span class="op">);</span></span></code></pre></div>
 <p>will display the player's Y speed.</p>
 <p><em>See also:</em> <a href="Character.html#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a>, <a href="Character.html#characterwalkspeedx"><code>Character.WalkSpeedX</code></a></p>
 <hr />
 </section>
 <section id="characterx" class="level3">
 <h3><a href="#characterx"><code>Character.x</code></a></h3>
-<div class="sourceCode" id="cb204"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">x</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb205-1"><a href="#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">x</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the character's current X co-ordinate. This is expressed in normal room co-ordinates, and specifies the bottom-center of the character's sprite.</p>
 <p><strong>NOTE:</strong> Do <strong>NOT</strong> change this property while the character is moving. Make sure the character is standing still before changing his co-ordinates.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb205-1"><a href="#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d,%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d,%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
 <p>displays the player character's current coordinates.</p>
 <p><em>See also:</em> <a href="Character.html#charactery"><code>Character.y</code></a>, <a href="Character.html#characterz"><code>Character.z</code></a></p>
 <hr />
 </section>
 <section id="charactery" class="level3">
 <h3><a href="#charactery"><code>Character.y</code></a></h3>
-<div class="sourceCode" id="cb206"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">y</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb207-1"><a href="#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">y</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the character's current Y co-ordinate. This is expressed in normal room co-ordinates, and specifies the bottom-center of the character's sprite.</p>
 <p><strong>NOTE:</strong> Do <strong>NOT</strong> change this property while the character is moving. Make sure the character is standing still before changing his co-ordinates.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb207-1"><a href="#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d,%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d,%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
 <p>displays the player character's current coordinates.</p>
 <p><em>See also:</em> <a href="Character.html#characterx"><code>Character.x</code></a>, <a href="Character.html#characterz"><code>Character.z</code></a></p>
 <hr />
 </section>
 <section id="characterz" class="level3">
 <h3><a href="#characterz"><code>Character.z</code></a></h3>
-<div class="sourceCode" id="cb208"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">z</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb209-1"><a href="#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">z</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the character's current Z position. This allows the character to levitate off the ground, whilst still retaining its normal Y co-ordinate for baseline calculations and regions.</p>
 <p>Normally this is set to 0 (ground-level), but you can increase it to make the character float.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb209-1"><a href="#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">z</span> <span class="op">&lt;</span> <span class="dv">20</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb209-2"><a href="#cb209-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">z</span><span class="op">++;</span></span>
-<span id="cb209-3"><a href="#cb209-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb209-4"><a href="#cb209-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">z</span> <span class="op">&lt;</span> <span class="dv">20</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb210-2"><a href="#cb210-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">z</span><span class="op">++;</span></span>
+<span id="cb210-3"><a href="#cb210-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb210-4"><a href="#cb210-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>gradually levitates the character up to 20 pixels.</p>
 <p><em>See also:</em> <a href="Character.html#characterx"><code>Character.x</code></a>, <a href="Character.html#charactery"><code>Character.y</code></a></p>
 </section>
@@ -1608,7 +1616,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 07194d655c19e4237075d08625300430e10fc45a
+          Build: ba30590a1a0cf942edbff96b7ccc5b14454b297a
         </p>
       </footer>
     </article>
@@ -1725,6 +1733,7 @@
 <li><a href="#characterthinkview" id="toc-characterthinkview"><code>Character.ThinkView</code></a></li>
 <li><a href="#charactertransparency" id="toc-charactertransparency"><code>Character.Transparency</code></a></li>
 <li><a href="#characterturnbeforewalking" id="toc-characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a></li>
+<li><a href="#characterturning" id="toc-characterturning"><code>Character.Turning</code></a></li>
 <li><a href="#characterturnwhenfacing" id="toc-characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></li>
 <li><a href="#characterview" id="toc-characterview"><code>Character.View</code></a></li>
 <li><a href="#characterwalkspeedx" id="toc-characterwalkspeedx"><code>Character.WalkSpeedX</code></a></li>

@@ -257,6 +257,14 @@
 </ul></li>
 <li><strong>[access]</strong> - accessibility options.
 <ul>
+<li><code>alwayswaittext = [0; 1]</code> - if set to 1, force game to always wait until text's reading time has finished before advancing the speech lines when speech mode is "text and voice".</li>
+<li><code>speechmode = [string]</code> - assigns the speech mode to a fixed value:
+<ul>
+<li><code>default</code> - do not override, use game's scripted option</li>
+<li><code>text</code> - text only</li>
+<li><code>voice</code> - voice only</li>
+<li><code>textvoice</code> - text and voice</li>
+</ul></li>
 <li><code>speechskip = [string]</code> - forces game to this speech skip style. Values are:
 <ul>
 <li><code>default</code> - use game defaults</li>
@@ -290,7 +298,7 @@
 <ul>
 <li><code>smooth_walk = [0; 1]</code> - enable seamless transition between consecutive walk commands. WARNING: may cause script errors in certain old games.</li>
 <li><code>gui_text_direction = [0; 1]</code> - enable applying text direction on gui controls other than labels (labels support it always).</li>
-<li><code>dialog_opt_text_direction = [0; 1]</code> - enable applying text direction on dialog options.</li>
+<li><code>dialog_opt_text_alignment = [0; 1]</code> - enable applying text alignment in dialog options.</li>
 </ul></li>
 <li><strong>[disabled]</strong> - special instructions for the setup program hinting to disable particular options or lock some in the certain state. Ignored by the engine.
 <ul>
@@ -313,7 +321,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 07194d655c19e4237075d08625300430e10fc45a
+          Build: ba30590a1a0cf942edbff96b7ccc5b14454b297a
         </p>
       </footer>
     </article>

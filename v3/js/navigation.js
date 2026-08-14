@@ -69,6 +69,7 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-UpgradeTo36" href="UpgradeTo36.html">UpgradeTo36</span></a>
 <li><span><a id="topic-UpgradeTo361" href="UpgradeTo361.html">UpgradeTo361</span></a>
 <li><span><a id="topic-UpgradeTo362" href="UpgradeTo362.html">UpgradeTo362</span></a>
+<li><span><a id="topic-UpgradeTo363" href="UpgradeTo363.html">UpgradeTo363</span></a>
 </ul>
 
 </li></ul>

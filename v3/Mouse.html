@@ -319,30 +319,43 @@
 <p><em>See also:</em> <a href="Mouse.html#mousespeed"><code>Mouse.Speed</code></a></p>
 <hr />
 </section>
+<section id="mouseenabled" class="level3">
+<h3><a href="#mouseenabled"><code>Mouse.Enabled</code></a></h3>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Mouse</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
+<p>Gets/sets whether mouse input is enabled in your game. When the mouse input is disabled:</p>
+<ul>
+<li>mouse cursor is not drawn on screen;</li>
+<li>clicks are not registered by the game objects or script;</li>
+<li>mouse position is always reported as (-1,-1), and cannot be changed by a script command.</li>
+</ul>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Mouse.html#mousevisible"><code>Mouse.Visible</code></a></p>
+<hr />
+</section>
 <section id="mousemode" class="level3">
 <h3><a href="#mousemode"><code>Mouse.Mode</code></a></h3>
 <p><em>(Formerly known as <code>GetCursorMode</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetCursorMode</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Mouse</span><span class="op">.</span><span class="at">Mode</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Mouse</span><span class="op">.</span><span class="at">Mode</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the current mode of the mouse cursor. This is one of the cursor modes from your Cursors tab (but with eMode prepended). For example, a cursor mode called "Walk to" on your cursors tab would be eModeWalkto.</p>
 <p>Setting this changes both the appearance of the cursor and the Cursor Mode used if the player clicks on a hotspot.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">Mode</span> <span class="op">==</span> <span class="bu">eModeWalkto</span><span class="op">)</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// code here</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">Mode</span> <span class="op">==</span> <span class="bu">eModeWalkto</span><span class="op">)</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// code here</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will execute the code only if the current cursor mode is MODE 0 (WALK).</p>
 <p><em>See also:</em> <a href="Mouse.html#mousesavecursoruntilitleaves"><code>Mouse.SaveCursorUntilItLeaves</code></a>, <a href="Mouse.html#mouseusemodegraphic"><code>Mouse.UseModeGraphic</code></a>, <a href="Mouse.html#mouseselectnextmode"><code>Mouse.SelectNextMode</code></a></p>
 <hr />
 </section>
 <section id="mousespeed" class="level3">
 <h3><a href="#mousespeed"><code>Mouse.Speed</code></a></h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">float</span> <span class="bu">Mouse</span><span class="op">.</span><span class="at">Speed</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">float</span> <span class="bu">Mouse</span><span class="op">.</span><span class="at">Speed</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets in-game mouse cursor speed. 1.0 is default, values in the range 0-1 make cursor movement slower, values higher than 1 make cursor movement faster.</p>
 <p>Mouse speed changed this way will be saved to the configuration file when player exits the game. Next time game starts it will restore the last value you applied, unless player has modified it in the setup program.</p>
 <p>The custom mouse speed is only applied if mouse cursor movement is currently being controlled by the game, which is usually true only when game is run in fullscreen mode. Setting this property has no effect otherwise. You can use <a href="Mouse.html#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a> to know if speed will be applied.</p>
 <p><strong>NOTE:</strong> It is strongly advised to <strong>NEVER</strong> use this parameter to achieve gameplay effect (such as character's loss of coordination, and so forth).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Mouse</span><span class="op">.</span><span class="at">Speed</span> = <span class="bu">IntToFloat</span><span class="op">(</span>sldMouseSpeed<span class="op">.</span><span class="at">Value</span><span class="op">)</span> <span class="op">/</span> <span class="fl">10.0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Mouse</span><span class="op">.</span><span class="at">Speed</span> = <span class="bu">IntToFloat</span><span class="op">(</span>sldMouseSpeed<span class="op">.</span><span class="at">Value</span><span class="op">)</span> <span class="op">/</span> <span class="fl">10.0</span><span class="op">;</span></span></code></pre></div>
 <p>converts slider control's position into mouse speed.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Mouse.html#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a>, <a href="Mouse.html#mousesetposition"><code>Mouse.SetPosition</code></a></p>
@@ -351,15 +364,16 @@
 <section id="mousevisible" class="level3">
 <h3><a href="#mousevisible"><code>Mouse.Visible</code></a></h3>
 <p><em>(Formerly known as <code>HideMouseCursor</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>ShowMouseCursor</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Mouse</span><span class="op">.</span><span class="at">Visible</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Mouse</span><span class="op">.</span><span class="at">Visible</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets whether the mouse cursor is visible. This is initially true by default, but setting this to false is useful for briefly hiding the cursor on occasions when you don't want it around.</p>
 <p>If you want the LucasArts-style where the mouse cursor is never visible during cutscenes then a much easier solution is simply to import a transparent graphic over the default wait cursor, so that the Wait cursor becomes invisible.</p>
+<p><strong>NOTE:</strong> Mouse.Visible only makes the cursor invisible, but does NOT prevent mouse clicks. If you want to completely disable all mouse interactions, then use <a href="Mouse.html#mouseenabled">Mouse.Enabled</a> instead.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">mouse</span><span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">mouse</span><span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">mouse</span><span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="bu">mouse</span><span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>hides the mouse, waits for a second, then turns it back on again</p>
-<p><em>See also:</em> <a href="Mouse.html#mouseusemodegraphic"><code>Mouse.UseModeGraphic</code></a></p>
+<p><em>See also:</em> <a href="Mouse.html#mouseusemodegraphic"><code>Mouse.UseModeGraphic</code></a>, <a href="Mouse.html#mouseenabled"><code>Mouse.Enabled</code></a></p>
 </section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Mouse.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
@@ -367,7 +381,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 07194d655c19e4237075d08625300430e10fc45a
+          Build: ba30590a1a0cf942edbff96b7ccc5b14454b297a
         </p>
       </footer>
     </article>
@@ -397,6 +411,7 @@
 <li><a href="#mouseusemodegraphic" id="toc-mouseusemodegraphic"><code>Mouse.UseModeGraphic</code></a></li>
 <li><a href="#mouseautolock" id="toc-mouseautolock"><code>Mouse.AutoLock</code></a></li>
 <li><a href="#mousecontrolenabled" id="toc-mousecontrolenabled"><code>Mouse.ControlEnabled</code></a></li>
+<li><a href="#mouseenabled" id="toc-mouseenabled"><code>Mouse.Enabled</code></a></li>
 <li><a href="#mousemode" id="toc-mousemode"><code>Mouse.Mode</code></a></li>
 <li><a href="#mousespeed" id="toc-mousespeed"><code>Mouse.Speed</code></a></li>
 <li><a href="#mousevisible" id="toc-mousevisible"><code>Mouse.Visible</code></a></li>

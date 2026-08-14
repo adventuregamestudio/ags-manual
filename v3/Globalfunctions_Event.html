@@ -77,7 +77,7 @@
 <h2><a href="#global-event-handlers">Global event handlers</a></h2>
 <p>In the AGS game there is a number of events, like starting the game, or pressing the key, that may be handled in script by adding a function with <em>predefined name</em>. These are called "global event handlers". If you add ones to your script, they will be called automatically whenever corresponding event occurs. All of these are optional, and may be omited if you don't need them.</p>
 <p>You may you add multiple functions of the same kind to multiple <a href="ScriptModules.html">script modules</a>, in which case they will be called in the order of modules in your game project. It's possible to stop propagating the event (skip remaining modules) by using <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function (refer to its article for explanation).</p>
-<p>Some of these functions may also be added to the room scripts. These are: <code>on_event</code>, <code>on_key_press</code>, <code>on_mouse_click</code>, <code>on_text_input</code>, <code>repeatedly_execute_always</code>, <code>late_repeatedly_execute_always</code>.</p>
+<p>Some of these functions may also be added to the room scripts. These are: <code>on_event</code>, <code>on_key_press</code>, <code>on_mouse_click</code>, <code>on_text_input</code>, <code>repeatedly_execute_always</code>, <code>late_repeatedly_execute_always</code>. These event functions in room scripts are called first, if they are present, and event functions in script modules are called after. This allows to override input handling in the chosen rooms, for example.</p>
 <p>Some functions will only work in the room script: <code>on_call</code>.</p>
 <p><em>NOTE:</em> for historical reasons, function <code>repeatedly_execute</code> does not work in the room script, but there's a corresponding room event that may be linked to a custom function in the editor.</p>
 <hr />
@@ -448,7 +448,7 @@ eEventUserEvent
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 07194d655c19e4237075d08625300430e10fc45a
+          Build: ba30590a1a0cf942edbff96b7ccc5b14454b297a
         </p>
       </footer>
     </article>
