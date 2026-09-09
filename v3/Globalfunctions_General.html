@@ -287,52 +287,52 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>OPT_DEBUGMODE</td>
-<td>Tells if the game was compiled in Debug mode (0 or 1). See also: <a href="Gamevariables.html"><code>game.debug_mode</code></a>.</td>
-</tr>
-<tr class="even">
-<td>OPT_TWCUSTOM</td>
-<td>Which GUI number to use when displaying text windows. For changing this option use <a href="Globalfunctions_General.html#settextwindowgui"><code>SetTextWindowGUI</code></a>.</td>
-</tr>
-<tr class="odd">
-<td>OPT_LETTERBOX</td>
-<td>Tells if the game is run in deprecated "letterbox" mode.</td>
-</tr>
-<tr class="even">
-<td>OPT_GUIALPHABLEND</td>
-<td>Tells which blending algorithm is used when drawing translucent GUI and controls over each other (0=classic, 1=additive, 2=proper).</td>
-</tr>
-<tr class="odd">
-<td>OPT_NATIVECOORDINATES</td>
-<td>Tells if the game uses coordinates in its true resolution (1), or low-res coordinates (0). <strong>OBSOLETE</strong>, and for diagnostic purposes only.</td>
-</tr>
-<tr class="even">
-<td>OPT_SPRITEALPHABLEND</td>
-<td>Tells which blending algorithm is used when drawing images on DrawingSurface (0=classic, 1=proper).</td>
-</tr>
-<tr class="odd">
-<td>OPT_DIALOGOPTIONSAPI</td>
-<td>Tells the API version of <a href="CustomDialogOptions.html">Custom Dialog options Rendering</a>.</td>
-</tr>
-<tr class="even">
 <td>OPT_BASESCRIPTAPI</td>
 <td>Tells the Script API version this game was compiled with.</td>
-</tr>
-<tr class="odd">
-<td>OPT_SCRIPTCOMPATLEV</td>
-<td>Tells the Script Compatibility level this game was compiled with.</td>
 </tr>
 <tr class="even">
 <td>OPT_CLIPGUICONTROLS</td>
 <td>Tells if the GUI controls clip their contents when drawn.</td>
 </tr>
 <tr class="odd">
+<td>OPT_DEBUGMODE</td>
+<td>Tells if the game was compiled in Debug mode (0 or 1). See also: <a href="Gamevariables.html"><code>game.debug_mode</code></a>.</td>
+</tr>
+<tr class="even">
+<td>OPT_DIALOGOPTIONSAPI</td>
+<td>Tells the API version of <a href="CustomDialogOptions.html">Custom Dialog options Rendering</a>.</td>
+</tr>
+<tr class="odd">
 <td>OPT_GAMETEXTENCODING</td>
 <td>Tells the text encoding the game was compiled in. Value corresponds to the code page number (65001=utf-8, other=ASCII or ANSI mode).</td>
 </tr>
 <tr class="even">
+<td>OPT_GUIALPHABLEND</td>
+<td>Tells which blending algorithm is used when drawing translucent GUI and controls over each other (0=classic, 1=additive, 2=proper).</td>
+</tr>
+<tr class="odd">
 <td>OPT_KEYHANDLEAPI</td>
 <td>Tells the API version of the key handling this game was compiled with.</td>
+</tr>
+<tr class="even">
+<td>OPT_LETTERBOX</td>
+<td>Tells if the game is run in deprecated "letterbox" mode.</td>
+</tr>
+<tr class="odd">
+<td>OPT_NATIVECOORDINATES</td>
+<td>Tells if the game uses coordinates in its true resolution (1), or low-res coordinates (0). <strong>OBSOLETE</strong>, and for diagnostic purposes only.</td>
+</tr>
+<tr class="even">
+<td>OPT_SCRIPTCOMPATLEV</td>
+<td>Tells the Script Compatibility level this game was compiled with.</td>
+</tr>
+<tr class="odd">
+<td>OPT_SPRITEALPHABLEND</td>
+<td>Tells which blending algorithm is used when drawing images on DrawingSurface (0=classic, 1=proper).</td>
+</tr>
+<tr class="even">
+<td>OPT_TWCUSTOM</td>
+<td>Which GUI number to use when displaying text windows. For changing this option use <a href="Globalfunctions_General.html#settextwindowgui"><code>SetTextWindowGUI</code></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -860,8 +860,24 @@ eLocationObject     an object</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td>OPT_WALKONLOOK</td>
-<td>Walk to hotspot in look mode (0 or 1)</td>
+<td>OPT_ALWAYSSPEECH</td>
+<td>Always display text as speech (0 or 1)</td>
+</tr>
+<tr class="even">
+<td>OPT_ANTIALIASFONTS</td>
+<td>Anti-alias rendering of TTF fonts (0 or 1)</td>
+</tr>
+<tr class="odd">
+<td>OPT_AUTOTRANSPARSERSAID</td>
+<td>Automatically translates arguments to Parser functions, like Said(...).</td>
+</tr>
+<tr class="even">
+<td>OPT_CROSSFADEMUSIC</td>
+<td>Crossfade music tracks (0=no, 1=slow, 2=slow-ish, 3=medium, 4=fast). <strong>OBSOLETE</strong>, reliably affects only old-style audio functions, such as <code>PlayMusic</code>. Configure <a href="MusicAndSound.html#audio-in-the-editor">Audio Types</a> instead.</td>
+</tr>
+<tr class="odd">
+<td>OPT_DIALOGOPTIONSDRAWMODE</td>
+<td>Which draw mode to use when displaying dialog options: standard or custom rendering. See <a href="StandardEnums.html#dialogoptionsdrawmode"><code>DialogOptionsDrawMode</code></a>.</td>
 </tr>
 <tr class="even">
 <td>OPT_DIALOGOPTIONSGUI</td>
@@ -872,38 +888,6 @@ eLocationObject     an object</code></pre>
 <td>Pixel gap between options (0=none, otherwise num pixels)</td>
 </tr>
 <tr class="even">
-<td>OPT_WHENGUIDISABLED</td>
-<td>When GUI is disabled, 0=grey out, 1=go black, 2=unchanged, 3=turn off</td>
-</tr>
-<tr class="odd">
-<td>OPT_ALWAYSSPEECH</td>
-<td>Always display text as speech (0 or 1)</td>
-</tr>
-<tr class="even">
-<td>OPT_PIXELPERFECT</td>
-<td>Pixel-perfect click detection (0 or 1)</td>
-</tr>
-<tr class="odd">
-<td>OPT_NOWALKMODE</td>
-<td>Don't automatically move character in Walk mode (0 or 1)</td>
-</tr>
-<tr class="even">
-<td>OPT_FIXEDINVCURSOR</td>
-<td>Don't use inventory graphics as cursors (0 or 1)</td>
-</tr>
-<tr class="odd">
-<td>OPT_TURNBEFOREWALK</td>
-<td>Characters turn before walking (0 or 1)</td>
-</tr>
-<tr class="even">
-<td>OPT_HANDLEINVCLICKS</td>
-<td>Handle inventory clicks in script (0 or 1)</td>
-</tr>
-<tr class="odd">
-<td>OPT_MOUSEWHEEL</td>
-<td>Enable mouse wheel support (0 or 1)</td>
-</tr>
-<tr class="even">
 <td>OPT_DIALOGNUMBERED</td>
 <td>Number dialog options (-1=disabled, 0=shortcuts only, 1=drawn numbers)</td>
 </tr>
@@ -912,60 +896,12 @@ eLocationObject     an object</code></pre>
 <td>Dialog options go upwards on GUI (0 or 1)</td>
 </tr>
 <tr class="even">
-<td>OPT_CROSSFADEMUSIC</td>
-<td>Crossfade music tracks (0=no, 1=slow, 2=slow-ish, 3=medium, 4=fast). <strong>OBSOLETE</strong>, reliably affects only old-style audio functions, such as <code>PlayMusic</code>. Configure <a href="MusicAndSound.html#audio-in-the-editor">Audio Types</a> instead.</td>
+<td>OPT_DISPLAYSINGLEDIALOGOPTION</td>
+<td>Display dialog options even if only one is currently enabled. If disabled then the only enabled option will be chosen and run automatically.</td>
 </tr>
 <tr class="odd">
-<td>OPT_ANTIALIASFONTS</td>
-<td>Anti-alias rendering of TTF fonts (0 or 1)</td>
-</tr>
-<tr class="even">
-<td>OPT_THOUGHTGUI</td>
-<td>Thought uses bubble GUI (GUI name/number)</td>
-</tr>
-<tr class="odd">
-<td>OPT_TURNWHENFACING</td>
-<td>Characters turn to face direction (0 or 1)</td>
-</tr>
-<tr class="even">
-<td>OPT_LIPSYNCTEXT</td>
-<td>Whether lip-sync text reading is enabled (0 or 1)</td>
-</tr>
-<tr class="odd">
-<td>OPT_RIGHTTOLEFT</td>
-<td>Right-to-left text writing (0 or 1)</td>
-</tr>
-<tr class="even">
-<td>OPT_MULTIPLEINV</td>
-<td>Display multiple inv items multiple times (0 or 1)</td>
-</tr>
-<tr class="odd">
-<td>OPT_SAVEGAMESCREENSHOTS</td>
-<td>Save screenshots into save games (0 or 1)</td>
-</tr>
-<tr class="even">
-<td>OPT_PORTRAITPOSITION</td>
-<td>Speech portrait side (0=left, 1=right, 2=alternate, 3=xpos)</td>
-</tr>
-<tr class="odd">
-<td>OPT_RUNGAMEINDLGOPTS</td>
-<td>Run game loops while dialog options are displayed (0 or 1)</td>
-</tr>
-<tr class="even">
-<td>OPT_WALKSPEEDABSOLUTE</td>
-<td>Whether character and object moving speeds depend on relative walkable mask's resolution (0=scale with mask resolution, 1=always in room resolution).</td>
-</tr>
-<tr class="odd">
-<td>OPT_SCALECHAROFFSETS</td>
-<td>Character's offset properties (such as <a href="Character.html#characterz"><code>Character.z</code></a>) are scaled with the character's Scaling (0 or 1).</td>
-</tr>
-<tr class="even">
-<td>OPT_SAVEGAMESCREENSHOTLAYER</td>
-<td>The layer to select when savingsave screenshots into game's save (<a href="StandardEnums.html#renderlayer"><code>RenderLayer</code></a>).</td>
-</tr>
-<tr class="odd">
-<td>OPT_SAVECOMPONENTSIGNORE</td>
-<td>Types of data which to <em>skip</em> when writing or restoring game saves (<a href="StandardEnums.html#savecomponentselection"><code>SaveComponentSelection</code></a>).</td>
+<td>OPT_FIXEDINVCURSOR</td>
+<td>Don't use inventory graphics as cursors (0 or 1)</td>
 </tr>
 <tr class="even">
 <td>OPT_GAMEFPS</td>
@@ -976,20 +912,88 @@ eLocationObject     an object</code></pre>
 <td>Whether common gui controls should react only to left mouse button (0 - any button, 1 - LMB only).</td>
 </tr>
 <tr class="even">
-<td>OPT_AUTOTRANSPARSERSAID</td>
-<td>Automatically translates arguments to Parser functions, like Said(...).</td>
+<td>OPT_HANDLEINVCLICKS</td>
+<td>Handle inventory clicks in script (0 or 1)</td>
 </tr>
 <tr class="odd">
-<td>OPT_DISPLAYSINGLEDIALOGOPTION</td>
-<td>Display dialog options even if only one is currently enabled. If disabled then the only enabled option will be chosen and run automatically.</td>
+<td>OPT_LIPSYNCTEXT</td>
+<td>Whether lip-sync text reading is enabled (0 or 1)</td>
+</tr>
+<tr class="even">
+<td>OPT_MOUSEWHEEL</td>
+<td>Enable mouse wheel support (0 or 1)</td>
+</tr>
+<tr class="odd">
+<td>OPT_MULTIPLEINV</td>
+<td>Display multiple inv items multiple times (0 or 1)</td>
+</tr>
+<tr class="even">
+<td>OPT_NOWALKMODE</td>
+<td>Don't automatically move character in Walk mode (0 or 1)</td>
+</tr>
+<tr class="odd">
+<td>OPT_PIXELPERFECT</td>
+<td>Pixel-perfect click detection (0 or 1)</td>
+</tr>
+<tr class="even">
+<td>OPT_PORTRAITPOSITION</td>
+<td>Speech portrait side (0=left, 1=right, 2=alternate, 3=xpos)</td>
+</tr>
+<tr class="odd">
+<td>OPT_RIGHTTOLEFT</td>
+<td>Right-to-left text writing (0 or 1)</td>
+</tr>
+<tr class="even">
+<td>OPT_RUNGAMEINDLGOPTS</td>
+<td>Run game loops while dialog options are displayed (0 or 1)</td>
+</tr>
+<tr class="odd">
+<td>OPT_SAVECOMPONENTSIGNORE</td>
+<td>Types of data which to <em>skip</em> when writing or restoring game saves (<a href="StandardEnums.html#savecomponentselection"><code>SaveComponentSelection</code></a>).</td>
+</tr>
+<tr class="even">
+<td>OPT_SAVEGAMESCREENSHOTLAYER</td>
+<td>The layer to select when savingsave screenshots into game's save (<a href="StandardEnums.html#renderlayer"><code>RenderLayer</code></a>).</td>
+</tr>
+<tr class="odd">
+<td>OPT_SAVEGAMESCREENSHOTS</td>
+<td>Save screenshots into save games (0 or 1)</td>
+</tr>
+<tr class="even">
+<td>OPT_SCALECHAROFFSETS</td>
+<td>Character's offset properties (such as <a href="Character.html#characterz"><code>Character.z</code></a>) are scaled with the character's Scaling (0 or 1).</td>
+</tr>
+<tr class="odd">
+<td>OPT_TEXTBOXCLAIMSKEYS</td>
+<td>Which of the key and text input events are claimed by the active TextBox control. See <a href="StandardEnums.html#textboxkeyclaimstyle"><code>TextBoxKeyClaimStyle</code></a>.</td>
+</tr>
+<tr class="even">
+<td>OPT_THOUGHTGUI</td>
+<td>Thought uses bubble GUI (GUI name/number)</td>
+</tr>
+<tr class="odd">
+<td>OPT_TURNBEFOREWALK</td>
+<td>Characters turn before walking (0 or 1)</td>
 </tr>
 <tr class="even">
 <td>OPT_TURNORDERPRIORITY</td>
 <td>Which turn order characters choose when making 180-degree turns. See <a href="StandardEnums.html#turnorderpriority"><code>TurnOrderPriority</code></a>.</td>
 </tr>
 <tr class="odd">
-<td>OPT_TEXTBOXCLAIMSKEYS</td>
-<td>Which of the key and text input events are claimed by the active TextBox control. See <a href="StandardEnums.html#textboxkeyclaimstyle"><code>TextBoxKeyClaimStyle</code></a>.</td>
+<td>OPT_TURNWHENFACING</td>
+<td>Characters turn to face direction (0 or 1)</td>
+</tr>
+<tr class="even">
+<td>OPT_WALKONLOOK</td>
+<td>Walk to hotspot in look mode (0 or 1)</td>
+</tr>
+<tr class="odd">
+<td>OPT_WALKSPEEDABSOLUTE</td>
+<td>Whether character and object moving speeds depend on relative walkable mask's resolution (0=scale with mask resolution, 1=always in room resolution).</td>
+</tr>
+<tr class="even">
+<td>OPT_WHENGUIDISABLED</td>
+<td>When GUI is disabled, 0=grey out, 1=go black, 2=unchanged, 3=turn off</td>
 </tr>
 </tbody>
 </table>
@@ -1158,7 +1162,7 @@ eSkipScriptOnly
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: ba30590a1a0cf942edbff96b7ccc5b14454b297a
+          Build: ce8965ae5e5ed202d55f81d76399c44be4135457
         </p>
       </footer>
     </article>

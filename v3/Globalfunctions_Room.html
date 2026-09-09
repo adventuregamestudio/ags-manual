@@ -116,12 +116,12 @@
 <section id="getbackgroundframe" class="level3">
 <h3><a href="#getbackgroundframe"><code>GetBackgroundFrame</code></a></h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetBackgroundFrame</span><span class="op">()</span></span></code></pre></div>
-<p>Returns the number of the current background being displayed. In a room without animating backgrounds, this will always return 0. Otherwise, the current frame number is returned from 0 to 4.</p>
+<p>Returns the number of the current background being displayed. In a room without additional backgrounds, this will always return 0. Otherwise, the current frame number is returned from 0 to (<code>Room.BackgroundCount - 1</code>).</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetBackgroundFrame</span><span class="op">()==</span><span class="dv">4</span><span class="op">)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    oMoon<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will turn on object oMoon if the background frame of the room is frame 4.</p>
-<p><em>See also:</em> <a href="Globalfunctions_Room.html#setbackgroundframe"><code>SetBackgroundFrame</code></a></p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#setbackgroundframe"><code>SetBackgroundFrame</code></a>, <a href="Room.html#roombackgroundcount">Room.BackgroundCount</a></p>
 <hr />
 </section>
 <section id="getdrawingsurfaceforwalkablearea" class="level3">
@@ -294,13 +294,13 @@
 <section id="setbackgroundframe" class="level3">
 <h3><a href="#setbackgroundframe"><code>SetBackgroundFrame</code></a></h3>
 <div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetBackgroundFrame</span> <span class="op">(</span><span class="dt">int</span> frame<span class="op">)</span></span></code></pre></div>
-<p>Locks the background to frame number FRAME of an animating-background screen. (Values for FRAME are from 0 to 4). This allows you to use the animating backgrounds feature for another purpose - you can have two frames of the background, one for example with a spaceship crashed on it. Then, once the right event has happened, call SetBackgroundFrame in the Player Enters Room event to set the background before the screen fades in.</p>
+<p>Locks the background to frame number FRAME of an animating-background screen. (Values for FRAME are from 0 to (<code>Room.BackgroundCount - 1</code>). This allows you to use the animating backgrounds feature for another purpose - you can have two frames of the background, one for example with a spaceship crashed on it. Then, once the right event has happened, call SetBackgroundFrame in the Player Enters Room event to set the background before the screen fades in.</p>
 <p>Pass the <em>frame</em> as -1 to return to the default behavior of automatically cycling through all the background frames.</p>
 <p>The frame lock is released when the game changes rooms.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetBackgroundFrame</span><span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
 <p>will change the current room's background frame to 4.</p>
-<p><em>See also:</em> <a href="Globalfunctions_Room.html#getbackgroundframe"><code>GetBackgroundFrame</code></a></p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getbackgroundframe"><code>GetBackgroundFrame</code></a>, <a href="Room.html#roombackgroundcount">Room.BackgroundCount</a></p>
 <hr />
 </section>
 <section id="setviewport" class="level3">
@@ -328,7 +328,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: ba30590a1a0cf942edbff96b7ccc5b14454b297a
+          Build: ce8965ae5e5ed202d55f81d76399c44be4135457
         </p>
       </footer>
     </article>
