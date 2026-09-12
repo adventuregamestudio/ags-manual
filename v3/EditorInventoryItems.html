@@ -90,13 +90,21 @@
 <h3><a href="#image">Image</a></h3>
 <p>The image displayed for the inventory item within the character's inventory. This is typically larger than the mouse cursor image of the inventory item, depending on how the GUI that is used for the inventory window has been configured.</p>
 </section>
+<section id="hotspotalignment" class="level3">
+<h3><a href="#hotspotalignment">HotspotAlignment.</a></h3>
+<p>This property is available since <strong>AGS 3.6.3</strong>.</p>
+<p>Select the automatic alignment for the hotspot of the item's cursor image. The purpose of this setting is to keep the hotspot's relative position when the cursor image changes (whether when editing item in the Editor, or switching in script). HotspotX and HotspotY work as offsets from the aligned position.</p>
+<p>Note that prior to <strong>AGS 3.6.3</strong> the only supported alignment was "middle-centered" and it was achieved by setting both HotspotX and HotspotY to 0.</p>
+</section>
 <section id="hotspotx" class="level3">
 <h3><a href="#hotspotx">HotspotX</a></h3>
-<p>Select the X value for the hotspot of the active cursor image. It's the distance from the left edge of the sprite, measured in pixels. You can also set this value by clicking on the "Mouse cursor image" display.</p>
+<p>Select the X offset value for the hotspot of the active cursor image. It's the distance from the position defined by HotspotAlignment, measured in pixels. You can also set this value by clicking on the "Mouse cursor image" display.</p>
+<p>Note that prior to <strong>AGS 3.6.3</strong> the X offset was always counted from the left edge of the sprite.</p>
 </section>
 <section id="hotspoty" class="level3">
 <h3><a href="#hotspoty">HotspotY</a></h3>
-<p>Select the Y value for the hotspot of the active cursor image. It's the distance from the top edge of the sprite, measured in pixels. You can also set this value by clicking on the "Mouse cursor image" display.</p>
+<p>Select the Y offset value for the hotspot of the active cursor image. It's the distance from the position defined by HotspotAlignment, measured in pixels. You can also set this value by clicking on the "Mouse cursor image" display.</p>
+<p>Note that prior to <strong>AGS 3.6.3</strong> the Y offset was always counted from the top edge of the sprite.</p>
 </section>
 <section id="id" class="level3">
 <h3><a href="#id">ID</a></h3>
@@ -124,7 +132,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: ce8965ae5e5ed202d55f81d76399c44be4135457
+          Build: 4964a3aa1df21130ab1dfc086e33221a7ddc2f0f
         </p>
       </footer>
     </article>
@@ -136,6 +144,7 @@
 <li><a href="#cursor-image" id="toc-cursor-image">Cursor Image</a></li>
 <li><a href="#description" id="toc-description">Description</a></li>
 <li><a href="#image" id="toc-image">Image</a></li>
+<li><a href="#hotspotalignment" id="toc-hotspotalignment">HotspotAlignment.</a></li>
 <li><a href="#hotspotx" id="toc-hotspotx">HotspotX</a></li>
 <li><a href="#hotspoty" id="toc-hotspoty">HotspotY</a></li>
 <li><a href="#id" id="toc-id">ID</a></li>
