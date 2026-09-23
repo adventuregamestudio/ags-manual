@@ -99,7 +99,7 @@
 </ul>
 <p>It is also possible to indicate a specific configuration file to use by setting its path as the value of the environment variable <code>TIMIDITY_CFG</code>.</p>
 <p>When distributing a game with its own configuration and patch files it is likely preferable to have the Timidity configuration file in the top-level of the game directory (so that it is located automatically) and the referenced patch files located within a sub-directory. The <code>dir</code> directive within a Timidity configuration can be used to specify an additional search path for patch files. For example, if all patch files are located within a sub-directory named "my_patches" all that is needed is the relative path name:</p>
-<pre><code>dir my_patches</code></pre>
+<pre><code>dir ./my_patches</code></pre>
 <p>The path to a patch directory can also be absolute. An absolute path which is relative to the configuration file can be specified through the use of the special token <code>$basedir</code>, which expands to the path of the directory which contains the configuration file:</p>
 <pre><code>dir $basedir/my_patches</code></pre>
 </section>
@@ -109,7 +109,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 4964a3aa1df21130ab1dfc086e33221a7ddc2f0f
+          Build: 691b5265c65df38975f26826b8f4c29fb484c03b
         </p>
       </footer>
     </article>
