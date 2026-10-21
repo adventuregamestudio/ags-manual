@@ -91,6 +91,17 @@
 <section id="new-script-compiler" class="level3">
 <h3><a href="#new-script-compiler">New Script Compiler</a></h3>
 <p>While the legacy script compiler is still present for now, a new compiler is available (and it is default in newly created games). This compiler packs new features like multidimensional arrays, nested structs, list initialization, and a multitude of script warnings to help you catch some common issues at compile time.</p>
+<p>The new script syntax features include:</p>
+<ul>
+<li>Structs: <a href="ScriptManagedStructs.html#constructors">constructors in managed structs</a>, <a href="ScriptStructs.html#nested-structs">nested structs</a>, <a href="ScriptStructs.html#member-functions">implied <code>this</code></a> in member functions, and optional <code>*</code> when declaring <a href="ScriptManagedStructs.html">pointers to managed structs</a>.</li>
+<li><a href="ScriptAttributes.html#extender-attributes">Extender attributes</a>, which let you add attributes to existing types, including built-in ones.</li>
+<li>Arrays: <a href="ScriptKeywords.html#multidimensional-arrays">multi-dimensional regular arrays</a>, <a href="DynamicArrays.html#multi-dimensional-dynamic-arrays">multi-dimensional and mixed dynamic arrays</a>, <a href="DynamicArrays.html#empty-arrays">zero-length dynamic arrays</a>, and dynamic arrays of regular structs.</li>
+<li>Functions may be <a href="ScriptFunctions.html#calling-a-function">defined in any order</a> within the same script, and called with <a href="ScriptFunctions.html#named-parameters">named parameters</a>.</li>
+<li>Global variables may be declared right after a <a href="ScriptStructs.html">struct</a> or <a href="ScriptKeywords.html#enum">enum</a> declaration.</li>
+<li>New keywords: <a href="ScriptKeywords.html#const"><code>const</code></a> for compile-time constants, extended use of <a href="ScriptKeywords.html#readonly"><code>readonly</code></a> for local variables and function parameters, and <a href="ScriptKeywords.html#switch-case-statements"><code>fallthrough</code></a> in <code>switch</code>.</li>
+<li>New operators: <a href="ScriptManagedStructs.html#casting-pointers">pointer cast <code>as</code></a>, pre-increment and pre-decrement (<code>++x</code>, <code>--x</code>), bitwise NOT <code>~</code>, and conditional <code>? :</code> (see <a href="ScriptKeywords.html#operators">Operators</a>).</li>
+<li>Compile-time evaluation of constant expressions, <a href="ScriptFunctions.html#returning-values">accessing members of objects returned by functions</a> in the same expression, and joining adjacent string literals.</li>
+</ul>
 </section>
 <section id="managed-pointers-in-managed-structs-and-rtti" class="level3">
 <h3><a href="#managed-pointers-in-managed-structs-and-rtti">Managed pointers in managed structs and RTTI</a></h3>
@@ -133,7 +144,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 691b5265c65df38975f26826b8f4c29fb484c03b
+          Build: 2f3d94ad97aebd64882c8db10e9943622aa8e4d7
         </p>
       </footer>
     </article>

@@ -58,6 +58,7 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-UpgradingTo40" href="UpgradingTo40.html">Upgrading To AGS 4.0</span></a>
 <li><span><a id="topic-WhatsInNewVersionsAndUpgrading" href="WhatsInNewVersionsAndUpgrading.html">What’s in new versions and upgrading</span></a>
 <ul class="level-2">
+<li><span><a id="topic-WhatsNewIn363" href="WhatsNewIn363.html">What’s new in AGS 3.6.3</span></a>
 <li><span><a id="topic-WhatsNewIn362" href="WhatsNewIn362.html">What’s new in AGS 3.6.2</span></a>
 <li><span><a id="topic-WhatsNewIn361" href="WhatsNewIn361.html">What’s new in AGS 3.6.1</span></a>
 <li><span><a id="topic-WhatsNewIn36" href="WhatsNewIn36.html">What’s new in AGS 3.6</span></a>

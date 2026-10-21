@@ -269,25 +269,25 @@
 <div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> <span class="dt">MyStruct</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">attribute</span> <span class="dt">int</span> IndexedAttr<span class="op">[];</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">protected</span> <span class="dt">int</span>  <span class="fu">get_IndexedAttr</span><span class="op">(</span><span class="dt">int</span> index<span class="op">);</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">set_IndexedAttr</span><span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> value<span class="op">);</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">protected</span> <span class="dt">int</span>  <span class="fu">geti_IndexedAttr</span><span class="op">(</span><span class="dt">int</span> index<span class="op">);</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">seti_IndexedAttr</span><span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> value<span class="op">);</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">StoreItem::geti_IndexedAttr</span><span class="op">(</span><span class="dt">int</span> index<span class="op">)</span></span>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">MyStruct::geti_IndexedAttr</span><span class="op">(</span><span class="dt">int</span> index<span class="op">)</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// return something for the given &quot;index&quot;</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">StoreItem::seti_IndexedAttr</span><span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">MyStruct::seti_IndexedAttr</span><span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something for the given &quot;index&quot;</span></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>And the variant with getter and setter defined as extender functions:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">geti_IndexedAttr</span><span class="op">(</span><span class="kw">this</span> StoreItem<span class="op">*,</span> <span class="dt">int</span> index<span class="op">)</span></span>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">geti_IndexedAttr</span><span class="op">(</span><span class="kw">this</span> MyStruct<span class="op">*,</span> <span class="dt">int</span> index<span class="op">)</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// return something for the given &quot;index&quot;</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">seti_IndexedAttr</span><span class="op">(</span><span class="kw">this</span> StoreItem<span class="op">*,</span> <span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">seti_IndexedAttr</span><span class="op">(</span><span class="kw">this</span> MyStruct<span class="op">*,</span> <span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something for the given &quot;index&quot;</span></span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -363,13 +363,51 @@
 <p>Here the Color's components may be accessed either directly, or using an indexed attribute and passing index in range 0 to 3.</p>
 <p>Of course, in a similar scenario we could do an opposite approach: store components in an array, and have Red, Green etc attributes access particular elements of that array. But this example is here only to illustrate a possibility. In each particular case there's a choice between several solutions, and a solution working best in one case may not be optimal in another.</p>
 </section>
+<section id="extender-attributes" class="level3">
+<h3><a href="#extender-attributes">Extender attributes</a></h3>
+<p>Similar to <a href="ExtenderFunctions.html">extender functions</a>, you may add attributes to existing types, including built-in types such as Character or Object. Such attributes are called <em>extender attributes</em>. They are declared outside of any struct, using <code>this</code> or <code>static</code> keyword followed by the name of the struct in brackets after the attribute's name:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">attribute</span> <span class="dt">int</span> <span class="fu">AttrEx1</span><span class="op">(</span><span class="kw">this</span> T<span class="op">);</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">attribute</span> <span class="dt">float</span> <span class="fu">AttrEx2</span><span class="op">(</span><span class="kw">this</span> T<span class="op">);</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">attribute</span> <span class="dt">float</span> <span class="fu">StaticAttrEx</span><span class="op">(</span><span class="kw">static</span> T<span class="op">);</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="kw">attribute</span> <span class="dt">float</span> ArrayAttrEx1<span class="op">[](</span><span class="kw">this</span> T<span class="op">);</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">attribute</span> <span class="dt">float</span> ArrayAttrEx2<span class="op">[](</span><span class="kw">this</span> T<span class="op">);</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="kw">attribute</span> <span class="dt">float</span> StaticArrayAttrEx2<span class="op">[](</span><span class="kw">static</span> T<span class="op">);</span></span></code></pre></div>
+<p>where <code>T</code> is the name of a struct. Just like with regular attributes, extender attributes may be <code>readonly</code>, <code>static</code> and <a href="ScriptAttributes.html#indexed-attributes">indexed</a>.</p>
+<p>In all cases you still have to write the respective getter and setter functions (<code>get_</code> and <code>set_</code>, or <code>geti_</code> and <code>seti_</code> for indexed attributes), which are commonly written as extender functions too.</p>
+<p>For example, let's add a <code>Health</code> attribute to the built-in Character type, storing the actual values in a global array:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Script.ash</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">attribute</span> <span class="dt">int</span> <span class="fu">Health</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Script.asc</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> CharacterHealth<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">get_Health</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*)</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> CharacterHealth<span class="op">[</span><span class="kw">this</span><span class="op">.</span><span class="at">ID</span><span class="op">];</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">set_Health</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> <span class="dt">int</span> value<span class="op">)</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>value <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>        value = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    CharacterHealth<span class="op">[</span><span class="kw">this</span><span class="op">.</span><span class="at">ID</span><span class="op">]</span> = value<span class="op">;</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Now this attribute may be used with any character as if it were their own property:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">Health</span> = <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>cGuard<span class="op">.</span><span class="at">Health</span> <span class="op">-</span>= <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cGuard<span class="op">.</span><span class="at">Health</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    cGuard<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Ugh!&quot;</span><span class="op">);</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>Compatibility:</em> Extender attributes are supported by <strong>AGS 4.0.0</strong> and later versions, and only when using the new script compiler.</p>
+</section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/ScriptAttributes.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 691b5265c65df38975f26826b8f4c29fb484c03b
+          Build: 2f3d94ad97aebd64882c8db10e9943622aa8e4d7
         </p>
       </footer>
     </article>
@@ -383,6 +421,7 @@
 <li><a href="#protection-modifiers" id="toc-protection-modifiers">Protection modifiers</a></li>
 <li><a href="#uses-of-attribute" id="toc-uses-of-attribute">Uses of attribute</a></li>
 <li><a href="#indexed-attributes" id="toc-indexed-attributes">Indexed attributes</a></li>
+<li><a href="#extender-attributes" id="toc-extender-attributes">Extender attributes</a></li>
 </ul></li>
 </ul>
     </aside>

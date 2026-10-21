@@ -82,7 +82,6 @@
 <h3><a href="#basic-properties">Basic properties</a></h3>
 <ul>
 <li><p><strong>Color Depth</strong> - the number of colors your game will use. Default is 32-bit, which lets you use all the range of colors contemporary devices support. 8-bit color mode is a special feature for making palette-based games. See also: <a href="Settingupthegame.html#palette-setup">Palette setup</a>, <a href="Globalfunctions_Palette.html">Palette functions</a></p></li>
-<li><p><strong>Developer name</strong> - this will add the provided string to the game's executable properties.</p></li>
 <li><p><strong>Game file name</strong> - your game's executable and/or data filename. This name will be used when creating game package files on disk.</p></li>
 <li><p><strong>Game name</strong> - your game's title. This string will be displayed at the window title, and also added to the game's executable properties.</p></li>
 <li><p><strong>Render sprites at screen resolution</strong> - whether characters and objects should be scaled in screen pixels rather than game pixels. What this means is that when low-resolution game is run in larger window, sprites will take advantage of this higher resolution and look less pixelated when scaled down. If you prefer to keep your game looks in particular style, this option may be locked to always "Enabled" or "Disabled"; otherwise setting it to "User defined" will let your players toggle it in game setup program to their own liking.</p></li>
@@ -96,11 +95,13 @@
 <h3><a href="#information">Information</a></h3>
 <p>Most of this information is not used right now by the engine, but may be made accessible in future versions.</p>
 <ul>
+<li><strong>Custom error text</strong> - A fully custom text to display when the game quits with error message. If none set, then the default engine's error text will be used.</li>
+<li><strong>Developer name</strong> - The name of this game's author, or the company. When building Windows version of the game this will be assigned to the game exe properties.</li>
 <li><strong>Developer website</strong> - Your website.</li>
 <li><strong>Game description</strong> - The game hook line.</li>
 <li><strong>Genre</strong> - Your game genere.</li>
 <li><strong>Release date</strong> - Date on which this game is first released.</li>
-<li><strong>Version</strong> - a 4-piece version string of your game, made of numbers separated by three dots.</li>
+<li><strong>Version</strong> - a 4-piece version string of your game, made of numbers separated by dots.</li>
 </ul>
 </section>
 <section id="android" class="level3">
@@ -206,6 +207,18 @@
 <li><p><strong>Use GUI for dialog options</strong> - controls where the player's options for dialog are displayed. If set to 0, then in a conversation, the options will be displayed at the bottom of the screen. If you type in GUI's ID number, then instead the options will be displayed on the GUI you specify.</p></li>
 </ul>
 </section>
+<section id="gui-behavior" class="level3">
+<h3><a href="#gui-behavior">GUI Behavior</a></h3>
+<ul>
+<li><p><strong>GUI common controls handle only left mouse button</strong> - by default AGS treats click with any mouse button on most GUI controls similarly. That includes pressing Buttons, changing selection in ListBoxes and so forth. If you prefer them react only to the left mouse button, then enable this setting. InventoryWindow is an exception to this rule: when "Handle inventory window clicks in script" option is disabled, it will give different responses to LMB and RMB regardless of this setting.</p></li>
+<li><p><strong>TextBoxes claim key and text input events</strong> - by default active TextBox control claims ("steals") every key press. If you want key input to pass further into the script when TextBox is displayed, change this option to a different choice:</p>
+<ul>
+<li><strong>Always</strong> - the active TextBox will claim every key input event regardless of whether it's used by control or not.</li>
+<li><strong>Handled input events (key and text)</strong> - the active TextBox will claim any key input event that has a meaning to it. This includes all the text input events, and Enter/Return and Backspace key press events.</li>
+<li><strong>Text input events only</strong> - the active TextBox will claim only text input events. Any key presses will not be claimed and are passed further into the script. Note that TextBox will still react to standard keys, such as Backspace and Enter/Return.</li>
+</ul></li>
+</ul>
+</section>
 <section id="inventory" class="level3">
 <h3><a href="#inventory">Inventory</a></h3>
 <ul>
@@ -283,7 +296,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 691b5265c65df38975f26826b8f4c29fb484c03b
+          Build: 2f3d94ad97aebd64882c8db10e9943622aa8e4d7
         </p>
       </footer>
     </article>
@@ -299,6 +312,7 @@
 <li><a href="#character-behavior" id="toc-character-behavior">Character behavior</a></li>
 <li><a href="#compiler" id="toc-compiler">Compiler</a></li>
 <li><a href="#dialog" id="toc-dialog">Dialog</a></li>
+<li><a href="#gui-behavior" id="toc-gui-behavior">GUI Behavior</a></li>
 <li><a href="#inventory" id="toc-inventory">Inventory</a></li>
 <li><a href="#rooms" id="toc-rooms">Rooms</a></li>
 <li><a href="#saved-games" id="toc-saved-games">Saved Games</a></li>
