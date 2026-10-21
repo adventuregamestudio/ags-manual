@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="header-bg"></div>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+
+      <select class="version-selector" onchange="onChangeVersion(event)" style="display:none">
+        <option value="v4">v4.x</option>
+        <option value="v3">v3.x</option>
+      </select>
+
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <ul>
+      <li>
+        <select class="version-selector" onchange="onChangeVersion(event)" style="display:none">
+          <option value="v4">v4.x</option>
+          <option value="v3">v3.x</option>
+        </select>
+      </li>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <article>
+      <main>
+<section id="functions" class="level2">
+<h2><a href="#functions">Functions</a></h2>
+<p>In AGS script a function is a sequence of script commands grouped under one name. In AGS script all commands must be inside functions, so game scripts are running functions all the time. The script functions may be run by the engine's command on certain events, but may also be run by other functions.</p>
+<p>A function has <em>name</em>, <em>parameter list</em> and a <em>return value type</em>. It's declared in script using this syntax:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>type name <span class="op">(</span>parameters<span class="op">)</span></span></code></pre></div>
+<p>Function's name is any name consisting of permitted characters: basic latin letters, digits and a underscore character ('_'). This name is used to identify this function and distinguish from others.</p>
+<p>Function's type (or "return type") determines which result this function returns when it finishes executing. This may be any known type supported by script, similar to the type of variables: <code>int</code>, <code>bool</code>, <code>String</code>, and any other, either standard and custom. If a function does not need to return any result, there's a special type for such occasion called <code>void</code> (means: "nothing"). Finally, there's a historical keyword <code>function</code> that may be used if you don't care about proper return type, although we still recommended you to designate a correct one. Functions declared with <code>function</code> are allowed to return an integer, or not return anything.</p>
+<p>Function's parameter (also called "arguments") are values that are passed into the function when it's run from elsewhere. A function can have no parameters, in which case its name is followed by empty brackets (<code>()</code>), it may have a single parameter, or multiple ones, in which case the parameters are separated by commas. Each parameter must be declared just like a variable, with type and name.</p>
+<p>All the commands inside the function must be enclosed into the curved braces (<code>{</code> and <code>}</code>). Everything in between is considered function's "body", and will be executed when this function gets run.</p>
+<p>Following are examples of function declarations.</p>
+<p>A function with default <code>function</code> type and no parameters:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoSomething</span><span class="op">()</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A function which returns nothing, and has a single integer parameter:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">GiveMeInt</span><span class="op">(</span><span class="dt">int</span> value<span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A function which returns an integer, and has 2 integer parameters:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">SumTwoNumbers</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A function that returns a String and has a <code>Character*</code> parameter (a pointer to a Character object):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> GetMyName<span class="op">(</span><span class="bu">Character</span><span class="op">*</span> c<span class="op">)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<section id="functions-body" class="level3">
+<h3><a href="#functions-body">Function's body</a></h3>
+<p>Function insides (also called "function's body"), marked by the opening and closing braces (<code>{</code> and <code>}</code>) is where you put all the script commands you want it to perform. The commands are executed in the same order as they are written.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoSomething</span><span class="op">()</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Well, that was easy!&quot;</span><span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Here the player character will walk to the new place and say something.</p>
+<p>The sequence of commands does not have to be linear. It may include conditional branches and loops, all according the <a href="ScriptKeywords.html">supported script syntax</a>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoSomethingOrElse</span><span class="op">()</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span> <span class="op">==</span> <span class="dv">100</span> <span class="op">&amp;&amp;</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span> <span class="op">==</span> <span class="dv">50</span><span class="op">)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;I&#39;m already here.&quot;</span><span class="op">);</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Well, that was easy!&quot;</span><span class="op">);</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;So, what I am supposed to do now?&quot;</span><span class="op">);</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Here the function will execute either the part under "if" or part under "else", depending on how the result of condition: whether the character is already standing at the destination or not. After the conditional part ends, the function will continue normally, and may have more commands. The last speech command will execute always.</p>
+</section>
+<section id="exiting-a-function" class="level3">
+<h3><a href="#exiting-a-function">Exiting a function</a></h3>
+<p>The closing figure brace (<code>}</code>) acts as the natural function's exit. But functions can be exited at any point using <code>return</code> keyword. If a function needs to exit only once it reaches the end, then <code>return</code> may be omited, unless it also must return a value (see explanation in the next section below).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoSomething</span><span class="op">()</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Well, that was easy!&quot;</span><span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// the &#39;return&#39; keyword here is correct syntax, but is not necessary,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// because the function exits immediately after anyway</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Sometimes it may be required to return from a function earlier, before it reaches the end. The common case is when you need to do something, or not do something depending on condition.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoSomethingOrElse</span><span class="op">()</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span> <span class="op">==</span> <span class="dv">100</span> <span class="op">&amp;&amp;</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span> <span class="op">==</span> <span class="dv">50</span><span class="op">)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;What do you know, I&#39;m already here.&quot;</span><span class="op">);</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Well, that was easy!&quot;</span><span class="op">);</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This is another variant of the previously demonstrated scenario, where character should not walk if it's already standing at destination. In this variant the function will exit (<code>return</code>) immediately after finding out that there's no need to walk anywhere. Which variant to use (one with if/else blocks, or one with early exit) is a matter your goals and preferred style.</p>
+</section>
+<section id="calling-a-function" class="level3">
+<h3><a href="#calling-a-function">Calling a function</a></h3>
+<p>Some functions are run by the engine on certain events, such as entering a new room or a key press. Engine does this by searching for functions with predefined names in your script. More about this can be learnt in <a href="Globalfunctions_Event.html">"Global event handlers"</a>.</p>
+<p>But what if you want to run a function from another function in script? This is called "calling a function", and is done using following syntax:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">(</span>parameter values<span class="op">)</span></span></code></pre></div>
+<p>If function has no parameters, then empty brackets are used, but having brackets is required always.</p>
+<p>Calling a function without parameters:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>DoSomething<span class="op">();</span></span></code></pre></div>
+<p>Calling a function with one parameter, requires passing a value for that parameter:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>GiveMeInt<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<p>Calling a function with multiple parameters, requires to pass matching number of values, separated by commas:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>SumTwoNumbers<span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span></code></pre></div>
+<p>Following is an example of script where one function calls another function:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoSomethingElse</span><span class="op">()</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You wave your hands, hoping to bring attention to yourself&quot;</span><span class="op">);</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoSomething</span><span class="op">()</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Well, that was easy!&quot;</span><span class="op">);</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    DoSomethingElse<span class="op">();</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>You may have realized this already, but standard script commands, such as Walk, Say, Display and so forth, are also functions. Their only difference is that they are defined not in game script, but by the AGS engine. Other than that, your own functions and these standard ones are used in exactly same way.</p>
+<p><strong>IMPORTANT:</strong> in AGS script you can only call a function if it's declared earlier than you call it. That means: above in the same script, or in another script module placed higher in the list of scripts.</p>
+<p>See also: <a href="ImportingFunctionsAndVariables.html">Importing functions in other scripts</a></p>
+</section>
+<section id="functions-parameters" class="level3">
+<h3><a href="#functions-parameters">Function's parameters</a></h3>
+<p>Functions may require parameters. This allows same function to have different result depending on case. Let's investigate a trivial example. Suppose we have a function:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Sum10And20AndDisplayResult</span><span class="op">()</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> result = <span class="dv">10</span> <span class="op">+</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> result<span class="op">);</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This function will calculate a sum of 10 and 20 and display the result on screen. But this seems silly, why have a function that can only sum two particular numbers? What if we need to sum different numbers, should we write a separate function for each case? Function parameters solve this problem better:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">SumTwoNumbersAndDisplayResult</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> result = a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> result<span class="op">);</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Here we declared a function that has 2 parameters: an integer <code>a</code> and an integer <code>b</code>. Notice how they are declared practically like variables, with obligatory type and name. These parameters will be known under these names within the function, and can be used in its work.</p>
+<p>When calling such function, we must pass values for each of its parameters. These values must follow the strict order, just like they are declared in function, and match the types: you cannot pass a String if a function requires an integer, for instance. But you can pass either a direct value, or by value stored in a variable:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// This calls the function, passing literal values 10 and 20</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>SumTwoNumbersAndDisplayResult<span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x = <span class="dv">30</span><span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> y = <span class="dv">40</span><span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">// And here we pass values from existing variables x and y;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">// it works just the same</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>SumTwoNumbersAndDisplayResult<span class="op">(</span>x<span class="op">,</span> y<span class="op">);</span></span></code></pre></div>
+<p>Furthermore, AGS script allows to perform any kind of calculative expression when passing a value into the function:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// This will perform the arithmetic operation, and pass result into the function</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>GiveMeInt<span class="op">(</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">20</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x = <span class="dv">30</span><span class="op">;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> y = <span class="dv">40</span><span class="op">;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Works with variables just the same</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>SumTwoNumbersAndDisplayResult<span class="op">(</span>x <span class="op">*</span> <span class="dv">2</span><span class="op">,</span> y <span class="op">/</span> x <span class="op">+</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<p>Of course, same methods may be used with standard AGS commands. You probably have already noticed the examples of these earlier in this topic and in other topics in this manual, but we will demonstrate here just in case:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;This is a literal string passed into the function Character.Say&quot;</span><span class="op">);</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> s = <span class="st">&quot;Make a variable &#39;s&#39; and assign this text, then pass to Say&quot;</span><span class="op">;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span>s<span class="op">);</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Sum player character&#39;s x and y coordinates (just for example)</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>SumTwoNumbersAndDisplayResult<span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
+<p>Which <em>types</em> may be the function's parameters be? AGS has certain restriction in this regard: not everything that can be a variable can be a function parameter.</p>
+<p>Function's parameters can be:</p>
+<ul>
+<li>Any simple numeric type: <code>int</code>, <code>float</code>, <code>char</code>, <code>short</code>, <code>bool</code>.</li>
+<li>Any managed pointer type: <code>Character*</code>, <code>Object*</code>, and so forth, as well as pointers of your own <a href="ScriptManagedStructs.html"><code>managed structs</code></a>.</li>
+<li><code>String</code> type, which is secretly also a managed pointer type (because String is a managed object).</li>
+</ul>
+<p>Function's parameters cannot be:</p>
+<ul>
+<li>Regular non-managed <a href="ScriptStructs.html">structs</a>: their instances cannot be passed into the function, as AGS script does not support copying them.</li>
+<li>Functions.</li>
+</ul>
+</section>
+<section id="optional-parameters" class="level3">
+<h3><a href="#optional-parameters">Optional parameters</a></h3>
+<p>Sometimes you may want to give function's parameter a <em>default value</em>, which is used if no value is passed for that parameter. Such parameters are known as <em>optional parameters</em>. They are "optional" in the sense that you may skip them when calling a function, but they will still always exist inside the function's body. There's a important restriction: only <em>latest parameters</em> in the function's parameter list can be made optional. Multiple parameters can be optional, but only if there's no non-optional parameter between them or after them.</p>
+<p>The parameter is made optional by assigning a default value to them in the function's declaration, using assignment syntax, similar to variable initialization: <code>type param = value</code>. However, there are two major restrictions.</p>
+<p>First of all, default parameter values may be only defined in the pure function's declaration which begins with the <code>import</code> keyword and does not have a body. That's how functions are usually declared in the script headers. But you have to do this even if you dont need to declare it in the script header, and you are using this function only in the same script. In this case the <code>import</code> declaration may be immediately followed by the full function, with a body.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">function</span> <span class="fu">DoSomething</span><span class="op">(</span><span class="bu">String</span> str_param<span class="op">,</span> <span class="dt">int</span> a = <span class="dv">10</span><span class="op">,</span> <span class="dt">int</span> b = <span class="dv">20</span><span class="op">);</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoSomething</span><span class="op">(</span><span class="bu">String</span> str_param<span class="op">,</span> <span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Here we declare the function DoSomething which has one obligatory parameter <code>str_param</code> and two optional parameters <code>a</code> and <code>b</code>. Notice that first we have a <code>import</code> declaration which ends up with a semi-colon, and then have the same function declared again but this time with its body.</p>
+<p>This function may be called by passing either 1, 2 or all 3 of its parameter values. Each optional parameter, which value was not passed, will assume its default value instead:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// assumes a = 10, b = 20</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>DoSomething<span class="op">(</span><span class="st">&quot;text&quot;</span><span class="op">);</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">// assumes b = 20</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>DoSomething<span class="op">(</span><span class="st">&quot;text&quot;</span><span class="op">,</span> <span class="dv">30</span><span class="op">);</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">// all parameters are passed explicitly</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>DoSomething<span class="op">(</span><span class="st">&quot;text&quot;</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span></code></pre></div>
+<p>The second restriction is that only literal integer numbers can be used as default values. In case you want to have a optional parameter which is a String or a pointer to object (like <code>Character*</code>), then you are only allowed to use value '0', which will be interpreted as <code>null</code> in this circumstance. For example:</p>
+<pre><code>import void PassCharacterOrNot(Character *thisChar = 0);</code></pre>
+<p>Both of these restrictions are the limitations of the script compiler, and may in theory be removed in the future versions.</p>
+<p>See also: <a href="ImportingFunctionsAndVariables.html">Importing functions in other scripts</a></p>
+</section>
+<section id="returning-values" class="level3">
+<h3><a href="#returning-values">Returning values</a></h3>
+<p>A function can return a value. This may be a result of its calculation, retrieved data, or an indication of its success or failure to do something. The return value must have a <em>type</em>, but does not have a name. It can be of same range of types that function parameters can be, but also can be <code>void</code> if nothing is returned.</p>
+<p>When declaring a function, the type of its returned value is placed before function's name (instead of keyword <code>function</code>). When this is done, the function can (actually - should) use <code>return</code> command to tell what value it returns.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">SumTwoNumbers</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This function calculates the sum of two integer parameters and returns the result. As the function is declared as <code>int</code>, this means we should expect it to return a value of that type. Notice that <code>return</code> command is followed by expression that results in a integer.</p>
+<p>The function must return a value of its type whenever a <code>return</code> command is used within. It may return <em>different</em> values in different cases, but they all must be of the same type. For example:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="fu">IsPlayerStandingAtPosition</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span> <span class="op">==</span> x <span class="op">&amp;&amp;</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span> <span class="op">==</span> y<span class="op">)</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The <code>return</code> expression can be virtually anything: a literal number, a variable, arithmetic operation, even another function's call; but in the end the final value should be of correct type:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">SumTwoNumbersAndDivideByThird</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">,</span> <span class="dt">int</span> c<span class="op">)</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> SumTwoNumbers<span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">/</span> c<span class="op">;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The function that has a return type of anything besides <code>void</code> can have its return value assigned to a variable, or used in a expression, just like any regular value. This is done by calling a function:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Variable &#39;sum&#39; will have a result of SumTwoNumbers</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sum = SumTwoNumbers<span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Variable &#39;sum2&#39; will have a result of arithmetic operation,</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">// where result of SumTwoNumbers is multiplied by 2</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sum2 = SumTwoNumbers<span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">)</span> <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">// We can do any kind of calculative expression with the function calls</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> weird_number = <span class="op">(</span>SumTwoNumbers<span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">)</span> <span class="op">*</span> <span class="dv">2</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span>SumTwoNumbers<span class="op">(</span><span class="dv">30</span><span class="op">,</span> <span class="dv">40</span><span class="op">)</span> <span class="op">/</span> <span class="dv">5</span><span class="op">)</span> <span class="op">-</span> <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
+<p>The <code>void</code> type is special, it means that function returns no value. This is a preferred contemporary way to declare a function that does not return any result, instead of a old classic <code>function</code>. Please note that even though the function is declared with <code>void</code> type, it may still use <code>return</code> command whenever necessary, just without any further expression.</p>
+<p>To summarize, function's return types can be:</p>
+<ul>
+<li><code>void</code>, which means no return value.</li>
+<li><code>function</code>, which is a old-style way to say that function may either return nothing, or return integer (not recommended to use).</li>
+<li>Any simple numeric type: <code>int</code>, <code>float</code>, <code>char</code>, <code>short</code>, <code>bool</code>.</li>
+<li>Any managed pointer type: <code>Character*</code>, <code>Object*</code>, and so forth, as well as pointers of your own <a href="ScriptManagedStructs.html"><code>managed structs</code></a>.</li>
+<li><code>String</code> type, which is secretly also a managed pointer type (because String is a managed object).</li>
+</ul>
+<p>Function's return types cannot be:</p>
+<ul>
+<li>Regular non-managed <a href="ScriptStructs.html">structs</a>: their instances cannot be passed out of the function, as AGS script does not support copying them.</li>
+<li>Functions.</li>
+</ul>
+</section>
+<section id="structs-functions" class="level3">
+<h3><a href="#structs-functions">Struct's functions</a></h3>
+<p>So far we've been talking about regular functions that are just part of the script. But functions can be part of the <code>struct</code> too. For example: <code>Character</code> struct has functions like <a href="Character.html#characterwalk"><code>Walk</code></a> or <a href="Character.html#charactersay"><code>Say</code></a>, <code>Game</code> struct has function <a href="Game.html#gamedoonceonly"><code>DoOnceOnly</code></a>, and so forth.</p>
+<p>If you write your own structs, you may as well add functions to them. For the detailed explanation please see <a href="ScriptStructs.html">Structs</a>;</p>
+</section>
+</section>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/ScriptFunctions.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 2f3d94ad97aebd64882c8db10e9943622aa8e4d7
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#functions" id="toc-functions">Functions</a>
+<ul>
+<li><a href="#functions-body" id="toc-functions-body">Function's body</a></li>
+<li><a href="#exiting-a-function" id="toc-exiting-a-function">Exiting a function</a></li>
+<li><a href="#calling-a-function" id="toc-calling-a-function">Calling a function</a></li>
+<li><a href="#functions-parameters" id="toc-functions-parameters">Function's parameters</a></li>
+<li><a href="#optional-parameters" id="toc-optional-parameters">Optional parameters</a></li>
+<li><a href="#returning-values" id="toc-returning-values">Returning values</a></li>
+<li><a href="#structs-functions" id="toc-structs-functions">Struct's functions</a></li>
+</ul></li>
+</ul>
+    </aside>
+  </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>
