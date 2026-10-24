@@ -668,7 +668,7 @@ eLocationObject     an object</code></pre>
 <section id="random" class="level3">
 <h3><a href="#random"><code>Random</code></a></h3>
 <div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span> <span class="op">(</span><span class="dt">int</span> max<span class="op">)</span></span></code></pre></div>
-<p>Returns a random number between 0 and MAX. This could be useful to do various effects in your game. MAX must be a positive value in range 0-32767.</p>
+<p>Returns a random number between 0 and MAX (inclusive). This could be useful to do various effects in your game. MAX must be a positive value in range 0-32767.</p>
 <p><strong>NOTE:</strong> Because of the way Random is implemented in AGS, the return value will never be higher than 32767.</p>
 <p><strong>NOTE:</strong> The range returned is inclusive - i.e. if you do Random(3); then it can return 0, 1, 2 or 3.</p>
 <p>Example:</p>
@@ -1162,7 +1162,7 @@ eSkipScriptOnly
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2f3d94ad97aebd64882c8db10e9943622aa8e4d7
+          Build: 2d891b350f4861e814432f67136e66d29ac748ed
         </p>
       </footer>
     </article>

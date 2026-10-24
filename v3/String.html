@@ -258,17 +258,30 @@
 <p><em>See also:</em> <a href="String.html#stringchars"><code>String.Chars</code></a>, <a href="String.html#stringreplace"><code>String.Replace</code></a></p>
 <hr />
 </section>
+<section id="stringreverse" class="level3">
+<h3><a href="#stringreverse"><code>String.Reverse</code></a></h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">.</span><span class="at">Reverse</span><span class="op">()</span></span></code></pre></div>
+<p>Creates a copy of this string, with all characters positioned in reverse order.</p>
+<p><strong>NOTE:</strong> This function performs a plain order reversal of characters, one by one, and does not care about characters or combinations of characters which may have a meaning in certain context only when they maintain their relative order. For example, punctuation chars will appear at the "wrong" side of the word; "\r\n" CRLF line ending sequence will become "\n\r", and so forth. If you need to keep certain sequences un-reversed, then you would have to script an additional processing either prior or after calling Reverse() function.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> original = <span class="st">&quot;Hello from the script!&quot;</span><span class="op">;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> reversed = original<span class="op">.</span><span class="at">Reverse</span><span class="op">();</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Old: %s, new: %s&quot;</span><span class="op">,</span> original<span class="op">,</span> reversed<span class="op">);</span></span></code></pre></div>
+<p>will display "Old: Hello from the script!, new: !tpircs eht morf olleH".</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
 <section id="stringstartswith" class="level3">
 <h3><a href="#stringstartswith"><code>String.StartsWith</code></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">String</span><span class="op">.</span><span class="at">StartsWith</span><span class="op">(</span>string lookForText<span class="op">,</span> optional <span class="dt">bool</span> caseSensitive<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">String</span><span class="op">.</span><span class="at">StartsWith</span><span class="op">(</span>string lookForText<span class="op">,</span> optional <span class="dt">bool</span> caseSensitive<span class="op">)</span></span></code></pre></div>
 <p>Returns <em>true</em> if this string starts with <em>lookForText</em>, or <em>false</em> if not.</p>
 <p><em>caseSensitive</em> is <em>false</em> by default, but you can set it to true so that the function will only return <em>true</em> for an exact-case match.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> myString = <span class="st">&quot;Hello from the script!&quot;</span><span class="op">;</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myString<span class="op">.</span><span class="at">StartsWith</span><span class="op">(</span><span class="st">&quot;hello&quot;</span><span class="op">))</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Starts with hello!&quot;</span><span class="op">);</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> myString = <span class="st">&quot;Hello from the script!&quot;</span><span class="op">;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myString<span class="op">.</span><span class="at">StartsWith</span><span class="op">(</span><span class="st">&quot;hello&quot;</span><span class="op">))</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Starts with hello!&quot;</span><span class="op">);</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display the "Starts with hello!" message.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="String.html#stringendswith"><code>String.EndsWith</code></a>, <a href="String.html#stringindexof"><code>String.IndexOf</code></a></p>
@@ -276,26 +289,26 @@
 </section>
 <section id="stringsubstring" class="level3">
 <h3><a href="#stringsubstring"><code>String.Substring</code></a></h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">.</span><span class="at">Substring</span><span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> length<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">.</span><span class="at">Substring</span><span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> length<span class="op">)</span></span></code></pre></div>
 <p>Returns part of the string, starting from character <em>index</em> and <em>length</em> characters long.</p>
 <p><em>index</em> is the initial character index, where 0 is the first character and (Length - 1) is the last. <em>length</em> specifies how many characters to retrieve.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> mystring = <span class="st">&quot;Hello World!&quot;</span><span class="op">;</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> substring = mystring<span class="op">.</span><span class="at">Substring</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Original: %s, Substring: %s&quot;</span><span class="op">,</span> mystring<span class="op">,</span> substring<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> mystring = <span class="st">&quot;Hello World!&quot;</span><span class="op">;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> substring = mystring<span class="op">.</span><span class="at">Substring</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Original: %s, Substring: %s&quot;</span><span class="op">,</span> mystring<span class="op">,</span> substring<span class="op">);</span></span></code></pre></div>
 <p>will display "Original: Hello World!, Substring: lo Wo".</p>
 <p><em>See also:</em> <a href="String.html#stringappend"><code>String.Append</code></a>, <a href="String.html#stringchars"><code>String.Chars</code></a></p>
 <hr />
 </section>
 <section id="stringtruncate" class="level3">
 <h3><a href="#stringtruncate"><code>String.Truncate</code></a></h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">.</span><span class="at">Truncate</span><span class="op">(</span><span class="dt">int</span> length<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">.</span><span class="at">Truncate</span><span class="op">(</span><span class="dt">int</span> length<span class="op">)</span></span></code></pre></div>
 <p>Returns a version of the string that has been truncated down to <em>length</em> characters.</p>
 <p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong> modify the original string.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> mystring = <span class="st">&quot;Hello World!&quot;</span><span class="op">;</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> truncated = mystring<span class="op">.</span><span class="at">Truncate</span><span class="op">(</span><span class="dv">4</span><span class="op">);</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Original: %s, Truncated: %s&quot;</span><span class="op">,</span> mystring<span class="op">,</span> truncated<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> mystring = <span class="st">&quot;Hello World!&quot;</span><span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> truncated = mystring<span class="op">.</span><span class="at">Truncate</span><span class="op">(</span><span class="dv">4</span><span class="op">);</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Original: %s, Truncated: %s&quot;</span><span class="op">,</span> mystring<span class="op">,</span> truncated<span class="op">);</span></span></code></pre></div>
 <p>will display "Original: Hello World!, Truncated: Hell".</p>
 <p><em>See also:</em> <a href="String.html#stringappend"><code>String.Append</code></a>, <a href="String.html#stringsubstring"><code>String.Substring</code></a></p>
 <hr />
@@ -303,28 +316,28 @@
 <section id="stringuppercase" class="level3">
 <h3><a href="#stringuppercase"><code>String.UpperCase</code></a></h3>
 <p><em>(Formerly known as global function <code>StrToUpperCase</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">.</span><span class="at">UpperCase</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">.</span><span class="at">UpperCase</span><span class="op">()</span></span></code></pre></div>
 <p>Returns an upper case version of the specified string.</p>
 <p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong> modify the original string.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> mystring = <span class="st">&quot;THIS is a test string&quot;</span><span class="op">;</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> uppercased = mystring<span class="op">.</span><span class="at">UpperCase</span><span class="op">();</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Old: %s, new: %s&quot;</span><span class="op">,</span> mystring<span class="op">,</span> uppercased<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> mystring = <span class="st">&quot;THIS is a test string&quot;</span><span class="op">;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> uppercased = mystring<span class="op">.</span><span class="at">UpperCase</span><span class="op">();</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Old: %s, new: %s&quot;</span><span class="op">,</span> mystring<span class="op">,</span> uppercased<span class="op">);</span></span></code></pre></div>
 <p>will display "Old: THIS is a test string, new: THIS IS A TEST STRING".</p>
 <p><em>See also:</em> <a href="String.html#stringlowercase"><code>String.LowerCase</code></a></p>
 <hr />
 </section>
 <section id="stringasfloat" class="level3">
 <h3><a href="#stringasfloat"><code>String.AsFloat</code></a></h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">float</span> <span class="bu">String</span><span class="op">.</span><span class="at">AsFloat</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">float</span> <span class="bu">String</span><span class="op">.</span><span class="at">AsFloat</span><span class="op">;</span></span></code></pre></div>
 <p>Converts the string into a float, and returns that value. Returns 0.0 if the string does not contain a number.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text1<span class="op">,</span> text2<span class="op">;</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> number1<span class="op">,</span>number2<span class="op">;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>text1 = <span class="st">&quot;57.362&quot;</span><span class="op">;</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>text2 = <span class="st">&quot;Hello&quot;</span><span class="op">;</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>number1 = text1<span class="op">.</span><span class="at">AsFloat</span><span class="op">;</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>number2 = text2<span class="op">.</span><span class="at">AsFloat</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text1<span class="op">,</span> text2<span class="op">;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> number1<span class="op">,</span>number2<span class="op">;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>text1 = <span class="st">&quot;57.362&quot;</span><span class="op">;</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>text2 = <span class="st">&quot;Hello&quot;</span><span class="op">;</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>number1 = text1<span class="op">.</span><span class="at">AsFloat</span><span class="op">;</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>number2 = text2<span class="op">.</span><span class="at">AsFloat</span><span class="op">;</span></span></code></pre></div>
 <p>will set number1 value to 57.362 and number2 value to 0.0 This function is useful for processing strings input from the user.</p>
 <p><strong>NOTE:</strong> To convert a float to a string, you can use the <a href="String.html#stringformat"><code>String.Format</code></a> command.</p>
 <p><em>See also:</em> <a href="Game.html#gameinputbox"><code>Game.InputBox</code></a>, <a href="String.html#stringasint"><code>String.AsInt</code></a>, <a href="String.html#stringformat"><code>String.Format</code></a></p>
@@ -333,16 +346,16 @@
 <section id="stringasint" class="level3">
 <h3><a href="#stringasint"><code>String.AsInt</code></a></h3>
 <p><em>(Formerly known as global function <code>StringToInt</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">String</span><span class="op">.</span><span class="at">AsInt</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">String</span><span class="op">.</span><span class="at">AsInt</span><span class="op">;</span></span></code></pre></div>
 <p>Converts the string into an integer, and returns that value. Returns zero if the string does not present a number.</p>
 <p><strong>NOTE:</strong> This operation takes just the leading sequence of the characters from the string, if it contains digits and other symbols which could be a part of number. If the string has the valid number only in the middle, it will not work.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text1<span class="op">,</span> text2<span class="op">;</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> number1<span class="op">,</span>number2<span class="op">;</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>text1 = <span class="st">&quot;53&quot;</span><span class="op">;</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>text2 = <span class="st">&quot;Hello&quot;</span><span class="op">;</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>number1 = text1<span class="op">.</span><span class="at">AsInt</span><span class="op">;</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>number2 = text2<span class="op">.</span><span class="at">AsInt</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text1<span class="op">,</span> text2<span class="op">;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> number1<span class="op">,</span>number2<span class="op">;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>text1 = <span class="st">&quot;53&quot;</span><span class="op">;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>text2 = <span class="st">&quot;Hello&quot;</span><span class="op">;</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>number1 = text1<span class="op">.</span><span class="at">AsInt</span><span class="op">;</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>number2 = text2<span class="op">.</span><span class="at">AsInt</span><span class="op">;</span></span></code></pre></div>
 <p>will set number1 value to 53 and number2 value to 0. This function is useful for processing strings input from the user.</p>
 <p><strong>NOTE:</strong> To convert an integer to a string, you can use the <a href="String.html#stringformat"><code>String.Format</code></a> command.</p>
 <p><em>See also:</em> <a href="Game.html#gameinputbox"><code>Game.InputBox</code></a>, <a href="String.html#stringasfloat"><code>String.AsFloat</code></a>, <a href="String.html#stringformat"><code>String.Format</code></a></p>
@@ -351,14 +364,14 @@
 <section id="stringchars" class="level3">
 <h3><a href="#stringchars"><code>String.Chars</code></a></h3>
 <p><em>(Formerly known as global function <code>StrGetCharAt</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">String</span><span class="op">.</span><span class="at">Chars</span><span class="op">[</span>position<span class="op">];</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">String</span><span class="op">.</span><span class="at">Chars</span><span class="op">[</span>position<span class="op">];</span></span></code></pre></div>
 <p>Returns the character at POSITION within the string.</p>
 <p>POSITION is the character index (where 0 is the first character, and the last allowable value is the Length minus 1).</p>
 <p>If POSITION is outside the string, this function returns 0.</p>
 <p><strong>NOTE:</strong> The <em>Chars</em> array is read-only. If you want to change one of the characters in the string, use <a href="String.html#stringreplacecharat"><code>String.ReplaceCharAt</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text = <span class="st">&quot;This is my string.&quot;</span><span class="op">;</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The 4th character is: %c&quot;</span><span class="op">,</span> text<span class="op">.</span><span class="at">Chars</span><span class="op">[</span><span class="dv">3</span><span class="op">]);</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text = <span class="st">&quot;This is my string.&quot;</span><span class="op">;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The 4th character is: %c&quot;</span><span class="op">,</span> text<span class="op">.</span><span class="at">Chars</span><span class="op">[</span><span class="dv">3</span><span class="op">]);</span></span></code></pre></div>
 <p>will display "The 4th character is: s".</p>
 <p><em>Compatibility:</em> This attribute returns an utf-8 char as <code>int</code> since <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="String.html#stringlength"><code>String.Length</code></a>, <a href="String.html#stringreplacecharat"><code>String.ReplaceCharAt</code></a></p>
@@ -367,11 +380,11 @@
 <section id="stringlength" class="level3">
 <h3><a href="#stringlength"><code>String.Length</code></a></h3>
 <p><em>(Formerly known as global function <code>StrLen</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">String</span><span class="op">.</span><span class="at">Length</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">String</span><span class="op">.</span><span class="at">Length</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the length of the string, in characters.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text = <span class="st">&quot;This is my string.&quot;</span><span class="op">;</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Length: %d&quot;</span><span class="op">,</span> text<span class="op">.</span><span class="at">Length</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text = <span class="st">&quot;This is my string.&quot;</span><span class="op">;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Length: %d&quot;</span><span class="op">,</span> text<span class="op">.</span><span class="at">Length</span><span class="op">);</span></span></code></pre></div>
 <p>will display "Length: 18".</p>
 </section>
 </section>
@@ -380,7 +393,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2f3d94ad97aebd64882c8db10e9943622aa8e4d7
+          Build: 2d891b350f4861e814432f67136e66d29ac748ed
         </p>
       </footer>
     </article>
@@ -400,6 +413,7 @@
 <li><a href="#stringlowercase" id="toc-stringlowercase"><code>String.LowerCase</code></a></li>
 <li><a href="#stringreplace" id="toc-stringreplace"><code>String.Replace</code></a></li>
 <li><a href="#stringreplacecharat" id="toc-stringreplacecharat"><code>String.ReplaceCharAt</code></a></li>
+<li><a href="#stringreverse" id="toc-stringreverse"><code>String.Reverse</code></a></li>
 <li><a href="#stringstartswith" id="toc-stringstartswith"><code>String.StartsWith</code></a></li>
 <li><a href="#stringsubstring" id="toc-stringsubstring"><code>String.Substring</code></a></li>
 <li><a href="#stringtruncate" id="toc-stringtruncate"><code>String.Truncate</code></a></li>
