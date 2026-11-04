@@ -102,9 +102,15 @@
 </section>
 <section id="guicontrolgetbyname" class="level3">
 <h3><a href="#guicontrolgetbyname"><code>GUIControl.GetByName</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">GUIControl</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p><strong>This function was renamed since AGS 4.0.0. See <a href="GUIControl.html#guicontrolgetbyscriptname"><code>GUIControl.GetByScriptName</code></a>.</strong></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<hr />
+</section>
+<section id="guicontrolgetbyscriptname" class="level3">
+<h3><a href="#guicontrolgetbyscriptname"><code>GUIControl.GetByScriptName</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">GUIControl</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
 <p>Returns a pointer to the GUI control with the specified script name, or null if it does not exist.</p>
-<p>Normally you do not need to use this, as there will be a automatically created global script variable for each control which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each control which got a script name. Where GetByScriptName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">ReadAndUpdateGUIControl</span><span class="op">()</span> <span class="op">{</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/guicontrol_info.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
@@ -119,7 +125,7 @@
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    input<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">GUIControl</span> <span class="op">*</span>controlToUpdate = <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>controlName<span class="op">);</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">GUIControl</span> <span class="op">*</span>controlToUpdate = <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>controlName<span class="op">);</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>controlToUpdate <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        controlToUpdate<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span>controlX<span class="op">,</span> controlY<span class="op">);</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;GUI control &#39;%s&#39; updated.&quot;</span><span class="op">,</span> controlName<span class="op">);</span></span>
@@ -128,7 +134,7 @@
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This is an example of a function to read the control information from a file previously created by AGS. The file contains the name of a control and it's position, the function reads it and updates the control.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolscriptname"><code>GUIControl.ScriptName</code></a>, <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a></p>
 <hr />
 </section>
@@ -428,11 +434,11 @@
 <h3><a href="#guicontrolscriptname"><code>GUIControl.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
 <p>Gets the script name of the GUI Control, which serves as a unique identifier, as set in the AGS Editor.</p>
-<p>This may be useful if you have a pointer to some dialog stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each control in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="GUIControl.html#guicontrolgetbyname">GUIControl.GetByName</a> function to retrieve the control by the previously saved script name.</p>
+<p>This may be useful if you have a pointer to some dialog stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each control in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="GUIControl.html#guicontrolgetbyscriptname">GUIControl.GetByScriptName</a> function to retrieve the control by the previously saved script name.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">ActivateControl</span><span class="op">(</span>const string controlName<span class="op">)</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">GUIControl</span><span class="op">*</span> control = <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>controlName<span class="op">);</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">GUIControl</span><span class="op">*</span> control = <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>controlName<span class="op">);</span></span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>control <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>        control<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Activated control: %s&quot;</span><span class="op">,</span> control<span class="op">.</span><span class="at">ScriptName</span><span class="op">);</span></span>
@@ -440,7 +446,7 @@
 <span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Activating a control by calling <code>ActivateControl("btnOptions")</code> will log its script name for debugging purposes and make it visible if it exists.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="GUIControl.html#guicontrolgetbyname"><code>GUIControl.GetByName</code></a>, <a href="GUIControl.html#guicontrolvisible"><code>GUIControl.Visible</code></a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolgetbyscriptname"><code>GUIControl.GetByScriptName</code></a>, <a href="GUIControl.html#guicontrolvisible"><code>GUIControl.Visible</code></a></p>
 <hr />
 </section>
 <section id="guicontrolshader" class="level3">
@@ -556,7 +562,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>
@@ -567,6 +573,7 @@
 <ul>
 <li><a href="#guicontrolgetatscreenxy" id="toc-guicontrolgetatscreenxy"><code>GUIControl.GetAtScreenXY</code></a></li>
 <li><a href="#guicontrolgetbyname" id="toc-guicontrolgetbyname"><code>GUIControl.GetByName</code></a></li>
+<li><a href="#guicontrolgetbyscriptname" id="toc-guicontrolgetbyscriptname"><code>GUIControl.GetByScriptName</code></a></li>
 <li><a href="#guicontrolbringtofront" id="toc-guicontrolbringtofront"><code>GUIControl.BringToFront</code></a></li>
 <li><a href="#guicontrolgetgraphicposition" id="toc-guicontrolgetgraphicposition"><code>GUIControl.GetGraphicPosition</code></a></li>
 <li><a href="#guicontrolgetgraphicboundbox" id="toc-guicontrolgetgraphicboundbox"><code>GUIControl.GetGraphicBoundBox</code></a></li>

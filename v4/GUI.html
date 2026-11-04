@@ -172,9 +172,15 @@
 </section>
 <section id="guigetbyname" class="level3">
 <h3><a href="#guigetbyname"><code>GUI.GetByName</code></a></h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">GUI</span><span class="op">*</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p><strong>This function was renamed since AGS 4.0.0. See <a href="GUI.html#guigetbyscriptname"><code>GUI.GetByScriptName</code></a>.</strong></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<hr />
+</section>
+<section id="guigetbyscriptname" class="level3">
+<h3><a href="#guigetbyscriptname"><code>GUI.GetByScriptName</code></a></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">GUI</span><span class="op">*</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
 <p>Returns a pointer to the GUI with the specified script name, or null if it does not exist.</p>
-<p>Normally you do not need to use this, as there will be a automatically created global script variable for each GUI which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each GUI which got a script name. Where GetByScriptName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">ReadGUIConfig</span><span class="op">()</span> <span class="op">{</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">File</span> <span class="op">*</span>file = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/guiconfig.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
@@ -187,7 +193,7 @@
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> x = file<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> y = file<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">GUI</span> <span class="op">*</span><span class="bu">gui</span> = <span class="bu">GUI</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>name<span class="op">);</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">GUI</span> <span class="op">*</span><span class="bu">gui</span> = <span class="bu">GUI</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>name<span class="op">);</span></span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">gui</span> <span class="op">!=</span> null<span class="op">)</span></span>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>            <span class="bu">gui</span><span class="op">.</span><span class="at">X</span> = x<span class="op">;</span></span>
@@ -198,7 +204,7 @@
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    file<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
 <span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Above function opens a custom file called "guiconfig.dat" for reading, reads gui positions, and tries to move game guis to these.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="GUI.html#guiscriptname"><code>GUI.ScriptName</code></a></p>
 <hr />
 </section>
@@ -461,9 +467,9 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <h3><a href="#guiscriptname"><code>GUI.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb53"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the script name of the gui, which serves as a unique identifier, as set in the AGS Editor.</p>
-<p>This may be useful if you have a pointer to some gui stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each gui in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="GUI.html#guigetbyname">GUI.GetByName</a> function to retrieve the gui by the previously saved script name.</p>
+<p>This may be useful if you have a pointer to some gui stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each gui in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="GUI.html#guigetbyscriptname">GUI.GetByScriptName</a> function to retrieve the gui by the previously saved script name.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="GUI.html#guigetbyname"><code>GUI.GetByName</code></a></p>
+<p><em>See also:</em> <a href="GUI.html#guigetbyscriptname"><code>GUI.GetByScriptName</code></a></p>
 <hr />
 </section>
 <section id="guitransparency" class="level3">
@@ -553,7 +559,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>
@@ -570,6 +576,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <li><a href="#guigetgraphicposition" id="toc-guigetgraphicposition"><code>GUI.GetGraphicPosition</code></a></li>
 <li><a href="#guigetgraphicboundbox" id="toc-guigetgraphicboundbox"><code>GUI.GetGraphicBoundBox</code></a></li>
 <li><a href="#guigetbyname" id="toc-guigetbyname"><code>GUI.GetByName</code></a></li>
+<li><a href="#guigetbyscriptname" id="toc-guigetbyscriptname"><code>GUI.GetByScriptName</code></a></li>
 <li><a href="#guiprocessclick" id="toc-guiprocessclick"><code>GUI.ProcessClick</code></a></li>
 <li><a href="#guisetposition" id="toc-guisetposition"><code>GUI.SetPosition</code></a></li>
 <li><a href="#guisetsize" id="toc-guisetsize"><code>GUI.SetSize</code></a></li>

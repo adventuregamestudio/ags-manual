@@ -92,27 +92,34 @@
 <section id="joystickname" class="level3">
 <h3><a href="#joystickname"><code>Joystick.Name</code></a></h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> Joystick<span class="op">.</span><span class="at">Name</span></span></code></pre></div>
-<p>Gets joystick name</p>
+<p>Gets joystick name.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="joystickisanybuttondown" class="level3">
+<h3><a href="#joystickisanybuttondown"><code>Joystick.IsAnyButtonDown</code></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsAnyButtonDown</span></span></code></pre></div>
+<p>Gets if any of the joystick's buttons is currently down.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="joystickisconnected" class="level3">
 <h3><a href="#joystickisconnected"><code>Joystick.IsConnected</code></a></h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsConnected</span></span></code></pre></div>
-<p>Checks if joystick is really connected</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsConnected</span></span></code></pre></div>
+<p>Checks if joystick is really connected.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="joystickisgamepad" class="level3">
 <h3><a href="#joystickisgamepad"><code>Joystick.IsGamepad</code></a></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsGamepad</span></span></code></pre></div>
-<p>Checks if joystick is a valid gamepad</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsGamepad</span></span></code></pre></div>
+<p>Checks if joystick is a valid gamepad.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="joystickisgamepadbuttondown" class="level3">
 <h3><a href="#joystickisgamepadbuttondown"><code>Joystick.IsGamepadButtonDown</code></a></h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsGamepadButtonDown</span><span class="op">(</span>eGamepad_Button button<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsGamepadButtonDown</span><span class="op">(</span>eGamepad_Button button<span class="op">)</span></span></code></pre></div>
 <p>Checks if a gamepad button is pressed, including dpad.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="StandardEnums.html#egamepad_button"><code>eGamepad_Button</code></a></p>
@@ -120,7 +127,7 @@
 </section>
 <section id="joystickgetgamepadaxis" class="level3">
 <h3><a href="#joystickgetgamepadaxis"><code>Joystick.GetGamepadAxis</code></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> Joystick<span class="op">.</span><span class="at">GetGamepadAxis</span><span class="op">(</span>eGamepad_Axis axis<span class="op">,</span> optional <span class="dt">float</span> dead_zone<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> Joystick<span class="op">.</span><span class="at">GetGamepadAxis</span><span class="op">(</span>eGamepad_Axis axis<span class="op">,</span> optional <span class="dt">float</span> dead_zone<span class="op">);</span></span></code></pre></div>
 <p>Gets gamepad axis or trigger, trigger only has positive values.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="StandardEnums.html#egamepad_axis"><code>eGamepad_Axis</code></a></p>
@@ -128,21 +135,21 @@
 </section>
 <section id="joystickgetaxis" class="level3">
 <h3><a href="#joystickgetaxis"><code>Joystick.GetAxis</code></a></h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> Joystick<span class="op">.</span><span class="at">GetAxis</span><span class="op">(</span><span class="dt">int</span> axis<span class="op">,</span> optional <span class="dt">float</span> dead_zone<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> Joystick<span class="op">.</span><span class="at">GetAxis</span><span class="op">(</span><span class="dt">int</span> axis<span class="op">,</span> optional <span class="dt">float</span> dead_zone<span class="op">)</span></span></code></pre></div>
 <p>Gets joystick axis or trigger, by index</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="joystickisbuttondown" class="level3">
 <h3><a href="#joystickisbuttondown"><code>Joystick.IsButtonDown</code></a></h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsButtonDown</span><span class="op">(</span><span class="dt">int</span> button<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> Joystick<span class="op">.</span><span class="at">IsButtonDown</span><span class="op">(</span><span class="dt">int</span> button<span class="op">)</span></span></code></pre></div>
 <p>Checks if a joystick button is pressed.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="joystickgethat" class="level3">
 <h3><a href="#joystickgethat"><code>Joystick.GetHat</code></a></h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>eJoystick_Hat Joystick<span class="op">.</span><span class="at">Joystick</span><span class="op">.</span><span class="at">GetHat</span><span class="op">(</span><span class="dt">int</span> hat<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>eJoystick_Hat Joystick<span class="op">.</span><span class="at">Joystick</span><span class="op">.</span><span class="at">GetHat</span><span class="op">(</span><span class="dt">int</span> hat<span class="op">)</span></span></code></pre></div>
 <p>Gets the direction a dpad from the joystick is pointing to.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="StandardEnums.html#ejoystick_hat"><code>eJoystick_Hat</code></a></p>
@@ -150,21 +157,21 @@
 </section>
 <section id="joystickaxiscount" class="level3">
 <h3><a href="#joystickaxiscount"><code>Joystick.AxisCount</code></a></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> Joystick<span class="op">.</span><span class="at">AxisCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> Joystick<span class="op">.</span><span class="at">AxisCount</span></span></code></pre></div>
 <p>Gets axis count from the joystick</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="joystickbuttoncount" class="level3">
 <h3><a href="#joystickbuttoncount"><code>Joystick.ButtonCount</code></a></h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> Joystick<span class="op">.</span><span class="at">ButtonCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> Joystick<span class="op">.</span><span class="at">ButtonCount</span></span></code></pre></div>
 <p>Gets button count from the joystick</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="joystickhatcount" class="level3">
 <h3><a href="#joystickhatcount"><code>Joystick.HatCount</code></a></h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> Joystick<span class="op">.</span><span class="at">HatCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> Joystick<span class="op">.</span><span class="at">HatCount</span></span></code></pre></div>
 <p>Gets hat count from the joystick</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 </section>
@@ -174,7 +181,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>
@@ -186,6 +193,7 @@
 <li><a href="#joystickjoystickcount" id="toc-joystickjoystickcount"><code>Joystick.JoystickCount</code></a></li>
 <li><a href="#joystickjoysticks" id="toc-joystickjoysticks"><code>Joystick.Joysticks</code></a></li>
 <li><a href="#joystickname" id="toc-joystickname"><code>Joystick.Name</code></a></li>
+<li><a href="#joystickisanybuttondown" id="toc-joystickisanybuttondown"><code>Joystick.IsAnyButtonDown</code></a></li>
 <li><a href="#joystickisconnected" id="toc-joystickisconnected"><code>Joystick.IsConnected</code></a></li>
 <li><a href="#joystickisgamepad" id="toc-joystickisgamepad"><code>Joystick.IsGamepad</code></a></li>
 <li><a href="#joystickisgamepadbuttondown" id="toc-joystickisgamepadbuttondown"><code>Joystick.IsGamepadButtonDown</code></a></li>

@@ -118,11 +118,11 @@
 <p><strong>IMPORTANT:</strong> So far so good, but there's still one thing that must be told, and that one is a bit of a downer. Unlike other variables, which always have some data, pointers may have a state where they do not point to any object. This kind of value is defined by a keyword <code>null</code>, and pointers in this state are called "null pointer". The problem with "null pointers" is that trying to use object's data or functions with them would result in program error. Good news is that you may find this out, comparing them to null. If you have a custom pointer variable, which in theory (according to your script's logic) may happen to not be assigned, then it's best to check if it's null or not before using it.</p>
 <p>Suppose you want to find a character under a mouse and display their name on a GUI label:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">*</span> chUnderMouse = <span class="bu">Character</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>lblCharacterName<span class="op">.</span><span class="at">Text</span> = chUnderMouse<span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>lblCharacterName<span class="op">.</span><span class="at">Text</span> = chUnderMouse<span class="op">.</span><span class="at">DisplayName</span><span class="op">;</span></span></code></pre></div>
 <p>What would happen if there's no character under mouse? Character.GetAtScreenXY will return "null" value, it gets assigned to chUnderMouse, and as soon as program tries to get character's name, it will throw an error, because it cannot get Name from "nothing". This is how we prevent this:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">*</span> chUnderMouse = <span class="bu">Character</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>chUnderMouse <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    lblCharacterName<span class="op">.</span><span class="at">Text</span> = chUnderMouse<span class="op">.</span><span class="at">Name</span><span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    lblCharacterName<span class="op">.</span><span class="at">Text</span> = chUnderMouse<span class="op">.</span><span class="at">DisplayName</span><span class="op">;</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>So, that concludes our introduction to pointers. Hopefully you've got an understanding of what they are and what they do; if there's anything you can't work out, feel free to ask on the Technical forums.</p>
 <hr />
@@ -162,7 +162,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>

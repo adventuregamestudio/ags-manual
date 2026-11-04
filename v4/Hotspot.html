@@ -86,7 +86,7 @@
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display the message if the player character is over the hPressurePlate hotspot.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions. HitTestOptions parameter is supported since <strong>AGS 3.6.3</strong>.</p>
-<p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Game.html#gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="hotspotgetatscreenxy" class="level3">
@@ -104,26 +104,32 @@
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Mouse not on a hotspot&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will display a message depending on what the mouse is on.</p>
 <p><em>Compatibility:</em> HitTestOptions parameter is supported since <strong>AGS 3.6.3</strong>.</p>
-<p><em>See also:</em> <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Game.html#gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="hotspotgetbyname" class="level3">
 <h3><a href="#hotspotgetbyname"><code>Hotspot.GetByName</code></a></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Hotspot</span><span class="op">*</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p><strong>This function was renamed since AGS 4.0.0. See <a href="Hotspot.html#hotspotgetbyscriptname"><code>Hotspot.GetByScriptName</code></a>.</strong></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<hr />
+</section>
+<section id="hotspotgetbyscriptname" class="level3">
+<h3><a href="#hotspotgetbyscriptname"><code>Hotspot.GetByScriptName</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Hotspot</span><span class="op">*</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
 <p>Returns a pointer to the Hotspot with the specified script name, or null if it does not exist.</p>
-<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Hotspot which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Hotspot which got a script name. Where GetByScriptName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">OpenDoor</span><span class="op">(</span><span class="bu">Object</span> <span class="op">*</span>obj<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    obj<span class="op">.</span><span class="at">SetView</span><span class="op">(</span>VDOORANIMATION<span class="op">);</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    obj<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> exitName = obj<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;LinkedExit&quot;</span><span class="op">);</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Hotspot</span><span class="op">*</span> exitHotspot = <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>exitName<span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Hotspot</span><span class="op">*</span> exitHotspot = <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>exitName<span class="op">);</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>exitHotspot <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        exitHotspot<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">true</span><span class="op">;</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Animates a "door" object, retrieves "exit" hotspot related to that door, and enables it.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotscriptname"><code>Hotspot.ScriptName</code></a></p>
 <hr />
 </section>
@@ -220,54 +226,57 @@
 <p><em>See also:</em> <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Hotspot.html#hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a>, <a href="Object.html#objectruninteraction"><code>Object.RunInteraction</code></a></p>
 <hr />
 </section>
+<section id="hotspotdisplayname" class="level3">
+<h3><a href="#hotspotdisplayname"><code>Hotspot.DisplayName</code></a></h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">DisplayName</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the name of the hotspot. This is a human-readable name (description), not a script name.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot %s&#39;s name is %s.&quot;</span><span class="op">,</span> hDoorway<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> hDoorway<span class="op">.</span><span class="at">DisplayName</span><span class="op">);</span></span></code></pre></div>
+<p>will retrieve and then display hotspot 3's name.</p>
+<p><em>See also:</em> <a href="Game.html#gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a></p>
+<hr />
+</section>
 <section id="hotspotenabled" class="level3">
 <h3><a href="#hotspotenabled"><code>Hotspot.Enabled</code></a></h3>
 <p><em>(Formerly known as <code>DisableHotspot</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>EnableHotspot</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
 <p>Enables/disables the specified hotspot. If you set this to false, then all areas of the screen that were previously made up of the hotspot now act as type 0 (no hotspot). You can turn the hotspot back on later by setting this back to true.</p>
 <p>This setting is persisted in-game; that is, it will not be reset when the player re-enters the room.</p>
 <p>The default value of this property is always <em>true</em>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>hBrownTree<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>hBrownTree<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>will disable the hBrownTree hotspot.</p>
 <p><em>See also:</em> <a href="Region.html#regionenabled"><code>Region.Enabled</code></a>, <a href="Globalfunctions_Room.html#removewalkablearea"><code>RemoveWalkableArea</code></a>, <a href="Globalfunctions_Room.html#restorewalkablearea"><code>RestoreWalkableArea</code></a></p>
 <hr />
 </section>
 <section id="hotspotid" class="level3">
 <h3><a href="#hotspotid"><code>Hotspot.ID</code></a></h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the hotspot number of this hotspot. This allows you to interoperate with old script using the number-based hotspot functions.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot hDoor is hotspot number %d.&quot;</span><span class="op">,</span> hDoor<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot 3 is number %d.&quot;</span><span class="op">,</span> <span class="bu">hotspot</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot hDoor is hotspot number %d.&quot;</span><span class="op">,</span> hDoor<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot 3 is number %d.&quot;</span><span class="op">,</span> <span class="bu">hotspot</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
 <p>displays hDoor's hotspot number, and then displays hotspot 3's number (which will be 3).</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a></p>
 <hr />
 </section>
 <section id="hotspotname" class="level3">
 <h3><a href="#hotspotname"><code>Hotspot.Name</code></a></h3>
-<p><em>(Formerly known as <code>GetHotspotName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Hotspot.GetName</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
-<p>Gets/sets the name of the hotspot. This is a human-readable name (description), not a script name.</p>
-<p><strong>NOTE:</strong> This property may be changed only in AGS versions 3.6.0 or higher. It is read-only in earlier versions.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot %s&#39;s name is %s.&quot;</span><span class="op">,</span> hDoorway<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> hDoorway<span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
-<p>will retrieve and then display hotspot 3's name.</p>
-<p><em>See also:</em> <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
+<p><strong>This property was renamed since AGS 4.0.0. See <a href="Hotspot.html#hotspotname"><code>Hotspot.DisplayName</code></a>.</strong></p>
 <hr />
 </section>
 <section id="hotspotscriptname" class="level3">
 <h3><a href="#hotspotscriptname"><code>Hotspot.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
 <p>Gets the script name of the hotspot, which serves as a unique identifier, as set in the AGS Editor.</p>
-<p>This may be useful if you have a pointer to some hotspot stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each hotspot in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Hotspot.html#hotspotgetbyname">Hotspot.GetByName</a> function to retrieve the hotspot by the previously saved script name.</p>
+<p>This may be useful if you have a pointer to some hotspot stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each hotspot in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Hotspot.html#hotspotgetbyscriptname">Hotspot.GetByScriptName</a> function to retrieve the hotspot by the previously saved script name.</p>
 <p>Example:</p>
 <pre><code>void InteractHotspot(Hotspot *h) {
     System.Log(eLogInfo, &quot;Interacted with hotspot %s&quot;, h.ScriptName);
     h.RunInteraction(eModeInteract);
 }</code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Hotspot.html#hotspotgetbyname"><code>Hotspot.GetByName</code></a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgetbyscriptname"><code>Hotspot.GetByScriptName</code></a></p>
 <hr />
 </section>
 <section id="hotspotwalktox" class="level3">
@@ -297,7 +306,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>
@@ -309,6 +318,7 @@
 <li><a href="#hotspotgetatroomxy" id="toc-hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a></li>
 <li><a href="#hotspotgetatscreenxy" id="toc-hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a></li>
 <li><a href="#hotspotgetbyname" id="toc-hotspotgetbyname"><code>Hotspot.GetByName</code></a></li>
+<li><a href="#hotspotgetbyscriptname" id="toc-hotspotgetbyscriptname"><code>Hotspot.GetByScriptName</code></a></li>
 <li><a href="#hotspotgetdrawingsurface" id="toc-hotspotgetdrawingsurface"><code>Hotspot.GetDrawingSurface</code></a></li>
 <li><a href="#hotspotgetproperty" id="toc-hotspotgetproperty"><code>Hotspot.GetProperty</code></a></li>
 <li><a href="#hotspotgettextproperty" id="toc-hotspotgettextproperty"><code>Hotspot.GetTextProperty</code></a></li>
@@ -316,6 +326,7 @@
 <li><a href="#hotspotsettextproperty" id="toc-hotspotsettextproperty"><code>Hotspot.SetTextProperty</code></a></li>
 <li><a href="#hotspotisinteractionavailable" id="toc-hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a></li>
 <li><a href="#hotspotruninteraction" id="toc-hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></li>
+<li><a href="#hotspotdisplayname" id="toc-hotspotdisplayname"><code>Hotspot.DisplayName</code></a></li>
 <li><a href="#hotspotenabled" id="toc-hotspotenabled"><code>Hotspot.Enabled</code></a></li>
 <li><a href="#hotspotid" id="toc-hotspotid"><code>Hotspot.ID</code></a></li>
 <li><a href="#hotspotname" id="toc-hotspotname"><code>Hotspot.Name</code></a></li>

@@ -116,7 +116,7 @@
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display the message if the object oBullet is over the object oWall.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions. HitTestOptions parameter is supported since <strong>AGS 3.6.3</strong>.</p>
-<p><em>See also:</em> <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
+<p><em>See also:</em> <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Game.html#gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="objectgetatscreenxy" class="level3">
@@ -132,21 +132,27 @@
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display the message if there is the object oRock under the mouse cursor.</p>
 <p><em>Compatibility:</em> HitTestOptions parameter is supported since <strong>AGS 3.6.3</strong>.</p>
-<p><em>See also:</em> <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
+<p><em>See also:</em> <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Game.html#gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="objectgetbyname" class="level3">
 <h3><a href="#objectgetbyname"><code>Object.GetByName</code></a></h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Object</span><span class="op">*</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p><strong>This function was renamed since AGS 4.0.0. See <a href="Object.html#objectgetbyscriptname"><code>Object.GetByScriptName</code></a>.</strong></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<hr />
+</section>
+<section id="objectgetbyscriptname" class="level3">
+<h3><a href="#objectgetbyscriptname"><code>Object.GetByScriptName</code></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Object</span><span class="op">*</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
 <p>Returns a pointer to the Object with the specified script name, or null if it does not exist.</p>
-<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Object which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Object which got a script name. Where GetByScriptName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventEnterRoomBeforeFadein</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> hauntedObjectName = <span class="bu">player</span><span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;haunted-object&quot;</span><span class="op">);</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Object</span><span class="op">*</span> hauntedObject = <span class="bu">Object</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>hauntedObjectName<span class="op">);</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Object</span><span class="op">*</span> hauntedObject = <span class="bu">Object</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>hauntedObjectName<span class="op">);</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>hauntedObject <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Do something special if the room has an object the player haunts</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      hauntedObject<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">50</span><span class="op">;</span></span>
@@ -155,7 +161,7 @@
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>In this example, the player has a custom property that stores the script name of room objects it's haunted by, and if a room has said object, that object becomes haunted - in the example it just becomes "ghostly": non-clickable and transparent.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectscriptname"><code>Object.ScriptName</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a></p>
 <hr />
 </section>
@@ -529,20 +535,30 @@
 <p><em>See also:</em> <a href="Object.html#objectvisible"><code>Object.Visible</code></a>, <a href="Character.html#characterclickable"><code>Character.Clickable</code></a>, <a href="Hotspot.html#hotspotenabled"><code>Hotspot.Enabled</code></a>, <a href="Region.html#regionenabled"><code>Region.Enabled</code></a>, <a href="Globalfunctions_Room.html#removewalkablearea"><code>RemoveWalkableArea</code></a>, <a href="Globalfunctions_Room.html#restorewalkablearea"><code>RestoreWalkableArea</code></a></p>
 <hr />
 </section>
+<section id="objectdisplayname" class="level3">
+<h3><a href="#objectdisplayname"><code>Object.DisplayName</code></a></h3>
+<div class="sourceCode" id="cb61"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Object</span><span class="op">.</span><span class="at">DisplayName</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the name of the object. This is a human-readable name (description), not a script name.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;oDoor&#39;s name is %s.&quot;</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">DisplayName</span><span class="op">);</span></span></code></pre></div>
+<p>will retrieve and then display object oDoor's description.</p>
+<p><em>See also:</em> <a href="Game.html#gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a></p>
+<hr />
+</section>
 <section id="objectenabled" class="level3">
 <h3><a href="#objectenabled"><code>Object.Enabled</code></a></h3>
-<div class="sourceCode" id="cb61"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
 <p>Gets/sets whether the object will be drawn and updated during the game update.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="objectframe" class="level3">
 <h3><a href="#objectframe"><code>Object.Frame</code></a></h3>
-<div class="sourceCode" id="cb62"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Frame</span></span></code></pre></div>
 <p>Gets the frame number that the object is currently set to. If the object is not currently assigned a view, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
 <p>This property is read-only. To change the frame, use the animation functions.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object oDoor&#39;s frame is currently %d.&quot;</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">Frame</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object oDoor&#39;s frame is currently %d.&quot;</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">Frame</span><span class="op">);</span></span></code></pre></div>
 <p>will display the oDoor object's current frame number</p>
 <p><em>SeeAlso:</em> <a href="Object.html#objectgraphic"><code>Object.Graphic</code></a>, <a href="Object.html#objectloop"><code>Object.Loop</code></a>, <a href="Object.html#objectview"><code>Object.View</code></a></p>
 <hr />
@@ -550,22 +566,22 @@
 <section id="objectgraphic" class="level3">
 <h3><a href="#objectgraphic"><code>Object.Graphic</code></a></h3>
 <p><em>(Formerly known as <code>GetObjectGraphic</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetObjectGraphic</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Graphic</span></span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Graphic</span></span></code></pre></div>
 <p>Gets/sets the sprite slot number that the object is currently displayed as. You can get the slot number from the Sprite Manager. If the object is currently animating (from an Animate command) and you change the Graphic, then the animation will be stopped.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">Graphic</span> = <span class="dv">100</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">Graphic</span> = <span class="dv">100</span><span class="op">;</span></span></code></pre></div>
 <p>will change the object oDoor's image to the image stored in the sprite manager's slot 100.</p>
 <p><em>See also:</em> <a href="Object.html#objectsetview"><code>Object.SetView</code></a></p>
 <hr />
 </section>
 <section id="objectgraphicanchorx" class="level3">
 <h3><a href="#objectgraphicanchorx"><code>Object.GraphicAnchorX</code></a></h3>
-<div class="sourceCode" id="cb66"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicAnchorX</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicAnchorX</span></span></code></pre></div>
 <p>Gets/sets the object's sprite anchor X position.</p>
 <p>The sprite anchor is a alignment of a sprite's image relative to the object's position. It's depicted in a fractional value between 0.0 and 1.0, inclusive, where 0.0 means that the sprite is aligned by its left side, 1.0 means that the sprite is aligned by its right side, and any value in between defines a proportional part of a sprite displayed to the left from object's pos. For example, value of 0.3 means that a sprite is shifted by one third to the left from object's coordinate.</p>
 <p>The default object's graphic anchor is (x: 0.0, y: 1.0) which corresponds to left-bottom alignment.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">GraphicAnchorX</span> = <span class="fl">1.0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">GraphicAnchorX</span> = <span class="fl">1.0</span><span class="op">;</span></span></code></pre></div>
 <p>will align the sprite right horizontally.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicanchory"><code>Object.GraphicAnchorY</code></a>, <a href="Object.html#objectgraphicoffsetx"><code>Object.GraphicOffsetX</code></a>, <a href="Object.html#objectgraphicoffsety"><code>Object.GraphicOffsetY</code></a></p>
@@ -573,12 +589,12 @@
 </section>
 <section id="objectgraphicanchory" class="level3">
 <h3><a href="#objectgraphicanchory"><code>Object.GraphicAnchorY</code></a></h3>
-<div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicAnchorY</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicAnchorY</span></span></code></pre></div>
 <p>Gets/sets the object's sprite anchor Y position.</p>
 <p>The sprite anchor is a alignment of a sprite's image relative to the object's position. It's depicted in a fractional value between 0.0 and 1.0, inclusive, where 0.0 means that the sprite is aligned by its top side, 1.0 means that the sprite is aligned by its bottom side, and any value in between defines a proportional part of a sprite displayed above the object's pos. For example, value of 0.3 means that a sprite is shifted by one third above from object's coordinate.</p>
 <p>The default object's graphic anchor is (x: 0.0, y: 1.0) which corresponds to left-bottom alignment.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>oBox<span class="op">.</span><span class="at">GraphicAnchorY</span> = <span class="fl">0.5</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>oBox<span class="op">.</span><span class="at">GraphicAnchorY</span> = <span class="fl">0.5</span><span class="op">;</span></span></code></pre></div>
 <p>will center the sprite vertically.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicanchorx"><code>Object.GraphicAnchorX</code></a>, <a href="Object.html#objectgraphicoffsetx"><code>Object.GraphicOffsetX</code></a>, <a href="Object.html#objectgraphicoffsety"><code>Object.GraphicOffsetY</code></a></p>
@@ -586,7 +602,7 @@
 </section>
 <section id="objectgraphicoffsetx" class="level3">
 <h3><a href="#objectgraphicoffsetx"><code>Object.GraphicOffsetX</code></a></h3>
-<div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicOffsetX</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicOffsetX</span></span></code></pre></div>
 <p>Gets/sets the object's sprite relative offset on X axis, in pixels.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicanchorx"><code>Object.GraphicAnchorX</code></a>, <a href="Object.html#objectgraphicanchory"><code>Object.GraphicAnchorY</code></a>, <a href="Object.html#objectgraphicoffsety"><code>Object.GraphicOffsetY</code></a></p>
@@ -594,7 +610,7 @@
 </section>
 <section id="objectgraphicoffsety" class="level3">
 <h3><a href="#objectgraphicoffsety"><code>Object.GraphicOffsetY</code></a></h3>
-<div class="sourceCode" id="cb71"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicOffsetY</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicOffsetY</span></span></code></pre></div>
 <p>Gets/sets the object's sprite relative offset on Y axis, in pixels.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicanchorx"><code>Object.GraphicAnchorX</code></a>, <a href="Object.html#objectgraphicanchory"><code>Object.GraphicAnchorY</code></a>, <a href="Object.html#objectgraphicoffsetx"><code>Object.GraphicOffsetX</code></a></p>
@@ -602,11 +618,11 @@
 </section>
 <section id="objectgraphicpivotx" class="level3">
 <h3><a href="#objectgraphicpivotx"><code>Object.GraphicPivotX</code></a></h3>
-<div class="sourceCode" id="cb72"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicPivotX</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicPivotX</span></span></code></pre></div>
 <p>Gets/sets the object's sprite pivot (rotation center) X position. The pivot is depicted in a fractional value between 0.0 and 1.0, inclusive, where 0.0 corresponds to the sprite's left side, 1.0 corresponds to the sprite's right side, and any value in between means a proportional distance from the sprite's left edge. For example, value of 0.3 means that a sprite is rotated around the point which is one third inside the sprite horizontally counting from left edge.</p>
 <p>The default object's sprite pivot is (x: 0.5, y: 0.5) which corresponds to the sprite's center.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>oBox<span class="op">.</span><span class="at">GraphicPivotX</span> = <span class="fl">1.0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>oBox<span class="op">.</span><span class="at">GraphicPivotX</span> = <span class="fl">1.0</span><span class="op">;</span></span></code></pre></div>
 <p>will set the pivot to the rightmost sprite's edge.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicpivoty"><code>Object.GraphicPivotY</code></a>, <a href="Object.html#objectgraphicpivotoffsetx"><code>Object.GraphicPivotOffsetX</code></a>, <a href="Object.html#objectgraphicpivotoffsety"><code>Object.GraphicPivotOffsetY</code></a>, <a href="Object.html#objectgraphicrotation"><code>Object.GraphicRotation</code></a></p>
@@ -614,11 +630,11 @@
 </section>
 <section id="objectgraphicpivoty" class="level3">
 <h3><a href="#objectgraphicpivoty"><code>Object.GraphicPivotY</code></a></h3>
-<div class="sourceCode" id="cb74"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicPivotY</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicPivotY</span></span></code></pre></div>
 <p>Gets/sets the object's sprite pivot (rotation center) Y position. The pivot is depicted in a fractional value between 0.0 and 1.0, inclusive, where 0.0 corresponds to the sprite's top side, 1.0 corresponds to the sprite's bottom side, and any value in between means a proportional distance from the sprite's top edge. For example, value of 0.3 means that a sprite is rotated around the point which is one third inside the sprite vertically counting from top edge.</p>
 <p>The default object's sprite pivot is (x: 0.5, y: 0.5) which corresponds to the sprite's center.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>oBox<span class="op">.</span><span class="at">GraphicPivotY</span> = <span class="fl">0.0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>oBox<span class="op">.</span><span class="at">GraphicPivotY</span> = <span class="fl">0.0</span><span class="op">;</span></span></code></pre></div>
 <p>will set the pivot to the topmost sprite's edge.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicpivotx"><code>Object.GraphicPivotX</code></a>, <a href="Object.html#objectgraphicpivotoffsetx"><code>Object.GraphicPivotOffsetX</code></a>, <a href="Object.html#objectgraphicpivotoffsety"><code>Object.GraphicPivotOffsetY</code></a>, <a href="Object.html#objectgraphicrotation"><code>Object.GraphicRotation</code></a></p>
@@ -626,7 +642,7 @@
 </section>
 <section id="objectgraphicpivotoffsetx" class="level3">
 <h3><a href="#objectgraphicpivotoffsetx"><code>Object.GraphicPivotOffsetX</code></a></h3>
-<div class="sourceCode" id="cb76"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicPivotOffsetX</span></span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicPivotOffsetX</span></span></code></pre></div>
 <p>Gets/sets the object's sprite pivot relative offset on X axis, in pixels. This offset is combined with the <a href="Object.html#objectgraphicpivotx">GraphicPivotX</a> property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicpivotx"><code>Object.GraphicPivotX</code></a>, <a href="Object.html#objectgraphicpivoty"><code>Object.GraphicPivotY</code></a>, <a href="Object.html#objectgraphicpivotoffsety"><code>Object.GraphicPivotOffsetY</code></a>, <a href="Object.html#objectgraphicrotation"><code>Object.GraphicRotation</code></a></p>
@@ -634,7 +650,7 @@
 </section>
 <section id="objectgraphicpivotoffsety" class="level3">
 <h3><a href="#objectgraphicpivotoffsety"><code>Object.GraphicPivotOffsetY</code></a></h3>
-<div class="sourceCode" id="cb77"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicPivotOffsetY</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicPivotOffsetY</span></span></code></pre></div>
 <p>Gets/sets the object's sprite pivot relative offset on Y axis, in pixels. This offset is combined with the <a href="Object.html#objectgraphicpivoty">GraphicPivotY</a> property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicpivotx"><code>Object.GraphicPivotX</code></a>, <a href="Object.html#objectgraphicpivoty"><code>Object.GraphicPivotY</code></a>, <a href="Object.html#objectgraphicpivotoffsetx"><code>Object.GraphicPivotOffsetX</code></a>, <a href="Object.html#objectgraphicrotation"><code>Object.GraphicRotation</code></a></p>
@@ -642,7 +658,7 @@
 </section>
 <section id="objectgraphicrotation" class="level3">
 <h3><a href="#objectgraphicrotation"><code>Object.GraphicRotation</code></a></h3>
-<div class="sourceCode" id="cb78"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicRotation</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GraphicRotation</span></span></code></pre></div>
 <p>Gets/sets the object's sprite rotation in degrees, clockwise.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectgraphicpivotx"><code>Object.GraphicPivotX</code></a>, <a href="Object.html#objectgraphicpivoty"><code>Object.GraphicPivotY</code></a>, <a href="Object.html#objectgraphicpivotoffsetx"><code>Object.GraphicPivotOffsetX</code></a>, <a href="Object.html#objectgraphicpivotoffsety"><code>Object.GraphicPivotOffsetY</code></a>, <a href="Object.html#objectgraphicrotation"><code>Object.GraphicRotation</code></a></p>
@@ -650,7 +666,7 @@
 </section>
 <section id="objecthasexplicitlight" class="level3">
 <h3><a href="#objecthasexplicitlight"><code>Object.HasExplicitLight</code></a></h3>
-<div class="sourceCode" id="cb79"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">HasExplicitTint</span></span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">HasExplicitTint</span></span></code></pre></div>
 <p>Returns <em>true</em> if the object has a light set explicitly with the <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a> command.</p>
 <p>Returns <em>false</em> if the object has no explicit light level, but it may still be lighted by <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a> or a region light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
@@ -659,7 +675,7 @@
 </section>
 <section id="objecthasexplicittint" class="level3">
 <h3><a href="#objecthasexplicittint"><code>Object.HasExplicitTint</code></a></h3>
-<div class="sourceCode" id="cb80"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">HasExplicitTint</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">HasExplicitTint</span></span></code></pre></div>
 <p>Returns <em>true</em> if the object has a tint set explicitly with the <a href="Object.html#objecttint"><code>Object.Tint</code></a> command.</p>
 <p>Returns <em>false</em> if the object has no explicit tint, but it may still be tinted by <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a> or a region tint.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
@@ -668,22 +684,22 @@
 </section>
 <section id="objectid" class="level3">
 <h3><a href="#objectid"><code>Object.ID</code></a></h3>
-<div class="sourceCode" id="cb81"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the object's ID number. This is the object's number from the editor, and is useful if you need to interoperate with legacy code that uses the object's number rather than name.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>MoveObject<span class="op">(</span>oRock<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>MoveObject<span class="op">(</span>oRock<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
 <p>uses the obsolete MoveObject function to move the Rock object to (100, 50) at speed 5.</p>
 <hr />
 </section>
 <section id="objectmanualscaling" class="level3">
 <h3><a href="#objectmanualscaling"><code>Object.ManualScaling</code></a></h3>
 <p><em>(Formerly known as <code>Object.IgnoreScaling</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">ManualScaling</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">ManualScaling</span></span></code></pre></div>
 <p>Gets/sets whether the object uses manually specified scaling instead of using the walkable area scaling. This is equivalent, <strong>though opposite</strong>, to the "UseRoomAreaScaling" property in the Objects pane of the editor.</p>
 <p>If it is set to false, then the object will be stretched or shrunk as appropriate on walkable areas.</p>
 <p>If this is set to true, the object scaling will instead be set by modifying it's Scaling property.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">ManualScaling</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">ManualScaling</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will tell the Door object not to be scaled on walkable areas.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Object.html#objectscaling"><code>Object.Scaling</code></a></p>
@@ -693,7 +709,7 @@
 <h3><a href="#objectignorewalkbehinds"><code>Object.IgnoreWalkbehinds</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0 and not recommended for use at all.</strong></p>
 <p><em>(Formerly known as <code>SetObjectIgnoreWalkbehinds</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">IgnoreWalkbehinds</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">IgnoreWalkbehinds</span></span></code></pre></div>
 <p>Sets whether the object is affected by walkbehind areas. Setting this to <em>false</em> (the default setting) means that the object will be placed behind walk-behind areas according to the relevant baselines.</p>
 <p>If this is set to <em>true</em>, then the object will never be placed behind a walk-behind area. This is useful if for example you want an object to be a picture on a wall, and the wall can be walked behind - but you also want it to act correctly in relation to characters, so changing its baseline wouldn't work.</p>
 <p><strong>IMPORTANT:</strong> This property is a "dirty hack" and not recommended for use at all. It breaks the logic of drawing order for room elements, and only works as intended if your game is run using Software graphics driver. We strongly suggest to design your rooms without it and rely on <a href="Object.html#objectbaseline"><code>Baseline</code></a> property instead.</p>
@@ -701,7 +717,7 @@
 </section>
 <section id="objectlightlevel" class="level3">
 <h3><a href="#objectlightlevel"><code>Object.LightLevel</code></a></h3>
-<div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">LightLevel</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">LightLevel</span></span></code></pre></div>
 <p>If the object has an individual light set explicitly with the <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a> command, this property returns the light level value. Otherwise it returns 0.</p>
 <p><strong>NOTE:</strong> without individual light level set, Object.LightLevel returns 0 even if the object is affected by the ambient or region's light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
@@ -710,25 +726,25 @@
 </section>
 <section id="objectloop" class="level3">
 <h3><a href="#objectloop"><code>Object.Loop</code></a></h3>
-<div class="sourceCode" id="cb87"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Loop</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Loop</span></span></code></pre></div>
 <p>Gets the loop that the object is currently set to. If the object is not currently assigned a view, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
 <p>This property is read-only. To change the loop, use the animation functions.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object oDoor&#39;s loop is currently %d.&quot;</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">Loop</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object oDoor&#39;s loop is currently %d.&quot;</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">Loop</span><span class="op">);</span></span></code></pre></div>
 <p>will display the oDoor object's current loop number</p>
 <p><em>SeeAlso:</em> <a href="Object.html#objectframe"><code>Object.Frame</code></a>, <a href="Object.html#objectgraphic"><code>Object.Graphic</code></a>, <a href="Object.html#objectview"><code>Object.View</code></a></p>
 <hr />
 </section>
 <section id="objectmotionpath" class="level3">
 <h3><a href="#objectmotionpath"><code>Object.MotionPath</code></a></h3>
-<div class="sourceCode" id="cb89"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> MotionPath<span class="op">*</span> <span class="bu">Object</span><span class="op">.</span><span class="at">MotionPath</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> MotionPath<span class="op">*</span> <span class="bu">Object</span><span class="op">.</span><span class="at">MotionPath</span></span></code></pre></div>
 <p>Gets this object's current MotionPath, or null if it's not moving.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="objectmovepath" class="level3">
 <h3><a href="#objectmovepath"><code>Object.MovePath</code></a></h3>
-<div class="sourceCode" id="cb90"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="at">MovePath</span><span class="op">(</span><span class="bu">Point</span><span class="op">*[],</span> <span class="dt">int</span> speed<span class="op">,</span> optional <span class="dt">BlockingStyle</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">,</span> optional <span class="dt">Direction</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="at">MovePath</span><span class="op">(</span><span class="bu">Point</span><span class="op">*[],</span> <span class="dt">int</span> speed<span class="op">,</span> optional <span class="dt">BlockingStyle</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">,</span> optional <span class="dt">Direction</span><span class="op">)</span></span></code></pre></div>
 <p>Moves the object along the path, ignoring walkable areas.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
@@ -736,33 +752,26 @@
 <section id="objectmoving" class="level3">
 <h3><a href="#objectmoving"><code>Object.Moving</code></a></h3>
 <p><em>(Formerly known as <code>IsObjectMoving</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Moving</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Moving</span></span></code></pre></div>
 <p>Returns 1 if the object is currently moving, or 0 if not.</p>
 <p>This property is read-only; to change the object's movement, use the <a href="Object.html#objectmove"><code>Move</code></a> and <a href="Object.html#objectstopmoving"><code>StopMoving</code></a> commands.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>oCar<span class="op">.</span><span class="at">Move</span><span class="op">(</span><span class="dv">125</span><span class="op">,</span><span class="dv">40</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>oCar<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>oCar<span class="op">.</span><span class="at">Move</span><span class="op">(</span><span class="dv">125</span><span class="op">,</span><span class="dv">40</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>oCar<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>will move object oCar to 125,40 and return control to the player when the object gets there.</p>
 <p><em>See also:</em> <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectstopmoving"><code>Object.StopMoving</code></a></p>
 <hr />
 </section>
 <section id="objectname" class="level3">
 <h3><a href="#objectname"><code>Object.Name</code></a></h3>
-<p><em>(Formerly known as <code>GetObjectName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Object.GetName</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
-<p>Gets/sets the name of the object. This is a human-readable name (description), not a script name.</p>
-<p><strong>NOTE:</strong> This property may be changed only in AGS versions 3.6.0 or higher. It is read-only in earlier versions.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;oDoor&#39;s name is %s.&quot;</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
-<p>will retrieve and then display object oDoor's description.</p>
-<p><em>See also:</em> <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
+<p><strong>This property was renamed since AGS 4.0.0. See <a href="Object.html#objectdisplayname"><code>Object.DisplayName</code></a>.</strong></p>
 <hr />
 </section>
 <section id="objectscriptname" class="level3">
 <h3><a href="#objectscriptname"><code>Object.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb95"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Object</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the script name of the Object, which serves as a unique identifier, as set in the AGS Editor.</p>
-<p>This may be useful if you have a pointer to some object stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each object in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Object.html#objectgetbyname">Object.GetByName</a> function to retrieve the object by the previously saved script name.</p>
+<p>This may be useful if you have a pointer to some object stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each object in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Object.html#objectgetbyscriptname">Object.GetByScriptName</a> function to retrieve the object by the previously saved script name.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">Touch</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Object</span><span class="op">*)</span></span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -771,7 +780,7 @@
 <span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>In this example all objects gain a new method <code>Touch</code>, that can be called using <code>oName.Touch()</code>, that will log the script name of the touched object.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Object.html#objectgetbyname"><code>Object.GetByName</code></a>, <a href="Object.html#objectname"><code>Object.Name</code></a></p>
+<p><em>See also:</em> <a href="Object.html#objectgetbyscriptname"><code>Object.GetByScriptName</code></a>, <a href="Object.html#objectdisplayname"><code>Object.DisplayName</code></a></p>
 <hr />
 </section>
 <section id="objectscaling" class="level3">
@@ -933,7 +942,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>
@@ -947,6 +956,7 @@
 <li><a href="#objectgetatroomxy" id="toc-objectgetatroomxy"><code>Object.GetAtRoomXY</code></a></li>
 <li><a href="#objectgetatscreenxy" id="toc-objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a></li>
 <li><a href="#objectgetbyname" id="toc-objectgetbyname"><code>Object.GetByName</code></a></li>
+<li><a href="#objectgetbyscriptname" id="toc-objectgetbyscriptname"><code>Object.GetByScriptName</code></a></li>
 <li><a href="#objectgetgraphicposition" id="toc-objectgetgraphicposition"><code>Object.GetGraphicPosition</code></a></li>
 <li><a href="#objectgetgraphicboundbox" id="toc-objectgetgraphicboundbox"><code>Object.GetGraphicBoundBox</code></a></li>
 <li><a href="#objectgetproperty" id="toc-objectgetproperty"><code>Object.GetProperty</code></a></li>
@@ -976,6 +986,7 @@
 <li><a href="#objectblockingrecty" id="toc-objectblockingrecty"><code>Object.BlockingRectY</code></a></li>
 <li><a href="#objectblockingwidth" id="toc-objectblockingwidth"><code>Object.BlockingWidth</code></a></li>
 <li><a href="#objectclickable" id="toc-objectclickable"><code>Object.Clickable</code></a></li>
+<li><a href="#objectdisplayname" id="toc-objectdisplayname"><code>Object.DisplayName</code></a></li>
 <li><a href="#objectenabled" id="toc-objectenabled"><code>Object.Enabled</code></a></li>
 <li><a href="#objectframe" id="toc-objectframe"><code>Object.Frame</code></a></li>
 <li><a href="#objectgraphic" id="toc-objectgraphic"><code>Object.Graphic</code></a></li>

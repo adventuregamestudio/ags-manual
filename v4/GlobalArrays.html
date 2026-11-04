@@ -137,7 +137,7 @@
 <p>Naturally, when you know the array's size it's possible to iterate over it, for example when you want to perform an action on all of these objects, or when you want to find one of the objects in the game array by certain rules:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Character</span><span class="op">*</span> c = <span class="bu">character</span><span class="op">[</span>i<span class="op">];</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Character number %d got name %s&quot;</span><span class="op">,</span> i<span class="op">,</span> c<span class="op">.</span><span class="at">Name</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Character number %d got name %s&quot;</span><span class="op">,</span> i<span class="op">,</span> c<span class="op">.</span><span class="at">DisplayName</span><span class="op">);</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><strong>IMPORTANT:</strong> there is a known issue that if the game script mentions one of those arrays anywhere, then your game must have at least one object of that type. This is because AGS script cannot have zero-sized arrays and does not declare those that won't have any elements.<br> This is essential to remember if you're using a game template or script module that works with <code>dialog[]</code>, <code>gui[]</code> or <code>inventory[]</code> arrays: to make your game compile in this case you have to create at least one dummy Dialog, GUI or Inventory item (even if you don't use it).</p>
 </section>
@@ -146,7 +146,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>

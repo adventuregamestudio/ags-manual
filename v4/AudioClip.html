@@ -79,19 +79,25 @@
 <hr />
 <section id="audioclipgetbyname" class="level3">
 <h3><a href="#audioclipgetbyname"><code>AudioClip.GetByName</code></a></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">AudioClip</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p><strong>This property was renamed since AGS 4.0.0. See <a href="AudioClip.html#audioclipgetbyscriptname"><code>AudioClip.GetByScriptName</code></a>.</strong></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<hr />
+</section>
+<section id="audioclipgetbyscriptname" class="level3">
+<h3><a href="#audioclipgetbyscriptname"><code>AudioClip.GetByScriptName</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">AudioClip</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
 <p>Returns a pointer to the AudioClip with the specified script name, or null if it does not exist.</p>
-<p>Normally you do not need to use this, as there will be a automatically created global script variable for each AudioClip which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each AudioClip which got a script name. Where GetByScriptName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">PlayDefaultSound</span><span class="op">(</span><span class="bu">Object</span> <span class="op">*</span>obj<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> soundName = obj<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;default-sound&quot;</span><span class="op">);</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">AudioClip</span> <span class="op">*</span>clip = <span class="bu">AudioClip</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>soundName<span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">AudioClip</span> <span class="op">*</span>clip = <span class="bu">AudioClip</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>soundName<span class="op">);</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>clip <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        clip<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Retrieves the audio clip with the script name stored in an object's custom property, and plays it.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipscriptname"><code>AudioClip.ScriptName</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
 <hr />
 </section>
@@ -295,7 +301,7 @@
 <h3><a href="#audioclipscriptname"><code>AudioClip.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
 <p>Gets the script name of the audio clip, which serves as a unique identifier, as set in the AGS Editor.</p>
-<p>This may be useful if you have a pointer to some clip stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each clip in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="AudioClip.html#audioclipgetbyname">AudioClip.GetByName</a> function to retrieve the clip by the previously saved script name.</p>
+<p>This may be useful if you have a pointer to some clip stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each clip in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="AudioClip.html#audioclipgetbyscriptname">AudioClip.GetByScriptName</a> function to retrieve the clip by the previously saved script name.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">CustomPlay</span><span class="op">(</span><span class="kw">this</span> <span class="bu">AudioClip</span><span class="op">*)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -304,7 +310,7 @@
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Playing a clip using the <code>CustomPlay()</code> method, like <code>aExampleClip.CustomPlay()</code>, will log it's script name for debugging purposes.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="AudioClip.html#audioclipgetbyname"><code>AudioClip.GetByName</code></a>, <a href="Game.html#gameaudioclips"><code>Game.AudioClips</code></a></p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipgetbyscriptname"><code>AudioClip.GetByScriptName</code></a>, <a href="Game.html#gameaudioclips"><code>Game.AudioClips</code></a></p>
 <hr />
 </section>
 <section id="audiocliptype" class="level3">
@@ -327,7 +333,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>
@@ -337,6 +343,7 @@
 <li><a href="#audioclip-functions-and-properties" id="toc-audioclip-functions-and-properties"><code>AudioClip</code> functions and properties</a>
 <ul>
 <li><a href="#audioclipgetbyname" id="toc-audioclipgetbyname"><code>AudioClip.GetByName</code></a></li>
+<li><a href="#audioclipgetbyscriptname" id="toc-audioclipgetbyscriptname"><code>AudioClip.GetByScriptName</code></a></li>
 <li><a href="#audioclipplay" id="toc-audioclipplay"><code>AudioClip.Play</code></a></li>
 <li><a href="#audioclipplayastype" id="toc-audioclipplayastype"><code>AudioClip.PlayAsType</code></a></li>
 <li><a href="#audioclipplayfrom" id="toc-audioclipplayfrom"><code>AudioClip.PlayFrom</code></a></li>

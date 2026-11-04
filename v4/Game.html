@@ -165,23 +165,10 @@
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
-<section id="gamegetframecountforloop" class="level3">
-<h3><a href="#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a></h3>
-<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GetFrameCountForLoop</span><span class="op">(</span><span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> loop<span class="op">)</span></span></code></pre></div>
-<p>Returns the number of frames in the specified loop of the specified view.</p>
-<p><strong>NOTE:</strong> This is a static function, and thus need to be called with <code>Game.</code> in front of it. See the example for more.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> frameCount = <span class="bu">Game</span><span class="op">.</span><span class="at">GetFrameCountForLoop</span><span class="op">(</span>SWIMMING<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Loop 2 in SWIMMING view has %d frames.&quot;</span><span class="op">,</span> frameCount<span class="op">);</span></span></code></pre></div>
-<p><em>See also:</em> <a href="Game.html#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a>, <a href="Game.html#gamegetrunnextsettingforloop"><code>Game.GetRunNextSettingForLoop</code></a>, <a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></p>
-<hr />
-</section>
-<section id="gamegetlocationname" class="level3">
-<h3><a href="#gamegetlocationname"><code>Game.GetLocationName</code></a></h3>
-<p><em>(Formerly known as global function <code>GetLocationName</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GetLocationName</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional HitTestOptions hitOptions<span class="op">)</span></span></code></pre></div>
-<p>Returns the name of whatever is seen in the room under the given screen coordinates (x, y). This includes following:</p>
+<section id="gamegetdisplaynameat" class="level3">
+<h3><a href="#gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GetDisplayNameAt</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional HitTestOptions hitOptions<span class="op">)</span></span></code></pre></div>
+<p>Returns the human-readable name of whatever is seen in the room under the given screen coordinates (x, y). This includes following:</p>
 <ul>
 <li>Characters,</li>
 <li>Hotspots,</li>
@@ -192,13 +179,30 @@
 <p>An optional HitOptions parameter defines an additional object filter (supported since <strong>AGS 3.6.3</strong>). It's equal to <code>eHit_Interactable</code> by default, which means that only interactable (enabled + clickable) objects will be found. Pass <code>eHit_Any</code> instead, if you like even non-clickable objects to be found.</p>
 <p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
 <p>This function may allow you, for instance, to create the LucasArts-style status lines reading "Look at xxx" as the player moves the cursor over them.</p>
-<p><strong>NOTE:</strong> When looking up for an object under coordinates, GetLocationName is affected by the game setting <a href="GeneralSettings.html#visual">"Pixel-perfect click detection"</a>. It's possible to change this behavior in script by changing OPT_PIXELPERFECT option (see <a href="Globalfunctions_General.html#setgameoption">SetGameOption</a>).</p>
+<p><strong>NOTE:</strong> When looking up for an object under coordinates, GetDisplayNameAt is affected by the game setting <a href="GeneralSettings.html#visual">"Pixel-perfect click detection"</a>. It's possible to change this behavior in script by changing OPT_PIXELPERFECT option (see <a href="Globalfunctions_General.html#setgameoption">SetGameOption</a>).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> location = <span class="bu">Game</span><span class="op">.</span><span class="at">GetLocationName</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>lblDescription<span class="op">.</span><span class="at">Text</span> = location<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> location = <span class="bu">Game</span><span class="op">.</span><span class="at">GetDisplayNameAt</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>lblDescription<span class="op">.</span><span class="at">Text</span> = location<span class="op">;</span></span></code></pre></div>
 <p>will get the name of whatever the mouse is over into the string variable and then assign to a label lblDescription.</p>
 <p><em>Compatibility:</em> HitTestOptions parameter is supported since <strong>AGS 3.6.3</strong>.</p>
-<p><em>See also:</em> <a href="Hotspot.html#hotspotname"><code>Hotspot.Name</code></a>, <a href="InventoryItem.html#inventoryitemname"><code>InventoryItem.Name</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a>, <a href="Object.html#objectname"><code>Object.Name</code></a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotdisplayname"><code>Hotspot.DisplayName</code></a>, <a href="InventoryItem.html#inventoryitemdisplayname"><code>InventoryItem.DisplayName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a>, <a href="Object.html#objectdisplayname"><code>Object.DisplayName</code></a></p>
+<hr />
+</section>
+<section id="gamegetframecountforloop" class="level3">
+<h3><a href="#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a></h3>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GetFrameCountForLoop</span><span class="op">(</span><span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> loop<span class="op">)</span></span></code></pre></div>
+<p>Returns the number of frames in the specified loop of the specified view.</p>
+<p><strong>NOTE:</strong> This is a static function, and thus need to be called with <code>Game.</code> in front of it. See the example for more.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> frameCount = <span class="bu">Game</span><span class="op">.</span><span class="at">GetFrameCountForLoop</span><span class="op">(</span>SWIMMING<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Loop 2 in SWIMMING view has %d frames.&quot;</span><span class="op">,</span> frameCount<span class="op">);</span></span></code></pre></div>
+<p><em>See also:</em> <a href="Game.html#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a>, <a href="Game.html#gamegetrunnextsettingforloop"><code>Game.GetRunNextSettingForLoop</code></a>, <a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></p>
+<hr />
+</section>
+<section id="gamegetlocationname" class="level3">
+<h3><a href="#gamegetlocationname"><code>Game.GetLocationName</code></a></h3>
+<p><strong>This function was renamed since AGS 4.0.0. See <a href="Game.html#gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a>.</strong></p>
 <hr />
 </section>
 <section id="gamegetloopcountforview" class="level3">
@@ -1135,7 +1139,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>
@@ -1151,6 +1155,7 @@
 <li><a href="#gamegetaudiotypevolume" id="toc-gamegetaudiotypevolume"><code>Game.GetAudioTypeVolume</code></a></li>
 <li><a href="#gamegetcolorfromrgb" id="toc-gamegetcolorfromrgb"><code>Game.GetColorFromRGB</code></a></li>
 <li><a href="#gamegetcolorfromrgba" id="toc-gamegetcolorfromrgba"><code>Game.GetColorFromRGBA</code></a></li>
+<li><a href="#gamegetdisplaynameat" id="toc-gamegetdisplaynameat"><code>Game.GetDisplayNameAt</code></a></li>
 <li><a href="#gamegetframecountforloop" id="toc-gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a></li>
 <li><a href="#gamegetlocationname" id="toc-gamegetlocationname"><code>Game.GetLocationName</code></a></li>
 <li><a href="#gamegetloopcountforview" id="toc-gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a></li>

@@ -77,17 +77,23 @@
 <h2><a href="#dialog-functions-and-properties"><code>Dialog</code> functions and properties</a></h2>
 <section id="dialoggetbyname" class="level3">
 <h3><a href="#dialoggetbyname"><code>Dialog.GetByName</code></a></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Dialog</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p><strong>This function was renamed since AGS 4.0.0. See <a href="Dialog.html#dialoggetbyscriptname"><code>Dialog.GetByScriptName</code></a>.</strong></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialoggetbyscriptname" class="level3">
+<h3><a href="#dialoggetbyscriptname"><code>Dialog.GetByScriptName</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Dialog</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
 <p>Returns a pointer to the Dialog with the specified script name, or null if it does not exist.</p>
-<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Dialog which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Dialog which got a script name. Where GetByScriptName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> dialogName = cNPC<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;MyDialog&quot;</span><span class="op">);</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">*</span> dlg = <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>dialogName<span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">*</span> dlg = <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>dialogName<span class="op">);</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dlg <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    dlg<span class="op">.</span><span class="at">Start</span><span class="op">();</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Retrieves a dialog name from the character's custom property, and gets a pointer to an actual Dialog using that name, then runs it.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Dialog.html#dialogscriptname"><code>Dialog.ScriptName</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a></p>
 <hr />
 </section>
@@ -385,7 +391,7 @@ eOptionOffForever
 <h3><a href="#dialogscriptname"><code>Dialog.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the script name of the dialog, which serves as a unique identifier.</p>
-<p>This may be useful if you have a pointer to some dialog stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each dialog in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Dialog.html#dialoggetbyname">Dialog.GetByName</a> function to retrieve the dialog by the previously saved script name.</p>
+<p>This may be useful if you have a pointer to some dialog stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each dialog in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Dialog.html#dialoggetbyscriptname">Dialog.GetByScriptName</a> function to retrieve the dialog by the previously saved script name.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">CustomDialogStart</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Dialog</span><span class="op">*)</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -395,7 +401,7 @@ eOptionOffForever
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Starting a dialog using the <code>CustomDialogStart()</code> method, like <code>dExampleDialog.CustomDialogStart()</code>, will log its script name for debugging purposes.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialoggetbyname"><code>Dialog.GetByName</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a></p>
+<p><em>See also:</em> <a href="Dialog.html#dialoggetbyscriptname"><code>Dialog.GetByScriptName</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a></p>
 <hr />
 </section>
 <section id="dialogshowtextparser" class="level3">
@@ -449,7 +455,7 @@ eOptionOffForever
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 2d891b350f4861e814432f67136e66d29ac748ed
+          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
         </p>
       </footer>
     </article>
@@ -459,6 +465,7 @@ eOptionOffForever
 <li><a href="#dialog-functions-and-properties" id="toc-dialog-functions-and-properties"><code>Dialog</code> functions and properties</a>
 <ul>
 <li><a href="#dialoggetbyname" id="toc-dialoggetbyname"><code>Dialog.GetByName</code></a></li>
+<li><a href="#dialoggetbyscriptname" id="toc-dialoggetbyscriptname"><code>Dialog.GetByScriptName</code></a></li>
 <li><a href="#dialogsethasoptionbeenchosen" id="toc-dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a></li>
 <li><a href="#dialogsetoptionstate" id="toc-dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></li>
 <li><a href="#dialogsetoptiontext" id="toc-dialogsetoptiontext"><code>Dialog.SetOptionText</code></a></li>

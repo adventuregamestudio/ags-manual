@@ -220,6 +220,8 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-Globalfunctions_Room" href="Globalfunctions_Room.html">Global functions: room actions</span></a>
 <li><span><a id="topic-Globalfunctions_Screen" href="Globalfunctions_Screen.html">Global functions: screen effects</span></a>
 <li><span><a id="topic-Globalfunctions_Wait" href="Globalfunctions_Wait.html">Global functions: wait</span></a>
+<li><span><a id="topic-AnimatedOverlay" href="AnimatedOverlay.html">AnimatedOverlay functions and properties</span></a>
+<li><span><a id="topic-Anything" href="Anything.html">Anything functions and properties</span></a>
 <li><span><a id="topic-AudioChannel" href="AudioChannel.html">AudioChannel functions and properties</span></a>
 <li><span><a id="topic-AudioClip" href="AudioClip.html">AudioClip functions and properties</span></a>
 <li><span><a id="topic-Camera" href="Camera.html">Camera functions and properties</span></a>
