@@ -89,82 +89,116 @@
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
+<section id="walkableareagetbyscriptname" class="level3">
+<h3><a href="#walkableareagetbyscriptname"><code>WalkableArea.GetByScriptName</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> WalkableArea<span class="op">*</span> WalkableArea<span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p>Returns a pointer to the WalkableArea with the specified script name, or null if it does not exist.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each WalkableArea which got a script name. Where GetByScriptName() function may come useful is situation in which you a) do not know exact name, b) had to store walkable area's reference in a string for some reason. Good examples of this are saving walkable area's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">OpenDoor</span><span class="op">(</span><span class="bu">Object</span> <span class="op">*</span>obj<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    obj<span class="op">.</span><span class="at">SetView</span><span class="op">(</span>VDOORANIMATION<span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    obj<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> exitName = obj<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;ExitArea&quot;</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    WalkableArea<span class="op">*</span> exitArea = WalkableArea<span class="op">.</span><span class="at">GetByScriptName</span><span class="op">(</span>exitName<span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>exitArea <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        exitArea<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Animates a "door" object, retrieves "exit" area related to that door, and enables it.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="WalkableArea.html#walkableareascriptname"><code>WalkableArea.ScriptName</code></a></p>
+<hr />
+</section>
 <section id="walkableareadrawingsurface" class="level3">
 <h3><a href="#walkableareadrawingsurface"><code>WalkableArea.DrawingSurface</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> WalkableArea<span class="op">.</span><span class="at">DrawingSurface</span><span class="op">*</span> GetDrawingSurface<span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> WalkableArea<span class="op">.</span><span class="at">DrawingSurface</span><span class="op">*</span> GetDrawingSurface<span class="op">()</span></span></code></pre></div>
 <p>Gets the drawing surface for the 8-bit walkable mask</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareasetscaling" class="level3">
 <h3><a href="#walkableareasetscaling"><code>WalkableArea.SetScaling</code></a></h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> WalkableArea<span class="op">.</span><span class="at">SetScaling</span><span class="op">(</span><span class="dt">int</span> min<span class="op">,</span> <span class="dt">int</span> max<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> WalkableArea<span class="op">.</span><span class="at">SetScaling</span><span class="op">(</span><span class="dt">int</span> min<span class="op">,</span> <span class="dt">int</span> max<span class="op">)</span></span></code></pre></div>
 <p>Changes this walkable area's scaling level.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareagetproperty" class="level3">
 <h3><a href="#walkableareagetproperty"><code>WalkableArea.GetProperty</code></a></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> WalkableArea<span class="op">.</span><span class="at">GetProperty</span><span class="op">(</span>const string property<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> WalkableArea<span class="op">.</span><span class="at">GetProperty</span><span class="op">(</span>const string property<span class="op">)</span></span></code></pre></div>
 <p>Gets an integer custom property for this area.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareagettextproperty" class="level3">
 <h3><a href="#walkableareagettextproperty"><code>WalkableArea.GetTextProperty</code></a></h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> WalkableArea<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span>const string property<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> WalkableArea<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span>const string property<span class="op">)</span></span></code></pre></div>
 <p>Gets a text custom property for this area.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareasetproperty" class="level3">
 <h3><a href="#walkableareasetproperty"><code>WalkableArea.SetProperty</code></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WalkableArea<span class="op">.</span><span class="at">SetProperty</span><span class="op">(</span>const string property<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WalkableArea<span class="op">.</span><span class="at">SetProperty</span><span class="op">(</span>const string property<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
 <p>Sets an integer custom property for this area.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareasettextproperty" class="level3">
 <h3><a href="#walkableareasettextproperty"><code>WalkableArea.SetTextProperty</code></a></h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WalkableArea<span class="op">.</span><span class="at">SetTextProperty</span><span class="op">(</span>const string property<span class="op">,</span> const string value<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WalkableArea<span class="op">.</span><span class="at">SetTextProperty</span><span class="op">(</span>const string property<span class="op">,</span> const string value<span class="op">)</span></span></code></pre></div>
 <p>Sets a text custom property for this area.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareaid" class="level3">
 <h3><a href="#walkableareaid"><code>WalkableArea.ID</code></a></h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> WalkableArea<span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> WalkableArea<span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the ID number for this area.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareaenabled" class="level3">
 <h3><a href="#walkableareaenabled"><code>WalkableArea.Enabled</code></a></h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WalkableArea<span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> WalkableArea<span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
 <p>Gets/sets whether this walkable area is enabled.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareascalingmin" class="level3">
 <h3><a href="#walkableareascalingmin"><code>WalkableArea.ScalingMin</code></a></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> WalkableArea<span class="op">.</span><span class="at">ScalingMin</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> WalkableArea<span class="op">.</span><span class="at">ScalingMin</span></span></code></pre></div>
 <p>Gets this walkable area's minimal scaling level.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="walkableareascalingmax" class="level3">
 <h3><a href="#walkableareascalingmax"><code>WalkableArea.ScalingMax</code></a></h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> WalkableArea<span class="op">.</span><span class="at">ScalingMax</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> WalkableArea<span class="op">.</span><span class="at">ScalingMax</span></span></code></pre></div>
 <p>Gets this walkable area's maximal scaling level.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <hr />
 </section>
+<section id="walkableareascriptname" class="level3">
+<h3><a href="#walkableareascriptname"><code>WalkableArea.ScriptName</code></a></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> WalkableArea<span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
+<p>Gets the script name of the walkable area, which serves as a unique identifier, as set in the AGS Editor.</p>
+<p>This may be useful if you have a pointer to some walkable area stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each walkable area in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="WalkableArea.html#walkableareagetbyscriptname">WalkableArea.GetByScriptName</a> function to retrieve the walkable area by the previously saved script name.</p>
+<p>Example:</p>
+<pre><code>function TestAreaAt(int x, int y)
+{
+    WalkableArea* area = WalkableArea.GetAtRoomXY(x, y);
+    System.Log(eLogDebug, &quot;There&#39;s walkable area %s at position %d,%d&quot;, area.ScriptName, x, y);
+}</code></pre>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="WalkableArea.html#walkableareagetbyscriptname"><code>WalkableArea.GetByScriptName</code></a></p>
+<hr />
+</section>
 <section id="walkableareafacedirectionratio" class="level3">
 <h3><a href="#walkableareafacedirectionratio"><code>WalkableArea.FaceDirectionRatio</code></a></h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">float</span> WalkableArea<span class="op">.</span><span class="at">FaceDirectionRatio</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">float</span> WalkableArea<span class="op">.</span><span class="at">FaceDirectionRatio</span></span></code></pre></div>
 <p>Gets/sets the optional y/x ratio of character's facing directions, determining directional loop selection for each Character while on this area.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
-<hr />
 </section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/WalkableArea.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
@@ -172,7 +206,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 9069012b88f06d0bd27b46f391227b7b7ac4e54d
+          Build: d0d8836a329c9e517ba0471816a45fe40861b086
         </p>
       </footer>
     </article>
@@ -183,6 +217,7 @@
 <ul>
 <li><a href="#walkableareagetatscreenxy" id="toc-walkableareagetatscreenxy"><code>WalkableArea.GetAtScreenXY</code></a></li>
 <li><a href="#walkableareagetatroomxy" id="toc-walkableareagetatroomxy"><code>WalkableArea.GetAtRoomXY</code></a></li>
+<li><a href="#walkableareagetbyscriptname" id="toc-walkableareagetbyscriptname"><code>WalkableArea.GetByScriptName</code></a></li>
 <li><a href="#walkableareadrawingsurface" id="toc-walkableareadrawingsurface"><code>WalkableArea.DrawingSurface</code></a></li>
 <li><a href="#walkableareasetscaling" id="toc-walkableareasetscaling"><code>WalkableArea.SetScaling</code></a></li>
 <li><a href="#walkableareagetproperty" id="toc-walkableareagetproperty"><code>WalkableArea.GetProperty</code></a></li>
@@ -193,6 +228,7 @@
 <li><a href="#walkableareaenabled" id="toc-walkableareaenabled"><code>WalkableArea.Enabled</code></a></li>
 <li><a href="#walkableareascalingmin" id="toc-walkableareascalingmin"><code>WalkableArea.ScalingMin</code></a></li>
 <li><a href="#walkableareascalingmax" id="toc-walkableareascalingmax"><code>WalkableArea.ScalingMax</code></a></li>
+<li><a href="#walkableareascriptname" id="toc-walkableareascriptname"><code>WalkableArea.ScriptName</code></a></li>
 <li><a href="#walkableareafacedirectionratio" id="toc-walkableareafacedirectionratio"><code>WalkableArea.FaceDirectionRatio</code></a></li>
 </ul></li>
 </ul>
