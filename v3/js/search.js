@@ -12475,7 +12475,7 @@ var meta = {
       "1": { "Setup": 1 },
       "2": { "Slider": 4 },
       "3": { "UpgradeTo36": 2 },
-      "4": { "UpgradeTo363": 1 }
+      "4": { "UpgradeTo363": 2 }
     },
     "MaxChannels": {
       "0": { "AudioInScript": 2 },
@@ -27076,7 +27076,8 @@ var meta = {
       "13": { "Settingupthegame": 3 },
       "14": { "System": 1 },
       "15": { "UpgradeTo30": 1 },
-      "16": { "UpgradeTo361": 1 }
+      "16": { "UpgradeTo361": 1 },
+      "17": { "UpgradeTo363": 1 }
     },
     "backing": {
       "0": { "MusicAndSound": 1 }
@@ -58852,7 +58853,7 @@ var meta = {
       "85": { "UpgradeTo36": 24 },
       "86": { "UpgradeTo361": 4 },
       "87": { "UpgradeTo362": 4 },
-      "88": { "UpgradeTo363": 4 },
+      "88": { "UpgradeTo363": 5 },
       "89": { "UpgradingTo27": 12 },
       "90": { "UpgradingTo271": 5 },
       "91": { "ValidateRestoredSave": 1 },
@@ -59034,7 +59035,7 @@ var meta = {
       "100": { "UpgradeTo35": 3 },
       "101": { "UpgradeTo36": 3 },
       "102": { "UpgradeTo362": 4 },
-      "103": { "UpgradeTo363": 1 },
+      "103": { "UpgradeTo363": 2 },
       "104": { "UpgradingTo27": 2 },
       "105": { "ViewFrame": 4 },
       "106": { "Viewport": 1 },
@@ -68765,8 +68766,9 @@ var meta = {
       "80": { "UpgradeTo36": 7 },
       "81": { "UpgradeTo361": 1 },
       "82": { "UpgradeTo362": 4 },
-      "83": { "ValidateRestoredSave": 2 },
-      "84": { "Viewport": 15 }
+      "83": { "UpgradeTo363": 1 },
+      "84": { "ValidateRestoredSave": 2 },
+      "85": { "Viewport": 15 }
     },
     "room's": {
       "0": { "acintro2": 6 },
